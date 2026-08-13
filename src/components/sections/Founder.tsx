@@ -38,7 +38,7 @@ export function Founder() {
   const photoScale = useTransform(scrollYProgress, [0, 1], [1.06, 1.0]);
 
   return (
-    <section ref={ref} id="about" className="py-section bg-[#faf9f7] overflow-hidden">
+    <section ref={ref} id="about" className="py-section bg-[#f7f5ef] overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-8 md:px-16">
 
         <FadeIn>

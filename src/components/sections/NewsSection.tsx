@@ -10,7 +10,7 @@ export function NewsSection() {
   const displayed = newsItems.slice(0, 3);
 
   return (
-    <section className="bg-[#faf9f7] overflow-hidden">
+    <section className="bg-[#f7f5ef] overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-8 md:px-20 py-20 md:py-28">
 
         <div ref={ref} className="flex items-end justify-between mb-12 md:mb-16">

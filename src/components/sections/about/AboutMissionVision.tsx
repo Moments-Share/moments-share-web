@@ -8,7 +8,7 @@ export function AboutMissionVision() {
   const isInView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section className="bg-[#faf9f7]">
+    <section className="bg-[#f7f5ef]">
       <div className="max-w-[900px] mx-auto px-8 md:px-24 py-32 md:py-52">
 
         <div ref={ref} className="mb-16">

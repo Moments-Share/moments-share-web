@@ -11,7 +11,7 @@ export function MVVMission() {
   const bgY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-[#faf9f7]" style={{ minHeight: "80vh" }}>
+    <section ref={ref} className="relative overflow-hidden bg-[#f7f5ef]" style={{ minHeight: "80vh" }}>
 
       {/* 背景装飾 */}
       <motion.div className="absolute inset-0 pointer-events-none" style={{ y: bgY }}>

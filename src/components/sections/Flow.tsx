@@ -8,12 +8,12 @@ const CX = 350, CY = 340, R = 195;
 const CIRC = 2 * Math.PI * R;
 
 const nodes = [
-  { angle: -90,  label: "DX支援",          sub: "業務自動化・AI",   color: "#0a088e", strong: true  },
-  { angle: -30,  label: "余白が生まれる",   sub: "人の時間を解放",   color: "#050466", strong: false },
-  { angle:  30,  label: "BPO",              sub: "地域人材へ委託",   color: "#050466", strong: true  },
-  { angle:  90,  label: "地域雇用創出",     sub: "自分らしい働き方", color: "#00c47a", strong: false },
-  { angle: 150,  label: "地域プロデュース", sub: "挑戦の連鎖",       color: "#00c47a", strong: true  },
-  { angle: 210,  label: "企業が成長する",   sub: "次のDXへ循環",    color: "#00c47a", strong: false },
+  { angle: -90,  label: "DX支援",          sub: "業務自動化・AI",   color: "#12a0ae", strong: true  },
+  { angle: -30,  label: "余白が生まれる",   sub: "人の時間を解放",   color: "#232a4d", strong: false },
+  { angle:  30,  label: "BPO",              sub: "地域人材へ委託",   color: "#232a4d", strong: true  },
+  { angle:  90,  label: "地域雇用創出",     sub: "自分らしい働き方", color: "#12a0ae", strong: false },
+  { angle: 150,  label: "地域プロデュース", sub: "挑戦の連鎖",       color: "#12a0ae", strong: true  },
+  { angle: 210,  label: "企業が成長する",   sub: "次のDXへ循環",    color: "#12a0ae", strong: false },
 ];
 
 function pos(angle: number, r = R) {
@@ -32,7 +32,7 @@ export function Flow() {
   const isInView = useInView(ref, { once: true, amount: 0.25 });
 
   return (
-    <section id="flow" className="py-section bg-[#faf9f7] overflow-hidden">
+    <section id="flow" className="py-section bg-[#f7f5ef] overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-8 md:px-20">
 
         <div className="grid md:grid-cols-2 gap-16 md:gap-20 items-center">

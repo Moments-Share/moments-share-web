@@ -123,7 +123,7 @@ export default function ServiceProduce() {
           label="地域プロデュース"
           headline={"地域愛を、\n地域発展の力に。"}
           sub="コミュニティ、メディア、イベント。地域への愛を、挑戦のエネルギーに変える。そして、その挑戦が次の挑戦を呼ぶ連鎖をつくる。"
-          accent="#00c47a"
+          accent="#12a0ae"
         />
 
         {/* なぜ地域プロデュースか */}
@@ -247,7 +247,7 @@ export default function ServiceProduce() {
         </section>
 
         {/* Vision: コワーキング予告 */}
-        <section className="py-section bg-[#faf9f7]">
+        <section className="py-section bg-[#f7f5ef]">
           <div className="max-w-[1200px] mx-auto px-8 md:px-16">
             <FadeIn>
               <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-green mb-6">Vision 2027</p>
@@ -299,7 +299,7 @@ export default function ServiceProduce() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="mailto:branding@momentsshare.com"
-                  className="inline-flex items-center justify-center gap-3 bg-green text-white font-bold text-[15px] px-10 py-5 hover:bg-[#00a868] transition-colors"
+                  className="inline-flex items-center justify-center gap-3 bg-green text-white font-bold text-[15px] px-10 py-5 hover:bg-[#0f8f9c] transition-colors"
                 >
                   メールで相談する →
                 </Link>

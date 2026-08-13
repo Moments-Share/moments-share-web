@@ -7,7 +7,7 @@ export function AboutVision() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section className="bg-[#060918] overflow-hidden">
+    <section className="bg-[#1b2140] overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-8 md:px-20 py-28 md:py-40">
 
         <div ref={ref}>

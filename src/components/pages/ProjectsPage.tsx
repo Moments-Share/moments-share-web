@@ -169,7 +169,7 @@ export function ProjectsPage() {
     <div className="bg-white">
 
       {/* ─── Hero / Counter ─── */}
-      <section className="relative bg-[#06091a] overflow-hidden">
+      <section className="relative bg-[#1b2140] overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
@@ -309,9 +309,9 @@ export function ProjectsPage() {
                   transition={{ duration: 0.35, ease }}
                   className={`relative rounded-[4px] p-7 border flex flex-col gap-4 ${
                     project.status === "実施中"
-                      ? "border-green/20 bg-[#f0fdf7]"
+                      ? "border-green/20 bg-[#e9f6f7]"
                       : project.status === "準備中"
-                      ? "border-navy/10 bg-[#f4f6ff]/60"
+                      ? "border-navy/10 bg-[#eef1f6]/60"
                       : "border-black/[0.06] bg-white"
                   }`}
                 >
@@ -386,7 +386,7 @@ export function ProjectsPage() {
               </p>
               <Link
                 href="/#contact"
-                className="inline-flex items-center gap-2 bg-green text-white font-bold text-[14px] tracking-[0.02em] px-7 py-3.5 rounded-full hover:bg-[#00a868] transition-colors"
+                className="inline-flex items-center gap-2 bg-green text-white font-bold text-[14px] tracking-[0.02em] px-7 py-3.5 rounded-full hover:bg-[#0f8f9c] transition-colors"
               >
                 課題を相談する →
               </Link>

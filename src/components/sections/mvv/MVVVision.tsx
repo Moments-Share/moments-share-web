@@ -12,7 +12,7 @@ export function MVVVision() {
   const bgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-[#060918]" style={{ minHeight: "85vh" }}>
+    <section ref={ref} className="relative overflow-hidden bg-[#1b2140]" style={{ minHeight: "85vh" }}>
 
       {/* 背景 */}
       <motion.div className="absolute inset-0" style={{ y: bgY }}>

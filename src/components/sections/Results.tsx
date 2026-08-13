@@ -37,7 +37,7 @@ const cases = [
 
 export function Results() {
   return (
-    <section id="results" className="py-section bg-[#faf9f7]">
+    <section id="results" className="py-section bg-[#f7f5ef]">
       <div className="max-w-[1200px] mx-auto px-8 md:px-16">
 
         <FadeIn>

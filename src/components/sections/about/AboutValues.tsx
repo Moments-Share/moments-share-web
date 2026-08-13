@@ -9,7 +9,7 @@ const values = [
     en: "Make Room",
     title: "余白をつくる",
     body: "DXの目的は効率化ではなく、人の可能性を最大化すること。仕事の無駄を取り除き、本来やるべきことに時間とエネルギーを集中できる環境を追求します。",
-    color: "#0a088e",
+    color: "#12a0ae",
   },
   {
     num: "02",
@@ -17,7 +17,7 @@ const values = [
     en: "Bridge People",
     title: "人をつなぐ",
     body: "企業と地域、課題と解決者、挑戦者と支援者。孤立したものをつなぐことで、単体では生まれない価値が生まれると信じています。",
-    color: "#050466",
+    color: "#232a4d",
   },
   {
     num: "03",
@@ -25,7 +25,7 @@ const values = [
     en: "Embrace Challenge",
     title: "挑戦を讃える",
     body: "失敗を恐れず動く人を全力で支えます。「挑戦しなかった後悔」より「挑戦した経験」を。正解のない問いに向き合う姿勢を、私たちも持ち続けます。",
-    color: "#00c47a",
+    color: "#12a0ae",
   },
   {
     num: "04",
@@ -33,7 +33,7 @@ const values = [
     en: "Root Local",
     title: "地域から考える",
     body: "グローバルな視野を持ちながら、起点は常に西尾から。東京の成功事例をコピーするのではなく、この地で育った固有の解を探します。",
-    color: "#00c47a",
+    color: "#12a0ae",
   },
 ];
 
@@ -42,7 +42,7 @@ export function AboutValues() {
   const isInView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section className="bg-[#faf9f7] overflow-hidden">
+    <section className="bg-[#f7f5ef] overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-8 md:px-20 py-28 md:py-40">
 
         <div className="mb-16 md:mb-24">
@@ -72,7 +72,7 @@ export function AboutValues() {
           {values.map((v, i) => (
             <motion.div
               key={v.num}
-              className="relative bg-[#faf9f7] p-10 md:p-14 overflow-hidden"
+              className="relative bg-[#f7f5ef] p-10 md:p-14 overflow-hidden"
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 + i * 0.1 }}

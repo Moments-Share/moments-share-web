@@ -46,7 +46,7 @@ export function AboutHowWeThink() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <section className="bg-[#09090f]">
+    <section className="bg-[#1b2140]">
       <div className="max-w-[900px] mx-auto px-8 md:px-24 py-32 md:py-52">
 
         <div ref={ref} className="mb-16">

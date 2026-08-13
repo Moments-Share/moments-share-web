@@ -12,7 +12,7 @@ const CARDS = [
     heading: "やらされ仕事を、\nゼロに。",
     href: "/service-dx",
     photo: "/photos/service-dx.png",
-    accentColor: "#00c47a",
+    accentColor: "#12a0ae",
   },
   {
     num: "02",
@@ -21,7 +21,7 @@ const CARDS = [
     heading: "採用の前に、\n外注という選択肢。",
     href: "/service-bpo",
     photo: "/photos/service-bpo.png",
-    accentColor: "#00c47a",
+    accentColor: "#12a0ae",
   },
   {
     num: "03",
@@ -30,7 +30,7 @@ const CARDS = [
     heading: "「好き」を、\n力に変える。",
     href: "/service-produce",
     photo: "/photos/service-produce.png",
-    accentColor: "#00c47a",
+    accentColor: "#12a0ae",
   },
   {
     num: "04",
@@ -39,7 +39,7 @@ const CARDS = [
     heading: "AIを、\n現場の武器に。",
     href: "#contact",
     photo: null,
-    accentColor: "#00c47a",
+    accentColor: "#12a0ae",
   },
 ];
 
@@ -135,7 +135,7 @@ export function BusinessSection() {
                   sizes="(max-width: 768px) 80vw, 40vw"
                 />
               ) : (
-                <div className="absolute inset-0 bg-[#0a0f2e] flex items-center justify-center">
+                <div className="absolute inset-0 bg-[#1b2140] flex items-center justify-center">
                   <span style={{ fontSize: "clamp(80px, 12vw, 140px)" }} className="opacity-[0.08] select-none">🤖</span>
                 </div>
               )}
@@ -210,7 +210,7 @@ export function BusinessSection() {
               onClick={() => scrollTo(i)}
               aria-label={`${i + 1}番目へ`}
               className="w-1.5 h-1.5 rounded-full transition-colors duration-300"
-              style={{ background: i === current ? "#050466" : "rgba(5,4,102,0.15)" }}
+              style={{ background: i === current ? "#232a4d" : "rgba(5,4,102,0.15)" }}
             />
           ))}
         </div>

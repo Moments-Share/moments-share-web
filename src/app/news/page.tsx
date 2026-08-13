@@ -18,7 +18,7 @@ export default function NewsPage() {
   return (
     <>
       <Nav />
-      <main className="pt-28 md:pt-36 pb-section bg-[#faf9f7] min-h-screen">
+      <main className="pt-28 md:pt-36 pb-section bg-[#f7f5ef] min-h-screen">
         <div className="max-w-[900px] mx-auto px-8 md:px-20">
 
           <p className="text-[10px] font-bold tracking-[0.32em] uppercase text-ink/20 mb-8">News</p>

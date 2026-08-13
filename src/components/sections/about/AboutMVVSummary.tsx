@@ -26,7 +26,7 @@ export function AboutMVVSummary() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section className="bg-[#faf9f7] overflow-hidden">
+    <section className="bg-[#f7f5ef] overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-8 md:px-20 py-24 md:py-36">
 
         <div ref={ref} className="grid md:grid-cols-[1fr_auto] md:items-end gap-12 mb-16 md:mb-20">
@@ -73,7 +73,7 @@ export function AboutMVVSummary() {
           {items.map((item, i) => (
             <motion.div
               key={item.label}
-              className="bg-[#faf9f7] px-8 py-10"
+              className="bg-[#f7f5ef] px-8 py-10"
               initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 + i * 0.1 }}

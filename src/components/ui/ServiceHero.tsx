@@ -18,7 +18,7 @@ export function ServiceHero({ label, brand, headline, sub, accent }: ServiceHero
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
-    <section ref={ref} className="relative h-screen min-h-[640px] flex items-end overflow-hidden bg-[#060918]">
+    <section ref={ref} className="relative h-screen min-h-[640px] flex items-end overflow-hidden bg-[#1b2140]">
       {/* 背景グラデーション */}
       <motion.div className="absolute inset-0" style={{ y }}>
         <div
@@ -27,7 +27,7 @@ export function ServiceHero({ label, brand, headline, sub, accent }: ServiceHero
             background: `radial-gradient(ellipse 80% 60% at 60% 40%, ${accent}22 0%, transparent 60%), radial-gradient(ellipse 50% 80% at 20% 80%, ${accent}11 0%, transparent 50%)`,
           }}
         />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 50%, #060918 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 50%, #1b2140 100%)" }} />
       </motion.div>
 
       {/* テキスト */}

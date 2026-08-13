@@ -69,7 +69,7 @@ function Chapter({ item, index }: { item: typeof chapters[0]; index: number }) {
   }
 
   return (
-    <div ref={ref} className="px-8 md:px-24 py-32 md:py-48 bg-[#faf9f7]">
+    <div ref={ref} className="px-8 md:px-24 py-32 md:py-48 bg-[#f7f5ef]">
       <motion.p
         className="text-[10px] font-bold tracking-[0.28em] uppercase text-ink/25 mb-10"
         initial={{ opacity: 0 }}
@@ -97,7 +97,7 @@ export function AboutWhyUs() {
 
   return (
     <section>
-      <div ref={ref} className="px-8 md:px-24 py-24 md:py-36 bg-[#09090f]">
+      <div ref={ref} className="px-8 md:px-24 py-24 md:py-36 bg-[#1b2140]">
         <motion.p
           className="text-[10px] font-bold tracking-[0.32em] uppercase text-white/20 mb-10"
           initial={{ opacity: 0 }}

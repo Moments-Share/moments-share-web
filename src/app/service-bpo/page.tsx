@@ -89,7 +89,7 @@ export default function ServiceBPO() {
           label="BPO"
           headline={"地域の人が、\n企業の力になる。"}
           sub="DXで生まれた余白を、地域の人材が担う。企業は本業に集中し、地域は自分らしい働き方を手に入れる。"
-          accent="#050466"
+          accent="#232a4d"
         />
 
         {/* DX → BPO → 地域雇用の流れ */}
@@ -142,7 +142,7 @@ export default function ServiceBPO() {
                 ))}
               </div>
               <FadeIn delay={0.4}>
-                <div className="mt-12 p-8 border border-black/[0.06] bg-[#faf9f7]">
+                <div className="mt-12 p-8 border border-black/[0.06] bg-[#f7f5ef]">
                   <p className="text-[14px] text-muted leading-[2.0] text-center">
                     DX支援で業務を整理した後にBPOへ移行するのが、Moments Shareの一気通貫モデルです。<br />
                     ツールと人材を同じチームが設計するから、引き渡しがスムーズ。
@@ -154,7 +154,7 @@ export default function ServiceBPO() {
         </section>
 
         {/* サービスメニュー */}
-        <section className="py-section bg-[#faf9f7]">
+        <section className="py-section bg-[#f7f5ef]">
           <div className="max-w-[1200px] mx-auto px-8 md:px-16">
             <FadeIn>
               <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-green mb-6">Service Menu</p>
@@ -210,7 +210,7 @@ export default function ServiceBPO() {
                 </div>
               </FadeIn>
               <FadeIn delay={0.2}>
-                <div className="bg-[#0a0e1a] p-10 md:p-12 h-full">
+                <div className="bg-[#1b2140] p-10 md:p-12 h-full">
                   <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-white/30 mb-8">向いていない</p>
                   <ul className="space-y-4">
                     {fits.no.map((item) => (
@@ -299,7 +299,7 @@ export default function ServiceBPO() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="mailto:branding@momentsshare.com"
-                  className="inline-flex items-center justify-center gap-3 bg-green text-white font-bold text-[15px] px-10 py-5 hover:bg-[#00a868] transition-colors"
+                  className="inline-flex items-center justify-center gap-3 bg-green text-white font-bold text-[15px] px-10 py-5 hover:bg-[#0f8f9c] transition-colors"
                 >
                   メールで相談する →
                 </Link>

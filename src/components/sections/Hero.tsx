@@ -20,7 +20,7 @@ function Line({ children, delay, className = "" }: { children: React.ReactNode; 
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#06091a]">
+    <section className="relative min-h-screen overflow-hidden bg-[#1b2140]">
 
       {/* Ken Burns 写真背景 */}
       <div className="absolute inset-0">
@@ -105,7 +105,7 @@ export function Hero() {
         >
           <Link
             href="#contact"
-            className="inline-flex items-center gap-2 bg-green text-white font-bold text-[13px] tracking-[0.04em] px-7 py-4 rounded-full hover:bg-[#00a868] transition-colors"
+            className="inline-flex items-center gap-2 bg-green text-white font-bold text-[13px] tracking-[0.04em] px-7 py-4 rounded-full hover:bg-[#0f8f9c] transition-colors"
           >
             まず話を聞いてみる →
           </Link>

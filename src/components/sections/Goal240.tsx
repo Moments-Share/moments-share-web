@@ -9,7 +9,7 @@ export function Goal240() {
   const isInView = useInView(numRef, { once: true, amount: 0.4 });
 
   return (
-    <section className="relative overflow-hidden bg-[#faf9f7]">
+    <section className="relative overflow-hidden bg-[#f7f5ef]">
 
       {/* 背景の巨大な「240」 */}
       <div

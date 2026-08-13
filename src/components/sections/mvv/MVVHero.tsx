@@ -10,7 +10,7 @@ export function MVVHero() {
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-[#050466]" style={{ minHeight: "100svh" }}>
+    <section ref={ref} className="relative overflow-hidden bg-[#232a4d]" style={{ minHeight: "100svh" }}>
 
       {/* 背景 */}
       <motion.div className="absolute inset-0" style={{ y }}>

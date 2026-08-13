@@ -7,7 +7,7 @@ export function AboutPurpose() {
   const isInView = useInView(ref, { once: true, amount: 0.4 });
 
   return (
-    <section className="bg-[#faf9f7]">
+    <section className="bg-[#f7f5ef]">
       <div
         ref={ref}
         className="max-w-[1000px] mx-auto px-8 md:px-24 flex items-center"

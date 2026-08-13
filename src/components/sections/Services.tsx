@@ -122,7 +122,7 @@ function ServiceProduce() {
   const photoY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
 
   return (
-    <div ref={ref} className="grid md:grid-cols-[2fr_3fr] border-t border-black/[0.06] bg-[#faf9f7]" style={{ minHeight: "80vh" }}>
+    <div ref={ref} className="grid md:grid-cols-[2fr_3fr] border-t border-black/[0.06] bg-[#f7f5ef]" style={{ minHeight: "80vh" }}>
       <div className="flex flex-col justify-center px-12 md:px-14 py-20">
         <FadeIn>
           <p className="text-[9px] font-black tracking-[0.4em] uppercase text-green mb-6">地域プロデュース</p>
@@ -177,7 +177,7 @@ function ServiceAITraining() {
 
   return (
     <div ref={ref} className="grid md:grid-cols-[3fr_2fr] border-t border-black/[0.06]" style={{ minHeight: "80vh" }}>
-      <div className="relative overflow-hidden min-h-[55vmin] bg-[#0a0f2e]">
+      <div className="relative overflow-hidden min-h-[55vmin] bg-[#1b2140]">
         <motion.div className="absolute inset-0" style={{ scale: photoScale, y: photoY }}>
           <div className="absolute inset-0 flex items-center justify-center">
             <span style={{ fontSize: "clamp(80px, 14vw, 180px)" }} className="select-none opacity-10">🤖</span>
@@ -229,7 +229,7 @@ const approachCards = [
     heading: "やらされ仕事を、ゼロに。",
     body: "中小企業の繰り返し業務をITで自動化し、社員が本当にやるべき仕事に集中できる環境をつくります。",
     href: "/service-dx",
-    color: "#050466",
+    color: "#232a4d",
   },
   {
     num: "02",
@@ -237,7 +237,7 @@ const approachCards = [
     heading: "採用の前に、外注という選択肢。",
     body: "定型業務を地域のプロへ。採用コストをかけずに、社員はコア業務に集中できます。",
     href: "/service-bpo",
-    color: "#050466",
+    color: "#232a4d",
   },
   {
     num: "03",
@@ -245,7 +245,7 @@ const approachCards = [
     heading: "「好き」を、力に変える。",
     body: "西尾市内で複数のプロジェクトを運営し、地域の人が挑戦しやすい場をつくっています。",
     href: "/service-produce",
-    color: "#00c47a",
+    color: "#12a0ae",
   },
 ];
 

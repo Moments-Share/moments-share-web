@@ -50,7 +50,7 @@ const steps = [
       <>
         AI・RPA・Make・GASで、繰り返し発生する作業を徹底的に自動化。<br />
         「この作業、本当に人じゃないといけないの？」という問いから始め、<br />
-        <strong className="text-[#1a1a2e] font-bold">ヒアリング→業務整理→要件定義→導入→伴走</strong>まで一気通貫で伴走します。
+        <strong className="text-[#1b2140] font-bold">ヒアリング→業務整理→要件定義→導入→伴走</strong>まで一気通貫で伴走します。
       </>
     ),
     output: "業務時間 最大90%削減",
@@ -69,7 +69,7 @@ const steps = [
       <>
         自動化しきれない業務・繁忙期のサポート・専門スキルが必要な業務は、<br />
         地域の人材が担います。<br />
-        主婦・学生・シニア・副業人材が<strong className="text-[#1a1a2e] font-bold">自分のペースで、スキルを活かして</strong>働ける場をつくる。
+        主婦・学生・シニア・副業人材が<strong className="text-[#1b2140] font-bold">自分のペースで、スキルを活かして</strong>働ける場をつくる。
       </>
     ),
     output: "地域雇用の創出・柔軟な働き方の実現",
@@ -88,7 +88,7 @@ const steps = [
       <>
         地域メディア・就活コミュニティ・企業×学生イベントを通じて、<br />
         「地元で挑戦したい」若者と「一緒につくりたい」企業をつなぐ。<br />
-        <strong className="text-[#1a1a2e] font-bold">仕事が生まれ、人が残り、まちが動く</strong>——その循環を育てます。
+        <strong className="text-[#1b2140] font-bold">仕事が生まれ、人が残り、まちが動く</strong>——その循環を育てます。
       </>
     ),
     output: "地域に「挑戦と共創」の文化が根づく",
@@ -99,25 +99,25 @@ const steps = [
 
 export function Solution() {
   return (
-    <section id="solution" className="bg-[#f7f6f4] py-[120px] px-5 md:px-20 overflow-hidden">
+    <section id="solution" className="bg-[#f7f5ef] py-[120px] px-5 md:px-20 overflow-hidden">
       <div className="max-w-[900px] mx-auto">
 
         {/* Header */}
         <FadeIn>
-          <p className="text-[10px] font-black tracking-[0.32em] uppercase text-[#00c47a] mb-5">
+          <p className="text-[10px] font-black tracking-[0.32em] uppercase text-[#12a0ae] mb-5">
             Solution
           </p>
         </FadeIn>
         <FadeIn delay={0.08}>
           <h2
-            className="font-black text-[#050466] leading-[1.15] tracking-[-0.03em] mb-5"
+            className="font-black text-[#232a4d] leading-[1.15] tracking-[-0.03em] mb-5"
             style={{ fontSize: "clamp(30px, 4vw, 52px)" }}
           >
             3事業は、ひとつのストーリー。
           </h2>
         </FadeIn>
         <FadeIn delay={0.16}>
-          <p className="text-[15px] text-[#050466]/55 leading-[2.2] max-w-[58ch]">
+          <p className="text-[15px] text-[#232a4d]/55 leading-[2.2] max-w-[58ch]">
             DX支援・BPO・地域プロデュースは、バラバラのサービスではありません。<br />
             前のステップのアウトプットが、次のステップのインプットになる——<br />
             一本のストーリーとして設計されています。
@@ -131,7 +131,7 @@ export function Solution() {
             className="absolute left-7 top-14 bottom-14 w-[2px] pointer-events-none"
             style={{
               background:
-                "linear-gradient(to bottom, #00c47a 0%, rgba(0,196,122,0.4) 50%, rgba(0,196,122,0.1) 100%)",
+                "linear-gradient(to bottom, #12a0ae 0%, rgba(0,196,122,0.4) 50%, rgba(0,196,122,0.1) 100%)",
             }}
           />
 
@@ -141,44 +141,44 @@ export function Solution() {
                 {/* Badge */}
                 <div
                   className={`w-14 h-14 rounded-full flex items-center justify-center text-[13px] font-black tracking-[0.05em] text-white shrink-0 relative z-10 ${
-                    step.active ? "bg-[#00c47a]" : "bg-[#050466]"
+                    step.active ? "bg-[#12a0ae]" : "bg-[#232a4d]"
                   }`}
-                  style={{ boxShadow: "0 0 0 6px #f7f6f4" }}
+                  style={{ boxShadow: "0 0 0 6px #f7f5ef" }}
                 >
                   {step.num}
                 </div>
 
                 {/* Body */}
                 <div className={i < steps.length - 1 ? "pb-16" : "pb-0"}>
-                  <span className="inline-block text-[10px] font-bold tracking-[0.12em] uppercase text-[#050466] bg-[#050466]/[0.07] px-3.5 py-1.5 rounded-full mb-3.5">
+                  <span className="inline-block text-[10px] font-bold tracking-[0.12em] uppercase text-[#232a4d] bg-[#232a4d]/[0.07] px-3.5 py-1.5 rounded-full mb-3.5">
                     {step.tag}
                   </span>
                   <h3
-                    className="font-black text-[#050466] leading-[1.25] tracking-[-0.03em] mb-4"
+                    className="font-black text-[#232a4d] leading-[1.25] tracking-[-0.03em] mb-4"
                     style={{ fontSize: "clamp(22px, 2.8vw, 34px)" }}
                   >
                     {step.title}
                   </h3>
-                  <p className="text-[15px] text-[#050466]/55 leading-[2.2] max-w-[60ch] mb-6">
+                  <p className="text-[15px] text-[#232a4d]/55 leading-[2.2] max-w-[60ch] mb-6">
                     {step.narrative}
                   </p>
 
                   {/* Chain Output */}
                   <div className="flex items-center gap-3 bg-white border border-[#e0ddd8] rounded-xl px-5 py-4 max-w-[520px]">
                     <div className="flex-1">
-                      <p className="text-[9px] font-black tracking-[0.25em] uppercase text-[#050466]/40 mb-1">
+                      <p className="text-[9px] font-black tracking-[0.25em] uppercase text-[#232a4d]/40 mb-1">
                         Output
                       </p>
-                      <p className="text-[14px] font-black text-[#050466]">
+                      <p className="text-[14px] font-black text-[#232a4d]">
                         {step.output}
                       </p>
                     </div>
-                    <span className="text-[20px] text-[#00c47a] opacity-60">→</span>
+                    <span className="text-[20px] text-[#12a0ae] opacity-60">→</span>
                     <div className="flex-1">
-                      <p className="text-[9px] font-black tracking-[0.25em] uppercase text-[#050466]/40 mb-1">
+                      <p className="text-[9px] font-black tracking-[0.25em] uppercase text-[#232a4d]/40 mb-1">
                         生まれるもの
                       </p>
-                      <p className="text-[14px] font-black text-[#00c47a]">
+                      <p className="text-[14px] font-black text-[#12a0ae]">
                         {step.result}
                       </p>
                     </div>
@@ -194,7 +194,7 @@ export function Solution() {
           <div
             className="mt-16 rounded-3xl px-12 md:px-[72px] py-16 text-center relative overflow-hidden"
             style={{
-              background: "linear-gradient(135deg, #06091a 0%, #050466 100%)",
+              background: "linear-gradient(135deg, #1b2140 0%, #232a4d 100%)",
             }}
           >
             {/* Radial glow */}
@@ -213,11 +213,11 @@ export function Solution() {
 
             {/* Cycle label */}
             <div className="inline-flex items-center gap-3 mb-7 relative z-10">
-              <span className="w-2 h-2 rounded-full bg-[#00c47a]" />
-              <p className="text-[11px] font-black tracking-[0.28em] uppercase text-[#00c47a]">
+              <span className="w-2 h-2 rounded-full bg-[#12a0ae]" />
+              <p className="text-[11px] font-black tracking-[0.28em] uppercase text-[#12a0ae]">
                 The Cycle
               </p>
-              <span className="w-2 h-2 rounded-full bg-[#00c47a]" />
+              <span className="w-2 h-2 rounded-full bg-[#12a0ae]" />
             </div>
 
             {/* Headline */}
@@ -226,10 +226,10 @@ export function Solution() {
               style={{ fontSize: "clamp(22px, 3.2vw, 42px)" }}
             >
               「やらされ仕事」がなくなり、
-              <em className="not-italic text-[#00c47a]">人が本来の仕事</em>へ。
+              <em className="not-italic text-[#12a0ae]">人が本来の仕事</em>へ。
               <br />
               地域に
-              <em className="not-italic text-[#00c47a]">挑戦と共創の循環</em>
+              <em className="not-italic text-[#12a0ae]">挑戦と共創の循環</em>
               が生まれる。
             </h3>
 

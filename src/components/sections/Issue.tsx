@@ -54,7 +54,7 @@ export function Issue() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section id="issue" className="bg-[#f5f4f0]">
+    <section id="issue" className="bg-[#f7f5ef]">
       <div className="max-w-[1200px] mx-auto px-6 md:px-16 py-section">
 
         {/* ラベル + タイトル */}

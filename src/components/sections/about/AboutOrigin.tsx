@@ -96,7 +96,7 @@ export function AboutOrigin() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section className="bg-[#09090f] overflow-hidden">
+    <section className="bg-[#1b2140] overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-8 md:px-20 py-28 md:py-40">
 
         <div ref={ref} className="mb-20 md:mb-32">

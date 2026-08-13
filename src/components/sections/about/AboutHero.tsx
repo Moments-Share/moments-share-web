@@ -11,7 +11,7 @@ export function AboutHero() {
   const opacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-[#060918]" style={{ minHeight: "100svh" }}>
+    <section ref={ref} className="relative overflow-hidden bg-[#1b2140]" style={{ minHeight: "100svh" }}>
 
       <motion.div className="absolute inset-0 scale-[1.1]" style={{ y: photoY }}>
         <Image

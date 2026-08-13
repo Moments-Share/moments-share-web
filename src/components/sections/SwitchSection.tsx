@@ -58,7 +58,7 @@ export function SwitchSection() {
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
   return (
-    <section ref={sectionRef} className="relative bg-[#07070e] py-section overflow-hidden">
+    <section ref={sectionRef} className="relative bg-[#1b2140] py-section overflow-hidden">
 
       {/* 背景 SWITCH 文字 */}
       <div className="absolute inset-0 flex items-end overflow-hidden pointer-events-none select-none">

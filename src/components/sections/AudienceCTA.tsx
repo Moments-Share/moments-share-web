@@ -9,7 +9,7 @@ const cards = [
     href: "/service-dx",
     headline: "終わらない転記作業を、\n人の仕事に変えたい企業の方へ",
     sub: "ツールより先に、課題を整理します。中小・地方企業専門の伴走型DX支援。",
-    color: "#00c47a",
+    color: "#12a0ae",
     accent: "bg-green",
   },
   {
@@ -17,7 +17,7 @@ const cards = [
     href: "/service-bpo",
     headline: "地元で、\n自分らしく働きたい方へ",
     sub: "企業のバックオフィス業務を、地域の人が担います。週3〜・在宅OKの仕事も。",
-    color: "#050466",
+    color: "#232a4d",
     accent: "bg-navy",
   },
   {
@@ -25,7 +25,7 @@ const cards = [
     href: "/service-produce",
     headline: "西尾で、\n何か始めたい方へ",
     sub: "コミュニティ・メディア・イベント。挑戦したい人の最初の一歩を、一緒につくります。",
-    color: "#00c47a",
+    color: "#12a0ae",
     accent: "bg-green",
   },
 ];
@@ -35,7 +35,7 @@ export function AudienceCTA() {
   const isInView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section className="bg-[#faf9f7] overflow-hidden">
+    <section className="bg-[#f7f5ef] overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-8 md:px-20 py-24 md:py-36">
 
         <div className="mb-14 md:mb-20">
@@ -70,7 +70,7 @@ export function AudienceCTA() {
             >
               <Link
                 href={card.href}
-                className="group flex flex-col h-full bg-[#faf9f7] hover:bg-white transition-colors p-10 md:p-12"
+                className="group flex flex-col h-full bg-[#f7f5ef] hover:bg-white transition-colors p-10 md:p-12"
               >
                 <span
                   className="text-[10px] font-black tracking-[0.22em] uppercase mb-6 inline-block"

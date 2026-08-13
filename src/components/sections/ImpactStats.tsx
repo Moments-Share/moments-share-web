@@ -14,7 +14,7 @@ export function ImpactStats() {
   const isInView = useInView(ref, { once: true, amount: 0.25 });
 
   return (
-    <section className="bg-[#06091a] overflow-hidden border-t border-white/[0.05]">
+    <section className="bg-[#1b2140] overflow-hidden border-t border-white/[0.05]">
       <div className="max-w-[1100px] mx-auto px-8 md:px-20 pb-section">
 
         <div ref={ref} className="grid md:grid-cols-4 gap-0 divide-y md:divide-y-0 md:divide-x divide-white/[0.06]">

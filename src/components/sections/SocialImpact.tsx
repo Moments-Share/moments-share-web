@@ -7,7 +7,7 @@ export function SocialImpact() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section className="bg-[#06091a] overflow-hidden">
+    <section className="bg-[#1b2140] overflow-hidden">
       <div ref={ref} className="max-w-[1100px] mx-auto px-8 md:px-20 pt-section pb-16">
 
         <motion.p

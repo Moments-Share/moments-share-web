@@ -20,7 +20,7 @@ const BUSINESSES = [
     tag: "BPO",
     title: "採用の前に、外注という選択肢。",
     desc: "定型業務を地域の専門人材へ。採用コストをかけずに、社員はコア業務に集中できます。",
-    color: "bg-[#f4f6ff]",
+    color: "bg-[#eef1f6]",
     textColor: "text-ink",
     href: "/service-bpo",
   },
@@ -56,7 +56,7 @@ export function GroupPage() {
     <div className="bg-white">
 
       {/* ─── Hero ─── */}
-      <section className="relative min-h-[70vh] bg-[#06091a] flex flex-col justify-end overflow-hidden">
+      <section className="relative min-h-[70vh] bg-[#1b2140] flex flex-col justify-end overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
@@ -211,7 +211,7 @@ export function GroupPage() {
       </section>
 
       {/* ─── 数字で見るMoments Share ─── */}
-      <section className="py-section bg-[#06091a]">
+      <section className="py-section bg-[#1b2140]">
         <div className="max-w-[1200px] mx-auto px-8 md:px-16">
           <FadeIn>
             <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-green mb-5">
@@ -310,7 +310,7 @@ export function GroupPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/#contact"
-                className="inline-flex items-center gap-2 bg-green text-white font-bold text-[14px] tracking-[0.02em] px-8 py-4 rounded-full hover:bg-[#00a868] transition-colors"
+                className="inline-flex items-center gap-2 bg-green text-white font-bold text-[14px] tracking-[0.02em] px-8 py-4 rounded-full hover:bg-[#0f8f9c] transition-colors"
               >
                 お問い合わせ →
               </Link>

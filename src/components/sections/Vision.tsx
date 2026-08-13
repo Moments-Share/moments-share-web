@@ -9,11 +9,11 @@ export function Vision() {
   const bgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-[#060918]" style={{ minHeight: "70vh" }}>
+    <section ref={ref} className="relative overflow-hidden bg-[#1b2140]" style={{ minHeight: "70vh" }}>
 
       {/* 背景 */}
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
-        <div className="absolute inset-0 bg-[#06091a]" />
+        <div className="absolute inset-0 bg-[#1b2140]" />
         <div className="absolute inset-0" style={{
           background: "radial-gradient(ellipse 100% 80% at 20% 50%, rgba(5,4,102,0.5) 0%, transparent 60%), radial-gradient(ellipse 60% 70% at 80% 60%, rgba(0,196,122,0.05) 0%, transparent 55%)"
         }} />

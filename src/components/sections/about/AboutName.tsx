@@ -7,7 +7,7 @@ export function AboutName() {
   const isInView = useInView(ref, { once: true, amount: 0.25 });
 
   return (
-    <section className="bg-[#09090f] overflow-hidden">
+    <section className="bg-[#1b2140] overflow-hidden">
       <div ref={ref} className="max-w-[1100px] mx-auto px-8 md:px-20 py-28 md:py-40">
 
         <motion.p

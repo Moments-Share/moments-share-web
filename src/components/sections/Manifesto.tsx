@@ -10,7 +10,7 @@ export function Manifesto() {
   const bgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-[#060918]" style={{ minHeight: "95vh" }}>
+    <section ref={ref} className="relative overflow-hidden bg-[#1b2140]" style={{ minHeight: "95vh" }}>
 
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <div className="absolute inset-0" style={{

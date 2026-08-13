@@ -8,7 +8,7 @@ export function AboutFinalCTA() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section className="bg-[#faf9f7] overflow-hidden">
+    <section className="bg-[#f7f5ef] overflow-hidden">
       <div ref={ref} className="max-w-[1100px] mx-auto px-8 md:px-20 py-28 md:py-48">
 
         <motion.p
@@ -49,7 +49,7 @@ export function AboutFinalCTA() {
         >
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 bg-navy text-white font-black text-[14px] tracking-[0.08em] px-9 py-5 hover:bg-[#0a088e] transition-colors"
+            className="inline-flex items-center gap-3 bg-navy text-white font-black text-[14px] tracking-[0.08em] px-9 py-5 hover:bg-[#12a0ae] transition-colors"
           >
             お問い合わせ
             <span className="text-green">→</span>

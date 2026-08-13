@@ -33,7 +33,7 @@ export function CTA() {
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <Link
               href="mailto:branding@momentsshare.com"
-              className="inline-flex items-center justify-center gap-3 bg-green text-white font-bold text-[14px] tracking-[0.04em] px-10 py-4 rounded-full hover:bg-[#00a868] transition-colors"
+              className="inline-flex items-center justify-center gap-3 bg-green text-white font-bold text-[14px] tracking-[0.04em] px-10 py-4 rounded-full hover:bg-[#0f8f9c] transition-colors"
             >
               メールで相談する →
             </Link>

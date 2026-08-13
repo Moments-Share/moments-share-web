@@ -62,7 +62,7 @@ export function AboutRegion() {
   const imgInView = useInView(imgRef, { once: true, amount: 0.3 });
 
   return (
-    <section className="bg-[#faf9f7] overflow-hidden">
+    <section className="bg-[#f7f5ef] overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-8 md:px-20 py-28 md:py-40">
 
         <div ref={ref} className="mb-20 md:mb-32">

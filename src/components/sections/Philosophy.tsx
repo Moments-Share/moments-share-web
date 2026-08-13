@@ -9,25 +9,25 @@ const values = [
     num: "VALUE 01",
     title: "地域起点で\n考える",
     body: "東京の成功事例を輸入するのではなく、西尾というリアルな現場で磨いたモデルを持って動く。",
-    accent: "#050466",
+    accent: "#232a4d",
   },
   {
     num: "VALUE 02",
     title: "問いから\n始める",
     body: "ソリューションを先に売らない。「なぜこの仕事が存在するか」という問いから始め、根本から変える。",
-    accent: "#00c47a",
+    accent: "#12a0ae",
   },
   {
     num: "VALUE 03",
     title: "循環で\n設計する",
     body: "3事業は単体で完結しない。DX→BPO→地域プロデュースがひとつの循環として機能するよう設計する。",
-    accent: "#050466",
+    accent: "#232a4d",
   },
   {
     num: "VALUE 04",
     title: "伴走し\n続ける",
     body: "「数字が改善しました」で終わらない。変化の手触りをお客様と一緒に体感し、次の一手まで一緒に考える。",
-    accent: "#00c47a",
+    accent: "#12a0ae",
   },
 ];
 
@@ -36,19 +36,19 @@ const businesses = [
     tag: "DX支援",
     title: "「やらされ仕事」\nを消す技術",
     contribution: "仕事の質を変える",
-    accent: "#050466",
+    accent: "#232a4d",
   },
   {
     tag: "BPO",
     title: "地域の人が\n活きる仕組み",
     contribution: "地域の働き方を変える",
-    accent: "#00c47a",
+    accent: "#12a0ae",
   },
   {
     tag: "地域プロデュース",
     title: "挑戦できる\nまちをつくる",
     contribution: "地域の可能性を変える",
-    accent: "#050466",
+    accent: "#232a4d",
   },
 ];
 
@@ -59,7 +59,7 @@ export function Philosophy() {
   const isFlowInView = useInView(flowRef, { once: true, amount: 0.2 });
 
   return (
-    <section className="relative overflow-hidden bg-[#faf9f7] py-32 md:py-44">
+    <section className="relative overflow-hidden bg-[#f7f5ef] py-32 md:py-44">
 
       {/* 背景装飾 */}
       <div className="absolute inset-0 pointer-events-none">
@@ -90,7 +90,7 @@ export function Philosophy() {
 
         {/* Mission Hero Card */}
         <FadeIn delay={0.14}>
-          <div className="relative overflow-hidden rounded-2xl bg-[#050466] px-10 py-14 md:px-20 md:py-20 mb-20 md:mb-28">
+          <div className="relative overflow-hidden rounded-2xl bg-[#232a4d] px-10 py-14 md:px-20 md:py-20 mb-20 md:mb-28">
             {/* 背景グロー */}
             <div
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[80px] pointer-events-none"
@@ -139,7 +139,7 @@ export function Philosophy() {
             {values.map((v, i) => (
               <motion.div
                 key={v.num}
-                className="relative bg-[#faf9f7] p-8 md:p-10"
+                className="relative bg-[#f7f5ef] p-8 md:p-10"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isValuesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.08 + i * 0.09 }}
@@ -179,7 +179,7 @@ export function Philosophy() {
           <div ref={flowRef} className="flex flex-col items-center">
             {/* Center Node */}
             <motion.div
-              className="w-full max-w-[420px] rounded-xl bg-[#050466] px-8 py-7 text-center mb-4"
+              className="w-full max-w-[420px] rounded-xl bg-[#232a4d] px-8 py-7 text-center mb-4"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isFlowInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -239,7 +239,7 @@ export function Philosophy() {
 
         {/* Vision Block */}
         <FadeIn delay={0.1}>
-          <div className="relative overflow-hidden rounded-2xl bg-[#06091a] px-10 py-14 md:px-20 md:py-18 flex flex-col md:flex-row md:items-center md:gap-16">
+          <div className="relative overflow-hidden rounded-2xl bg-[#1b2140] px-10 py-14 md:px-20 md:py-18 flex flex-col md:flex-row md:items-center md:gap-16">
             {/* ウォーターマーク */}
             <div
               className="absolute right-[-1vw] bottom-[-2vw] font-black text-white/[0.03] select-none leading-none pointer-events-none"

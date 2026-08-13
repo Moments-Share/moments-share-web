@@ -1,13 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #050466;
-  --color-accent: #0a088e;
-  --color-green: #00c47a;
-  --color-ink: #111111;
-  --color-muted: #6b7280;
-  --color-light: #f4f6ff;
-  --color-warm: #faf9f7;
+  /* --- Brand palette (logo-derived: navy wordmark + teal emblem + accent dots) --- */
+  --color-navy: #232a4d;      /* logo navy — headings, primary text, dark bands */
+  --color-teal: #12a0ae;      /* logo emblem teal — primary accent / CTA */
+  --color-accent: #12a0ae;    /* alias of teal (kept for existing utilities) */
+  --color-green: #12a0ae;     /* repurposed to teal (kept for existing bg-green/text-green) */
+  --color-coral: #ef5d6c;     /* logo accent dot — energy / 地域プロデュース */
+  --color-amber: #f5a93c;     /* logo accent dot — optional highlight */
+  --color-dark: #1b2140;      /* deep navy for dark sections */
+
+  --color-ink: #1c2033;       /* near-navy black — body text */
+  --color-muted: #6b7080;     /* muted body text */
+  --color-white: #ffffff;
+  --color-light: #eef1f6;     /* cool light — card / subtle band */
+  --color-warm: #f7f5ef;      /* warm paper — alternate band */
   --color-border: rgba(0, 0, 0, 0.08);
 
   --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
@@ -46,7 +53,7 @@
 
   body {
     background: #fff;
-    color: #111;
+    color: #1c2033;
     font-family: var(--font-sans);
     font-size: 17px;
     line-height: 2.0;
@@ -54,7 +61,7 @@
   }
 
   ::selection {
-    background: #00c47a;
+    background: #12a0ae;
     color: #fff;
   }
 }

@@ -11,7 +11,7 @@ export function AboutTeam() {
   const photoY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <section className="bg-[#09090f]">
+    <section className="bg-[#1b2140]">
 
       {/* フルブリード写真 */}
       <div ref={photoRef} className="relative overflow-hidden" style={{ height: "65vh" }}>

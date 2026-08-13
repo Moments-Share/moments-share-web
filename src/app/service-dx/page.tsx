@@ -108,7 +108,7 @@ export default function ServiceDX() {
           brand="Core Shift"
           headline={"人の時間を、\n価値創造へ。"}
           sub="AIを選ぶ前に、課題を整理する。ツールを入れる前に、業務を設計する。現場で本当に使えるDXを、伴走します。"
-          accent="#0a088e"
+          accent="#12a0ae"
         />
 
         {/* Why DX is hard */}
@@ -144,7 +144,7 @@ export default function ServiceDX() {
         </section>
 
         {/* 3つの強み */}
-        <section className="py-section bg-[#faf9f7]">
+        <section className="py-section bg-[#f7f5ef]">
           <div className="max-w-[1200px] mx-auto px-8 md:px-16">
             <FadeIn>
               <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-green mb-6">Our Approach</p>
@@ -251,7 +251,7 @@ export default function ServiceDX() {
         </section>
 
         {/* 実績 */}
-        <section className="py-section bg-[#faf9f7]">
+        <section className="py-section bg-[#f7f5ef]">
           <div className="max-w-[1200px] mx-auto px-8 md:px-16">
             <FadeIn>
               <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-green mb-6">Results</p>
@@ -327,7 +327,7 @@ export default function ServiceDX() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="mailto:branding@momentsshare.com"
-                  className="inline-flex items-center justify-center gap-3 bg-green text-white font-bold text-[15px] px-10 py-5 hover:bg-[#00a868] transition-colors"
+                  className="inline-flex items-center justify-center gap-3 bg-green text-white font-bold text-[15px] px-10 py-5 hover:bg-[#0f8f9c] transition-colors"
                 >
                   メールで相談する →
                 </Link>

@@ -7,7 +7,7 @@ export function Insight() {
   const isInView = useInView(ref, { once: true, amount: 0.25 });
 
   return (
-    <section className="relative bg-[#faf9f7] overflow-hidden">
+    <section className="relative bg-[#f7f5ef] overflow-hidden">
 
       {/* 背景装飾 */}
       <div className="absolute inset-0 flex items-center justify-end pr-[8vw] pointer-events-none select-none" aria-hidden>

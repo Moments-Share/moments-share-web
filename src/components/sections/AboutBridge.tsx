@@ -8,7 +8,7 @@ export function AboutBridge() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section className="bg-[#faf9f7] overflow-hidden">
+    <section className="bg-[#f7f5ef] overflow-hidden">
       <div ref={ref} className="max-w-[1100px] mx-auto px-8 md:px-20 py-24 md:py-36">
 
         <div className="md:grid md:grid-cols-[1fr_auto] md:items-end gap-16">

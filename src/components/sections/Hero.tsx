@@ -90,9 +90,9 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease, delay: 1.4 }}
         >
-          <p className="text-white/45 leading-[2.0]" style={{ fontSize: "clamp(14px, 1.4vw, 17px)" }}>
-            人がやらなくていい仕事をDXでなくし、<br />
-            生まれた余白から地域の挑戦を増やす。
+          <p className="text-white/55 leading-[2.0]" style={{ fontSize: "clamp(14px, 1.4vw, 17px)" }}>
+            企業の仕事を変える。人の働き方を広げる。地域に、新しい挑戦を生み出す。<br />
+            Moments Shareは、DX・BPO・地域プロデュースを通じて、企業・人・地域の可能性をつなぐ会社です。
           </p>
         </motion.div>
 
@@ -104,16 +104,16 @@ export function Hero() {
           transition={{ duration: 0.8, ease, delay: 1.9 }}
         >
           <Link
-            href="#contact"
+            href="#business"
             className="inline-flex items-center gap-2 bg-green text-white font-bold text-[13px] tracking-[0.04em] px-7 py-4 rounded-full hover:bg-[#0f8f9c] transition-colors"
           >
-            まず話を聞いてみる →
+            事業を見る →
           </Link>
           <Link
-            href="#services"
+            href="#contact"
             className="inline-flex items-center gap-2 border border-white/20 text-white/70 font-bold text-[13px] tracking-[0.04em] px-7 py-4 rounded-full hover:border-white/50 hover:text-white transition-colors"
           >
-            事業を見る →
+            30分相談する →
           </Link>
         </motion.div>
 

@@ -65,7 +65,7 @@ export function Hero() {
 
         {/* ラベル */}
         <motion.p
-          className="text-[9px] font-bold tracking-[0.38em] uppercase text-green mb-10"
+          className="text-[9px] font-bold tracking-[0.38em] uppercase text-terra mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
@@ -80,7 +80,7 @@ export function Hero() {
         >
           <Line delay={0.4}>地域に、</Line>
           <Line delay={0.65}>挑戦と共創の</Line>
-          <Line delay={0.9} className="text-green">循環を。</Line>
+          <Line delay={0.9} className="text-terra">循環を。</Line>
         </h1>
 
         {/* 説明文 */}
@@ -105,7 +105,7 @@ export function Hero() {
         >
           <Link
             href="#business"
-            className="inline-flex items-center gap-2 bg-green text-white font-bold text-[13px] tracking-[0.04em] px-7 py-4 rounded-full hover:bg-[#0f8f9c] transition-colors"
+            className="inline-flex items-center gap-2 bg-terra text-white font-bold text-[13px] tracking-[0.04em] px-7 py-4 rounded-full hover:opacity-90 transition-opacity"
           >
             事業を見る →
           </Link>

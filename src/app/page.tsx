@@ -123,9 +123,8 @@ export default function Home() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-3">
-                <div className="text-terra text-[12px] font-bold tracking-[0.2em] lg:sticky lg:top-24">MESSAGE</div>
-                <div className="hidden lg:block relative aspect-[3/4] mt-8 w-full">
-                  <Image src="/photos/img_6703.jpg" alt="企画書を手に、次の挑戦を話す" fill sizes="25vw" className="object-cover" />
+                <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em] lg:sticky lg:top-24">
+                  <span className="w-8 h-px bg-terra" />MESSAGE
                 </div>
               </div>
               <div className="lg:col-span-9 lg:pl-8">
@@ -168,7 +167,7 @@ export default function Home() {
                     <div className="text-[13px] text-muted">DX・業務効率化の支援</div>
                   </div>
                   <div className="relative aspect-[4/3] w-full">
-                    <Image src="/photos/img_6647.jpg" alt="ホワイトボードでの業務整理" fill sizes="40vw" className="object-cover" />
+                    <Image src="/photos/service-dx.png" alt="DX支援の現場" fill sizes="40vw" className="object-cover" />
                   </div>
                 </div>
               </div>

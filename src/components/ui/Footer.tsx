@@ -22,8 +22,8 @@ const snsLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-navy text-white">
-      <div className="mx-auto max-w-6xl px-8 md:px-12 py-16 md:py-20">
+    <footer className="bg-charcoal text-white">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-12 md:gap-8">
           {/* Brand */}
           <div>

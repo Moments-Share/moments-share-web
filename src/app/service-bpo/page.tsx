@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
-import { ServiceHero } from "@/components/ui/ServiceHero";
-import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
   title: "BPO | Moments Share合同会社",
@@ -94,174 +94,220 @@ export default function ServiceBPO() {
       />
       <Nav />
       <main id="main-content">
-        {/* HERO */}
-        <ServiceHero
-          label="BPO"
-          headline={"人手不足を、\n多様な働き方へ。"}
-          sub="採用して人を増やす前に、仕事を外に出すという選択肢があります。カスタマーサクセス。営業支援。SNS。経理・事務。必要な仕事を、必要な分だけ支えます。"
-          accent="#12a0ae"
-        />
-
-        {/* HERO CTA */}
-        <section className="py-section-sm px-8 md:px-12 bg-navy text-white text-center">
-          <div className="mx-auto max-w-2xl">
-            <a
-              href="/contact"
-              className="inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
-            >
-              外注できる業務を相談する →
-            </a>
+        {/* ===== HERO — 雑誌の見開き。大きな緑の見出し＋余白＋主役の写真を非対称に ===== */}
+        <section className="pt-28 md:pt-32 pb-16 md:pb-24 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-end">
+              <div className="lg:col-span-7 lg:pb-4">
+                <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
+                  <span className="w-8 h-px bg-terra" />
+                  BPO — BUSINESS PROCESS OUTSOURCING
+                </div>
+                <h1
+                  className="mt-8 text-green font-black leading-[1.14] tracking-[-0.03em]"
+                  style={{ fontSize: "clamp(40px, 6.4vw, 96px)" }}
+                >
+                  人手不足を、<br />多様な働き方へ。
+                </h1>
+                <p className="mt-8 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                  採用して人を増やす前に、仕事を外に出すという選択肢があります。カスタマーサクセス。営業支援。SNS。経理・事務。必要な仕事を、必要な分だけ支えます。
+                </p>
+                <Link
+                  href="/contact"
+                  className="mt-9 inline-block text-[14px] font-bold text-green border-b-2 border-green pb-1 hover:text-terra hover:border-terra transition-colors"
+                >
+                  外注できる業務を相談する →
+                </Link>
+              </div>
+              <div className="lg:col-span-5">
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src="/photos/service-bpo.png"
+                    alt="コワーキングスペースで多様な人が働く様子"
+                    fill
+                    priority
+                    sizes="(max-width:1024px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="mt-3 text-[12px] text-muted">働き方も、住む場所も違う人が、それぞれの得意を持ち寄る。</p>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* こんな企業に */}
-        <section className="py-section px-8 md:px-12">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-teal">FOR THESE COMPANIES</div>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
+        {/* ===== こんな企業に — 均等カードをやめ、番号付きの編集リストで ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="max-w-3xl">
+              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">FOR THESE COMPANIES</div>
+              <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
                 こんな企業に。
               </h2>
-            </FadeIn>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+            </div>
+            <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-x-16 border-t border-charcoal/10">
               {painPoints.map((p, i) => (
-                <FadeIn key={p} delay={i * 0.06}>
-                  <div className="bg-white rounded-2xl p-8 border border-border flex items-start gap-4">
-                    <span className="text-teal font-black shrink-0" aria-hidden="true">✓</span>
-                    <p className="text-[15px] md:text-[17px] leading-body text-ink/80">{p}</p>
-                  </div>
-                </FadeIn>
+                <div key={p} className="flex items-baseline gap-6 py-6 border-b border-charcoal/10">
+                  <span className="text-terra font-black text-[14px] tracking-[0.1em] shrink-0">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-[15px] md:text-[17px] leading-[1.9] text-charcoal/85">{p}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* 重要メッセージ */}
-        <section className="py-section px-8 md:px-12 bg-warm">
-          <div className="mx-auto max-w-3xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-teal">MESSAGE</div>
-              <h2 className="mt-5 text-h2 font-black tracking-heading leading-heading text-navy">
-                その仕事、本当に<br className="hidden sm:block" />採用が必要ですか？
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div className="mt-10 space-y-6 text-[16px] md:text-[18px] leading-body text-ink/80">
-                <p>自動化できる仕事は、DXで減らす。人が必要な仕事だけ、BPOで支える。</p>
-                <p className="text-navy font-bold text-[19px] md:text-[22px] leading-heading">
-                  Moments Shareは、採用する・外注する・自動化する、その前に、まず仕事そのものを整理します。
-                </p>
-              </div>
-            </FadeIn>
+        {/* ===== 重要メッセージ — ページの核。大きな緑のタイポと余白だけで見せる ===== */}
+        <section className="py-24 md:py-40 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="text-terra text-[12px] font-bold tracking-[0.2em]">MESSAGE</div>
+            <h2
+              className="mt-8 text-green font-black leading-[1.18] tracking-[-0.02em]"
+              style={{ fontSize: "clamp(34px, 6vw, 84px)" }}
+            >
+              その仕事、本当に<br />採用が必要ですか？
+            </h2>
+            <div className="mt-14 max-w-2xl space-y-7 text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
+              <p>自動化できる仕事は、DXで減らす。人が必要な仕事だけ、BPOで支える。</p>
+              <p className="text-green font-bold text-[20px] md:text-[26px] leading-[1.6] tracking-[-0.01em] pt-2">
+                Moments Shareは、採用する・外注する・自動化する、その前に、まず仕事そのものを整理します。
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* SERVICE */}
-        <section className="py-section px-8 md:px-12">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-teal">SERVICE</div>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
+        {/* ===== SERVICE — アイコンカードをやめ、2カラムの編集リストで ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="max-w-3xl">
+              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">SERVICE</div>
+              <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
                 支えられる仕事。
               </h2>
-            </FadeIn>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            </div>
+            <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-x-16 border-t border-charcoal/10">
               {services.map((s, i) => (
-                <FadeIn key={s.title} delay={i * 0.06}>
-                  <div className="bg-white rounded-2xl p-8 border border-border h-full">
-                    <div className="text-[18px] font-black tracking-heading text-navy leading-heading">{s.title}</div>
-                    <p className="mt-3 text-[14px] leading-relaxed text-muted">{s.desc}</p>
+                <div key={s.title} className="flex items-baseline gap-6 py-8 border-b border-charcoal/10">
+                  <span className="text-terra font-black text-[14px] tracking-[0.1em] shrink-0 pt-1">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="text-green font-black tracking-[-0.02em] leading-[1.3]" style={{ fontSize: "clamp(20px, 2.4vw, 26px)" }}>
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-[14px] md:text-[15px] leading-[1.9] text-muted max-w-md">{s.desc}</p>
                   </div>
-                </FadeIn>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* DX × BPO */}
-        <section className="py-section px-8 md:px-12 bg-navy text-white">
-          <div className="mx-auto max-w-3xl text-center">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-teal">DX × BPO</div>
-              <h2 className="mt-5 text-h2 font-black tracking-heading leading-heading">
-                自動化できる仕事は減らす。<br />
-                人が必要な仕事だけ支える。
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <p className="mt-8 text-[16px] md:text-[18px] leading-body text-white/70">
-                単に人を増やすのではなく、まず仕事を整理する。
-              </p>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* TEAM */}
-        <section className="py-section px-8 md:px-12 bg-warm">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-teal">TEAM</div>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
-                多様な人と、一緒に支える。
-              </h2>
-              <p className="mt-6 text-[16px] md:text-[18px] leading-body text-muted max-w-2xl">
-                それぞれの得意を組み合わせて、企業の業務を支えます。
-              </p>
-            </FadeIn>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6">
-              {team.map((t, i) => (
-                <FadeIn key={t.label} delay={i * 0.06}>
-                  <div className="bg-white rounded-2xl p-8 border border-border h-full">
-                    <div className="text-[17px] font-black tracking-heading text-navy leading-heading">{t.label}</div>
-                    <p className="mt-3 text-[14px] leading-relaxed text-muted">{t.desc}</p>
-                  </div>
-                </FadeIn>
-              ))}
+        {/* ===== DX × BPO — 強みを対比のステートメントに。緑のバンドで際立たせる ===== */}
+        <section className="py-20 md:py-32 px-6 md:px-10 bg-green text-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+              <div className="lg:col-span-9">
+                <div className="text-white/60 text-[12px] font-bold tracking-[0.2em]">DX × BPO</div>
+                <h2
+                  className="mt-6 font-black leading-[1.22] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(30px, 5vw, 68px)" }}
+                >
+                  自動化できる仕事は減らす。<br />
+                  人が必要な仕事だけ支える。
+                </h2>
+              </div>
+              <div className="lg:col-span-3 lg:pb-3">
+                <p className="text-[15px] md:text-[16px] leading-[2] text-white/75 max-w-xs">
+                  単に人を増やすのではなく、まず仕事を整理する。
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* PROCESS */}
-        <section className="py-section px-8 md:px-12">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-teal">PROCESS</div>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
+        {/* ===== TEAM — 「多様な人」を写真＋タイポで。均等アバターをやめる ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              <div className="lg:col-span-5 order-1">
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src="/photos/service-bpo.png"
+                    alt="多様な働き方の人が集まって業務を支える現場"
+                    fill
+                    sizes="(max-width:1024px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <div className="lg:col-span-7 order-2">
+                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">TEAM</div>
+                <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+                  多様な人と、一緒に支える。
+                </h2>
+                <p className="mt-6 max-w-lg text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                  それぞれの得意を組み合わせて、企業の業務を支えます。
+                </p>
+                <div className="mt-10 border-t border-charcoal/10">
+                  {team.map((t) => (
+                    <div key={t.label} className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-1 sm:gap-6 py-5 border-b border-charcoal/10">
+                      <span className="text-green font-black text-[17px] md:text-[19px] tracking-[-0.01em]">{t.label}</span>
+                      <p className="text-[14px] md:text-[15px] leading-[1.9] text-muted">{t.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== PROCESS — 大きな数字の編集的な横並び ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="max-w-3xl">
+              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">PROCESS</div>
+              <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
                 進め方。
               </h2>
-            </FadeIn>
-            <div className="mt-12 divide-y divide-border border-t border-border">
-              {process.map((p, i) => (
-                <FadeIn key={p.step} delay={i * 0.05}>
-                  <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-3 md:gap-10 py-10">
-                    <div className="text-[40px] font-black text-teal/25 leading-none">{p.step}</div>
-                    <div>
-                      <h3 className="text-[22px] font-black tracking-heading text-navy leading-heading">{p.title}</h3>
-                      <p className="mt-3 text-[15px] md:text-[17px] leading-body text-muted max-w-2xl">{p.body}</p>
-                    </div>
+            </div>
+            <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12 border-t border-charcoal/10 pt-12">
+              {process.map((p) => (
+                <div key={p.step}>
+                  <div className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(48px, 5vw, 72px)" }}>
+                    {p.step}
                   </div>
-                </FadeIn>
+                  <h3 className="mt-5 text-green font-black tracking-[-0.02em] leading-[1.3]" style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 text-[14px] md:text-[15px] leading-[1.9] text-muted">{p.body}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section id="contact" className="py-section px-8 md:px-12 bg-navy text-white text-center">
-          <div className="mx-auto max-w-2xl">
-            <div className="text-[11px] font-bold tracking-widest-label text-teal">CONTACT</div>
-            <h2 className="mt-5 text-[34px] md:text-[52px] font-black tracking-heading leading-heading">
-              どの仕事を外に出せるか、一緒に整理します。
-            </h2>
-            <p className="mt-6 text-[16px] leading-body text-white/70">
-              採用するべきか、外注するべきか迷っている段階からご相談ください。
-            </p>
-            <a
-              href="/contact"
-              className="mt-10 inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
-            >
-              30分無料相談 →
-            </a>
+        {/* ===== CONTACT — Deep Green のバンドで締める。ボタンはテラコッタ ===== */}
+        <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="text-white/60 text-[12px] font-bold tracking-[0.2em]">CONTACT</div>
+            <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+              <h2 className="lg:col-span-8 font-black leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(32px, 5vw, 68px)" }}>
+                どの仕事を外に出せるか、<br className="hidden sm:block" />一緒に整理します。
+              </h2>
+              <div className="lg:col-span-4 lg:pb-4">
+                <p className="text-[15px] leading-[2] text-white/75">
+                  採用するべきか、外注するべきか迷っている段階からご相談ください。
+                </p>
+                <Link
+                  href="/contact"
+                  className="mt-6 inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity"
+                >
+                  30分無料相談 →
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
       </main>

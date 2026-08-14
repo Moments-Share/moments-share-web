@@ -21,7 +21,7 @@ export default function NewsPage() {
       <main id="main-content" className="pt-28 md:pt-36 pb-section bg-warm min-h-screen">
         <div className="max-w-[900px] mx-auto px-8 md:px-20">
 
-          <p className="text-[10px] font-bold tracking-[0.32em] uppercase text-ink/20 mb-8">News</p>
+          <p className="text-[12px] font-bold tracking-[0.2em] text-terra mb-8">NEWS</p>
           <h1
             className="font-black text-navy leading-[1.1] tracking-[-0.04em] mb-16 md:mb-24"
             style={{ fontSize: "clamp(32px, 5vw, 64px)" }}

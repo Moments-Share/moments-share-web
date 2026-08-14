@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
 
 export const metadata: Metadata = {
@@ -22,109 +23,118 @@ const categories = [
   "その他",
 ];
 
+const inputClass =
+  "w-full bg-transparent border-b border-charcoal/20 px-1 py-3 text-[16px] text-charcoal outline-none focus:border-green transition-colors";
+
 export default function ContactPage() {
   return (
     <>
       <Nav />
       <main id="main-content">
-        {/* HERO */}
-        <section className="pt-40 pb-14 px-8 md:px-12 bg-warm">
-          <div className="mx-auto max-w-3xl">
-            <div className="text-[11px] font-bold tracking-widest-label text-teal">CONTACT</div>
-            <h1 className="mt-5 text-[34px] md:text-[52px] font-black tracking-heading leading-heading text-navy">
-              まず、話してみませんか。
-            </h1>
-            <p className="mt-6 text-[16px] md:text-[18px] leading-body text-muted">
-              AIを使いたい。人が足りない。地域で何か始めたい。<br />
-              まだ課題が整理できていなくても大丈夫です。
-            </p>
-          </div>
-        </section>
-
-        {/* FORM */}
-        <section className="py-16 px-8 md:px-12">
-          <div className="mx-auto max-w-3xl">
-            {/*
-              TODO: フォーム送信先を設定してください。
-              静的サイト（output: export）のため、送信にはFormspree等の外部エンドポイントが必要です。
-              下の action="" に発行したエンドポイント（例: https://formspree.io/f/xxxxxxx）を設定します。
-              未設定の間は送信されません。
-            */}
-            <form
-              action=""
-              method="POST"
-              className="bg-white rounded-2xl border border-border p-8 md:p-10 grid grid-cols-1 gap-6"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-[13px] font-bold text-navy mb-2">
-                    お名前<span className="text-coral ml-1">*</span>
-                  </label>
-                  <input
-                    id="name" name="name" type="text" required placeholder="山田 太郎"
-                    className="w-full rounded-lg border border-border px-4 py-3 text-[15px] text-ink outline-none focus:border-teal focus:ring-1 focus:ring-teal transition-colors"
-                  />
+        {/* ===== HERO — 大きな見出し。左に問いかけ＋写真、右にフォーム（非対称） ===== */}
+        <section className="pt-28 md:pt-32 pb-20 md:pb-28 px-6 md:px-10">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+              {/* 左：問いかけ＋現場写真 */}
+              <div className="lg:col-span-5 lg:sticky lg:top-28">
+                <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
+                  <span className="w-8 h-px bg-terra" />
+                  CONTACT
                 </div>
-                <div>
-                  <label htmlFor="company" className="block text-[13px] font-bold text-navy mb-2">
-                    会社名・屋号
-                  </label>
-                  <input
-                    id="company" name="company" type="text" placeholder="株式会社◯◯"
-                    className="w-full rounded-lg border border-border px-4 py-3 text-[15px] text-ink outline-none focus:border-teal focus:ring-1 focus:ring-teal transition-colors"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="email" className="block text-[13px] font-bold text-navy mb-2">
-                    メールアドレス<span className="text-coral ml-1">*</span>
-                  </label>
-                  <input
-                    id="email" name="email" type="email" required placeholder="example@company.com"
-                    className="w-full rounded-lg border border-border px-4 py-3 text-[15px] text-ink outline-none focus:border-teal focus:ring-1 focus:ring-teal transition-colors"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="category" className="block text-[13px] font-bold text-navy mb-2">
-                    ご相談の種類<span className="text-coral ml-1">*</span>
-                  </label>
-                  <select
-                    id="category" name="category" required defaultValue=""
-                    className="w-full rounded-lg border border-border px-4 py-3 text-[15px] text-ink bg-white outline-none focus:border-teal focus:ring-1 focus:ring-teal transition-colors"
-                  >
-                    <option value="" disabled>選択してください</option>
-                    {categories.map((c) => (
-                      <option key={c} value={c}>{c}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-[13px] font-bold text-navy mb-2">
-                  ご相談内容<span className="text-coral ml-1">*</span>
-                </label>
-                <textarea
-                  id="message" name="message" required rows={6} placeholder="お困りごとや、やってみたいことを、わかる範囲でお書きください。"
-                  className="w-full rounded-lg border border-border px-4 py-3 text-[15px] text-ink outline-none focus:border-teal focus:ring-1 focus:ring-teal transition-colors resize-y"
-                />
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
-                <button
-                  type="submit"
-                  className="bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
-                >
-                  この内容で送信する →
-                </button>
-                <p className="text-[13px] text-muted">
-                  お急ぎの方はメールでも受け付けています：
-                  <a href="mailto:branding@momentsshare.com" className="text-teal font-bold hover:underline ml-1">branding@momentsshare.com</a>
+                <h1 className="mt-8 text-green font-black leading-[1.12] tracking-[-0.03em]"
+                    style={{ fontSize: "clamp(40px, 5.5vw, 76px)" }}>
+                  まず、話して<br />みませんか。
+                </h1>
+                <p className="mt-8 max-w-md text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
+                  AIを使いたい。人が足りない。地域で何か始めたい。<br />
+                  まだ課題が整理できていなくても大丈夫です。
                 </p>
+                <div className="relative aspect-[4/3] w-full mt-10 hidden lg:block">
+                  <Image src="/photos/hero.png" alt="西尾のまちの風景" fill sizes="40vw" className="object-cover" />
+                </div>
               </div>
-            </form>
+
+              {/* 右：フォーム — 重いカードをやめ、下線インプットの編集スタイル */}
+              <div className="lg:col-span-7">
+                {/*
+                  TODO: フォーム送信先を設定してください。
+                  静的サイト（output: export）のため、送信にはFormspree等の外部エンドポイントが必要です。
+                  下の action="" に発行したエンドポイント（例: https://formspree.io/f/xxxxxxx）を設定します。
+                  未設定の間は送信されません。
+                */}
+                <form action="" method="POST" className="grid grid-cols-1 gap-10">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                      <label htmlFor="name" className="block text-[12px] font-bold tracking-[0.14em] text-terra mb-3">
+                        お名前<span className="ml-1">*</span>
+                      </label>
+                      <input
+                        id="name" name="name" type="text" required placeholder="山田 太郎"
+                        className={inputClass}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="company" className="block text-[12px] font-bold tracking-[0.14em] text-terra mb-3">
+                        会社名・屋号
+                      </label>
+                      <input
+                        id="company" name="company" type="text" placeholder="株式会社◯◯"
+                        className={inputClass}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                      <label htmlFor="email" className="block text-[12px] font-bold tracking-[0.14em] text-terra mb-3">
+                        メールアドレス<span className="ml-1">*</span>
+                      </label>
+                      <input
+                        id="email" name="email" type="email" required placeholder="example@company.com"
+                        className={inputClass}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="category" className="block text-[12px] font-bold tracking-[0.14em] text-terra mb-3">
+                        ご相談の種類<span className="ml-1">*</span>
+                      </label>
+                      <select
+                        id="category" name="category" required defaultValue=""
+                        className={`${inputClass} bg-transparent`}
+                      >
+                        <option value="" disabled>選択してください</option>
+                        {categories.map((c) => (
+                          <option key={c} value={c}>{c}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-[12px] font-bold tracking-[0.14em] text-terra mb-3">
+                      ご相談内容<span className="ml-1">*</span>
+                    </label>
+                    <textarea
+                      id="message" name="message" required rows={6} placeholder="お困りごとや、やってみたいことを、わかる範囲でお書きください。"
+                      className={`${inputClass} resize-y leading-[2]`}
+                    />
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-2">
+                    <button
+                      type="submit"
+                      className="bg-green text-white font-bold px-10 py-4 rounded-full hover:opacity-90 transition-opacity"
+                    >
+                      この内容で送信する →
+                    </button>
+                    <p className="text-[13px] leading-[1.9] text-muted">
+                      お急ぎの方はメールでも受け付けています：<br className="hidden sm:block" />
+                      <a href="mailto:branding@momentsshare.com" className="text-green border-b-2 border-green pb-0.5 font-bold hover:text-terra hover:border-terra transition-colors">branding@momentsshare.com</a>
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </section>
       </main>

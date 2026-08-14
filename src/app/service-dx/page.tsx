@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
-import { ServiceHero } from "@/components/ui/ServiceHero";
-import { FadeIn } from "@/components/ui/FadeIn";
-import { CountUp } from "@/components/ui/CountUp";
 
 const problems = [
   "Excelやシステムへの転記が多い",
@@ -120,194 +119,251 @@ export default function ServiceDX() {
       />
       <Nav />
       <main id="main-content">
-        {/* Hero */}
-        <ServiceHero
-          label="DX支援"
-          brand="Core Shift"
-          headline={"忙しさを、\n余白へ。"}
-          sub="毎月繰り返している、その仕事。AIや自動化で減らせるかもしれません。請求書。データ転記。日報集計。情報整理。まず業務を整理し、本当に効果のあるところから改善します。"
-          accent="#12a0ae"
-        />
-
-        {/* Hero CTA */}
-        <section className="py-14 px-8 md:px-12 bg-white border-b border-border">
-          <div className="mx-auto max-w-5xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            <p className="text-[16px] md:text-[18px] font-bold text-navy leading-body">
-              どの業務が自動化できそうか、まず一緒に見てみませんか。
-            </p>
-            <a
-              href="/contact"
-              className="inline-block shrink-0 bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity text-center"
-            >
-              自動化できる業務を相談する →
-            </a>
-          </div>
-        </section>
-
-        {/* こんな課題はありませんか？ */}
-        <section className="py-section px-8 md:px-12 bg-warm">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-teal">CHECK</div>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
-                こんな課題は<br className="hidden sm:block" />ありませんか？
-              </h2>
-            </FadeIn>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {problems.map((p, i) => (
-                <FadeIn key={p} delay={i * 0.05}>
-                  <div className="flex items-start gap-4 bg-white rounded-2xl p-6 border border-border h-full">
-                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal/10 text-[13px] font-black text-teal">
-                      ✓
-                    </span>
-                    <p className="text-[15px] md:text-[16px] font-bold text-navy leading-body">{p}</p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-            <FadeIn delay={0.1}>
-              <p className="mt-10 text-[15px] md:text-[17px] leading-body text-muted max-w-2xl">
-                一つでも当てはまるなら、減らせる仕事があるかもしれません。まずは業務の整理から始めます。
-              </p>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* 何が変わる？ */}
-        <section className="py-section px-8 md:px-12">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-teal">WHAT CHANGES</div>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">何が変わる？</h2>
-              <p className="mt-6 text-[15px] md:text-[17px] leading-body text-muted max-w-2xl">
-                大切なのは、どのツールを使うかではありません。仕事がどう変わるか、です。
-              </p>
-            </FadeIn>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-              {outcomes.map((o, i) => (
-                <FadeIn key={o.title} delay={i * 0.08}>
-                  <div className="bg-white rounded-2xl p-8 border border-border h-full">
-                    <h3 className="text-[22px] font-black tracking-heading text-navy leading-heading">{o.title}</h3>
-                    <p className="mt-4 text-[14px] leading-relaxed text-muted">{o.body}</p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CASE（実績） */}
-        <section className="py-section px-8 md:px-12 bg-warm">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-teal">CASE</div>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
-                業務を、余白に変えた事例。
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div className="mt-10 flex flex-wrap items-baseline gap-3 border-t border-border pt-8">
-                <p className="text-[44px] md:text-[64px] font-black tracking-tight text-navy leading-none">
-                  <CountUp to={80} suffix="%" duration={2} />
+        {/* ===== HERO — 明るい編集型。大きな緑の見出し＋現場写真を非対称に ===== */}
+        <section className="pt-28 md:pt-32 pb-16 md:pb-24 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
+              <div className="lg:col-span-7 lg:pb-6">
+                <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
+                  <span className="w-8 h-px bg-terra" />
+                  DX支援 — CORE SHIFT
+                </div>
+                <h1 className="mt-8 text-green font-black leading-[1.12] tracking-[-0.03em]"
+                    style={{ fontSize: "clamp(40px, 6.5vw, 92px)" }}>
+                  忙しさを、<br />余白へ。
+                </h1>
+                <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
+                  毎月繰り返している、その仕事。AIや自動化で減らせるかもしれません。請求書。データ転記。日報集計。情報整理。まず業務を整理し、本当に効果のあるところから改善します。
                 </p>
-                <p className="text-[14px] md:text-[15px] font-bold text-teal">
-                  SNS投稿の自動化で、作業時間を約80％削減（30分 → 約6分）
+                <div className="mt-8">
+                  <Link
+                    href="/contact"
+                    className="inline-block text-[14px] font-bold text-green border-b-2 border-green pb-1 hover:text-terra hover:border-terra transition-colors"
+                  >
+                    自動化できる業務を相談する →
+                  </Link>
+                </div>
+              </div>
+              <div className="lg:col-span-5">
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src="/photos/service-dx.png"
+                    alt="現場でPC画面を一緒に見ながら業務を見直す様子"
+                    fill
+                    priority
+                    sizes="(max-width:1024px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="mt-3 text-[12px] text-muted">同じ画面を見ながら、どの仕事を減らせるかを探す。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== こんな課題 — 7項目を編集型チェックリストに（カードではなく2カラムのテキストリスト） ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+              <div className="lg:col-span-4">
+                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">CHECK</div>
+                <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+                  こんな課題は<br className="hidden sm:block" />ありませんか？
+                </h2>
+                <p className="mt-6 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                  一つでも当てはまるなら、減らせる仕事があるかもしれません。まずは業務の整理から始めます。
                 </p>
               </div>
-            </FadeIn>
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-              {cases.map((c, i) => (
-                <FadeIn key={c.title} delay={i * 0.08}>
-                  <div className="bg-white rounded-2xl p-8 border border-border h-full">
-                    <div className="text-[11px] font-bold tracking-wide text-teal">{c.tag}</div>
-                    <div className="mt-3 text-[17px] font-bold text-navy">{c.title}</div>
-                    <div className="mt-4 text-[24px] md:text-[26px] font-black tracking-tight text-navy leading-tight">
-                      {c.result}
-                    </div>
-                    <div className="mt-1 text-[13px] font-bold text-teal">{c.note}</div>
-                    <p className="mt-4 text-[14px] leading-relaxed text-muted">{c.desc}</p>
-                  </div>
-                </FadeIn>
-              ))}
+              <div className="lg:col-span-8">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 border-t border-charcoal/10">
+                  {problems.map((p) => (
+                    <li key={p} className="flex items-start gap-4 border-b border-charcoal/10 py-5">
+                      <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-terra" />
+                      <p className="text-[15px] md:text-[16px] leading-[1.8] text-charcoal font-bold">{p}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* SERVICE（できること） */}
-        <section className="py-section px-8 md:px-12">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-teal">SERVICE</div>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">できること。</h2>
-            </FadeIn>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {menu.map((m, i) => (
-                <FadeIn key={m} delay={i * 0.05}>
-                  <div className="flex items-center gap-4 bg-white rounded-2xl p-6 border border-border h-full">
-                    <span className="text-[13px] font-black tracking-widest-label text-teal">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <p className="text-[16px] md:text-[17px] font-bold text-navy">{m}</p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* PROCESS */}
-        <section className="py-section px-8 md:px-12 bg-warm">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-teal">PROCESS</div>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">進め方。</h2>
-            </FadeIn>
-            <div className="mt-12 divide-y divide-border border-t border-border">
-              {steps.map((s, i) => (
-                <FadeIn key={s.num} delay={i * 0.06}>
-                  <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-3 md:gap-10 py-8">
-                    <div className="text-[40px] font-black text-teal/25 leading-none">{s.num}</div>
-                    <div>
-                      <h3 className="text-[20px] md:text-[22px] font-black tracking-heading text-navy leading-heading">
-                        {s.title}
-                      </h3>
-                      <p className="mt-3 text-[15px] leading-body text-muted max-w-2xl">{s.desc}</p>
-                    </div>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* GOAL */}
-        <section className="py-section px-8 md:px-12">
-          <div className="mx-auto max-w-3xl text-center">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-teal">GOAL</div>
-              <h2 className="mt-5 text-h2 font-black tracking-heading leading-heading text-navy">
-                AIを使える会社ではなく、<br className="hidden sm:block" />仕事を改善し続けられる会社へ。
+        {/* ===== 何が変わる？ — 3つの成果を大きな型の言明で ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="max-w-3xl">
+              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">WHAT CHANGES</div>
+              <h2 className="mt-4 text-green font-black leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+                何が変わる？
               </h2>
-            </FadeIn>
+              <p className="mt-6 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                大切なのは、どのツールを使うかではありません。仕事がどう変わるか、です。
+              </p>
+            </div>
+
+            <div className="mt-14 md:mt-20 flex flex-col divide-y divide-charcoal/10 border-t border-charcoal/10">
+              {outcomes.map((o, i) => (
+                <div key={o.title} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 items-baseline py-10 md:py-12">
+                  <span className="md:col-span-1 text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(32px, 3.5vw, 48px)" }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="md:col-span-6 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 46px)" }}>
+                    {o.title}
+                  </h3>
+                  <p className="md:col-span-5 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{o.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section id="contact" className="py-24 px-8 md:px-12 bg-navy text-white text-center scroll-mt-24">
-          <div className="mx-auto max-w-2xl">
-            <div className="text-[11px] font-bold tracking-widest-label text-teal">CONTACT</div>
-            <h2 className="mt-5 text-h3 font-black tracking-heading leading-heading">
-              まず、自動化できる仕事があるか<br className="hidden sm:block" />一緒に見てみませんか。
+        {/* ===== CASE — 実績。80％削減を巨大なテラコッタ数字＋現場写真で主役に ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="max-w-3xl">
+              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">CASE</div>
+              <h2 className="mt-4 text-green font-black leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+                業務を、余白に変えた事例。
+              </h2>
+            </div>
+
+            {/* 主役：SNS自動化 約80％削減。数字が主役のテキスト事例 */}
+            <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-end">
+              <div className="md:col-span-5">
+                <div className="text-[13px] font-bold tracking-[0.16em] text-charcoal/40 mb-4">CASE 01 — SNS自動化</div>
+                <div className="flex items-end gap-4">
+                  <span className="text-terra font-black leading-[0.85] tracking-[-0.04em]" style={{ fontSize: "clamp(96px, 16vw, 220px)" }}>
+                    80
+                  </span>
+                  <span className="text-terra font-black pb-4" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>％削減</span>
+                </div>
+              </div>
+              <div className="md:col-span-7 md:pb-4">
+                <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 40px)" }}>
+                  投稿作業を、30分 → 約6分へ。
+                </h3>
+                <p className="mt-5 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                  投稿の企画から公開までの流れを自動化し、毎日の作業を大幅に削減。
+                </p>
+              </div>
+            </div>
+
+            {/* 請求書自動化。テキスト事例 */}
+            <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-10 md:pt-12">
+              <div className="md:col-span-4 text-[13px] font-bold tracking-[0.16em] text-charcoal/40">CASE 02 — 請求書</div>
+              <div className="md:col-span-8">
+                <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}>
+                  請求書発行の自動化
+                </h3>
+                <div className="mt-3 text-green font-black tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>
+                  手作業 → 自動化<span className="text-terra text-[15px] font-bold ml-3 align-middle">発行・送付を仕組み化</span>
+                </div>
+                <p className="mt-5 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                  手作業だった請求書の作成・送付を自動化し、転記の手間をなくした。
+                </p>
+              </div>
+            </div>
+
+            {/* 在庫管理（写真なしのテキスト事例。数字が控えめに効く） */}
+            <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-10 md:pt-12">
+              <div className="md:col-span-4 text-[13px] font-bold tracking-[0.16em] text-charcoal/40">CASE 03 — 在庫管理</div>
+              <div className="md:col-span-8">
+                <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 40px)" }}>
+                  在庫管理の一元化
+                </h3>
+                <div className="mt-3 text-green font-black tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>
+                  紙＋Excel → 一元管理
+                </div>
+                <div className="mt-1 text-[13px] font-bold text-terra">二重管理を解消</div>
+                <p className="mt-5 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                  紙とExcelに分かれていた在庫情報を一元管理し、探す・照合する手間を削減。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== SERVICE — できること。6項目を番号付きの編集型リストに ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+              <div className="lg:col-span-4">
+                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">SERVICE</div>
+                <h2 className="mt-4 text-green font-black leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+                  できること。
+                </h2>
+              </div>
+              <div className="lg:col-span-8">
+                <ul className="border-t border-charcoal/10">
+                  {menu.map((m, i) => (
+                    <li key={m} className="flex items-baseline gap-6 border-b border-charcoal/10 py-6">
+                      <span className="text-terra font-black leading-none tracking-[-0.03em] w-14 shrink-0" style={{ fontSize: "clamp(24px, 3vw, 40px)" }}>
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2.2vw, 28px)" }}>
+                        {m}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== PROCESS — 進め方。01–05を大きな数字のステップ行で ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="max-w-3xl">
+              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">PROCESS</div>
+              <h2 className="mt-4 text-green font-black leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+                進め方。
+              </h2>
+            </div>
+
+            <div className="mt-14 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
+              {steps.map((s) => (
+                <div key={s.num} className="border-t-2 border-charcoal/10 pt-5">
+                  <div className="text-terra font-black leading-none tracking-[-0.04em]" style={{ fontSize: "clamp(52px, 6vw, 84px)" }}>
+                    {s.num}
+                  </div>
+                  <h3 className="mt-4 text-green font-black tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.2vw, 26px)" }}>
+                    {s.title}
+                  </h3>
+                  <p className="mt-3 text-[14px] md:text-[15px] leading-[1.9] text-charcoal/80">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== GOAL — 大きな型の言明 ===== */}
+        <section className="py-20 md:py-36 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="text-terra text-[12px] font-bold tracking-[0.2em]">GOAL</div>
+            <h2 className="mt-6 max-w-5xl text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(30px, 5vw, 68px)" }}>
+              AIを使える会社ではなく、<br className="hidden sm:block" />仕事を改善し続けられる会社へ。
             </h2>
-            <p className="mt-6 text-[15px] md:text-[16px] leading-body text-white/70">
-              「何をAI化すればいいかわからない」という段階でも大丈夫です。
-            </p>
-            <a
-              href="/contact"
-              className="mt-10 inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
-            >
-              30分無料相談 →
-            </a>
+          </div>
+        </section>
+
+        {/* ===== CTA — 緑のバンド＋テラコッタボタン ===== */}
+        <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="text-white/60 text-[12px] font-bold tracking-[0.2em]">CONTACT</div>
+            <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+              <h2 className="lg:col-span-8 font-black leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(32px, 5vw, 72px)" }}>
+                まず、自動化できる仕事が<br />あるか見てみませんか。
+              </h2>
+              <div className="lg:col-span-4 lg:pb-4">
+                <p className="text-[15px] leading-[2] text-white/75">
+                  「何をAI化すればいいかわからない」という段階でも大丈夫です。
+                </p>
+                <Link href="/contact" className="mt-6 inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity">
+                  30分無料相談 →
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
       </main>

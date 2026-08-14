@@ -1,6 +1,7 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
-import { ServiceHero } from "@/components/ui/ServiceHero";
-import { FadeIn } from "@/components/ui/FadeIn";
 
 // 実在するプロジェクトのみ掲載する。架空の名称・事例は作成しない。
 const projects = [
@@ -50,7 +51,7 @@ const howWeWork = [
   { step: "04", title: "次につなぐ。", body: "一つの挑戦を、次の誰かの挑戦へとつなげていく。" },
 ];
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "地域プロデュース | Moments Share合同会社",
   description:
     "地域課題を、挑戦のきっかけへ。地域の課題と、人や企業の「やってみたい」をつなぎ、新しいプロジェクトや事業が生まれる場をつくります。西尾働き方図鑑・西尾筋肉祭り・AI活用研究会など。愛知県西尾市発。",
@@ -108,286 +109,415 @@ export default function ServiceProduce() {
       />
       <Nav />
       <main id="main-content">
-        {/* Hero */}
-        <ServiceHero
-          label="地域プロデュース"
-          headline={"地域課題を、\n挑戦のきっかけへ。"}
-          sub="地域の課題と、人や企業の「やってみたい」をつなぐ。人をつなぎ、仲間を集め、新しいプロジェクトや事業が生まれるきっかけと場をつくります。"
-          accent="#ef5d6c"
-        />
-
-        {/* Hero CTA */}
-        <section className="py-16 px-8 md:px-12 bg-white">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <a
-                href="/contact"
-                className="inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
-              >
-                一緒にプロジェクトをつくる →
-              </a>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* OUR PHILOSOPHY */}
-        <section className="py-section px-8 md:px-12 bg-warm">
-          <div className="mx-auto max-w-3xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-coral">OUR PHILOSOPHY</div>
-            </FadeIn>
-            <FadeIn delay={0.05}>
-              <h2 className="mt-5 text-h2 font-black tracking-heading leading-heading text-navy">
-                地域愛を、<br className="hidden sm:block" />地域発展の力に。
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div className="mt-10 space-y-6 text-[16px] md:text-[18px] leading-body text-ink/80">
-                <p>
-                  地域を良くするために、最初から大きなことをする必要はないと思っています。
-                  好きなお店に行く。面白い人を誰かに紹介する。地域のイベントに参加する。「こんなことをやってみたい」と声にする。
+        {/* ===== HERO — 光の編集表紙。大きな緑の見出し＋夜市の写真（人が主役）を非対称に ===== */}
+        <section className="pt-28 md:pt-32 pb-16 md:pb-24 px-6 md:px-10">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-end">
+              <div className="lg:col-span-7 lg:pb-6">
+                <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
+                  <span className="w-8 h-px bg-terra" />
+                  地域プロデュース — NISHIO, AICHI
+                </div>
+                <h1
+                  className="mt-8 text-green font-black leading-[1.12] tracking-[-0.03em]"
+                  style={{ fontSize: "clamp(44px, 7vw, 104px)" }}
+                >
+                  地域課題を、<br />挑戦の<br />きっかけへ。
+                </h1>
+                <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
+                  地域の課題と、人や企業の「やってみたい」をつなぐ。人をつなぎ、仲間を集め、
+                  新しいプロジェクトや事業が生まれるきっかけと場をつくります。
                 </p>
-                <p>
-                  そんな一人ひとりの小さな行動が、人をつなぎ、新しい挑戦を生み、やがて地域を動かす力になっていく。
-                </p>
-                <p className="text-navy font-bold text-[19px] md:text-[22px] leading-heading">
-                  私たちは、地域への「好き」を、行動へ変えていきます。
-                </p>
+                <div className="mt-8 flex items-center gap-8 text-[14px] font-bold">
+                  <Link
+                    href="/contact"
+                    className="text-green border-b-2 border-green pb-1 hover:text-terra hover:border-terra transition-colors"
+                  >
+                    一緒にプロジェクトをつくる
+                  </Link>
+                  <Link href="#projects" className="text-charcoal/60 hover:text-green transition-colors">
+                    取り組みを見る →
+                  </Link>
+                </div>
               </div>
-            </FadeIn>
+              <div className="lg:col-span-5">
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src="/photos/service-produce.png"
+                    alt="西尾の夜市で笑い合う地域の人々"
+                    fill
+                    priority
+                    sizes="(max-width:1024px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="mt-3 text-[12px] text-muted">西尾の夜市にて。地域を動かすのは、いつも一人ひとりの人だ。</p>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* PROJECTS */}
-        <section className="py-section px-8 md:px-12 bg-white">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-coral">PROJECTS</div>
-            </FadeIn>
-            <FadeIn delay={0.05}>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
+        {/* ===== OUR PHILOSOPHY — 大きなタイポ主体。余白に西尾の街の写真を小さく添える ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+              <div className="lg:col-span-3">
+                <div className="text-terra text-[12px] font-bold tracking-[0.2em] lg:sticky lg:top-24">
+                  OUR PHILOSOPHY
+                </div>
+                <div className="hidden lg:block relative aspect-[3/4] mt-8 w-full">
+                  <Image
+                    src="/photos/hero.png"
+                    alt="西尾の街並み"
+                    fill
+                    sizes="25vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <div className="lg:col-span-9 lg:pl-8">
+                <h2
+                  className="text-green font-black leading-[1.18] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(30px, 4.4vw, 60px)" }}
+                >
+                  地域愛を、<br />地域発展の力に。
+                </h2>
+                <div className="mt-10 max-w-2xl space-y-6 text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
+                  <p>
+                    地域を良くするために、最初から大きなことをする必要はないと思っています。
+                    好きなお店に行く。面白い人を誰かに紹介する。地域のイベントに参加する。「こんなことをやってみたい」と声にする。
+                  </p>
+                  <p>
+                    そんな一人ひとりの小さな行動が、人をつなぎ、新しい挑戦を生み、やがて地域を動かす力になっていく。
+                  </p>
+                  <p className="text-green font-bold text-[20px] md:text-[26px] leading-[1.6] tracking-[-0.01em] pt-2">
+                    私たちは、地域への「好き」を、行動へ変えていきます。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== PROJECTS — 均等カードをやめ、案件ごとに異なる誌面レイアウトで見せる ===== */}
+        <section id="projects" className="scroll-mt-20 py-16 md:py-28 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="max-w-3xl">
+              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">PROJECTS</div>
+              <h2
+                className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
+              >
                 挑戦の、入り口をつくる。
               </h2>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <p className="mt-6 text-[16px] md:text-[18px] leading-body text-muted max-w-2xl">
+              <p className="mt-6 text-[16px] md:text-[18px] leading-[2] text-charcoal/80">
                 人・企業・地域をつなぎながら、西尾で取り組んでいるプロジェクト。
                 一つひとつが、次の挑戦者を呼ぶ入り口になる。
               </p>
-            </FadeIn>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {projects.map((p, i) => (
-                <FadeIn key={p.name} delay={i * 0.07}>
-                  <div className="bg-white rounded-2xl p-8 border border-border h-full">
+            </div>
+
+            <div className="mt-16 md:mt-24 flex flex-col gap-20 md:gap-28">
+              {/* 01 西尾働き方図鑑 — 写真なし。大きな連番タイポと本文の非対称 */}
+              <article className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+                <div className="md:col-span-4">
+                  <div className="flex items-baseline gap-4">
+                    <span
+                      className="text-terra font-black leading-none tracking-[-0.03em]"
+                      style={{ fontSize: "clamp(56px, 8vw, 104px)" }}
+                    >
+                      01
+                    </span>
+                    <span className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em] pb-2">
+                      {projects[0].cat}
+                    </span>
+                  </div>
+                </div>
+                <div className="md:col-span-8 md:border-l md:border-charcoal/10 md:pl-12">
+                  <h3
+                    className="text-green font-black leading-[1.3] tracking-[-0.02em]"
+                    style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}
+                  >
+                    {projects[0].name}
+                  </h3>
+                  <p className="mt-5 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                    {projects[0].desc}
+                  </p>
+                </div>
+              </article>
+
+              {/* 02 西尾筋肉祭り */}
+              <article className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-10 md:pt-12">
+                <div className="md:col-span-4 flex items-baseline gap-4">
+                  <span className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(56px, 8vw, 104px)" }}>02</span>
+                  <span className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em] pb-2">{projects[1].cat}</span>
+                </div>
+                <div className="md:col-span-8">
+                  <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>{projects[1].name}</h3>
+                  <p className="mt-5 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[1].desc}</p>
+                </div>
+              </article>
+
+              {/* 03 AI活用研究会 */}
+              <article className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-10 md:pt-12">
+                <div className="md:col-span-4 flex items-baseline gap-4">
+                  <span className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(56px, 8vw, 104px)" }}>03</span>
+                  <span className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em] pb-2">{projects[2].cat}</span>
+                </div>
+                <div className="md:col-span-8">
+                  <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>{projects[2].name}</h3>
+                  <p className="mt-5 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[2].desc}</p>
+                </div>
+              </article>
+
+              {/* 04 その他 — 進行中のステートメントバンド（緑帯） */}
+              <article className="rounded-2xl bg-green text-white p-10 md:p-16">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
+                  <div className="md:col-span-8">
                     <div className="flex items-center gap-3">
-                      <div className="text-[11px] font-bold tracking-widest-label text-coral">{p.cat}</div>
-                      {p.ongoing && (
-                        <span className="text-[11px] font-bold text-coral bg-coral/10 rounded-full px-3 py-0.5">
+                      <span className="text-white/50 text-[13px] font-bold tracking-[0.16em]">
+                        {projects[3].cat}
+                      </span>
+                      {projects[3].ongoing && (
+                        <span className="text-[11px] font-bold text-green bg-terra rounded-full px-3 py-0.5">
                           進行中
                         </span>
                       )}
                     </div>
-                    <div className="mt-3 text-[20px] font-black tracking-heading text-navy leading-heading">
-                      {p.name}
-                    </div>
-                    <p className="mt-4 text-[14px] md:text-[15px] leading-relaxed text-muted">{p.desc}</p>
+                    <h3
+                      className="mt-4 font-black leading-[1.25] tracking-[-0.02em]"
+                      style={{ fontSize: "clamp(24px, 3.4vw, 44px)" }}
+                    >
+                      {projects[3].name}
+                    </h3>
+                    <p className="mt-5 max-w-lg text-[15px] md:text-[16px] leading-[2] text-white/80">
+                      {projects[3].desc}
+                    </p>
                   </div>
-                </FadeIn>
-              ))}
+                  <div className="md:col-span-4 md:text-right">
+                    <Link
+                      href="/contact"
+                      className="inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity"
+                    >
+                      次の挑戦を持ち込む →
+                    </Link>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
         </section>
 
-        {/* 地域推し活（循環サイクル） */}
-        <section className="py-section px-8 md:px-12 bg-warm">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-coral">地域推し活</div>
-            </FadeIn>
-            <FadeIn delay={0.05}>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
+        {/* ===== 地域推し活 — 循環リング。緑×テラコッタ / アイボリー基調 ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="max-w-3xl">
+              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">地域推し活</div>
+              <h2
+                className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
+              >
                 好きになることから、<br className="hidden sm:block" />地域は動きはじめる。
               </h2>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <p className="mt-6 text-[16px] md:text-[18px] leading-body text-muted max-w-2xl">
+              <p className="mt-6 text-[16px] md:text-[18px] leading-[2] text-charcoal/80">
                 「好き」から始まる関わりが、応援を生み、行動になり、やがて挑戦と共創へ。
                 その循環が、また次の「好き」を連れてくる。
               </p>
-            </FadeIn>
+            </div>
 
             {/* 循環サイクル図 */}
-            <FadeIn delay={0.15}>
-              <div className="mt-14">
-                {/* デスクトップ：リング */}
-                <div className="hidden md:block">
-                  <div className="relative mx-auto aspect-square w-full max-w-[560px]">
-                    {/* リングの土台 */}
-                    <div className="absolute inset-[9%] rounded-full border-2 border-dashed border-coral/30" />
-                    {/* 中心 */}
-                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-[46%]">
-                      <div className="text-[13px] font-black tracking-heading text-navy">地域推し活</div>
-                      <div className="mt-2 text-[12px] font-bold text-coral leading-relaxed">
-                        好き → 応援 → 行動<br />→ 挑戦 → 共創
-                      </div>
+            <div className="mt-16 md:mt-20">
+              {/* デスクトップ：リング */}
+              <div className="hidden md:block">
+                <div className="relative mx-auto aspect-square w-full max-w-[620px]">
+                  {/* リングの土台 */}
+                  <div className="absolute inset-[9%] rounded-full border-2 border-dashed border-green/25" />
+                  {/* 中心 */}
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-[46%]">
+                    <div className="text-[15px] font-black tracking-[-0.02em] text-green">地域推し活</div>
+                    <div className="mt-2 text-[12px] font-bold text-terra leading-[1.8]">
+                      好き → 応援 → 行動<br />→ 挑戦 → 共創
                     </div>
-                    {/* ノード */}
-                    {cycle.map((label, i) => (
-                      <div
-                        key={label}
-                        className="absolute -translate-x-1/2 -translate-y-1/2"
-                        style={{ left: `${cyclePos[i].left}%`, top: `${cyclePos[i].top}%` }}
-                      >
-                        <div className="flex flex-col items-center">
-                          <div className="w-8 h-8 rounded-full bg-coral text-white text-[12px] font-black flex items-center justify-center">
-                            {i + 1}
-                          </div>
-                          <div className="mt-2 whitespace-nowrap rounded-full bg-white border border-border px-4 py-1.5 text-[13px] font-bold text-navy">
-                            {label}
-                          </div>
+                  </div>
+                  {/* ノード */}
+                  {cycle.map((label, i) => (
+                    <div
+                      key={label}
+                      className="absolute -translate-x-1/2 -translate-y-1/2"
+                      style={{ left: `${cyclePos[i].left}%`, top: `${cyclePos[i].top}%` }}
+                    >
+                      <div className="flex flex-col items-center">
+                        <div className="w-9 h-9 rounded-full bg-terra text-white text-[13px] font-black flex items-center justify-center">
+                          {i + 1}
+                        </div>
+                        <div className="mt-2 whitespace-nowrap rounded-full bg-ivory border border-charcoal/10 px-4 py-1.5 text-[13px] font-bold text-green">
+                          {label}
                         </div>
                       </div>
-                    ))}
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-8 text-center text-[13px] font-bold text-terra">
+                  ↻ 「次の挑戦へ」は、また「知る」へ戻り、循環しつづける。
+                </p>
+              </div>
+
+              {/* モバイル：縦フロー */}
+              <div className="md:hidden mt-4">
+                <div className="rounded-2xl border border-charcoal/10 bg-ivory p-6">
+                  <div className="text-center text-[14px] font-black tracking-[-0.02em] text-green">地域推し活</div>
+                  <div className="mt-1 text-center text-[12px] font-bold text-terra">
+                    好き → 応援 → 行動 → 挑戦 → 共創
                   </div>
-                  <p className="mt-6 text-center text-[13px] font-bold text-muted">
-                    ↻ 「次の挑戦へ」は、また「知る」へ戻り、循環しつづける。
+                  <ol className="mt-6 space-y-0">
+                    {cycle.map((label, i) => (
+                      <li key={label}>
+                        <div className="flex items-center gap-3">
+                          <div className="w-7 h-7 shrink-0 rounded-full bg-terra text-white text-[12px] font-black flex items-center justify-center">
+                            {i + 1}
+                          </div>
+                          <div className="text-[15px] font-bold text-green">{label}</div>
+                        </div>
+                        {i < cycle.length - 1 && (
+                          <div className="ml-3 h-5 border-l-2 border-green/25" aria-hidden="true" />
+                        )}
+                      </li>
+                    ))}
+                  </ol>
+                  <div className="mt-4 text-[12px] font-bold text-terra">↻ 「知る」へ戻り、循環しつづける。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== OUR GOAL — 大きなステートメント ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+              <div className="lg:col-span-5">
+                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">OUR GOAL</div>
+                <h2
+                  className="mt-4 text-green font-black leading-[1.2] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(30px, 4.4vw, 60px)" }}
+                >
+                  挑戦する人を、<br />一人ずつ増やす。
+                </h2>
+              </div>
+              <div className="lg:col-span-7 lg:pt-3">
+                <div className="max-w-2xl space-y-6 text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
+                  <p>
+                    イベントを開催すること自体がゴールではありません。地域の中に「自分もやってみよう」と思う人が増えること。
+                  </p>
+                  <p>
+                    一人の挑戦に仲間が集まり、新しい仕事や価値が生まれ、その姿が次の誰かを動かす。
+                    そんな挑戦と共創の循環をつくります。
                   </p>
                 </div>
-
-                {/* モバイル：縦フロー */}
-                <div className="md:hidden mt-4">
-                  <div className="rounded-2xl border border-border bg-white p-6">
-                    <div className="text-center text-[13px] font-black tracking-heading text-navy">地域推し活</div>
-                    <div className="mt-1 text-center text-[12px] font-bold text-coral">
-                      好き → 応援 → 行動 → 挑戦 → 共創
-                    </div>
-                    <ol className="mt-6 space-y-0">
-                      {cycle.map((label, i) => (
-                        <li key={label}>
-                          <div className="flex items-center gap-3">
-                            <div className="w-7 h-7 shrink-0 rounded-full bg-coral text-white text-[12px] font-black flex items-center justify-center">
-                              {i + 1}
-                            </div>
-                            <div className="text-[15px] font-bold text-navy">{label}</div>
-                          </div>
-                          {i < cycle.length - 1 && (
-                            <div className="ml-3 h-5 border-l-2 border-coral/30" aria-hidden="true" />
-                          )}
-                        </li>
-                      ))}
-                    </ol>
-                    <div className="mt-4 text-[12px] font-bold text-muted">↻ 「知る」へ戻り、循環しつづける。</div>
-                  </div>
-                </div>
               </div>
-            </FadeIn>
+            </div>
           </div>
         </section>
 
-        {/* OUR GOAL */}
-        <section className="py-section px-8 md:px-12 bg-white">
-          <div className="mx-auto max-w-3xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-coral">OUR GOAL</div>
-            </FadeIn>
-            <FadeIn delay={0.05}>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
-                挑戦する人を、<br className="hidden sm:block" />一人ずつ増やす。
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div className="mt-8 space-y-6 text-[16px] md:text-[18px] leading-body text-ink/80">
-                <p>
-                  イベントを開催すること自体がゴールではありません。地域の中に「自分もやってみよう」と思う人が増えること。
-                </p>
-                <p>
-                  一人の挑戦に仲間が集まり、新しい仕事や価値が生まれ、その姿が次の誰かを動かす。
-                  そんな挑戦と共創の循環をつくります。
-                </p>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* MID-TERM GOAL */}
-        <section className="py-section px-8 md:px-12 bg-warm">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-coral">MID-TERM GOAL</div>
-            </FadeIn>
-            <FadeIn delay={0.05}>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
-                まずは、西尾から。
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div className="mt-10 rounded-2xl bg-white border border-border p-10 md:p-14">
-                <div className="text-[15px] md:text-[17px] font-bold text-muted">2040年までに、</div>
-                <div className="mt-2 flex flex-wrap items-end gap-x-4 gap-y-2">
-                  <div className="text-navy leading-none font-black tracking-tight">
-                    <span className="text-[80px] md:text-[120px] text-coral">240</span>
-                    <span className="text-[28px] md:text-[40px] ml-1">事業</span>
+        {/* ===== MID-TERM GOAL — 240 をテラコッタの大数字グラフィックで（TOP呼応） ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="text-terra text-[12px] font-bold tracking-[0.2em]">MID-TERM GOAL</div>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+              <div className="md:col-span-7">
+                <div className="text-[15px] md:text-[17px] font-bold text-charcoal/70">2040年までに、</div>
+                <div className="mt-2 flex flex-wrap items-end gap-x-5 gap-y-2">
+                  <div className="flex items-end text-green leading-[0.85] font-black tracking-[-0.04em]">
+                    <span className="text-terra" style={{ fontSize: "clamp(120px, 20vw, 260px)" }}>
+                      240
+                    </span>
+                    <span className="text-[32px] md:text-[52px] ml-2 pb-3 md:pb-6">事業</span>
                   </div>
-                  <div className="text-[18px] md:text-[24px] font-black text-navy pb-2">を、西尾に。</div>
+                  <div className="text-[22px] md:text-[32px] font-black text-green pb-4 md:pb-8">を、西尾に。</div>
                 </div>
-                <p className="mt-6 text-[13px] text-muted">
+              </div>
+              <div className="md:col-span-5 md:border-l md:border-charcoal/10 md:pl-10">
+                <h2
+                  className="text-green font-black leading-[1.25] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
+                >
+                  まずは、西尾から。
+                </h2>
+                <p className="mt-5 text-[15px] leading-[2] text-charcoal/80">
+                  数を追うことが目的ではありません。一つひとつの事業の裏に、挑戦した人がいる。その積み重ねを、西尾で。
+                </p>
+                <p className="mt-4 text-[13px] text-muted">
                   ※ 240事業はVisionではなく、私たちが掲げる中期目標です。
                 </p>
               </div>
-            </FadeIn>
+            </div>
           </div>
         </section>
 
-        {/* HOW WE WORK */}
-        <section className="py-section px-8 md:px-12 bg-white">
-          <div className="mx-auto max-w-5xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-coral">HOW WE WORK</div>
-            </FadeIn>
-            <FadeIn delay={0.05}>
-              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
+        {/* ===== HOW WE WORK — 4ステップを大きな連番の編集ロウで（均等カードをやめる） ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="max-w-3xl">
+              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">HOW WE WORK</div>
+              <h2
+                className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
+              >
                 私たちの進め方。
               </h2>
-            </FadeIn>
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {howWeWork.map((h, i) => (
-                <FadeIn key={h.step} delay={i * 0.07}>
-                  <div>
-                    <div className="text-[40px] font-black text-coral/25 leading-none">{h.step}</div>
-                    <h3 className="mt-4 text-[22px] font-black tracking-heading text-navy">{h.title}</h3>
-                    <p className="mt-3 text-[15px] leading-body text-muted">{h.body}</p>
+            </div>
+
+            <div className="mt-14 md:mt-20 flex flex-col divide-y divide-charcoal/10">
+              {howWeWork.map((h) => (
+                <div
+                  key={h.step}
+                  className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-12 items-baseline py-8 md:py-10"
+                >
+                  <div className="md:col-span-3">
+                    <span
+                      className="text-terra font-black leading-none tracking-[-0.03em]"
+                      style={{ fontSize: "clamp(48px, 6vw, 88px)" }}
+                    >
+                      {h.step}
+                    </span>
                   </div>
-                </FadeIn>
+                  <h3
+                    className="md:col-span-4 text-green font-black tracking-[-0.02em] leading-[1.3]"
+                    style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}
+                  >
+                    {h.title}
+                  </h3>
+                  <p className="md:col-span-5 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                    {h.body}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section id="contact" className="py-section px-8 md:px-12 bg-navy text-white text-center">
-          <div className="mx-auto max-w-3xl">
-            <FadeIn>
-              <div className="text-[11px] font-bold tracking-widest-label text-coral">CONTACT</div>
-            </FadeIn>
-            <FadeIn delay={0.05}>
-              <h2 className="mt-5 text-[34px] md:text-[52px] font-black tracking-heading leading-heading">
-                地域に、<br className="hidden sm:block" />一緒に仕掛けませんか。
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <p className="mt-6 text-[16px] leading-body text-white/70">
-                「こんなことをやってみたい」から話しましょう。<br />
-                まだアイデアがふわっとしていても大丈夫です。
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <a
-                href="/contact"
-                className="mt-10 inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
+        {/* ===== CTA — Deep Green のバンド＋テラコッタボタンで締める ===== */}
+        <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="text-white/60 text-[12px] font-bold tracking-[0.2em]">CONTACT</div>
+            <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+              <h2
+                className="lg:col-span-8 font-black leading-[1.15] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(34px, 5.5vw, 76px)" }}
               >
-                一緒にプロジェクトをつくる →
-              </a>
-            </FadeIn>
+                地域に、<br />一緒に仕掛けませんか。
+              </h2>
+              <div className="lg:col-span-4 lg:pb-4">
+                <p className="text-[15px] leading-[2] text-white/75">
+                  「こんなことをやってみたい」から話しましょう。まだアイデアがふわっとしていても大丈夫です。
+                </p>
+                <Link
+                  href="/contact"
+                  className="mt-6 inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity"
+                >
+                  一緒にプロジェクトをつくる →
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
       </main>

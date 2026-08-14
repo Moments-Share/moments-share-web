@@ -1,21 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* --- Brand palette (logo-derived: navy wordmark + teal emblem + accent dots) --- */
-  --color-navy: #232a4d;      /* logo navy — headings, primary text, dark bands */
-  --color-teal: #12a0ae;      /* logo emblem teal — primary accent / CTA */
-  --color-accent: #12a0ae;    /* alias of teal (kept for existing utilities) */
-  --color-green: #12a0ae;     /* repurposed to teal (kept for existing bg-green/text-green) */
-  --color-coral: #ef5d6c;     /* logo accent dot — energy / 地域プロデュース */
-  --color-amber: #f5a93c;     /* logo accent dot — optional highlight */
-  --color-dark: #1b2140;      /* deep navy for dark sections */
+  /* --- Brand palette: Deep Green × Terracotta × Warm Ivory (editorial) --- */
+  --color-green: #375a4a;     /* PRIMARY Deep Green — logo, 主要見出し, 重要UI, 一部CTA */
+  --color-terra: #c97a56;     /* ACCENT Terracotta — 数字/小さなライン/CTA/強調（少量で効かせる） */
+  --color-sage: #829b82;      /* Supporting Sage Green */
+  --color-charcoal: #252825;  /* Charcoal — 本文/濃い文字 */
+  --color-ivory: #f8f5ef;     /* BASE Warm Ivory — サイト全体の基本背景 */
 
-  --color-ink: #1c2033;       /* near-navy black — body text */
-  --color-muted: #6b7080;     /* muted body text */
+  /* --- Legacy token aliases (remapped so既存ページも自動で新パレットへ) --- */
+  --color-navy: #375a4a;      /* → deep green (headings / dark bands) */
+  --color-teal: #c97a56;      /* → terracotta (accents/labels) */
+  --color-accent: #c97a56;    /* → terracotta */
+  --color-coral: #c97a56;     /* → terracotta */
+  --color-dark: #252825;      /* → charcoal (darkest bands) */
+
+  --color-ink: #252825;       /* body text — charcoal */
+  --color-muted: #837b6e;     /* muted warm gray */
   --color-white: #ffffff;
-  --color-light: #eef1f6;     /* cool light — card / subtle band */
-  --color-warm: #f7f5ef;      /* warm paper — alternate band */
-  --color-border: rgba(0, 0, 0, 0.08);
+  --color-light: #efeae0;     /* deeper ivory — subtle band */
+  --color-warm: #f8f5ef;      /* ivory (alt band) */
+  --color-border: rgba(37, 40, 37, 0.10);
 
   --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
 
@@ -52,8 +57,8 @@
   }
 
   body {
-    background: #fff;
-    color: #1c2033;
+    background: #f8f5ef;
+    color: #252825;
     font-family: var(--font-sans);
     font-size: 17px;
     line-height: 2.0;
@@ -61,7 +66,7 @@
   }
 
   ::selection {
-    background: #12a0ae;
+    background: #c97a56;
     color: #fff;
   }
 }

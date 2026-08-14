@@ -2,6 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     { "source": "/mvv", "destination": "/about", "permanent": true },
-    { "source": "/group", "destination": "/about", "permanent": true }
+    { "source": "/group", "destination": "/about", "permanent": true },
+    { "source": "/projects", "destination": "/works", "permanent": true }
   ]
 }

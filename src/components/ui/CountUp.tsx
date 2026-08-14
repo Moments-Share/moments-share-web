@@ -13,23 +13,17 @@ interface CountUpProps {
 export function CountUp({ to, suffix = "", prefix = "", duration = 2, className }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
-  // SSR: render final value as fallback; client resets to 0 then counts up
+  // Initial value = final value → matches SSR (no hydration mismatch, works without JS).
+  // When scrolled into view, the rAF loop counts up from ~0 to `to`.
   const [display, setDisplay] = useState(to);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    setDisplay(0);
-  }, []);
-
-  useEffect(() => {
-    if (!isInView || !mounted) return;
-    let raf: number;
+    if (!isInView) return;
+    let raf = 0;
     let startTime: number | null = null;
     const step = (ts: number) => {
-      if (!startTime) startTime = ts;
-      const elapsed = ts - startTime;
-      const progress = Math.min(elapsed / (duration * 1000), 1);
+      if (startTime === null) startTime = ts;
+      const progress = Math.min((ts - startTime) / (duration * 1000), 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setDisplay(Math.round(eased * to));
       if (progress < 1) {
@@ -40,7 +34,7 @@ export function CountUp({ to, suffix = "", prefix = "", duration = 2, className 
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, [isInView, mounted, to, duration]);
+  }, [isInView, to, duration]);
 
   return (
     <span ref={ref} className={className}>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Nav } from "@/components/ui/Nav";
 import { ServiceHero } from "@/components/ui/ServiceHero";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -72,7 +71,7 @@ export const metadata: Metadata = {
       "忙しさを、余白へ。毎月繰り返す業務をAI・自動化で減らす伴走型DX支援。まず業務を整理し、効果のあるところから改善します。愛知県西尾市発。",
     locale: "ja_JP",
     type: "website",
-    url: "https://momentsshare.com/service-dx",
+    url: "https://moments-share.com/service-dx",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
@@ -92,7 +91,7 @@ const jsonLd = {
   "provider": {
     "@type": "LocalBusiness",
     "name": "Moments Share合同会社",
-    "url": "https://momentsshare.com",
+    "url": "https://moments-share.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "西尾市",
@@ -102,12 +101,12 @@ const jsonLd = {
   },
   "serviceType": "DXコンサルティング・業務自動化",
   "areaServed": { "@type": "Place", "name": "愛知県 西尾市" },
-  "url": "https://momentsshare.com/service-dx",
+  "url": "https://moments-share.com/service-dx",
   "breadcrumb": {
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://momentsshare.com/" },
-      { "@type": "ListItem", "position": 2, "name": "DX支援", "item": "https://momentsshare.com/service-dx" },
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://moments-share.com/" },
+      { "@type": "ListItem", "position": 2, "name": "DX支援", "item": "https://moments-share.com/service-dx" },
     ],
   },
 };
@@ -137,7 +136,7 @@ export default function ServiceDX() {
               どの業務が自動化できそうか、まず一緒に見てみませんか。
             </p>
             <a
-              href="mailto:branding@momentsshare.com"
+              href="/contact"
               className="inline-block shrink-0 bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity text-center"
             >
               自動化できる業務を相談する →
@@ -304,7 +303,7 @@ export default function ServiceDX() {
               「何をAI化すればいいかわからない」という段階でも大丈夫です。
             </p>
             <a
-              href="mailto:branding@momentsshare.com"
+              href="/contact"
               className="mt-10 inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
             >
               30分無料相談 →

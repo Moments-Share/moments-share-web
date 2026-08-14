@@ -59,7 +59,7 @@ export function Nav() {
 
         <div className="flex items-center gap-3">
           <Link
-            href="/#contact"
+            href="/contact"
             className="text-[13px] font-bold text-white bg-green px-6 py-2.5 rounded-full hover:bg-[#0f8f9c] transition-colors"
           >
             お問い合わせ
@@ -119,7 +119,7 @@ export function Nav() {
               ))}
             </nav>
             <Link
-              href="/#contact"
+              href="/contact"
               className="mt-10 text-center text-[15px] font-bold text-white bg-green px-8 py-4 rounded-full hover:bg-[#0f8f9c] transition-colors"
               onClick={() => setMobileOpen(false)}
             >

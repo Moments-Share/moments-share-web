@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description:
       "働き方も場所も得意も違う人たちが、力を持ち寄って一緒に仕事やプロジェクトをつくる。Moments Shareに関わる人たち。",
     type: "website",
-    url: "https://momentsshare.com/people",
+    url: "https://moments-share.com/people",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
 };
@@ -100,7 +100,7 @@ export default function PeoplePage() {
             働き方も場所も問いません。まずは気軽に話すところから。
           </p>
           <a
-            href="mailto:branding@momentsshare.com"
+            href="/contact"
             className="mt-10 inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
           >
             Moments Shareに関わる →

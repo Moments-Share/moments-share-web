@@ -11,7 +11,7 @@ const companyLinks = [
   { href: "/about", label: "About" },
   { href: "/people", label: "People" },
   { href: "/news", label: "News" },
-  { href: "/#contact", label: "お問い合わせ" },
+  { href: "/contact", label: "お問い合わせ" },
 ];
 
 const snsLinks = [

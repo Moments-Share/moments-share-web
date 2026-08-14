@@ -30,7 +30,7 @@ export default function NewsPage() {
           </h1>
 
           <div>
-            {newsItems.map((item, i) => (
+            {newsItems.map((item) => (
               <div
                 key={item.slug}
                 className="border-t border-black/[0.06] last:border-b"

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       "人生は、やりたいことを実現するための時間。私たちは、その時間を増やしたい。Moments Shareの思想と歩み。愛知県西尾市発。",
     locale: "ja_JP",
     type: "website",
-    url: "https://momentsshare.com/about",
+    url: "https://moments-share.com/about",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
@@ -30,17 +30,17 @@ const jsonLd = {
   "name": "なぜ、この会社があるのか | Moments Share合同会社",
   "description":
     "人生は、やりたいことを実現するための時間。私たちは、その時間を増やしたい。Moments Shareの原点・ミッション・ビジョン・バリュー・会社概要。",
-  "url": "https://momentsshare.com/about",
+  "url": "https://moments-share.com/about",
   "publisher": {
     "@type": "Organization",
-    "@id": "https://momentsshare.com/#organization",
+    "@id": "https://moments-share.com/#organization",
     "name": "Moments Share合同会社",
   },
   "breadcrumb": {
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://momentsshare.com/" },
-      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://momentsshare.com/about" },
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://moments-share.com/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://moments-share.com/about" },
     ],
   },
 };
@@ -303,7 +303,7 @@ export default function AboutPage() {
               まだカタチになっていなくても大丈夫です。
             </p>
             <a
-              href="mailto:branding@momentsshare.com"
+              href="/contact"
               className="mt-10 inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
             >
               30分相談する →

@@ -1,7 +1,6 @@
 import { Nav } from "@/components/ui/Nav";
 import { ServiceHero } from "@/components/ui/ServiceHero";
 import { FadeIn } from "@/components/ui/FadeIn";
-import Link from "next/link";
 
 // 実在するプロジェクトのみ掲載する。架空の名称・事例は作成しない。
 const projects = [
@@ -60,7 +59,7 @@ export const metadata = {
     description: "地域課題を、挑戦のきっかけへ。人・企業・地域をつなぎ、挑戦と共創の循環をつくります。",
     locale: "ja_JP",
     type: "website",
-    url: "https://momentsshare.com/service-produce",
+    url: "https://moments-share.com/service-produce",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
@@ -80,7 +79,7 @@ const jsonLd = {
   "provider": {
     "@type": "LocalBusiness",
     "name": "Moments Share合同会社",
-    "url": "https://momentsshare.com",
+    "url": "https://moments-share.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "西尾市",
@@ -90,12 +89,12 @@ const jsonLd = {
   },
   "serviceType": "地域プロデュース・コミュニティ運営・イベント企画",
   "areaServed": { "@type": "Place", "name": "愛知県 西尾市" },
-  "url": "https://momentsshare.com/service-produce",
+  "url": "https://moments-share.com/service-produce",
   "breadcrumb": {
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://momentsshare.com/" },
-      { "@type": "ListItem", "position": 2, "name": "地域プロデュース", "item": "https://momentsshare.com/service-produce" },
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://moments-share.com/" },
+      { "@type": "ListItem", "position": 2, "name": "地域プロデュース", "item": "https://moments-share.com/service-produce" },
     ],
   },
 };
@@ -122,7 +121,7 @@ export default function ServiceProduce() {
           <div className="mx-auto max-w-5xl">
             <FadeIn>
               <a
-                href="mailto:branding@momentsshare.com"
+                href="/contact"
                 className="inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
               >
                 一緒にプロジェクトをつくる →
@@ -383,7 +382,7 @@ export default function ServiceProduce() {
             </FadeIn>
             <FadeIn delay={0.15}>
               <a
-                href="mailto:branding@momentsshare.com"
+                href="/contact"
                 className="mt-10 inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
               >
                 一緒にプロジェクトをつくる →

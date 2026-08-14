@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       "DX・BPO・地域プロデュースを通じて、企業・人・地域の可能性をつなぐ会社。愛知県西尾市発。",
     locale: "ja_JP",
     type: "website",
-    url: "https://momentsshare.com",
+    url: "https://moments-share.com",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
 };
@@ -196,7 +196,7 @@ export default function Home() {
             まだ課題が整理できていなくても大丈夫です。
           </p>
           <a
-            href="mailto:branding@momentsshare.com"
+            href="/contact"
             className="mt-10 inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
           >
             30分相談する →

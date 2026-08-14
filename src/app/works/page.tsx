@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description:
       "企業のDX・業務改善から地域プロジェクトまで。Moments Shareがつくってきた仕事の実績。",
     type: "website",
-    url: "https://momentsshare.com/works",
+    url: "https://moments-share.com/works",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
 };
@@ -161,7 +161,7 @@ export default function WorksPage() {
             「うちに合うかわからない」でも大丈夫です。まだ課題が整理できていなくても構いません。
           </p>
           <a
-            href="mailto:branding@momentsshare.com"
+            href="/contact"
             className="mt-10 inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
           >
             30分相談する →

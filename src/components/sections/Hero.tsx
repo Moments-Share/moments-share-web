@@ -110,7 +110,7 @@ export function Hero() {
             事業を見る →
           </Link>
           <Link
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center gap-2 border border-white/20 text-white/70 font-bold text-[13px] tracking-[0.04em] px-7 py-4 rounded-full hover:border-white/50 hover:text-white transition-colors"
           >
             30分相談する →

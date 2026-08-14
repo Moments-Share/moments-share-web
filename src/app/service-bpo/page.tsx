@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       "人手不足を、多様な働き方へ。必要な仕事を、必要な分だけ支えます。採用する・外注する・自動化する、その前に、まず仕事そのものを整理します。",
     locale: "ja_JP",
     type: "website",
-    url: "https://momentsshare.com/service-bpo",
+    url: "https://moments-share.com/service-bpo",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
@@ -33,7 +33,7 @@ const jsonLd = {
   "provider": {
     "@type": "LocalBusiness",
     "name": "Moments Share合同会社",
-    "url": "https://momentsshare.com",
+    "url": "https://moments-share.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "西尾市",
@@ -43,12 +43,12 @@ const jsonLd = {
   },
   "serviceType": "BPO・業務委託・アウトソーシング",
   "areaServed": { "@type": "Place", "name": "愛知県 西尾市" },
-  "url": "https://momentsshare.com/service-bpo",
+  "url": "https://moments-share.com/service-bpo",
   "breadcrumb": {
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://momentsshare.com/" },
-      { "@type": "ListItem", "position": 2, "name": "BPO", "item": "https://momentsshare.com/service-bpo" },
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://moments-share.com/" },
+      { "@type": "ListItem", "position": 2, "name": "BPO", "item": "https://moments-share.com/service-bpo" },
     ],
   },
 };
@@ -106,7 +106,7 @@ export default function ServiceBPO() {
         <section className="py-section-sm px-8 md:px-12 bg-navy text-white text-center">
           <div className="mx-auto max-w-2xl">
             <a
-              href="mailto:branding@momentsshare.com"
+              href="/contact"
               className="inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
             >
               外注できる業務を相談する →
@@ -257,7 +257,7 @@ export default function ServiceBPO() {
               採用するべきか、外注するべきか迷っている段階からご相談ください。
             </p>
             <a
-              href="mailto:branding@momentsshare.com"
+              href="/contact"
               className="mt-10 inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
             >
               30分無料相談 →

@@ -4,29 +4,30 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { href: "/about", label: "About" },
-  { href: "/#business", label: "Business" },
-  { href: "/works", label: "Works" },
-  { href: "/people", label: "People" },
-  { href: "/news", label: "News" },
+  { href: "/about", label: "About", en: "私たちについて" },
+  { href: "/#business", label: "Business", en: "3つの事業" },
+  { href: "/works", label: "Works", en: "実績" },
+  { href: "/people", label: "People", en: "関わる人たち" },
+  { href: "/news", label: "News", en: "お知らせ" },
 ];
 
 export function Nav() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
+  }, [open]);
 
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-ivory/85 backdrop-blur-md border-b border-charcoal/10">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 h-16 flex items-center justify-between">
-          <Link href="/" className="text-[17px] font-black tracking-[0.02em] text-charcoal">
+          <Link href="/" className="text-[17px] font-black tracking-[0.02em] text-charcoal" onClick={() => setOpen(false)}>
             Moments <span className="text-green">Share</span>
           </Link>
 
+          {/* Desktop links */}
           <nav className="hidden md:flex items-center gap-9 text-[13px] font-bold">
             {navLinks.map(({ href, label }) => (
               <Link key={href} href={href} className="text-charcoal/70 hover:text-green transition-colors">
@@ -34,61 +35,77 @@ export function Nav() {
               </Link>
             ))}
           </nav>
+          <Link
+            href="/contact"
+            className="hidden md:inline-block text-[13px] font-bold text-white bg-green px-5 py-2.5 rounded-full hover:bg-[#2c4a3c] transition-colors"
+          >
+            お問い合わせ
+          </Link>
 
-          <div className="flex items-center gap-3">
-            <Link
-              href="/contact"
-              className="hidden sm:inline-block text-[13px] font-bold text-white bg-green px-5 py-2.5 rounded-full hover:bg-[#2c4a3c] transition-colors"
-            >
-              お問い合わせ
-            </Link>
-            <button
-              className="md:hidden flex flex-col gap-[5px] p-2 -mr-2"
-              onClick={() => setMobileOpen((o) => !o)}
-              aria-label={mobileOpen ? "メニューを閉じる" : "メニューを開く"}
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-nav"
-            >
-              <span className="w-6 h-[2px] bg-charcoal block" />
-              <span className="w-6 h-[2px] bg-charcoal block" />
-              <span className="w-6 h-[2px] bg-charcoal block" />
-            </button>
-          </div>
+          {/* Mobile: MENU only */}
+          <button
+            className="md:hidden text-[13px] font-black tracking-[0.16em] text-charcoal"
+            onClick={() => setOpen(true)}
+            aria-label="メニューを開く"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+          >
+            MENU
+          </button>
         </div>
       </header>
 
+      {/* Fullscreen overlay */}
       <AnimatePresence>
-        {mobileOpen && (
+        {open && (
           <motion.div
             id="mobile-nav"
             role="dialog"
             aria-modal="true"
             aria-label="ナビゲーションメニュー"
-            className="fixed inset-0 z-40 bg-ivory flex flex-col pt-24 px-8 pb-12 md:hidden overflow-y-auto"
+            className="fixed inset-0 z-[60] bg-ivory flex flex-col md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <nav className="flex flex-col">
-              {navLinks.map(({ href, label }) => (
+            <div className="h-16 px-6 flex items-center justify-between border-b border-charcoal/10 shrink-0">
+              <span className="text-[17px] font-black tracking-[0.02em] text-charcoal">
+                Moments <span className="text-green">Share</span>
+              </span>
+              <button
+                className="text-[13px] font-black tracking-[0.16em] text-terra"
+                onClick={() => setOpen(false)}
+                aria-label="メニューを閉じる"
+              >
+                CLOSE
+              </button>
+            </div>
+
+            <nav className="flex-1 overflow-y-auto px-6 py-8 flex flex-col justify-center">
+              {navLinks.map(({ href, label, en }, i) => (
                 <Link
                   key={href}
                   href={href}
-                  className="text-[28px] font-black text-charcoal py-4 border-b border-charcoal/10"
-                  onClick={() => setMobileOpen(false)}
+                  className="group flex items-baseline gap-4 py-4 border-b border-charcoal/10"
+                  onClick={() => setOpen(false)}
                 >
-                  {label}
+                  <span className="text-terra font-black text-[13px] tracking-[0.1em] w-8 shrink-0">0{i + 1}</span>
+                  <span className="text-green font-black tracking-[-0.02em]" style={{ fontSize: "clamp(30px, 9vw, 44px)" }}>{label}</span>
+                  <span className="text-charcoal/40 text-[12px] font-bold ml-auto self-center">{en}</span>
                 </Link>
               ))}
             </nav>
-            <Link
-              href="/contact"
-              className="mt-10 text-center text-[15px] font-bold text-white bg-green px-8 py-4 rounded-full"
-              onClick={() => setMobileOpen(false)}
-            >
-              お問い合わせ
-            </Link>
+
+            <div className="px-6 pb-10 shrink-0">
+              <Link
+                href="/contact"
+                className="block text-center text-[15px] font-bold text-white bg-green px-8 py-4 rounded-full"
+                onClick={() => setOpen(false)}
+              >
+                お問い合わせ
+              </Link>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

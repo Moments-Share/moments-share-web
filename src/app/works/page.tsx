@@ -87,12 +87,9 @@ export default function WorksPage() {
         {/* ===== HERO — ページで最も強い見出し ===== */}
         <section className="pt-28 md:pt-32 pb-14 md:pb-20 px-6 md:px-10">
           <div className="mx-auto max-w-[1400px]">
-            <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
-              <span className="w-8 h-px bg-terra" />
-              WORKS
-            </div>
-            <h1 className="mt-8 text-green font-black leading-[1.12] tracking-[-0.03em]"
-                style={{ fontSize: "clamp(40px, 6.4vw, 92px)" }}>
+            <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/45">Works（実績）</div>
+            <h1 className="mt-5 text-green font-semibold leading-[1.16] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(34px, 5vw, 68px)" }}>
               カタチにして<br />きたこと。
             </h1>
             <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
@@ -105,7 +102,7 @@ export default function WorksPage() {
         {/* ===== 数字 — 4つを同じ大きさ・同じ重みで ===== */}
         <section className="py-16 md:py-24 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">数字で見る Moments Share</div>
+            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/45">数字で見る Moments Share</div>
             <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 border-t border-charcoal/10 pt-10">
               {stats.map((s) => (
                 <div key={s.label}>
@@ -124,8 +121,7 @@ export default function WorksPage() {
         <section className="py-16 md:py-28 px-6 md:px-10">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">DX CASE</div>
-              <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
+              <h2 className="text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                 業務を、余白に変えた事例。
               </h2>
             </div>
@@ -136,11 +132,11 @@ export default function WorksPage() {
                 <PhotoNeeded ratio="4/3" kind="MOMENTS" note="SNS自動化の運用・作業画面と手元（横）" />
               </div>
               <div className="md:col-span-6">
-                <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.14em]">{dxCases[0].tag}</div>
-                <h3 className="mt-4 text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3vw, 36px)" }}>{dxCases[0].title}</h3>
+                <div className="text-charcoal/45 text-[12px] font-semibold tracking-[0.08em]">{dxCases[0].tag}</div>
+                <h3 className="mt-4 text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 2.8vw, 34px)" }}>{dxCases[0].title}</h3>
                 <div className="mt-4 flex items-baseline gap-2">
-                  <span className="text-terra font-semibold leading-none tracking-[-0.02em]" style={{ fontSize: "clamp(44px, 6vw, 72px)" }}>約{dxCases[0].big}</span>
-                  <span className="text-terra font-bold text-[18px] md:text-[22px] pb-2">{dxCases[0].bigUnit}</span>
+                  <span className="text-green font-semibold leading-none tracking-[-0.02em]" style={{ fontSize: "clamp(40px, 5.4vw, 64px)" }}>約{dxCases[0].big}</span>
+                  <span className="text-green font-semibold text-[17px] md:text-[20px] pb-1.5">{dxCases[0].bigUnit}</span>
                 </div>
                 <div className="mt-2 text-[15px] font-bold text-charcoal/80">{dxCases[0].result}</div>
                 <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{dxCases[0].desc}</p>
@@ -169,10 +165,10 @@ export default function WorksPage() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               <div className="lg:col-span-4">
-                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">BPO CASE</div>
+                <div className="text-[12px] font-bold tracking-[0.14em] text-charcoal/45">BPO事例</div>
               </div>
               <div className="lg:col-span-8">
-                <h2 className="text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
+                <h2 className="text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 3vw, 38px)" }}>
                   人が必要な仕事を、<br className="hidden sm:block" />一緒に支えた事例。
                 </h2>
                 {/* TODO: 実在するBPO支援の具体事例（企業名は伏せて内容・成果）を追記する。架空の事例は掲載しない。 */}
@@ -188,8 +184,7 @@ export default function WorksPage() {
         <section className="py-16 md:py-28 px-6 md:px-10">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">REGIONAL PROJECTS</div>
-              <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
+              <h2 className="text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                 地域に、挑戦の<br className="hidden sm:block" />きっかけをつくった。
               </h2>
             </div>
@@ -234,11 +229,11 @@ export default function WorksPage() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               <div className="lg:col-span-4">
-                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">VOICE</div>
+                <div className="text-[12px] font-bold tracking-[0.14em] text-charcoal/45">お客様の声</div>
               </div>
               <div className="lg:col-span-8">
-                <h2 className="text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
-                  お客様の声。
+                <h2 className="text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 3vw, 38px)" }}>
+                  実際に、どう変わったか。
                 </h2>
                 {/* TODO: 実在するお客様の声（許諾済みのコメント・お名前/イニシャル）を掲載する。架空のコメントは作成しない。 */}
                 <p className="mt-8 max-w-2xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">

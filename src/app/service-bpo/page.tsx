@@ -100,13 +100,10 @@ export default function ServiceBPO() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-end">
               <div className="lg:col-span-7 lg:pb-4">
-                <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
-                  <span className="w-8 h-px bg-terra" />
-                  BPO — BUSINESS PROCESS OUTSOURCING
-                </div>
+                <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/45">BPO</div>
                 <h1
-                  className="mt-8 text-green font-black leading-[1.14] tracking-[-0.03em]"
-                  style={{ fontSize: "clamp(40px, 6.4vw, 96px)" }}
+                  className="mt-5 text-green font-semibold leading-[1.18] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(34px, 5vw, 72px)" }}
                 >
                   人手不足を、<br />多様な働き方へ。
                 </h1>
@@ -141,8 +138,7 @@ export default function ServiceBPO() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">FOR THESE COMPANIES</div>
-              <h2 className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
+              <h2 className="text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
                 こんな企業に。
               </h2>
             </div>
@@ -162,10 +158,9 @@ export default function ServiceBPO() {
         {/* ===== 重要メッセージ — ページの核。大きな緑のタイポと余白だけで見せる ===== */}
         <section className="py-24 md:py-40 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">MESSAGE</div>
             <h2
-              className="mt-8 text-green font-semibold leading-[1.18] tracking-[-0.02em]"
-              style={{ fontSize: "clamp(32px, 5vw, 68px)" }}
+              className="text-green font-semibold leading-[1.22] tracking-[-0.02em]"
+              style={{ fontSize: "clamp(28px, 4vw, 54px)" }}
             >
               その仕事、本当に<br />採用が必要ですか？
             </h2>
@@ -182,8 +177,7 @@ export default function ServiceBPO() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">SERVICE</div>
-              <h2 className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
+              <h2 className="text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
                 支えられる仕事。
               </h2>
             </div>
@@ -210,10 +204,9 @@ export default function ServiceBPO() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
               <div className="lg:col-span-9">
-                <div className="text-white/60 text-[12px] font-bold tracking-[0.16em]">DX × BPO</div>
                 <h2
-                  className="mt-6 font-semibold leading-[1.22] tracking-[-0.02em]"
-                  style={{ fontSize: "clamp(28px, 4vw, 54px)" }}
+                  className="font-semibold leading-[1.25] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(26px, 3.6vw, 48px)" }}
                 >
                   自動化できる仕事は減らす。<br />
                   人が必要な仕事だけ支える。
@@ -236,8 +229,7 @@ export default function ServiceBPO() {
                 <PhotoNeeded ratio="4/5" kind="PEOPLE" note="多様な働き方の人・活動中（横/縦を混在）" />
               </div>
               <div className="lg:col-span-7 order-2">
-                <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">TEAM</div>
-                <h2 className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
+                <h2 className="text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
                   多様な人と、一緒に支える。
                 </h2>
                 <p className="mt-6 max-w-lg text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
@@ -260,8 +252,7 @@ export default function ServiceBPO() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">PROCESS</div>
-              <h2 className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
+              <h2 className="text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
                 進め方。
               </h2>
             </div>
@@ -284,9 +275,8 @@ export default function ServiceBPO() {
         {/* ===== CONTACT — Deep Green のバンドで締める。ボタンはテラコッタ ===== */}
         <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-white/60 text-[12px] font-bold tracking-[0.16em]">CONTACT</div>
-            <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-              <h2 className="lg:col-span-8 font-semibold leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(30px, 4vw, 54px)" }}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+              <h2 className="lg:col-span-8 font-semibold leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 3.6vw, 52px)" }}>
                 どの仕事を外に出せるか、<br className="hidden sm:block" />一緒に整理します。
               </h2>
               <div className="lg:col-span-4 lg:pb-4">
@@ -297,7 +287,7 @@ export default function ServiceBPO() {
                   href="/contact"
                   className="mt-6 inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity"
                 >
-                  30分無料相談 →
+                  外注できる業務を相談する →
                 </Link>
               </div>
             </div>

@@ -26,11 +26,12 @@ const ways = [
   { title: "自分でプロジェクトを始める", desc: "「やってみたい」を持ち込み、挑戦者として動き出す。" },
 ];
 
+// 多様な関わり方が見える一場面。同サイズの反復にしないため向きを混在させる
 const memberPhotos = [
   { ratio: "3/4", note: "専門人材が現場で手を動かす場面（縦）" },
-  { ratio: "3/4", note: "副業メンバーの作業中（縦）" },
-  { ratio: "3/4", note: "子育てをしながら働く人の一場面（縦）" },
-  { ratio: "3/4", note: "学生が地域で活動する場面（縦）" },
+  { ratio: "4/5", note: "副業メンバーの作業中（縦）" },
+  { ratio: "1/1", note: "子育てをしながら働く人の一場面（横）" },
+  { ratio: "4/5", note: "学生が経営者へ質問する場面（縦）" },
   { ratio: "3/4", note: "メンバーが集まって話し合う場面（縦）" },
 ];
 
@@ -44,12 +45,9 @@ export default function PeoplePage() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-end">
               <div className="lg:col-span-6 lg:pb-6">
-                <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
-                  <span className="w-8 h-px bg-terra" />
-                  PEOPLE
-                </div>
-                <h1 className="mt-8 text-green font-black leading-[1.12] tracking-[-0.03em]"
-                    style={{ fontSize: "clamp(44px, 7vw, 96px)" }}>
+                <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/45">People</div>
+                <h1 className="mt-5 text-green font-semibold leading-[1.16] tracking-[-0.02em]"
+                    style={{ fontSize: "clamp(34px, 5vw, 68px)" }}>
                   一緒につくる<br />人たち。
                 </h1>
                 <p className="mt-8 max-w-lg text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
@@ -79,17 +77,14 @@ export default function PeoplePage() {
                 </h2>
               </div>
               <div className="lg:col-span-8">
-                <ol className="divide-y divide-charcoal/10 border-t border-charcoal/10">
-                  {ways.map((w, i) => (
-                    <li key={w.title} className="grid grid-cols-[auto_1fr] gap-5 md:gap-8 py-7 md:py-9 items-baseline">
-                      <span className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 26px)" }}>0{i + 1}</span>
-                      <div>
-                        <h3 className="text-green font-semibold leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(18px, 2.2vw, 25px)" }}>{w.title}</h3>
-                        <p className="mt-2 max-w-xl text-[15px] leading-[2] text-charcoal/80">{w.desc}</p>
-                      </div>
+                <ul className="divide-y divide-charcoal/10 border-t border-charcoal/10">
+                  {ways.map((w) => (
+                    <li key={w.title} className="py-7 md:py-9">
+                      <h3 className="text-green font-semibold leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(18px, 2.2vw, 25px)" }}>{w.title}</h3>
+                      <p className="mt-2 max-w-xl text-[15px] leading-[2] text-charcoal/80">{w.desc}</p>
                     </li>
                   ))}
-                </ol>
+                </ul>
               </div>
             </div>
           </div>
@@ -98,8 +93,7 @@ export default function PeoplePage() {
         {/* ===== MEMBERS — 代表を大きな写真＋バイオで ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">MEMBERS</div>
-            <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
+            <h2 className="text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
               メンバー
             </h2>
 
@@ -148,7 +142,7 @@ export default function PeoplePage() {
               </div>
 
               {/* 活動中の一場面（証明写真にしない）。同じ体裁で静かに並べる */}
-              <div className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5">
+              <div className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 items-start">
                 {memberPhotos.map((p, i) => (
                   <PhotoNeeded key={i} ratio={p.ratio} kind="PEOPLE" note={p.note} />
                 ))}

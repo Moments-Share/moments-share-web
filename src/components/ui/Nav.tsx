@@ -83,15 +83,14 @@ export function Nav() {
             </div>
 
             <nav className="flex-1 overflow-y-auto px-6 py-8 flex flex-col justify-center">
-              {navLinks.map(({ href, label, en }, i) => (
+              {navLinks.map(({ href, label, en }) => (
                 <Link
                   key={href}
                   href={href}
                   className="group flex items-baseline gap-4 py-4 border-b border-charcoal/10"
                   onClick={() => setOpen(false)}
                 >
-                  <span className="text-terra font-black text-[13px] tracking-[0.1em] w-8 shrink-0">0{i + 1}</span>
-                  <span className="text-green font-black tracking-[-0.02em]" style={{ fontSize: "clamp(30px, 9vw, 44px)" }}>{label}</span>
+                  <span className="text-green font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 7vw, 38px)" }}>{label}</span>
                   <span className="text-charcoal/40 text-[12px] font-bold ml-auto self-center">{en}</span>
                 </Link>
               ))}

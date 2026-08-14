@@ -37,12 +37,9 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
               {/* 左：問いかけ＋現場写真 */}
               <div className="lg:col-span-5 lg:sticky lg:top-28">
-                <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
-                  <span className="w-8 h-px bg-terra" />
-                  CONTACT
-                </div>
-                <h1 className="mt-8 text-green font-black leading-[1.12] tracking-[-0.03em]"
-                    style={{ fontSize: "clamp(40px, 5.5vw, 76px)" }}>
+                <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/45">お問い合わせ</div>
+                <h1 className="mt-5 text-green font-semibold leading-[1.16] tracking-[-0.02em]"
+                    style={{ fontSize: "clamp(34px, 4.8vw, 64px)" }}>
                   まず、話して<br />みませんか。
                 </h1>
                 <p className="mt-8 max-w-md text-[16px] md:text-[17px] leading-[2] text-charcoal/80">

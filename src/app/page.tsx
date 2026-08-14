@@ -24,7 +24,7 @@ const businesses = [
   {
     label: "DX",
     title: "忙しさを、余白へ。",
-    body: "AIやRPA、自動化で、人がやらなくてもいい仕事を減らす。生まれた時間を、本当にやるべきことや新しい挑戦へ。",
+    body: "業務を整理し、AI・RPA・自動化を使って、人がやらなくてもいい仕事を減らします。",
     href: "/service-dx",
     photo: "/photos/service-dx.png",
     alt: "現場でノートPCを一緒に見て話す様子",
@@ -32,7 +32,7 @@ const businesses = [
   {
     label: "BPO",
     title: "人手不足を、多様な働き方へ。",
-    body: "採用の前に、まず仕事を整理する。専門・副業・子育て中の人など、さまざまな得意を持つ人と一緒に企業を支える。",
+    body: "企業に必要な仕事を整理し、外部のチームと一緒に支えます。",
     href: "/service-bpo",
     photo: "/photos/service-bpo.png",
     alt: "多様な人が集まって働くコワーキングの様子",
@@ -40,7 +40,7 @@ const businesses = [
   {
     label: "地域プロデュース",
     title: "地域課題を、挑戦のきっかけへ。",
-    body: "地域の課題と、人や企業の「やってみたい」をつなぐ。新しいプロジェクトや事業が生まれる、きっかけと場をつくる。",
+    body: "人・企業・地域をつなぎ、新しい挑戦が生まれる場をつくります。",
     href: "/service-produce",
     photo: "/photos/service-produce.png",
     alt: "地域の夜市で語らう人々",
@@ -48,9 +48,9 @@ const businesses = [
 ];
 
 const howWeWork = [
-  { no: "01", title: "整理する。", body: "まず「何が課題なのか」を一緒に考える。" },
-  { no: "02", title: "仕組みにする。", body: "誰か一人に頼らなくても回る形をつくる。" },
-  { no: "03", title: "一緒に動かす。", body: "提案して終わりではなく、実行し、改善し、定着するところまで伴走する。" },
+  { title: "整理する。", body: "まず「何が課題なのか」を一緒に考える。" },
+  { title: "仕組みにする。", body: "誰か一人に頼らなくても回る形をつくる。" },
+  { title: "一緒に動かす。", body: "提案して終わりではなく、実行し、改善し、定着するところまで伴走する。" },
 ];
 
 const stats = [
@@ -126,12 +126,9 @@ export default function Home() {
             <div className="lg:col-span-8">
               <div className="divide-y divide-charcoal/10 border-t border-charcoal/10">
                 {howWeWork.map((h) => (
-                  <div key={h.no} className="grid grid-cols-[auto_1fr] gap-5 md:gap-8 py-7 md:py-9 items-baseline">
-                    <span className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(20px, 2vw, 28px)" }}>{h.no}</span>
-                    <div>
-                      <h3 className="text-green font-semibold tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 26px)" }}>{h.title}</h3>
-                      <p className="mt-3 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{h.body}</p>
-                    </div>
+                  <div key={h.title} className="py-7 md:py-9">
+                    <h3 className="text-green font-semibold tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 26px)" }}>{h.title}</h3>
+                    <p className="mt-3 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{h.body}</p>
                   </div>
                 ))}
               </div>

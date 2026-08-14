@@ -20,7 +20,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: "2026-03-01",
-    title: "DX支援サービス「Core Shift」を正式ローンチしました",
+    title: "DX支援サービスを正式ローンチしました",
     slug: "core-shift-launch",
     category: "サービス",
   },

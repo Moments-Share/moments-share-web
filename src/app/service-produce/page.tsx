@@ -34,16 +34,6 @@ const projects = [
 
 // 地域推し活サイクル（知るへループする循環）
 const cycle = ["知る", "好きになる", "応援する", "関わる", "挑戦する", "共創する", "次の挑戦へ"];
-// 円周上の座標（%）。中心(50,50)、半径42%、上(知る)から時計回り。
-const cyclePos = [
-  { left: 50, top: 8 },
-  { left: 82.8, top: 23.8 },
-  { left: 90.9, top: 59.3 },
-  { left: 68.2, top: 87.8 },
-  { left: 31.8, top: 87.8 },
-  { left: 9.1, top: 59.3 },
-  { left: 17.2, top: 23.8 },
-];
 
 const howWeWork = [
   { step: "01", title: "人をつなぐ。", body: "課題を持つ人と、「やってみたい」を持つ人を引き合わせる。" },
@@ -115,15 +105,12 @@ export default function ServiceProduce() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-end">
               <div className="lg:col-span-7 lg:pb-6">
-                <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
-                  <span className="w-8 h-px bg-terra" />
-                  地域プロデュース — NISHIO, AICHI
-                </div>
+                <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/45">地域プロデュース</div>
                 <h1
-                  className="mt-8 text-green font-black leading-[1.12] tracking-[-0.03em]"
-                  style={{ fontSize: "clamp(44px, 7vw, 104px)" }}
+                  className="mt-5 text-green font-semibold leading-[1.16] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(36px, 5.4vw, 80px)" }}
                 >
-                  地域課題を、<br />挑戦の<br />きっかけへ。
+                  地域課題を、<br />挑戦のきっかけへ。
                 </h1>
                 <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
                   地域の課題と、人や企業の「やってみたい」をつなぐ。人をつなぎ、仲間を集め、
@@ -164,7 +151,7 @@ export default function ServiceProduce() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-3">
                 <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em] lg:sticky lg:top-24">
-                  OUR PHILOSOPHY
+                  私たちの考え
                 </div>
                 <div className="hidden lg:block relative aspect-[3/4] mt-8 w-full">
                   <Image
@@ -207,9 +194,9 @@ export default function ServiceProduce() {
               <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">PROJECTS</div>
               <h2
                 className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]"
-                style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}
+                style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}
               >
-                挑戦の、入り口をつくる。
+                挑戦を、カタチにする。
               </h2>
               <p className="mt-6 text-[16px] md:text-[18px] leading-[2] text-charcoal/80">
                 人・企業・地域をつなぎながら、西尾で取り組んでいるプロジェクト。
@@ -327,68 +314,26 @@ export default function ServiceProduce() {
               </p>
             </div>
 
-            {/* 循環サイクル図 */}
-            <div className="mt-16 md:mt-20">
-              {/* デスクトップ：リング */}
-              <div className="hidden md:block">
-                <div className="relative mx-auto aspect-square w-full max-w-[620px]">
-                  {/* リングの土台 */}
-                  <div className="absolute inset-[9%] rounded-full border-2 border-dashed border-green/25" />
-                  {/* 中心 */}
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-[46%]">
-                    <div className="text-[15px] font-semibold tracking-[-0.02em] text-green">地域推し活</div>
-                    <div className="mt-2 text-[12px] font-medium text-charcoal/60 leading-[1.8]">
-                      好き → 応援 → 行動<br />→ 挑戦 → 共創
-                    </div>
-                  </div>
-                  {/* ノード */}
-                  {cycle.map((label, i) => (
-                    <div
-                      key={label}
-                      className="absolute -translate-x-1/2 -translate-y-1/2"
-                      style={{ left: `${cyclePos[i].left}%`, top: `${cyclePos[i].top}%` }}
+            {/* 循環 — 7つの言葉を一つの流れとして。円・pill・番号は使わない */}
+            <div className="mt-14 md:mt-20 max-w-4xl">
+              <p className="flex flex-wrap items-center gap-x-3 gap-y-4 md:gap-x-4">
+                {cycle.map((label, i) => (
+                  <span key={label} className="flex items-center gap-x-3 md:gap-x-4">
+                    <span
+                      className="text-green font-medium tracking-[-0.01em]"
+                      style={{ fontSize: "clamp(18px, 2.4vw, 30px)" }}
                     >
-                      <div className="flex flex-col items-center">
-                        <div className="w-9 h-9 rounded-full bg-green text-white text-[13px] font-semibold flex items-center justify-center">
-                          {i + 1}
-                        </div>
-                        <div className="mt-2 whitespace-nowrap rounded-full bg-ivory border border-charcoal/10 px-4 py-1.5 text-[13px] font-semibold text-green">
-                          {label}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="mt-8 text-center text-[13px] font-medium text-terra">
-                  ↻ 「次の挑戦へ」は、また「知る」へ戻り、循環しつづける。
-                </p>
-              </div>
-
-              {/* モバイル：縦フロー */}
-              <div className="md:hidden mt-4">
-                <div className="rounded-2xl border border-charcoal/10 bg-ivory p-6">
-                  <div className="text-center text-[14px] font-semibold tracking-[-0.02em] text-green">地域推し活</div>
-                  <div className="mt-1 text-center text-[12px] font-medium text-charcoal/60">
-                    好き → 応援 → 行動 → 挑戦 → 共創
-                  </div>
-                  <ol className="mt-6 space-y-0">
-                    {cycle.map((label, i) => (
-                      <li key={label}>
-                        <div className="flex items-center gap-3">
-                          <div className="w-7 h-7 shrink-0 rounded-full bg-green text-white text-[12px] font-semibold flex items-center justify-center">
-                            {i + 1}
-                          </div>
-                          <div className="text-[15px] font-semibold text-green">{label}</div>
-                        </div>
-                        {i < cycle.length - 1 && (
-                          <div className="ml-3 h-5 border-l-2 border-green/25" aria-hidden="true" />
-                        )}
-                      </li>
-                    ))}
-                  </ol>
-                  <div className="mt-4 text-[12px] font-medium text-terra">↻ 「知る」へ戻り、循環しつづける。</div>
-                </div>
-              </div>
+                      {label}
+                    </span>
+                    {i < cycle.length - 1 && (
+                      <span className="text-terra/70 text-[15px] md:text-[18px]" aria-hidden="true">→</span>
+                    )}
+                  </span>
+                ))}
+              </p>
+              <p className="mt-8 text-[14px] md:text-[15px] leading-[1.9] text-charcoal/60">
+                ↻ 「次の挑戦へ」は、また「知る」へ戻っていく。この流れが、くり返し地域を動かしていきます。
+              </p>
             </div>
           </div>
         </section>
@@ -398,10 +343,9 @@ export default function ServiceProduce() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-5">
-                <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">OUR GOAL</div>
                 <h2
-                  className="mt-4 text-green font-semibold leading-[1.2] tracking-[-0.02em]"
-                  style={{ fontSize: "clamp(28px, 3.6vw, 48px)" }}
+                  className="text-green font-semibold leading-[1.25] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(26px, 3.2vw, 44px)" }}
                 >
                   挑戦する人を、<br />一人ずつ増やす。
                 </h2>
@@ -421,34 +365,29 @@ export default function ServiceProduce() {
           </div>
         </section>
 
-        {/* ===== MID-TERM GOAL — 240 をテラコッタの大数字グラフィックで（TOP呼応） ===== */}
+        {/* ===== MID-TERM GOAL — 数字の大きさより「なぜ240なのか」を伝える ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">MID-TERM GOAL</div>
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
-              <div className="md:col-span-7">
-                <div className="text-[15px] md:text-[17px] font-semibold text-charcoal/70">2040年までに、</div>
-                <div className="mt-2 flex flex-wrap items-end gap-x-5 gap-y-2">
-                  <div className="flex items-end text-green leading-[0.85] font-semibold tracking-[-0.04em]">
-                    <span style={{ fontSize: "clamp(88px, 13vw, 160px)" }}>
-                      240
-                    </span>
-                    <span className="text-[26px] md:text-[40px] ml-2 pb-2 md:pb-4">事業</span>
-                  </div>
-                  <div className="text-[20px] md:text-[28px] font-semibold text-green pb-3 md:pb-5">を、西尾に。</div>
-                </div>
-              </div>
-              <div className="md:col-span-5 md:pl-10">
-                <h2
-                  className="text-green font-semibold leading-[1.25] tracking-[-0.02em]"
-                  style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}
-                >
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-baseline">
+              <div className="md:col-span-5">
+                <h2 className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 40px)" }}>
                   まずは、西尾から。
                 </h2>
-                <p className="mt-5 text-[15px] leading-[2] text-charcoal/80">
-                  数を追うことが目的ではありません。一つひとつの事業の裏に、挑戦した人がいる。その積み重ねを、西尾で。
+                <div className="mt-6 flex items-baseline gap-2 text-green font-semibold tracking-[-0.02em]">
+                  <span className="text-[15px] md:text-[16px] text-charcoal/70 font-medium">2040年までに、西尾に</span>
+                </div>
+                <div className="mt-1 flex items-baseline gap-2">
+                  <span className="text-green font-semibold leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(52px, 7vw, 88px)" }}>240</span>
+                  <span className="text-[18px] md:text-[22px] font-semibold text-green">の事業を。</span>
+                </div>
+              </div>
+              <div className="md:col-span-7 md:pl-6">
+                <p className="max-w-xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
+                  数を追うことが目的ではありません。一つひとつの事業の裏には、挑戦した人がいます。
+                  一人の「やってみたい」から挑戦が始まり、仲間が集まり、仕事や事業が生まれる。
+                  その積み重ねが地域に根づいている状態を、西尾からつくります。
                 </p>
-                <p className="mt-4 text-[13px] text-muted">
+                <p className="mt-6 text-[13px] text-muted">
                   ※ 240事業はVisionではなく、私たちが掲げる中期目標です。
                 </p>
               </div>
@@ -460,10 +399,9 @@ export default function ServiceProduce() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">HOW WE WORK</div>
               <h2
-                className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]"
-                style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}
+                className="text-green font-semibold leading-[1.25] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}
               >
                 私たちの進め方。
               </h2>
@@ -501,11 +439,10 @@ export default function ServiceProduce() {
         {/* ===== CTA — Deep Green のバンド＋テラコッタボタンで締める ===== */}
         <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-white/60 text-[12px] font-bold tracking-[0.16em]">CONTACT</div>
-            <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
               <h2
-                className="lg:col-span-8 font-semibold leading-[1.15] tracking-[-0.02em]"
-                style={{ fontSize: "clamp(30px, 4.6vw, 60px)" }}
+                className="lg:col-span-8 font-semibold leading-[1.18] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(28px, 3.8vw, 52px)" }}
               >
                 地域に、<br />一緒に仕掛けませんか。
               </h2>

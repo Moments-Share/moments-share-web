@@ -20,7 +20,7 @@ function Line({ children, delay, className = "" }: { children: React.ReactNode; 
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#1b2140]">
+    <section className="relative min-h-screen overflow-hidden bg-[#20261f]">
 
       {/* Ken Burns 写真背景 */}
       <div className="absolute inset-0">
@@ -38,30 +38,17 @@ export function Hero() {
             sizes="100vw"
           />
         </motion.div>
-        {/* 暗幕グラデーション */}
+        {/* 暗幕グラデーション（ディープグリーン基調） */}
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(6,9,26,0.60) 0%, rgba(6,9,26,0.32) 35%, rgba(6,9,26,0.80) 72%, rgba(6,9,26,1.0) 100%)"
+            background: "linear-gradient(to bottom, rgba(20,26,19,0.55) 0%, rgba(20,26,19,0.30) 32%, rgba(20,26,19,0.78) 70%, rgba(20,26,19,0.98) 100%)"
           }}
         />
       </div>
 
-      {/* 背景超大型テキスト SWITCH */}
-      <div className="absolute inset-0 flex items-center overflow-hidden pointer-events-none select-none z-[1]">
-        <motion.span
-          className="font-black text-white leading-none tracking-[-0.07em] whitespace-nowrap"
-          style={{ fontSize: "clamp(160px, 28vw, 380px)", opacity: 0.03, marginLeft: "-2vw" }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.03 }}
-          transition={{ duration: 3, delay: 0.6 }}
-        >
-          SWITCH
-        </motion.span>
-      </div>
-
       {/* コンテンツ */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-end max-w-[1280px] mx-auto px-8 md:px-20 pb-24 md:pb-40 pt-40">
+      <div className="relative z-10 min-h-screen flex flex-col justify-end max-w-[1280px] mx-auto px-8 md:px-20 pb-20 md:pb-28 pt-36">
 
         {/* ラベル */}
         <motion.p
@@ -73,26 +60,25 @@ export function Hero() {
           Moments Share — Nishio, Aichi
         </motion.p>
 
-        {/* キャッチコピー */}
+        {/* キャッチコピー — サイト全体のVisual Peak */}
         <h1
-          className="font-black text-white leading-[1.04] tracking-[-0.05em] mb-12"
-          style={{ fontSize: "clamp(64px, 13vw, 180px)" }}
+          className="font-black text-white leading-[1.05] tracking-[-0.05em] mb-10"
+          style={{ fontSize: "clamp(56px, 11vw, 150px)" }}
         >
           <Line delay={0.4}>地域に、</Line>
           <Line delay={0.65}>挑戦と共創の</Line>
           <Line delay={0.9} className="text-terra">循環を。</Line>
         </h1>
 
-        {/* 説明文 */}
+        {/* 説明文（正式サブコピー） */}
         <motion.div
-          className="mb-16 max-w-[44ch]"
+          className="mb-12 max-w-[40ch]"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease, delay: 1.4 }}
         >
-          <p className="text-white/55 leading-[2.0]" style={{ fontSize: "clamp(14px, 1.4vw, 17px)" }}>
-            企業の仕事を変える。人の働き方を広げる。地域に、新しい挑戦を生み出す。<br />
-            Moments Shareは、DX・BPO・地域プロデュースを通じて、企業・人・地域の可能性をつなぐ会社です。
+          <p className="text-white/60 leading-[2.0]" style={{ fontSize: "clamp(14px, 1.4vw, 17px)" }}>
+            企業の仕事を変える。人の働き方を広げる。地域に、新しい挑戦を生み出す。
           </p>
         </motion.div>
 

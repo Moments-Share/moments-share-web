@@ -56,34 +56,34 @@ const story = [
   "人口減少を止めることはできない。でも、挑戦と共創が循環する地域なら、豊かになれる。その仕組みを、西尾から創る。——それが、Moments Shareの原点になった。",
 ];
 
-// バリュー：MOMENT / MOMENTS / MOMENTS SHARE の重なりを、静かに読ませる
+// 3つの行動基準：Moment / Moments / Moments Share（正式文言）
 const coreValues = [
   {
     en: "Moment",
-    title: "今、ここに全力を。",
+    title: "いま、できることをしよう。",
     body: "いまに感謝する。いま、目の前の人にどう貢献できるか考える。いま、できることを実行する。",
   },
   {
     en: "Moments",
-    title: "積み重ねが、未来を創る。",
-    body: "行動を積み重ねる。改善を積み重ねる。理想と現実を往来する。",
+    title: "一歩ずつ、積み重ねよう。",
+    body: "行動し、改善し、前に進もう。",
   },
   {
     en: "Moments Share",
-    title: "感動できる瞬間を、共創する。",
-    body: "カタチになるまでやり続ける。感謝と愛を、行動で返す。価値を先に届ける。",
+    title: "「やってよかった」と思える瞬間を、共につくろう。",
+    body: "最後まで向き合い、喜びを分かち合おう。",
   },
 ];
 
-// 7つのスタンス
+// 7つの判断基準（正式文言）：英語名＋日本語キャッチ
 const stances = [
-  "Purpose First",
-  "Long-term Integrity",
-  "Open, Flat & Fair",
-  "Dream & Root",
-  "Life is Now",
-  "Give & Fun",
-  "Self-Driven",
+  { en: "Legacy", ja: "100年後に、誇れる選択を。" },
+  { en: "Purpose", ja: "目的から、考えよう。" },
+  { en: "Self Driven", ja: "自分ごとで動こう。" },
+  { en: "Challenge", ja: "まず、やってみよう。" },
+  { en: "Co-Create", ja: "違いを力に、共に創ろう。" },
+  { en: "Better Everyday", ja: "昨日より、少しずつ良くしよう。" },
+  { en: "Build Systems", ja: "仕組みを創ろう。" },
 ];
 
 // 会社概要：タスク指定の実在事実のみ（不明項目は掲載しない）
@@ -107,15 +107,11 @@ export default function AboutPage() {
       <Nav />
       <main id="main-content">
 
-        {/* ===== 1. HERO — ページで最も強い一枚。大きな見出しと写真 ===== */}
+        {/* ===== 1. HERO — 文章＋大きな実写写真＋余白。装飾ラベルは置かない ===== */}
         <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-ivory">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
-              <span className="w-8 h-px bg-terra" />
-              WHY WE EXIST
-            </div>
-            <h1 className="mt-8 text-green font-black leading-[1.12] tracking-[-0.03em]"
-                style={{ fontSize: "clamp(40px, 6.4vw, 96px)" }}>
+            <h1 className="text-green font-semibold leading-[1.16] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(34px, 5vw, 68px)" }}>
               なぜ、この会社が<br />あるのか。
             </h1>
             <p className="mt-8 max-w-xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
@@ -142,8 +138,8 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="lg:col-span-8 lg:pl-6">
-                <h2 className="text-green font-bold leading-[1.25] tracking-[-0.01em]" style={{ fontSize: "clamp(28px, 3.8vw, 52px)" }}>
-                  一つの問いから、<br className="hidden sm:block" />始まった。
+                <h2 className="text-green font-semibold leading-[1.3] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.2vw, 44px)" }}>
+                  Moments Shareに込めた想い
                 </h2>
                 <div className="mt-10 max-w-2xl space-y-7 text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
                   {story.map((p, i) => (
@@ -155,58 +151,28 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 3. MISSION — 大きな一文。箱にせず、余白の中で言葉を立たせる ===== */}
+        {/* ===== 3. MISSION / VISION — 競合させず、それぞれを静かに読ませる ===== */}
         <section className="py-20 md:py-32 bg-ivory">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">MISSION</div>
-            <h2 className="mt-6 text-green font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 5vw, 68px)" }}>
-              すべてが繋がる瞬間を、<br />共創する。
-            </h2>
-            <p className="mt-10 max-w-2xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
-              人と人。仕事と人。想いと地域。それぞれがつながり、
-              「やりたかったこと」がカタチになる瞬間を、一緒につくります。
-            </p>
-          </div>
-        </section>
-
-        {/* ===== 4. VISION — MISSION と対になる大きな一文 ===== */}
-        <section className="pb-20 md:pb-32 bg-ivory">
-          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <div className="border-t border-charcoal/10 pt-20 md:pt-28">
-              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">VISION</div>
-              <h2 className="mt-6 text-green font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 5vw, 68px)" }}>
-                「生きててよかった」が<br />あふれる世界を創る。
-              </h2>
-              <p className="mt-10 max-w-2xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
-                やってみたかったことに挑戦できた。仲間と一緒に何かを生み出せた。
-                自分の仕事が誰かの役に立った。そんな瞬間が、一人ひとりの人生に増えていく。
-                私たちは、そんな世界を目指します。
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ===== 5. MID-TERM GOAL — 数字は控えめに。言葉で意味を伝える ===== */}
-        <section className="py-16 md:py-28 bg-white">
-          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-center">
-              <div className="md:col-span-5">
-                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">MID-TERM GOAL</div>
-                <div className="mt-6 text-[15px] leading-[1.9] text-charcoal/60">まずは、西尾から。2040年までに</div>
-                <div className="mt-2 flex items-baseline gap-2">
-                  <span className="text-green font-semibold leading-[0.9] tracking-[-0.03em]" style={{ fontSize: "clamp(88px, 13vw, 160px)" }}>240</span>
-                  <span className="text-[16px] font-bold text-charcoal/70 pb-3">の事業を。</span>
-                </div>
-              </div>
-              <div className="md:col-span-7 md:pl-6">
-                <h2 className="text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
-                  2040年までに、<br className="hidden sm:block" />西尾に240の事業を。
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-16 lg:gap-x-16">
+              <div className="lg:col-span-6">
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">MISSION</div>
+                <h2 className="mt-6 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}>
+                  すべてが繋がる瞬間を、<br />共創する。
                 </h2>
-                <p className="mt-8 max-w-xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
-                  240の事業をつくること自体がゴールではありません。
-                  一人の「やってみたい」から挑戦が始まり、仲間が集まり、仕事や事業が生まれる。
-                  その経験が、また次の誰かの挑戦につながっていく。
-                  そんな循環が地域に根づいている状態をつくる。そのための中期目標です。
+                <p className="mt-8 max-w-md text-[15px] md:text-[17px] leading-[2.1] text-charcoal/80">
+                  人と人。仕事と人。想いと地域。それぞれがつながり、
+                  「やりたかったこと」がカタチになる瞬間を、一緒につくります。
+                </p>
+              </div>
+              <div className="lg:col-span-6 lg:border-l lg:border-charcoal/10 lg:pl-16">
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">VISION</div>
+                <h2 className="mt-6 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}>
+                  「生きててよかった」が<br />あふれる世界を創る。
+                </h2>
+                <p className="mt-8 max-w-md text-[15px] md:text-[17px] leading-[2.1] text-charcoal/80">
+                  やってみたかったことに挑戦できた。仲間と一緒に何かを生み出せた。
+                  自分の仕事が誰かの役に立った。そんな瞬間が、一人ひとりの人生に増えていく。
                 </p>
               </div>
             </div>
@@ -218,39 +184,45 @@ export default function AboutPage() {
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="max-w-2xl">
               <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">VALUES</div>
-              <h2 className="mt-4 text-green font-semibold leading-[1.3] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
+              <h2 className="mt-4 text-green font-semibold leading-[1.3] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                 私たちが、<br className="hidden sm:block" />大切にしていること。
               </h2>
+              <p className="mt-6 text-[15px] md:text-[16px] leading-[2] text-charcoal/70">
+                3つの行動基準と、7つの判断基準。
+              </p>
             </div>
 
-            {/* 3つのコアバリュー — 同じ整列・同じ重み。言葉の重なりで見せる */}
-            <div className="mt-14 md:mt-20 border-t border-charcoal/10">
-              {coreValues.map((v) => (
-                <div key={v.en} className="grid grid-cols-1 md:grid-cols-12 gap-y-4 md:gap-x-12 py-12 md:py-16 border-b border-charcoal/10">
-                  <div className="md:col-span-4">
-                    <div className="text-green font-semibold tracking-[0.02em]" style={{ fontSize: "clamp(22px, 2.8vw, 34px)" }}>{v.en}</div>
+            {/* 3つの行動基準 — 先に少し大きく。言葉を静かに読ませる（カードにしない） */}
+            <div className="mt-14 md:mt-20">
+              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">3つの行動基準</div>
+              <div className="mt-6 border-t border-charcoal/10">
+                {coreValues.map((v) => (
+                  <div key={v.en} className="grid grid-cols-1 md:grid-cols-12 gap-y-3 md:gap-x-12 py-10 md:py-14 border-b border-charcoal/10">
+                    <div className="md:col-span-4">
+                      <div className="text-green font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>{v.en}</div>
+                    </div>
+                    <div className="md:col-span-8">
+                      <h3 className="text-green font-medium leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 27px)" }}>
+                        {v.title}
+                      </h3>
+                      <p className="mt-4 max-w-xl text-[15px] md:text-[17px] leading-[2.1] text-charcoal/80">{v.body}</p>
+                    </div>
                   </div>
-                  <div className="md:col-span-8">
-                    <h3 className="text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 3vw, 36px)" }}>
-                      {v.title}
-                    </h3>
-                    <p className="mt-5 max-w-xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">{v.body}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
-            {/* 7つのスタンス — 静かな読み物リスト */}
+            {/* 7つの判断基準 — 英語名＋日本語キャッチ。一覧性を重視（pill/badgeにしない） */}
             <div className="mt-16 md:mt-24">
-              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">OUR STANCE</div>
+              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">7つの判断基準</div>
               <ul className="mt-6 border-t border-charcoal/10">
                 {stances.map((s) => (
                   <li
-                    key={s}
-                    className="py-5 border-b border-charcoal/10 text-green font-medium leading-[1.5] tracking-[-0.01em]"
-                    style={{ fontSize: "clamp(17px, 2vw, 22px)" }}
+                    key={s.en}
+                    className="grid grid-cols-1 sm:grid-cols-[minmax(160px,0.4fr)_1fr] gap-1 sm:gap-8 py-5 border-b border-charcoal/10 items-baseline"
                   >
-                    {s}
+                    <span className="text-green font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(17px, 1.9vw, 22px)" }}>{s.en}</span>
+                    <span className="text-charcoal/80 font-medium leading-[1.6] tracking-[-0.01em] text-[15px] md:text-[17px]">{s.ja}</span>
                   </li>
                 ))}
               </ul>
@@ -333,15 +305,15 @@ export default function AboutPage() {
         <section id="contact" className="scroll-mt-20 py-20 md:py-28 bg-green text-white">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-              <h2 className="lg:col-span-8 font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 5vw, 68px)" }}>
-                この循環を、<br />次はあなたと。
+              <h2 className="lg:col-span-8 font-semibold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(30px, 4.5vw, 60px)" }}>
+                まず、話して<br />みませんか。
               </h2>
               <div className="lg:col-span-4 lg:pb-3">
                 <p className="text-[15px] leading-[2] text-white/75">
                   やってみたいこと、困っていること。まだカタチになっていなくても大丈夫です。
                 </p>
                 <Link href="/contact" className="mt-6 inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity">
-                  30分相談する →
+                  まず相談してみる →
                 </Link>
               </div>
             </div>

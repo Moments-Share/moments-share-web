@@ -1,39 +1,16 @@
+import type { Metadata } from "next";
 import { Nav } from "@/components/ui/Nav";
 import { ServiceHero } from "@/components/ui/ServiceHero";
 import { FadeIn } from "@/components/ui/FadeIn";
-import Link from "next/link";
 
-const services = [
-  { cat: "カスタマーサポート", title: "CS代行", desc: "メール対応・チャット対応・クレーム対応。丁寧なCS業務を、地域の人材が担います。" },
-  { cat: "SNS・デジタル", title: "SNS運用代行", desc: "投稿企画から運用まで。DXツールと組み合わせ、低コストで質の高い発信を実現。" },
-  { cat: "バックオフィス", title: "事務・データ入力", desc: "書類整理・データ入力・請求書処理。正確さと誠実さで、現場の負荷を下げます。" },
-  { cat: "営業サポート", title: "インサイドセールス", desc: "見込み客のリストアップ・アポ取得・フォロー。地方の人材が全国の営業を支援。" },
-  { cat: "コンテンツ", title: "ライティング・編集", desc: "ブログ・メルマガ・資料作成。AIとの組み合わせで、スピードと品質を両立。" },
-  { cat: "採用・HR", title: "採用サポート", desc: "求人票作成・応募者対応・面接調整。採用の煩雑な作業をアウトソース。" },
-];
-
-const fits = {
-  yes: [
-    "本業に集中したいが、バックオフィスが手薄",
-    "DX導入したが人手が足りない",
-    "地方・リモート対応に前向き",
-    "採用コストより業務委託のほうがフレキシブル",
-    "業務が定型化されている（またはしたい）",
-  ],
-  no: [
-    "毎日対面でのやりとりが必要",
-    "機密性が高く外部委託が難しい業務",
-    "業務が毎回異なり、マニュアル化が困難",
-    "品質より最低コストを最優先にしたい",
-  ],
-};
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "BPO | Moments Share合同会社",
-  description: "都会に流れていた仕事を、地元で働きたい人の手へ。DXで生まれた余白を地域人材が担う、Moments ShareのBPOサービス。愛知県西尾市発。",
+  description:
+    "採用して人を増やす前に、仕事を外に出すという選択肢があります。カスタマーサクセス・営業支援・SNS・経理事務。必要な仕事を、必要な分だけ支えるMoments ShareのBPOサービス。",
   openGraph: {
     title: "BPO | Moments Share合同会社",
-    description: "都会に流れていた仕事を、地元で働きたい人の手へ。企業の集中と地域雇用を、同時に実現します。",
+    description:
+      "人手不足を、多様な働き方へ。必要な仕事を、必要な分だけ支えます。採用する・外注する・自動化する、その前に、まず仕事そのものを整理します。",
     locale: "ja_JP",
     type: "website",
     url: "https://momentsshare.com/service-bpo",
@@ -42,7 +19,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "BPO | Moments Share合同会社",
-    description: "都会に流れていた仕事を、地元で働きたい人の手へ。企業の集中と地域雇用を同時に実現。",
+    description: "人手不足を、多様な働き方へ。必要な仕事を、必要な分だけ支えます。",
     images: ["/og-image.png"],
   },
 };
@@ -51,7 +28,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "BPO（業務プロセスアウトソーシング）",
-  "description": "DXで生まれた余白を地域人材が担う。企業は本業に集中し、地域に自分らしい働き方が生まれます。",
+  "description":
+    "採用して人を増やす前に、仕事を外に出すという選択肢。カスタマーサクセス・営業支援・SNS運用・経理事務など、人が必要な仕事だけを、必要な分だけ支えます。",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Moments Share合同会社",
@@ -75,6 +53,38 @@ const jsonLd = {
   },
 };
 
+const painPoints = [
+  "求人を出しても応募が来ない",
+  "社員が事務作業に追われている",
+  "1人採用するほどの仕事量ではない",
+  "CSやSNSをやりたいが担当者がいない",
+  "一時的に人手が必要",
+  "何を外注できるかわからない",
+];
+
+const services = [
+  { title: "カスタマーサクセス", desc: "顧客対応・フォロー・継続支援など" },
+  { title: "営業支援", desc: "リスト作成・アポイント・フォローなど" },
+  { title: "SNS運用", desc: "投稿企画・作成・運用など" },
+  { title: "経理・事務", desc: "データ入力・請求処理・日程調整・書類整理など" },
+  { title: "その他", desc: "業務を整理し、外部に任せられる仕事を一緒に考えます" },
+];
+
+const team = [
+  { label: "専門人材", desc: "各領域の経験を持つプロフェッショナル" },
+  { label: "副業人材", desc: "本業の知見を活かして関わる人" },
+  { label: "子育て中の人", desc: "自分のペースで働きたい人" },
+  { label: "地域で働く人", desc: "地元で仕事に関わりたい人" },
+];
+
+const process = [
+  { step: "01", title: "相談", body: "いまの課題や困りごとをお聞きします。" },
+  { step: "02", title: "業務整理", body: "何が本当に必要な仕事かを一緒に洗い出します。" },
+  { step: "03", title: "業務設計", body: "任せられる形に、業務を組み立て直します。" },
+  { step: "04", title: "チーム編成", body: "得意を持ち寄る最適なチームをつくります。" },
+  { step: "05", title: "開始・改善", body: "実際に動かしながら、継続的に改善します。" },
+];
+
 export default function ServiceBPO() {
   return (
     <>
@@ -84,96 +94,41 @@ export default function ServiceBPO() {
       />
       <Nav />
       <main id="main-content">
-        {/* Hero */}
+        {/* HERO */}
         <ServiceHero
           label="BPO"
-          headline={"地域の人が、\n企業の力になる。"}
-          sub="DXで生まれた余白を、地域の人材が担う。企業は本業に集中し、地域は自分らしい働き方を手に入れる。"
-          accent="#232a4d"
+          headline={"人手不足を、\n多様な働き方へ。"}
+          sub="採用して人を増やす前に、仕事を外に出すという選択肢があります。カスタマーサクセス。営業支援。SNS。経理・事務。必要な仕事を、必要な分だけ支えます。"
+          accent="#12a0ae"
         />
 
-        {/* DX → BPO → 地域雇用の流れ */}
-        <section className="py-section bg-white">
-          <div className="max-w-[1200px] mx-auto px-8 md:px-16">
-            <FadeIn>
-              <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-green mb-6">The Concept</p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h2
-                className="font-black text-ink leading-[1.2] tracking-[-0.03em] mb-16"
-                style={{ fontSize: "clamp(32px, 4.5vw, 60px)" }}
-              >
-                DXの次は、<br />人の力を活かす。
-              </h2>
-            </FadeIn>
-
-            {/* フロー図 */}
-            <div className="relative">
-              <div className="grid md:grid-cols-3 gap-0">
-                {[
-                  {
-                    step: "Step 01",
-                    color: "bg-accent",
-                    title: "DXで余白をつくる",
-                    body: "業務を自動化・効率化し、「人がやらなくていい仕事」を削減。企業に余白が生まれる。",
-                  },
-                  {
-                    step: "Step 02",
-                    color: "bg-navy",
-                    title: "余白を地域人材に渡す",
-                    body: "残った業務を、地域で働く人材がリモートで担う。企業はコア業務に集中できる。",
-                  },
-                  {
-                    step: "Step 03",
-                    color: "bg-green",
-                    title: "地域に自分らしい働き方が生まれる",
-                    body: "子育て中・介護中・地方在住。様々な事情を持つ人が、自分のペースで仕事に関わることができる。",
-                  },
-                ].map((item, i) => (
-                  <FadeIn key={item.step} delay={i * 0.12}>
-                    <div className="relative">
-                      <div className={`${item.color} px-10 py-12 h-full`}>
-                        <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-white/50 mb-6">{item.step}</p>
-                        <p className="text-[19px] font-black text-white leading-[1.4] mb-5">{item.title}</p>
-                        <p className="text-[14px] text-white/60 leading-[1.9]">{item.body}</p>
-                      </div>
-                    </div>
-                  </FadeIn>
-                ))}
-              </div>
-              <FadeIn delay={0.4}>
-                <div className="mt-12 p-8 border border-black/[0.06] bg-[#f7f5ef]">
-                  <p className="text-[14px] text-muted leading-[2.0] text-center">
-                    DX支援で業務を整理した後にBPOへ移行するのが、Moments Shareの一気通貫モデルです。<br />
-                    ツールと人材を同じチームが設計するから、引き渡しがスムーズ。
-                  </p>
-                </div>
-              </FadeIn>
-            </div>
+        {/* HERO CTA */}
+        <section className="py-section-sm px-8 md:px-12 bg-navy text-white text-center">
+          <div className="mx-auto max-w-2xl">
+            <a
+              href="mailto:branding@momentsshare.com"
+              className="inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
+            >
+              外注できる業務を相談する →
+            </a>
           </div>
         </section>
 
-        {/* サービスメニュー */}
-        <section className="py-section bg-[#f7f5ef]">
-          <div className="max-w-[1200px] mx-auto px-8 md:px-16">
+        {/* こんな企業に */}
+        <section className="py-section px-8 md:px-12">
+          <div className="mx-auto max-w-5xl">
             <FadeIn>
-              <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-green mb-6">Service Menu</p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h2
-                className="font-black text-ink leading-[1.2] tracking-[-0.03em] mb-20"
-                style={{ fontSize: "clamp(32px, 4.5vw, 60px)" }}
-              >
-                対応できる業務。
+              <div className="text-[11px] font-bold tracking-widest-label text-teal">FOR THESE COMPANIES</div>
+              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
+                こんな企業に。
               </h2>
             </FadeIn>
-            <div className="grid md:grid-cols-3 gap-px bg-black/[0.06]">
-              {services.map((s, i) => (
-                <FadeIn key={s.title} delay={i * 0.07}>
-                  <div className="bg-white p-10 h-full space-y-3">
-                    <p className="text-[11px] font-bold tracking-[0.14em] uppercase text-green">{s.cat}</p>
-                    <p className="text-[17px] font-black text-ink">{s.title}</p>
-                    <p className="text-[14px] text-muted leading-[1.9]">{s.desc}</p>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {painPoints.map((p, i) => (
+                <FadeIn key={p} delay={i * 0.06}>
+                  <div className="bg-white rounded-2xl p-8 border border-border flex items-start gap-4">
+                    <span className="text-teal font-black shrink-0" aria-hidden="true">✓</span>
+                    <p className="text-[15px] md:text-[17px] leading-body text-ink/80">{p}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -181,136 +136,132 @@ export default function ServiceBPO() {
           </div>
         </section>
 
-        {/* 向いてる / 向いてない */}
-        <section className="py-section bg-navy">
-          <div className="max-w-[1200px] mx-auto px-8 md:px-16">
+        {/* 重要メッセージ */}
+        <section className="py-section px-8 md:px-12 bg-warm">
+          <div className="mx-auto max-w-3xl">
             <FadeIn>
-              <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-green mb-6">Fit Check</p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h2
-                className="font-black text-white leading-[1.2] tracking-[-0.03em] mb-20"
-                style={{ fontSize: "clamp(32px, 4.5vw, 60px)" }}
-              >
-                こんな企業に<br />向いています。
+              <div className="text-[11px] font-bold tracking-widest-label text-teal">MESSAGE</div>
+              <h2 className="mt-5 text-h2 font-black tracking-heading leading-heading text-navy">
+                その仕事、本当に<br className="hidden sm:block" />採用が必要ですか？
               </h2>
             </FadeIn>
-            <div className="grid md:grid-cols-2 gap-px bg-white/[0.06]">
-              <FadeIn delay={0.1}>
-                <div className="bg-navy p-10 md:p-12 h-full">
-                  <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-green mb-8">向いている</p>
-                  <ul className="space-y-4">
-                    {fits.yes.map((item) => (
-                      <li key={item} className="flex items-start gap-4 text-[15px] text-white/70 leading-[1.8]">
-                        <span className="text-green font-bold shrink-0 mt-0.5">✓</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </FadeIn>
-              <FadeIn delay={0.2}>
-                <div className="bg-[#1b2140] p-10 md:p-12 h-full">
-                  <p className="text-[11px] font-bold tracking-[0.16em] uppercase text-white/30 mb-8">向いていない</p>
-                  <ul className="space-y-4">
-                    {fits.no.map((item) => (
-                      <li key={item} className="flex items-start gap-4 text-[15px] text-white/30 leading-[1.8]">
-                        <span className="text-white/20 font-bold shrink-0 mt-0.5">×</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-[13px] text-white/20 mt-8 leading-[1.8]">
-                    正直にお伝えします。向いていない場合は、他の選択肢をご提案します。
-                  </p>
-                </div>
-              </FadeIn>
+            <FadeIn delay={0.1}>
+              <div className="mt-10 space-y-6 text-[16px] md:text-[18px] leading-body text-ink/80">
+                <p>自動化できる仕事は、DXで減らす。人が必要な仕事だけ、BPOで支える。</p>
+                <p className="text-navy font-bold text-[19px] md:text-[22px] leading-heading">
+                  Moments Shareは、採用する・外注する・自動化する、その前に、まず仕事そのものを整理します。
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* SERVICE */}
+        <section className="py-section px-8 md:px-12">
+          <div className="mx-auto max-w-5xl">
+            <FadeIn>
+              <div className="text-[11px] font-bold tracking-widest-label text-teal">SERVICE</div>
+              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
+                支えられる仕事。
+              </h2>
+            </FadeIn>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {services.map((s, i) => (
+                <FadeIn key={s.title} delay={i * 0.06}>
+                  <div className="bg-white rounded-2xl p-8 border border-border h-full">
+                    <div className="text-[18px] font-black tracking-heading text-navy leading-heading">{s.title}</div>
+                    <p className="mt-3 text-[14px] leading-relaxed text-muted">{s.desc}</p>
+                  </div>
+                </FadeIn>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* なぜ西尾の人材か */}
-        <section className="py-section bg-white">
-          <div className="max-w-[1200px] mx-auto px-8 md:px-16">
+        {/* DX × BPO */}
+        <section className="py-section px-8 md:px-12 bg-navy text-white">
+          <div className="mx-auto max-w-3xl text-center">
             <FadeIn>
-              <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-green mb-6">Why Nishio</p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h2
-                className="font-black text-ink leading-[1.2] tracking-[-0.03em] mb-10"
-                style={{ fontSize: "clamp(32px, 4.5vw, 60px)" }}
-              >
-                なぜ、地域の<br />人材なのか。
+              <div className="text-[11px] font-bold tracking-widest-label text-teal">DX × BPO</div>
+              <h2 className="mt-5 text-h2 font-black tracking-heading leading-heading">
+                自動化できる仕事は減らす。<br />
+                人が必要な仕事だけ支える。
               </h2>
             </FadeIn>
-            <div className="grid md:grid-cols-2 gap-16 items-start">
-              <FadeIn delay={0.18}>
-                <p className="text-[17px] text-muted leading-[2.0]">
-                  都市部の人材と比べて、地域の人材は「コストが安い」と思われがちです。でもそれは本質ではありません。
-                </p>
-                <p className="text-[17px] text-muted leading-[2.0] mt-6">
-                  地域で長く暮らし、地元の企業文化を理解している人材は、<strong className="text-ink font-bold">誠実さと継続性</strong>を持っています。
-                  単発の仕事ではなく、長く一緒に働ける関係を築けます。
-                </p>
-                <p className="text-[17px] text-muted leading-[2.0] mt-6">
-                  そして何より、その仕事が地域の雇用・収入・やりがいになる。企業と地域が、同時に豊かになるモデルを目指しています。
-                </p>
-              </FadeIn>
-              <FadeIn delay={0.24}>
-                <div className="space-y-0 divide-y divide-black/[0.06]">
-                  {[
-                    { label: "誠実さ", desc: "仕事を丁寧に、長く続ける" },
-                    { label: "定着率", desc: "地域に根付いているため離職リスクが低い" },
-                    { label: "地域理解", desc: "愛知・西尾の文化・産業への深い理解" },
-                    { label: "社会的意義", desc: "企業の利益が地域の雇用になる" },
-                  ].map((item) => (
-                    <div key={item.label} className="py-6 grid grid-cols-[120px_1fr] gap-4">
-                      <p className="text-[13px] font-bold text-accent">{item.label}</p>
-                      <p className="text-[14px] text-muted">{item.desc}</p>
+            <FadeIn delay={0.1}>
+              <p className="mt-8 text-[16px] md:text-[18px] leading-body text-white/70">
+                単に人を増やすのではなく、まず仕事を整理する。
+              </p>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* TEAM */}
+        <section className="py-section px-8 md:px-12 bg-warm">
+          <div className="mx-auto max-w-5xl">
+            <FadeIn>
+              <div className="text-[11px] font-bold tracking-widest-label text-teal">TEAM</div>
+              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
+                多様な人と、一緒に支える。
+              </h2>
+              <p className="mt-6 text-[16px] md:text-[18px] leading-body text-muted max-w-2xl">
+                それぞれの得意を組み合わせて、企業の業務を支えます。
+              </p>
+            </FadeIn>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6">
+              {team.map((t, i) => (
+                <FadeIn key={t.label} delay={i * 0.06}>
+                  <div className="bg-white rounded-2xl p-8 border border-border h-full">
+                    <div className="text-[17px] font-black tracking-heading text-navy leading-heading">{t.label}</div>
+                    <p className="mt-3 text-[14px] leading-relaxed text-muted">{t.desc}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* PROCESS */}
+        <section className="py-section px-8 md:px-12">
+          <div className="mx-auto max-w-5xl">
+            <FadeIn>
+              <div className="text-[11px] font-bold tracking-widest-label text-teal">PROCESS</div>
+              <h2 className="mt-4 text-h2 font-black tracking-heading leading-heading text-navy">
+                進め方。
+              </h2>
+            </FadeIn>
+            <div className="mt-12 divide-y divide-border border-t border-border">
+              {process.map((p, i) => (
+                <FadeIn key={p.step} delay={i * 0.05}>
+                  <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-3 md:gap-10 py-10">
+                    <div className="text-[40px] font-black text-teal/25 leading-none">{p.step}</div>
+                    <div>
+                      <h3 className="text-[22px] font-black tracking-heading text-navy leading-heading">{p.title}</h3>
+                      <p className="mt-3 text-[15px] md:text-[17px] leading-body text-muted max-w-2xl">{p.body}</p>
                     </div>
-                  ))}
-                </div>
-              </FadeIn>
+                  </div>
+                </FadeIn>
+              ))}
             </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="py-section bg-navy">
-          <div className="max-w-[1200px] mx-auto px-8 md:px-16">
-            <FadeIn>
-              <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-green mb-6">Contact</p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h2
-                className="font-black text-white leading-[1.2] tracking-[-0.03em] mb-8"
-                style={{ fontSize: "clamp(32px, 4.5vw, 60px)" }}
-              >
-                まず、話してみてください。
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <p className="text-[17px] text-white/50 leading-[2.0] mb-14 max-w-xl">
-                どの業務を外部委託できるか、一緒に整理します。<br />
-                ヒアリングは無料です。
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="mailto:branding@momentsshare.com"
-                  className="inline-flex items-center justify-center gap-3 bg-green text-white font-bold text-[15px] px-10 py-5 hover:bg-[#0f8f9c] transition-colors"
-                >
-                  メールで相談する →
-                </Link>
-                <Link
-                  href="/"
-                  className="inline-flex items-center justify-center gap-3 border border-white/20 text-white font-semibold text-[15px] px-10 py-5 hover:border-white/50 transition-colors"
-                >
-                  ← トップページへ
-                </Link>
-              </div>
-            </FadeIn>
+        <section id="contact" className="py-section px-8 md:px-12 bg-navy text-white text-center">
+          <div className="mx-auto max-w-2xl">
+            <div className="text-[11px] font-bold tracking-widest-label text-teal">CONTACT</div>
+            <h2 className="mt-5 text-[34px] md:text-[52px] font-black tracking-heading leading-heading">
+              どの仕事を外に出せるか、一緒に整理します。
+            </h2>
+            <p className="mt-6 text-[16px] leading-body text-white/70">
+              採用するべきか、外注するべきか迷っている段階からご相談ください。
+            </p>
+            <a
+              href="mailto:branding@momentsshare.com"
+              className="mt-10 inline-block bg-teal text-white font-bold px-10 py-4 rounded-lg hover:opacity-90 transition-opacity"
+            >
+              30分無料相談 →
+            </a>
           </div>
         </section>
       </main>

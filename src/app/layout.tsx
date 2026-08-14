@@ -97,7 +97,7 @@ export default function RootLayout({
         >
           メインコンテンツへスキップ
         </a>
-        <main id="main-content">{children}</main>
+        {children}
         <Footer />
       </body>
     </html>

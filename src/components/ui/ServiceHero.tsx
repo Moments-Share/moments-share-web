@@ -52,7 +52,7 @@ export function ServiceHero({ label, brand, headline, sub, accent }: ServiceHero
           </p>
 
           <h1
-            className="font-black text-white leading-[1.15] tracking-[-0.03em] mb-8"
+            className="font-black text-white leading-[1.15] tracking-[-0.03em] mb-8 whitespace-pre-line"
             style={{ fontSize: "clamp(44px, 7vw, 100px)" }}
           >
             {headline}

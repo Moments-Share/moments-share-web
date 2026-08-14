@@ -132,7 +132,7 @@ export default function ServiceProduce() {
                 <div className="mt-8 flex items-center gap-8 text-[14px] font-bold">
                   <Link
                     href="/contact"
-                    className="text-green border-b-2 border-green pb-1 hover:text-terra hover:border-terra transition-colors"
+                    className="text-green border-b border-green/60 pb-0.5 hover:text-terra hover:border-terra transition-colors"
                   >
                     一緒にプロジェクトをつくる
                   </Link>
@@ -163,7 +163,7 @@ export default function ServiceProduce() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-3">
-                <div className="text-terra text-[12px] font-bold tracking-[0.2em] lg:sticky lg:top-24">
+                <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em] lg:sticky lg:top-24">
                   OUR PHILOSOPHY
                 </div>
                 <div className="hidden lg:block relative aspect-[3/4] mt-8 w-full">
@@ -178,8 +178,8 @@ export default function ServiceProduce() {
               </div>
               <div className="lg:col-span-9 lg:pl-8">
                 <h2
-                  className="text-green font-black leading-[1.18] tracking-[-0.02em]"
-                  style={{ fontSize: "clamp(30px, 4.4vw, 60px)" }}
+                  className="text-green font-semibold leading-[1.18] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(28px, 3.6vw, 48px)" }}
                 >
                   地域愛を、<br />地域発展の力に。
                 </h2>
@@ -191,7 +191,7 @@ export default function ServiceProduce() {
                   <p>
                     そんな一人ひとりの小さな行動が、人をつなぎ、新しい挑戦を生み、やがて地域を動かす力になっていく。
                   </p>
-                  <p className="text-green font-bold text-[20px] md:text-[26px] leading-[1.6] tracking-[-0.01em] pt-2">
+                  <p className="text-green font-semibold text-[19px] md:text-[24px] leading-[1.6] tracking-[-0.01em] pt-2">
                     私たちは、地域への「好き」を、行動へ変えていきます。
                   </p>
                 </div>
@@ -204,10 +204,10 @@ export default function ServiceProduce() {
         <section id="projects" className="scroll-mt-20 py-16 md:py-28 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">PROJECTS</div>
+              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">PROJECTS</div>
               <h2
-                className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]"
-                style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
+                className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}
               >
                 挑戦の、入り口をつくる。
               </h2>
@@ -220,14 +220,14 @@ export default function ServiceProduce() {
             <div className="mt-16 md:mt-24 flex flex-col gap-20 md:gap-32">
               {/* 01 西尾働き方図鑑 — FEATURE。大きな写真を主役に据えた誌面特集 */}
               <article>
-                <div className="flex items-baseline gap-4">
+                <div className="flex items-baseline gap-3">
                   <span
-                    className="text-terra font-black leading-none tracking-[-0.03em]"
-                    style={{ fontSize: "clamp(64px, 10vw, 140px)" }}
+                    className="text-charcoal/30 font-medium tabular-nums leading-none"
+                    style={{ fontSize: "clamp(18px, 2vw, 28px)" }}
                   >
                     01
                   </span>
-                  <span className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em] pb-3">
+                  <span className="text-charcoal/40 text-[13px] font-semibold tracking-[0.16em]">
                     {projects[0].cat}
                   </span>
                 </div>
@@ -237,8 +237,8 @@ export default function ServiceProduce() {
                   </div>
                   <div className="md:col-span-4">
                     <h3
-                      className="text-green font-black leading-[1.22] tracking-[-0.02em]"
-                      style={{ fontSize: "clamp(28px, 3.6vw, 48px)" }}
+                      className="text-green font-semibold leading-[1.22] tracking-[-0.02em]"
+                      style={{ fontSize: "clamp(26px, 3.2vw, 40px)" }}
                     >
                       {projects[0].name}
                     </h3>
@@ -250,29 +250,31 @@ export default function ServiceProduce() {
               </article>
 
               {/* 02 西尾筋肉祭り — 写真を横に添えた中サイズ。01と異なる左右構成 */}
-              <article className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center border-t border-charcoal/10 pt-12 md:pt-16">
-                <div className="md:col-span-5">
-                  <PhotoNeeded ratio="4/3" kind="MOMENTS" note="イベント準備・活動中の様子（横）" />
+              <article className="border-t border-charcoal/10 pt-12 md:pt-16">
+                <div className="flex items-baseline gap-3">
+                  <span className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>02</span>
+                  <span className="text-charcoal/40 text-[13px] font-semibold tracking-[0.16em]">{projects[1].cat}</span>
                 </div>
-                <div className="md:col-span-7 md:pl-4">
-                  <div className="flex items-baseline gap-4">
-                    <span className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(44px, 6vw, 84px)" }}>02</span>
-                    <span className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em] pb-2">{projects[1].cat}</span>
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
+                  <div className="md:col-span-5">
+                    <PhotoNeeded ratio="4/3" kind="MOMENTS" note="イベント準備・活動中の様子（横）" />
                   </div>
-                  <h3 className="mt-4 text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 38px)" }}>{projects[1].name}</h3>
-                  <p className="mt-4 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[1].desc}</p>
+                  <div className="md:col-span-7">
+                    <h3 className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[1].name}</h3>
+                    <p className="mt-4 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[1].desc}</p>
+                  </div>
                 </div>
               </article>
 
               {/* 03 AI活用研究会 — 写真なしのテキスト誌面ロウ。連番＋本文の非対称 */}
-              <article className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-12 md:pt-16">
-                <div className="md:col-span-4 flex items-baseline gap-4">
-                  <span className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(44px, 6vw, 84px)" }}>03</span>
-                  <span className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em] pb-2">{projects[2].cat}</span>
+              <article className="border-t border-charcoal/10 pt-12 md:pt-16">
+                <div className="flex items-baseline gap-3">
+                  <span className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>03</span>
+                  <span className="text-charcoal/40 text-[13px] font-semibold tracking-[0.16em]">{projects[2].cat}</span>
                 </div>
-                <div className="md:col-span-8 md:border-l md:border-charcoal/10 md:pl-12">
-                  <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 38px)" }}>{projects[2].name}</h3>
-                  <p className="mt-5 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[2].desc}</p>
+                <div className="mt-4 max-w-xl">
+                  <h3 className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[2].name}</h3>
+                  <p className="mt-4 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[2].desc}</p>
                 </div>
               </article>
 
@@ -280,13 +282,13 @@ export default function ServiceProduce() {
               <article className="bg-green text-white p-10 md:p-16">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
                   <div className="md:col-span-8">
-                    <div className="flex items-baseline gap-4 text-[13px] font-bold tracking-[0.16em]">
+                    <div className="flex items-baseline gap-4 text-[13px] font-semibold tracking-[0.16em]">
                       <span className="text-white/50">{projects[3].cat}</span>
-                      {projects[3].ongoing && <span className="text-terra">進行中</span>}
+                      {projects[3].ongoing && <span className="text-white/60">進行中</span>}
                     </div>
                     <h3
-                      className="mt-4 font-black leading-[1.25] tracking-[-0.02em]"
-                      style={{ fontSize: "clamp(24px, 3.4vw, 44px)" }}
+                      className="mt-4 font-semibold leading-[1.25] tracking-[-0.02em]"
+                      style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
                     >
                       {projects[3].name}
                     </h3>
@@ -294,7 +296,7 @@ export default function ServiceProduce() {
                       {projects[3].desc}
                     </p>
                   </div>
-                  <div className="md:col-span-4 md:text-right">
+                  <div className="md:col-span-4">
                     <Link
                       href="/contact"
                       className="inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity"
@@ -312,10 +314,10 @@ export default function ServiceProduce() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">地域推し活</div>
+              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">地域推し活</div>
               <h2
-                className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]"
-                style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
+                className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}
               >
                 好きになることから、<br className="hidden sm:block" />地域は動きはじめる。
               </h2>
@@ -334,8 +336,8 @@ export default function ServiceProduce() {
                   <div className="absolute inset-[9%] rounded-full border-2 border-dashed border-green/25" />
                   {/* 中心 */}
                   <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-[46%]">
-                    <div className="text-[15px] font-black tracking-[-0.02em] text-green">地域推し活</div>
-                    <div className="mt-2 text-[12px] font-bold text-terra leading-[1.8]">
+                    <div className="text-[15px] font-semibold tracking-[-0.02em] text-green">地域推し活</div>
+                    <div className="mt-2 text-[12px] font-medium text-charcoal/60 leading-[1.8]">
                       好き → 応援 → 行動<br />→ 挑戦 → 共創
                     </div>
                   </div>
@@ -347,17 +349,17 @@ export default function ServiceProduce() {
                       style={{ left: `${cyclePos[i].left}%`, top: `${cyclePos[i].top}%` }}
                     >
                       <div className="flex flex-col items-center">
-                        <div className="w-9 h-9 rounded-full bg-terra text-white text-[13px] font-black flex items-center justify-center">
+                        <div className="w-9 h-9 rounded-full bg-green text-white text-[13px] font-semibold flex items-center justify-center">
                           {i + 1}
                         </div>
-                        <div className="mt-2 whitespace-nowrap rounded-full bg-ivory border border-charcoal/10 px-4 py-1.5 text-[13px] font-bold text-green">
+                        <div className="mt-2 whitespace-nowrap rounded-full bg-ivory border border-charcoal/10 px-4 py-1.5 text-[13px] font-semibold text-green">
                           {label}
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
-                <p className="mt-8 text-center text-[13px] font-bold text-terra">
+                <p className="mt-8 text-center text-[13px] font-medium text-terra">
                   ↻ 「次の挑戦へ」は、また「知る」へ戻り、循環しつづける。
                 </p>
               </div>
@@ -365,18 +367,18 @@ export default function ServiceProduce() {
               {/* モバイル：縦フロー */}
               <div className="md:hidden mt-4">
                 <div className="rounded-2xl border border-charcoal/10 bg-ivory p-6">
-                  <div className="text-center text-[14px] font-black tracking-[-0.02em] text-green">地域推し活</div>
-                  <div className="mt-1 text-center text-[12px] font-bold text-terra">
+                  <div className="text-center text-[14px] font-semibold tracking-[-0.02em] text-green">地域推し活</div>
+                  <div className="mt-1 text-center text-[12px] font-medium text-charcoal/60">
                     好き → 応援 → 行動 → 挑戦 → 共創
                   </div>
                   <ol className="mt-6 space-y-0">
                     {cycle.map((label, i) => (
                       <li key={label}>
                         <div className="flex items-center gap-3">
-                          <div className="w-7 h-7 shrink-0 rounded-full bg-terra text-white text-[12px] font-black flex items-center justify-center">
+                          <div className="w-7 h-7 shrink-0 rounded-full bg-green text-white text-[12px] font-semibold flex items-center justify-center">
                             {i + 1}
                           </div>
-                          <div className="text-[15px] font-bold text-green">{label}</div>
+                          <div className="text-[15px] font-semibold text-green">{label}</div>
                         </div>
                         {i < cycle.length - 1 && (
                           <div className="ml-3 h-5 border-l-2 border-green/25" aria-hidden="true" />
@@ -384,7 +386,7 @@ export default function ServiceProduce() {
                       </li>
                     ))}
                   </ol>
-                  <div className="mt-4 text-[12px] font-bold text-terra">↻ 「知る」へ戻り、循環しつづける。</div>
+                  <div className="mt-4 text-[12px] font-medium text-terra">↻ 「知る」へ戻り、循環しつづける。</div>
                 </div>
               </div>
             </div>
@@ -396,10 +398,10 @@ export default function ServiceProduce() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-5">
-                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">OUR GOAL</div>
+                <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">OUR GOAL</div>
                 <h2
-                  className="mt-4 text-green font-black leading-[1.2] tracking-[-0.02em]"
-                  style={{ fontSize: "clamp(30px, 4.4vw, 60px)" }}
+                  className="mt-4 text-green font-semibold leading-[1.2] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(28px, 3.6vw, 48px)" }}
                 >
                   挑戦する人を、<br />一人ずつ増やす。
                 </h2>
@@ -422,24 +424,24 @@ export default function ServiceProduce() {
         {/* ===== MID-TERM GOAL — 240 をテラコッタの大数字グラフィックで（TOP呼応） ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-terra text-[12px] font-bold tracking-[0.2em]">MID-TERM GOAL</div>
+            <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">MID-TERM GOAL</div>
             <div className="mt-8 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
               <div className="md:col-span-7">
-                <div className="text-[15px] md:text-[17px] font-bold text-charcoal/70">2040年までに、</div>
+                <div className="text-[15px] md:text-[17px] font-semibold text-charcoal/70">2040年までに、</div>
                 <div className="mt-2 flex flex-wrap items-end gap-x-5 gap-y-2">
-                  <div className="flex items-end text-green leading-[0.85] font-black tracking-[-0.04em]">
-                    <span className="text-terra" style={{ fontSize: "clamp(120px, 20vw, 260px)" }}>
+                  <div className="flex items-end text-green leading-[0.85] font-semibold tracking-[-0.04em]">
+                    <span style={{ fontSize: "clamp(88px, 13vw, 160px)" }}>
                       240
                     </span>
-                    <span className="text-[32px] md:text-[52px] ml-2 pb-3 md:pb-6">事業</span>
+                    <span className="text-[26px] md:text-[40px] ml-2 pb-2 md:pb-4">事業</span>
                   </div>
-                  <div className="text-[22px] md:text-[32px] font-black text-green pb-4 md:pb-8">を、西尾に。</div>
+                  <div className="text-[20px] md:text-[28px] font-semibold text-green pb-3 md:pb-5">を、西尾に。</div>
                 </div>
               </div>
-              <div className="md:col-span-5 md:border-l md:border-charcoal/10 md:pl-10">
+              <div className="md:col-span-5 md:pl-10">
                 <h2
-                  className="text-green font-black leading-[1.25] tracking-[-0.02em]"
-                  style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
+                  className="text-green font-semibold leading-[1.25] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}
                 >
                   まずは、西尾から。
                 </h2>
@@ -458,10 +460,10 @@ export default function ServiceProduce() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">HOW WE WORK</div>
+              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">HOW WE WORK</div>
               <h2
-                className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]"
-                style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
+                className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}
               >
                 私たちの進め方。
               </h2>
@@ -475,15 +477,15 @@ export default function ServiceProduce() {
                 >
                   <div className="md:col-span-3">
                     <span
-                      className="text-terra font-black leading-none tracking-[-0.03em]"
-                      style={{ fontSize: "clamp(48px, 6vw, 88px)" }}
+                      className="text-charcoal/30 font-medium tabular-nums leading-none"
+                      style={{ fontSize: "clamp(18px, 2vw, 28px)" }}
                     >
                       {h.step}
                     </span>
                   </div>
                   <h3
-                    className="md:col-span-4 text-green font-black tracking-[-0.02em] leading-[1.3]"
-                    style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}
+                    className="md:col-span-4 text-green font-semibold tracking-[-0.02em] leading-[1.3]"
+                    style={{ fontSize: "clamp(22px, 2.4vw, 30px)" }}
                   >
                     {h.title}
                   </h3>
@@ -499,11 +501,11 @@ export default function ServiceProduce() {
         {/* ===== CTA — Deep Green のバンド＋テラコッタボタンで締める ===== */}
         <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-white/60 text-[12px] font-bold tracking-[0.2em]">CONTACT</div>
+            <div className="text-white/60 text-[12px] font-bold tracking-[0.16em]">CONTACT</div>
             <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
               <h2
-                className="lg:col-span-8 font-black leading-[1.15] tracking-[-0.02em]"
-                style={{ fontSize: "clamp(34px, 5.5vw, 76px)" }}
+                className="lg:col-span-8 font-semibold leading-[1.15] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(30px, 4.6vw, 60px)" }}
               >
                 地域に、<br />一緒に仕掛けませんか。
               </h2>

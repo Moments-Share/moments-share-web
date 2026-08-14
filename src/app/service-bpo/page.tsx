@@ -115,7 +115,7 @@ export default function ServiceBPO() {
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-9 inline-block text-[14px] font-bold text-green border-b-2 border-green pb-1 hover:text-terra hover:border-terra transition-colors"
+                  className="mt-9 inline-block text-[14px] font-bold text-green border-b border-green/60 pb-0.5 hover:text-terra hover:border-terra transition-colors"
                 >
                   外注できる業務を相談する →
                 </Link>
@@ -141,15 +141,15 @@ export default function ServiceBPO() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">FOR THESE COMPANIES</div>
-              <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">FOR THESE COMPANIES</div>
+              <h2 className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
                 こんな企業に。
               </h2>
             </div>
             <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-x-16 border-t border-charcoal/10">
               {painPoints.map((p, i) => (
                 <div key={p} className="flex items-baseline gap-6 py-6 border-b border-charcoal/10">
-                  <span className="text-terra font-black text-[14px] tracking-[0.1em] shrink-0">
+                  <span className="text-charcoal/30 font-medium tabular-nums text-[14px] shrink-0">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-[15px] md:text-[17px] leading-[1.9] text-charcoal/85">{p}</p>
@@ -162,16 +162,16 @@ export default function ServiceBPO() {
         {/* ===== 重要メッセージ — ページの核。大きな緑のタイポと余白だけで見せる ===== */}
         <section className="py-24 md:py-40 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-terra text-[12px] font-bold tracking-[0.2em]">MESSAGE</div>
+            <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">MESSAGE</div>
             <h2
-              className="mt-8 text-green font-black leading-[1.18] tracking-[-0.02em]"
-              style={{ fontSize: "clamp(34px, 6vw, 84px)" }}
+              className="mt-8 text-green font-semibold leading-[1.18] tracking-[-0.02em]"
+              style={{ fontSize: "clamp(32px, 5vw, 68px)" }}
             >
               その仕事、本当に<br />採用が必要ですか？
             </h2>
             <div className="mt-14 max-w-2xl space-y-7 text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
               <p>自動化できる仕事は、DXで減らす。人が必要な仕事だけ、BPOで支える。</p>
-              <p className="text-green font-bold text-[20px] md:text-[26px] leading-[1.6] tracking-[-0.01em] pt-2">
+              <p className="text-green font-semibold text-[20px] md:text-[24px] leading-[1.6] tracking-[-0.01em] pt-2">
                 Moments Shareは、採用する・外注する・自動化する、その前に、まず仕事そのものを整理します。
               </p>
             </div>
@@ -182,19 +182,19 @@ export default function ServiceBPO() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">SERVICE</div>
-              <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">SERVICE</div>
+              <h2 className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
                 支えられる仕事。
               </h2>
             </div>
             <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-x-16 border-t border-charcoal/10">
               {services.map((s, i) => (
                 <div key={s.title} className="flex items-baseline gap-6 py-8 border-b border-charcoal/10">
-                  <span className="text-terra font-black text-[14px] tracking-[0.1em] shrink-0 pt-1">
+                  <span className="text-charcoal/30 font-medium tabular-nums text-[14px] shrink-0 pt-1">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="text-green font-black tracking-[-0.02em] leading-[1.3]" style={{ fontSize: "clamp(20px, 2.4vw, 26px)" }}>
+                    <h3 className="text-green font-semibold tracking-[-0.02em] leading-[1.3]" style={{ fontSize: "clamp(19px, 2vw, 22px)" }}>
                       {s.title}
                     </h3>
                     <p className="mt-2 text-[14px] md:text-[15px] leading-[1.9] text-muted max-w-md">{s.desc}</p>
@@ -210,10 +210,10 @@ export default function ServiceBPO() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
               <div className="lg:col-span-9">
-                <div className="text-white/60 text-[12px] font-bold tracking-[0.2em]">DX × BPO</div>
+                <div className="text-white/60 text-[12px] font-bold tracking-[0.16em]">DX × BPO</div>
                 <h2
-                  className="mt-6 font-black leading-[1.22] tracking-[-0.02em]"
-                  style={{ fontSize: "clamp(30px, 5vw, 68px)" }}
+                  className="mt-6 font-semibold leading-[1.22] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(28px, 4vw, 54px)" }}
                 >
                   自動化できる仕事は減らす。<br />
                   人が必要な仕事だけ支える。
@@ -236,8 +236,8 @@ export default function ServiceBPO() {
                 <PhotoNeeded ratio="4/5" kind="PEOPLE" note="多様な働き方の人・活動中（横/縦を混在）" />
               </div>
               <div className="lg:col-span-7 order-2">
-                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">TEAM</div>
-                <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+                <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">TEAM</div>
+                <h2 className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
                   多様な人と、一緒に支える。
                 </h2>
                 <p className="mt-6 max-w-lg text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
@@ -246,7 +246,7 @@ export default function ServiceBPO() {
                 <div className="mt-10 border-t border-charcoal/10">
                   {team.map((t) => (
                     <div key={t.label} className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-1 sm:gap-6 py-5 border-b border-charcoal/10">
-                      <span className="text-green font-black text-[17px] md:text-[19px] tracking-[-0.01em]">{t.label}</span>
+                      <span className="text-green font-semibold text-[16px] md:text-[18px] tracking-[-0.01em]">{t.label}</span>
                       <p className="text-[14px] md:text-[15px] leading-[1.9] text-muted">{t.desc}</p>
                     </div>
                   ))}
@@ -260,18 +260,18 @@ export default function ServiceBPO() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">PROCESS</div>
-              <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">PROCESS</div>
+              <h2 className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
                 進め方。
               </h2>
             </div>
             <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12 border-t border-charcoal/10 pt-12">
               {process.map((p) => (
                 <div key={p.step}>
-                  <div className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(48px, 5vw, 72px)" }}>
+                  <div className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>
                     {p.step}
                   </div>
-                  <h3 className="mt-5 text-green font-black tracking-[-0.02em] leading-[1.3]" style={{ fontSize: "clamp(20px, 2vw, 24px)" }}>
+                  <h3 className="mt-5 text-green font-semibold tracking-[-0.02em] leading-[1.3]" style={{ fontSize: "clamp(19px, 2vw, 22px)" }}>
                     {p.title}
                   </h3>
                   <p className="mt-3 text-[14px] md:text-[15px] leading-[1.9] text-muted">{p.body}</p>
@@ -284,9 +284,9 @@ export default function ServiceBPO() {
         {/* ===== CONTACT — Deep Green のバンドで締める。ボタンはテラコッタ ===== */}
         <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-white/60 text-[12px] font-bold tracking-[0.2em]">CONTACT</div>
+            <div className="text-white/60 text-[12px] font-bold tracking-[0.16em]">CONTACT</div>
             <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-              <h2 className="lg:col-span-8 font-black leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(32px, 5vw, 68px)" }}>
+              <h2 className="lg:col-span-8 font-semibold leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(30px, 4vw, 54px)" }}>
                 どの仕事を外に出せるか、<br className="hidden sm:block" />一緒に整理します。
               </h2>
               <div className="lg:col-span-4 lg:pb-4">

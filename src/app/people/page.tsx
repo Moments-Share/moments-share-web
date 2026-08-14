@@ -26,12 +26,20 @@ const ways = [
   { title: "自分でプロジェクトを始める", desc: "「やってみたい」を持ち込み、挑戦者として動き出す。" },
 ];
 
+const memberPhotos = [
+  { ratio: "3/4", note: "専門人材が現場で手を動かす場面（縦）" },
+  { ratio: "3/4", note: "副業メンバーの作業中（縦）" },
+  { ratio: "3/4", note: "子育てをしながら働く人の一場面（縦）" },
+  { ratio: "3/4", note: "学生が地域で活動する場面（縦）" },
+  { ratio: "3/4", note: "メンバーが集まって話し合う場面（縦）" },
+];
+
 export default function PeoplePage() {
   return (
     <>
       <Nav />
       <main id="main-content">
-        {/* ===== HERO — 大きな見出し＋働く現場の写真を非対称に ===== */}
+        {/* ===== HERO — ページで最も強い見出し＋写真 ===== */}
         <section className="pt-28 md:pt-32 pb-16 md:pb-24 px-6 md:px-10">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-end">
@@ -41,7 +49,7 @@ export default function PeoplePage() {
                   PEOPLE
                 </div>
                 <h1 className="mt-8 text-green font-black leading-[1.12] tracking-[-0.03em]"
-                    style={{ fontSize: "clamp(44px, 7vw, 100px)" }}>
+                    style={{ fontSize: "clamp(44px, 7vw, 96px)" }}>
                   一緒につくる<br />人たち。
                 </h1>
                 <p className="mt-8 max-w-lg text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
@@ -60,23 +68,23 @@ export default function PeoplePage() {
           </div>
         </section>
 
-        {/* ===== 関わり方 — 均等ボックスをやめ、番号つきの編集リストで ===== */}
+        {/* ===== 関わり方 — 番号は小さな見出し記号として ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
               <div className="lg:col-span-4">
-                <div className="text-terra text-[12px] font-bold tracking-[0.2em] lg:sticky lg:top-24">HOW TO JOIN</div>
-                <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 3.6vw, 48px)" }}>
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">関わり方</div>
+                <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
                   関わり方は、<br />ひとつじゃない。
                 </h2>
               </div>
               <div className="lg:col-span-8">
                 <ol className="divide-y divide-charcoal/10 border-t border-charcoal/10">
                   {ways.map((w, i) => (
-                    <li key={w.title} className="grid grid-cols-[auto_1fr] gap-6 md:gap-10 py-7 md:py-9 items-baseline">
-                      <span className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(32px, 4vw, 56px)" }}>0{i + 1}</span>
+                    <li key={w.title} className="grid grid-cols-[auto_1fr] gap-5 md:gap-8 py-7 md:py-9 items-baseline">
+                      <span className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 26px)" }}>0{i + 1}</span>
                       <div>
-                        <h3 className="text-green font-bold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(18px, 2.2vw, 26px)" }}>{w.title}</h3>
+                        <h3 className="text-green font-semibold leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(18px, 2.2vw, 25px)" }}>{w.title}</h3>
                         <p className="mt-2 max-w-xl text-[15px] leading-[2] text-charcoal/80">{w.desc}</p>
                       </div>
                     </li>
@@ -87,93 +95,76 @@ export default function PeoplePage() {
           </div>
         </section>
 
-        {/* ===== MEMBERS — 代表を雑誌の特集のように大きな写真＋バイオで ===== */}
+        {/* ===== MEMBERS — 代表を大きな写真＋バイオで ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-terra text-[12px] font-bold tracking-[0.2em]">MEMBERS</div>
-            <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">MEMBERS</div>
+            <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
               メンバー
             </h2>
 
-            {/* 代表（実在の情報のみ）— 非対称の特集レイアウト */}
-            <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+            {/* 代表（実在の情報のみ） */}
+            <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
               <div className="md:col-span-5">
                 {/* TODO: 代表の顔写真に差し替え（public/photos/ に追加） */}
                 <PhotoNeeded ratio="4/5" kind="PEOPLE" note="代表・中根 隆のポートレート（縦・自然光）" />
                 <p className="mt-3 text-[12px] leading-[1.8] text-muted">西尾から、挑戦と共創の循環をつくる。</p>
               </div>
               <div className="md:col-span-7 md:pt-4">
-                <div className="text-terra text-[13px] font-bold tracking-[0.16em]">代表社員 / Founder</div>
+                <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/50">代表社員 / Founder</div>
                 <div className="mt-4 flex items-baseline gap-4 flex-wrap">
-                  <span className="text-green font-black leading-[1.1] tracking-[-0.02em]" style={{ fontSize: "clamp(36px, 5vw, 68px)" }}>中根 隆</span>
+                  <span className="text-green font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 4.2vw, 56px)" }}>中根 隆</span>
                   <span className="text-[13px] font-bold text-muted tracking-[0.14em]">RYU NAKANE</span>
                 </div>
                 <dl className="mt-8 divide-y divide-charcoal/10 border-t border-charcoal/10">
                   <div className="py-5">
-                    <dt className="text-[12px] font-bold tracking-[0.14em] text-terra">得意なこと</dt>
+                    <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/50">得意なこと</dt>
                     <dd className="mt-2 text-[15px] md:text-[16px] leading-[2] text-charcoal/85">業務整理・DX設計、AI／RPA／ノーコードによる自動化、地域コミュニティづくり。</dd>
                   </div>
                   <div className="py-5">
-                    <dt className="text-[12px] font-bold tracking-[0.14em] text-terra">担当していること</dt>
+                    <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/50">担当していること</dt>
                     <dd className="mt-2 text-[15px] md:text-[16px] leading-[2] text-charcoal/85">DX支援・BPO・地域プロデュースの3事業の推進。</dd>
                   </div>
                   <div className="py-5">
-                    <dt className="text-[12px] font-bold tracking-[0.14em] text-terra">なぜMoments Shareに関わっているか</dt>
+                    <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/50">なぜMoments Shareに関わっているか</dt>
                     <dd className="mt-2 text-[15px] md:text-[16px] leading-[2] text-charcoal/85">「挑戦できる場所を、つくる側に回ろう」。西尾から、挑戦と共創が循環する地域の仕組みをつくるため。</dd>
                   </div>
                 </dl>
               </div>
             </div>
 
-            {/* これから加わるメンバー — 証明写真ではなく“活動中”の場面で。実在情報が揃うまで名前・肩書きは載せない。架空の人物は作成しない。 */}
-            <div className="mt-24 md:mt-36 border-t border-charcoal/10 pt-14 md:pt-20">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end">
-                <div className="lg:col-span-4">
-                  <div className="text-terra text-[12px] font-bold tracking-[0.2em]">MEMBERS / 準備中</div>
-                  <h3 className="mt-4 text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 42px)" }}>
-                    これから、<br />顔ぶれが増えていく。
-                  </h3>
-                  <p className="mt-6 max-w-sm text-[15px] leading-[2] text-charcoal/70">
-                    専門人材、副業、子育て中、学生——。それぞれの持ち場から関わる人たちを、順次紹介していきます。
-                  </p>
-                  {/* TODO: 実在するメンバーを、写真／名前／得意なこと／担当／関わる理由の5項目で追記する。架空の人物は作成しない。 */}
-                  <p className="mt-8 text-[13px] tracking-[0.04em] text-muted">※ 他メンバー準備中。掲載は本人の実在情報のみ。</p>
-                </div>
+            {/* これから加わるメンバー — 活動中の場面で。実在情報が揃うまで名前・肩書きは載せない。架空の人物は作成しない。 */}
+            <div className="mt-20 md:mt-28 border-t border-charcoal/10 pt-14 md:pt-20">
+              <div className="max-w-2xl">
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">これから</div>
+                <h3 className="mt-4 text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(23px, 3vw, 38px)" }}>
+                  これから、顔ぶれが増えていく。
+                </h3>
+                <p className="mt-6 text-[15px] leading-[2] text-charcoal/70">
+                  専門人材、副業、子育て中、学生——。それぞれの持ち場から関わる人たちを、順次紹介していきます。
+                </p>
+                {/* TODO: 実在するメンバーを、写真／名前／得意なこと／担当／関わる理由の5項目で追記する。架空の人物は作成しない。 */}
+                <p className="mt-6 text-[13px] tracking-[0.04em] text-muted">※ 他メンバー準備中。掲載は本人の実在情報のみ。</p>
+              </div>
 
-                {/* 混在サイズ・向きのプレースホルダ（活動中の一場面／証明写真にしない） */}
-                <div className="lg:col-span-8">
-                  <div className="grid grid-cols-6 gap-4 md:gap-5">
-                    <div className="col-span-3 md:col-span-2">
-                      <PhotoNeeded ratio="3/4" kind="PEOPLE" note="専門人材が現場で手を動かす場面（縦）" />
-                    </div>
-                    <div className="col-span-3 md:col-span-2 md:mt-12">
-                      <PhotoNeeded ratio="1/1" kind="PEOPLE" note="副業メンバーの手元・作業中（正方）" />
-                    </div>
-                    <div className="col-span-6 md:col-span-2">
-                      <PhotoNeeded ratio="4/5" kind="PEOPLE" note="子育てをしながら働く人の一場面（縦）" />
-                    </div>
-                    <div className="col-span-6 md:col-span-4 md:-mt-6">
-                      <PhotoNeeded ratio="16/9" kind="PEOPLE" note="学生が地域で活動する場面（横・ドキュメンタリー）" />
-                    </div>
-                    <div className="col-span-6 md:col-span-2">
-                      <PhotoNeeded ratio="3/4" kind="PEOPLE" note="メンバーが集まって話し合う場面（縦）" />
-                    </div>
-                  </div>
-                </div>
+              {/* 活動中の一場面（証明写真にしない）。同じ体裁で静かに並べる */}
+              <div className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5">
+                {memberPhotos.map((p, i) => (
+                  <PhotoNeeded key={i} ratio={p.ratio} kind="PEOPLE" note={p.note} />
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* ===== CTA — Deep Green のバンド＋テラコッタのボタン ===== */}
+        {/* ===== CTA — Deep Green のバンド ===== */}
         <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-white/60 text-[12px] font-bold tracking-[0.2em]">CONTACT</div>
-            <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-              <h2 className="lg:col-span-8 font-black leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(34px, 5.5vw, 76px)" }}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+              <h2 className="lg:col-span-8 font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 5vw, 68px)" }}>
                 あなたの得意を、<br />地域の挑戦へ。
               </h2>
-              <div className="lg:col-span-4 lg:pb-4">
+              <div className="lg:col-span-4 lg:pb-3">
                 <p className="text-[15px] leading-[2] text-white/75">
                   働き方も場所も問いません。まずは気軽に話すところから。
                 </p>

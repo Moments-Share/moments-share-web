@@ -68,7 +68,7 @@ export default function ContactPage() {
                 <form action="" method="POST" className="grid grid-cols-1 gap-10">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div>
-                      <label htmlFor="name" className="block text-[12px] font-bold tracking-[0.14em] text-terra mb-3">
+                      <label htmlFor="name" className="block text-[12px] font-bold tracking-[0.14em] text-charcoal/55 mb-3">
                         お名前<span className="ml-1">*</span>
                       </label>
                       <input
@@ -77,7 +77,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="company" className="block text-[12px] font-bold tracking-[0.14em] text-terra mb-3">
+                      <label htmlFor="company" className="block text-[12px] font-bold tracking-[0.14em] text-charcoal/55 mb-3">
                         会社名・屋号
                       </label>
                       <input
@@ -89,7 +89,7 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div>
-                      <label htmlFor="email" className="block text-[12px] font-bold tracking-[0.14em] text-terra mb-3">
+                      <label htmlFor="email" className="block text-[12px] font-bold tracking-[0.14em] text-charcoal/55 mb-3">
                         メールアドレス<span className="ml-1">*</span>
                       </label>
                       <input
@@ -98,7 +98,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="category" className="block text-[12px] font-bold tracking-[0.14em] text-terra mb-3">
+                      <label htmlFor="category" className="block text-[12px] font-bold tracking-[0.14em] text-charcoal/55 mb-3">
                         ご相談の種類<span className="ml-1">*</span>
                       </label>
                       <select
@@ -114,7 +114,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-[12px] font-bold tracking-[0.14em] text-terra mb-3">
+                    <label htmlFor="message" className="block text-[12px] font-bold tracking-[0.14em] text-charcoal/55 mb-3">
                       ご相談内容<span className="ml-1">*</span>
                     </label>
                     <textarea
@@ -132,7 +132,7 @@ export default function ContactPage() {
                     </button>
                     <p className="text-[13px] leading-[1.9] text-muted">
                       お急ぎの方はメールでも受け付けています：<br className="hidden sm:block" />
-                      <a href="mailto:branding@momentsshare.com" className="text-green border-b-2 border-green pb-0.5 font-bold hover:text-terra hover:border-terra transition-colors">branding@momentsshare.com</a>
+                      <a href="mailto:branding@momentsshare.com" className="text-green border-b border-green/60 pb-0.5 font-bold hover:text-terra hover:border-terra transition-colors">branding@momentsshare.com</a>
                     </p>
                   </div>
                 </form>

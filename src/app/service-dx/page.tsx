@@ -96,7 +96,7 @@ export default function ServiceDX() {
       />
       <Nav />
       <main id="main-content">
-        {/* ===== HERO — 明るい編集型。大きな緑の見出し＋現場写真を非対称に ===== */}
+        {/* ===== HERO — ページ唯一の最強の瞬間。大きな緑の見出し＋現場写真 ===== */}
         <section className="pt-28 md:pt-32 pb-16 md:pb-24 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
@@ -115,7 +115,7 @@ export default function ServiceDX() {
                 <div className="mt-8">
                   <Link
                     href="/contact"
-                    className="inline-block text-[14px] font-bold text-green border-b-2 border-green pb-1 hover:text-terra hover:border-terra transition-colors"
+                    className="inline-block text-[14px] font-bold text-green border-b border-green/60 pb-0.5 hover:text-terra hover:border-terra transition-colors"
                   >
                     自動化できる業務を相談する →
                   </Link>
@@ -138,13 +138,13 @@ export default function ServiceDX() {
           </div>
         </section>
 
-        {/* ===== こんな課題 — 7項目を編集型チェックリストに（カードではなく2カラムのテキストリスト） ===== */}
+        {/* ===== こんな課題 — 7項目を2カラムのテキストリストに ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-4">
-                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">CHECK</div>
-                <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+                <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">CHECK</div>
+                <h2 className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
                   こんな課題は<br className="hidden sm:block" />ありませんか？
                 </h2>
                 <p className="mt-6 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
@@ -155,8 +155,8 @@ export default function ServiceDX() {
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 border-t border-charcoal/10">
                   {problems.map((p) => (
                     <li key={p} className="flex items-start gap-4 border-b border-charcoal/10 py-5">
-                      <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-terra" />
-                      <p className="text-[15px] md:text-[16px] leading-[1.8] text-charcoal font-bold">{p}</p>
+                      <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-charcoal/25" />
+                      <p className="text-[15px] md:text-[16px] leading-[1.8] text-charcoal">{p}</p>
                     </li>
                   ))}
                 </ul>
@@ -165,12 +165,12 @@ export default function ServiceDX() {
           </div>
         </section>
 
-        {/* ===== 何が変わる？ — 3つの成果を大きな型の言明で ===== */}
+        {/* ===== 何が変わる？ — 3つの成果を言明で ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">WHAT CHANGES</div>
-              <h2 className="mt-4 text-green font-black leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">WHAT CHANGES</div>
+              <h2 className="mt-4 text-green font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
                 何が変わる？
               </h2>
               <p className="mt-6 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
@@ -181,10 +181,10 @@ export default function ServiceDX() {
             <div className="mt-14 md:mt-20 flex flex-col divide-y divide-charcoal/10 border-t border-charcoal/10">
               {outcomes.map((o, i) => (
                 <div key={o.title} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 items-baseline py-10 md:py-12">
-                  <span className="md:col-span-1 text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(32px, 3.5vw, 48px)" }}>
+                  <span className="md:col-span-1 text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="md:col-span-6 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 46px)" }}>
+                  <h3 className="md:col-span-6 text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(22px, 2.8vw, 38px)" }}>
                     {o.title}
                   </h3>
                   <p className="md:col-span-5 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{o.body}</p>
@@ -194,12 +194,12 @@ export default function ServiceDX() {
           </div>
         </section>
 
-        {/* ===== CASE — 実績。80％削減を巨大なテラコッタ数字＋現場写真で主役に ===== */}
+        {/* ===== CASE — 実績。80％削減を主役に ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">CASE</div>
-              <h2 className="mt-4 text-green font-black leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">CASE</div>
+              <h2 className="mt-4 text-green font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
                 業務を、余白に変えた事例。
               </h2>
             </div>
@@ -209,14 +209,14 @@ export default function ServiceDX() {
               <div className="md:col-span-5">
                 <div className="text-[13px] font-bold tracking-[0.16em] text-charcoal/40 mb-4">CASE 01 — SNS自動化</div>
                 <div className="flex items-end gap-4">
-                  <span className="text-terra font-black leading-[0.85] tracking-[-0.04em]" style={{ fontSize: "clamp(96px, 16vw, 220px)" }}>
+                  <span className="text-terra font-semibold leading-[0.85] tracking-[-0.04em]" style={{ fontSize: "clamp(56px, 8vw, 96px)" }}>
                     80
                   </span>
-                  <span className="text-terra font-black pb-4" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>％削減</span>
+                  <span className="text-terra font-semibold pb-2" style={{ fontSize: "clamp(20px, 2.6vw, 32px)" }}>％削減</span>
                 </div>
               </div>
               <div className="md:col-span-7 md:pb-4">
-                <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 40px)" }}>
+                <h3 className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(22px, 2.6vw, 34px)" }}>
                   投稿作業を、30分 → 約6分へ。
                 </h3>
                 <p className="mt-5 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
@@ -225,9 +225,9 @@ export default function ServiceDX() {
               </div>
             </div>
 
-            {/* 主役事例の現場写真。右寄せの横位置で余白を残し、80の左に空きをつくる */}
+            {/* 主役事例の現場写真。左揃え・横位置 */}
             <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12">
-              <div className="md:col-start-5 md:col-span-8">
+              <div className="md:col-span-8">
                 <PhotoNeeded ratio="16/9" kind="MOMENTS" note="DX作業の手元・自動化を動かす現場（横）" />
                 <p className="mt-3 text-[12px] text-muted">毎日の投稿作業が、6分に。</p>
               </div>
@@ -237,11 +237,11 @@ export default function ServiceDX() {
             <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-10 md:pt-12">
               <div className="md:col-span-4 text-[13px] font-bold tracking-[0.16em] text-charcoal/40">CASE 02 — 請求書</div>
               <div className="md:col-span-8">
-                <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}>
+                <h3 className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(22px, 2.8vw, 36px)" }}>
                   請求書発行の自動化
                 </h3>
-                <div className="mt-3 text-green font-black tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>
-                  手作業 → 自動化<span className="text-terra text-[15px] font-bold ml-3 align-middle">発行・送付を仕組み化</span>
+                <div className="mt-3 text-green font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(19px, 2.2vw, 27px)" }}>
+                  手作業 → 自動化<span className="text-charcoal/60 text-[15px] font-medium ml-3 align-middle">発行・送付を仕組み化</span>
                 </div>
                 <p className="mt-5 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
                   手作業だった請求書の作成・送付を自動化し、転記の手間をなくした。
@@ -249,20 +249,20 @@ export default function ServiceDX() {
               </div>
             </div>
 
-            {/* 在庫管理 — 構成を変える。変化のフレーズを大きな型で左に、詳細を右に */}
+            {/* 在庫管理 — 左揃えで統一 */}
             <div className="mt-16 md:mt-24 border-t border-charcoal/10 pt-10 md:pt-12">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-end">
                 <div className="md:col-span-7">
                   <div className="text-[13px] font-bold tracking-[0.16em] text-charcoal/40">CASE 03 — 在庫管理</div>
-                  <h3 className="mt-5 text-green font-black leading-[1.12] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4.4vw, 60px)" }}>
+                  <h3 className="mt-5 text-green font-semibold leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.4vw, 48px)" }}>
                     紙＋Excel →<br />一元管理
                   </h3>
                 </div>
                 <div className="md:col-span-5 md:pb-2">
-                  <div className="text-green font-black tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 24px)" }}>
+                  <div className="text-green font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 24px)" }}>
                     在庫管理の一元化
                   </div>
-                  <div className="mt-2 text-[13px] font-bold text-terra">二重管理を解消</div>
+                  <div className="mt-2 text-[13px] font-medium text-charcoal/50">二重管理を解消</div>
                   <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
                     紙とExcelに分かれていた在庫情報を一元管理し、探す・照合する手間を削減。
                   </p>
@@ -272,13 +272,13 @@ export default function ServiceDX() {
           </div>
         </section>
 
-        {/* ===== SERVICE — できること。6項目を番号付きの編集型リストに ===== */}
+        {/* ===== SERVICE — できること。6項目を番号付きリストに ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-4">
-                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">SERVICE</div>
-                <h2 className="mt-4 text-green font-black leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+                <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">SERVICE</div>
+                <h2 className="mt-4 text-green font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
                   できること。
                 </h2>
               </div>
@@ -286,10 +286,10 @@ export default function ServiceDX() {
                 <ul className="border-t border-charcoal/10">
                   {menu.map((m, i) => (
                     <li key={m} className="flex items-baseline gap-6 border-b border-charcoal/10 py-6">
-                      <span className="text-terra font-black leading-none tracking-[-0.03em] w-14 shrink-0" style={{ fontSize: "clamp(24px, 3vw, 40px)" }}>
+                      <span className="text-charcoal/30 font-medium tabular-nums leading-none w-10 shrink-0" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <p className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2.2vw, 28px)" }}>
+                      <p className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 26px)" }}>
                         {m}
                       </p>
                     </li>
@@ -300,23 +300,23 @@ export default function ServiceDX() {
           </div>
         </section>
 
-        {/* ===== PROCESS — 進め方。01–05を大きな数字のステップ行で ===== */}
+        {/* ===== PROCESS — 進め方。01–05のステップ行 ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">PROCESS</div>
-              <h2 className="mt-4 text-green font-black leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+              <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">PROCESS</div>
+              <h2 className="mt-4 text-green font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
                 進め方。
               </h2>
             </div>
 
             <div className="mt-14 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
               {steps.map((s) => (
-                <div key={s.num} className="border-t-2 border-charcoal/10 pt-5">
-                  <div className="text-terra font-black leading-none tracking-[-0.04em]" style={{ fontSize: "clamp(52px, 6vw, 84px)" }}>
+                <div key={s.num} className="border-t border-charcoal/10 pt-5">
+                  <div className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>
                     {s.num}
                   </div>
-                  <h3 className="mt-4 text-green font-black tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.2vw, 26px)" }}>
+                  <h3 className="mt-4 text-green font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 24px)" }}>
                     {s.title}
                   </h3>
                   <p className="mt-3 text-[14px] md:text-[15px] leading-[1.9] text-charcoal/80">{s.desc}</p>
@@ -326,11 +326,11 @@ export default function ServiceDX() {
           </div>
         </section>
 
-        {/* ===== GOAL — 大きな型の言明 ===== */}
+        {/* ===== GOAL — 言明 ===== */}
         <section className="py-20 md:py-36 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-terra text-[12px] font-bold tracking-[0.2em]">GOAL</div>
-            <h2 className="mt-6 max-w-5xl text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(30px, 5vw, 68px)" }}>
+            <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">GOAL</div>
+            <h2 className="mt-6 max-w-5xl text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 56px)" }}>
               AIを使える会社ではなく、<br className="hidden sm:block" />仕事を改善し続けられる会社へ。
             </h2>
           </div>
@@ -339,9 +339,9 @@ export default function ServiceDX() {
         {/* ===== CTA — 緑のバンド＋テラコッタボタン ===== */}
         <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-white/60 text-[12px] font-bold tracking-[0.2em]">CONTACT</div>
+            <div className="text-white/60 text-[12px] font-bold tracking-[0.16em]">CONTACT</div>
             <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-              <h2 className="lg:col-span-8 font-black leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(32px, 5vw, 72px)" }}>
+              <h2 className="lg:col-span-8 font-semibold leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(30px, 4vw, 60px)" }}>
                 まず、自動化できる仕事が<br />あるか見てみませんか。
               </h2>
               <div className="lg:col-span-4 lg:pb-4">

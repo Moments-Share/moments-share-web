@@ -56,7 +56,7 @@ const story = [
   "人口減少を止めることはできない。でも、挑戦と共創が循環する地域なら、豊かになれる。その仕組みを、西尾から創る。——それが、Moments Shareの原点になった。",
 ];
 
-// バリュー：最も目立たせる3つ（編集的な大リスト）
+// バリュー：MOMENT / MOMENTS / MOMENTS SHARE の重なりを、静かに読ませる
 const coreValues = [
   {
     en: "Moment",
@@ -75,7 +75,7 @@ const coreValues = [
   },
 ];
 
-// 7つのスタンス：3つのバリューより控えめに（名前のみ）
+// 7つのスタンス
 const stances = [
   "Purpose First",
   "Long-term Integrity",
@@ -107,7 +107,7 @@ export default function AboutPage() {
       <Nav />
       <main id="main-content">
 
-        {/* ===== 1. HERO — 余白と大きな見出しが主役。写真は下端に細く editorial に添える ===== */}
+        {/* ===== 1. HERO — ページで最も強い一枚。大きな見出しと写真 ===== */}
         <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-ivory">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
@@ -130,21 +130,19 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 2. STORY — 長文プロセ。ドキュメンタリー写真を左マージンに非対称に添える ===== */}
+        {/* ===== 2. STORY — 長文プロセ。写真を静かに添える ===== */}
         <section className="py-20 md:py-32 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-4">
-                <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
-                  <span className="w-8 h-px bg-terra" />OUR STORY
-                </div>
-                <div className="mt-10 lg:mt-14 lg:mr-6">
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">STORY</div>
+                <div className="mt-8 lg:mt-10 lg:mr-6">
                   <PhotoNeeded ratio="4/5" kind="PEOPLE" note="西尾の地元企業と対話する代表（横位置・ドキュメンタリー）" />
                   <p className="mt-3 text-[12px] leading-[1.8] text-muted">問いは、現場の対話から生まれた。</p>
                 </div>
               </div>
               <div className="lg:col-span-8 lg:pl-6">
-                <h2 className="text-green font-black leading-[1.18] tracking-[-0.02em]" style={{ fontSize: "clamp(30px, 4.4vw, 60px)" }}>
+                <h2 className="text-green font-bold leading-[1.25] tracking-[-0.01em]" style={{ fontSize: "clamp(28px, 3.8vw, 52px)" }}>
                   一つの問いから、<br className="hidden sm:block" />始まった。
                 </h2>
                 <div className="mt-10 max-w-2xl space-y-7 text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
@@ -160,11 +158,8 @@ export default function AboutPage() {
         {/* ===== 3. MISSION — 大きな一文。箱にせず、余白の中で言葉を立たせる ===== */}
         <section className="py-20 md:py-32 bg-ivory">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
-              <span className="w-8 h-px bg-terra" />
-              MISSION
-            </div>
-            <h2 className="mt-8 text-green font-black leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(34px, 6vw, 84px)" }}>
+            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">MISSION</div>
+            <h2 className="mt-6 text-green font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 5vw, 68px)" }}>
               すべてが繋がる瞬間を、<br />共創する。
             </h2>
             <p className="mt-10 max-w-2xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
@@ -174,15 +169,12 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 4. VISION — MISSION と対になる大きな一文（同じ ivory 地でマニフェストの見開き） ===== */}
+        {/* ===== 4. VISION — MISSION と対になる大きな一文 ===== */}
         <section className="pb-20 md:pb-32 bg-ivory">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="border-t border-charcoal/10 pt-20 md:pt-28">
-              <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
-                <span className="w-8 h-px bg-terra" />
-                VISION
-              </div>
-              <h2 className="mt-8 text-green font-black leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(34px, 6vw, 84px)" }}>
+              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">VISION</div>
+              <h2 className="mt-6 text-green font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 5vw, 68px)" }}>
                 「生きててよかった」が<br />あふれる世界を創る。
               </h2>
               <p className="mt-10 max-w-2xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
@@ -194,20 +186,20 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 5. MID-TERM GOAL — 巨大な terracotta の「240」をグラフィックに。TOP の大数字の呼応 ===== */}
+        {/* ===== 5. MID-TERM GOAL — 数字は控えめに。言葉で意味を伝える ===== */}
         <section className="py-16 md:py-28 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-center">
               <div className="md:col-span-5">
-                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">MID-TERM GOAL</div>
-                <div className="mt-6 text-[15px] md:text-[17px] font-bold text-charcoal/60">まずは、西尾から。</div>
-                <div className="mt-2 flex items-end gap-4">
-                  <span className="text-terra font-black leading-[0.8] tracking-[-0.04em]" style={{ fontSize: "clamp(140px, 22vw, 300px)" }}>240</span>
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">MID-TERM GOAL</div>
+                <div className="mt-6 text-[15px] leading-[1.9] text-charcoal/60">まずは、西尾から。2040年までに</div>
+                <div className="mt-2 flex items-baseline gap-2">
+                  <span className="text-green font-semibold leading-[0.9] tracking-[-0.03em]" style={{ fontSize: "clamp(88px, 13vw, 160px)" }}>240</span>
+                  <span className="text-[16px] font-bold text-charcoal/70 pb-3">の事業を。</span>
                 </div>
-                <div className="text-[15px] font-bold text-charcoal">の事業を、2040年までに。</div>
               </div>
               <div className="md:col-span-7 md:pl-6">
-                <h2 className="text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
+                <h2 className="text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
                   2040年までに、<br className="hidden sm:block" />西尾に240の事業を。
                 </h2>
                 <p className="mt-8 max-w-xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
@@ -221,80 +213,44 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 6. VALUES — 3つのコアは非対称な編集リスト。7つのスタンスは控えめに ===== */}
+        {/* ===== 6. VALUES — MOMENT / MOMENTS / MOMENTS SHARE を静かに読ませる ===== */}
         <section className="py-20 md:py-32 bg-ivory">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <div className="max-w-3xl">
-              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">VALUES</div>
-              <h2 className="mt-4 text-green font-black leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+            <div className="max-w-2xl">
+              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">VALUES</div>
+              <h2 className="mt-4 text-green font-semibold leading-[1.3] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
                 私たちが、<br className="hidden sm:block" />大切にしていること。
               </h2>
             </div>
 
-            {/* 3つのコアバリュー — ブランドブックの見開き。3つとも別々の構図・配置・スケール */}
-            <div className="mt-16 md:mt-28">
-
-              {/* 01 Moment — 大きく、左詰め。番号を最大スケールで立てる */}
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-y-6 md:gap-x-10 items-end">
-                <div className="md:col-span-7">
-                  <div className="text-charcoal/45 text-[13px] font-bold tracking-[0.18em] uppercase">{coreValues[0].en}</div>
-                  <h3 className="mt-4 text-green font-black leading-[1.16] tracking-[-0.02em]" style={{ fontSize: "clamp(30px, 5vw, 60px)" }}>
-                    {coreValues[0].title}
-                  </h3>
+            {/* 3つのコアバリュー — 同じ整列・同じ重み。言葉の重なりで見せる */}
+            <div className="mt-14 md:mt-20 border-t border-charcoal/10">
+              {coreValues.map((v) => (
+                <div key={v.en} className="grid grid-cols-1 md:grid-cols-12 gap-y-4 md:gap-x-12 py-12 md:py-16 border-b border-charcoal/10">
+                  <div className="md:col-span-4">
+                    <div className="text-green font-semibold tracking-[0.02em]" style={{ fontSize: "clamp(22px, 2.8vw, 34px)" }}>{v.en}</div>
+                  </div>
+                  <div className="md:col-span-8">
+                    <h3 className="text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 3vw, 36px)" }}>
+                      {v.title}
+                    </h3>
+                    <p className="mt-5 max-w-xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">{v.body}</p>
+                  </div>
                 </div>
-                <div className="md:col-span-5 md:text-right">
-                  <span className="text-terra font-black leading-[0.8] tracking-[-0.04em] block" style={{ fontSize: "clamp(72px, 12vw, 150px)" }}>01</span>
-                </div>
-                <div className="md:col-span-7">
-                  <p className="max-w-xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">{coreValues[0].body}</p>
-                </div>
-              </div>
-
-              {/* 02 Moments — 右へオフセット、余白を大きく。番号は小さめ・本文を右カラムに寄せる */}
-              <div className="mt-20 md:mt-32 border-t border-charcoal/10 pt-16 md:pt-24 grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-x-10">
-                <div className="md:col-span-4 md:col-start-6">
-                  <span className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(44px, 5vw, 72px)" }}>02</span>
-                  <div className="mt-3 text-charcoal/45 text-[13px] font-bold tracking-[0.18em] uppercase">{coreValues[1].en}</div>
-                </div>
-                <div className="md:col-span-7 md:col-start-6">
-                  <h3 className="text-green font-black leading-[1.22] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
-                    {coreValues[1].title}
-                  </h3>
-                  <p className="mt-6 max-w-lg text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">{coreValues[1].body}</p>
-                </div>
-              </div>
-
-              {/* 03 Moments Share — さらに別スケール。見出しを最大・本文は横並びで締める */}
-              <div className="mt-20 md:mt-32 border-t border-charcoal/10 pt-16 md:pt-24">
-                <div className="flex items-baseline gap-5 md:gap-8">
-                  <span className="text-terra font-black leading-[0.8] tracking-[-0.04em]" style={{ fontSize: "clamp(56px, 8vw, 110px)" }}>03</span>
-                  <div className="text-charcoal/45 text-[13px] font-bold tracking-[0.18em] uppercase">{coreValues[2].en}</div>
-                </div>
-                <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-y-6 md:gap-x-12 items-start">
-                  <h3 className="md:col-span-8 text-green font-black leading-[1.12] tracking-[-0.025em]" style={{ fontSize: "clamp(34px, 6vw, 76px)" }}>
-                    {coreValues[2].title}
-                  </h3>
-                  <p className="md:col-span-4 md:pt-4 text-[16px] md:text-[17px] leading-[2.1] text-charcoal/85">{coreValues[2].body}</p>
-                </div>
-              </div>
-
+              ))}
             </div>
 
-            {/* 7つのスタンス — 番号＋英名＋ヘアラインのリズミカルな罫線リスト（タグ・ピルにしない） */}
-            <div className="mt-20 md:mt-28">
-              <div className="text-[11px] font-bold tracking-[0.2em] text-muted">OUR STANCE</div>
-              <ul className="mt-8 border-t border-charcoal/10">
-                {stances.map((s, i) => (
+            {/* 7つのスタンス — 静かな読み物リスト */}
+            <div className="mt-16 md:mt-24">
+              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">OUR STANCE</div>
+              <ul className="mt-6 border-t border-charcoal/10">
+                {stances.map((s) => (
                   <li
                     key={s}
-                    className="flex items-baseline gap-5 md:gap-8 py-5 md:py-6 border-b border-charcoal/10"
+                    className="py-5 border-b border-charcoal/10 text-green font-medium leading-[1.5] tracking-[-0.01em]"
+                    style={{ fontSize: "clamp(17px, 2vw, 22px)" }}
                   >
-                    <span className="text-terra font-black leading-none tracking-[-0.02em] w-[2.2ch] shrink-0" style={{ fontSize: "clamp(18px, 2vw, 26px)" }}>
-                      0{i + 1}
-                    </span>
-                    <span className="text-green font-black leading-[1.25] tracking-[-0.01em]" style={{ fontSize: "clamp(18px, 2.6vw, 30px)" }}>
-                      {s}
-                    </span>
+                    {s}
                   </li>
                 ))}
               </ul>
@@ -302,24 +258,22 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 7. FOUNDER — 写真プレースホルダーとバイオを非対称に。カードにしない ===== */}
+        {/* ===== 7. FOUNDER — 写真とバイオ ===== */}
         <section className="py-20 md:py-32 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
               <div className="lg:col-span-5">
-                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">FOUNDER</div>
-                {/* 代表写真（中根 隆）を用意でき次第、この枠を実画像に差し替える */}
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">FOUNDER</div>
                 <div className="mt-8">
                   <PhotoNeeded ratio="4/5" kind="PEOPLE" note="代表・中根 隆のポートレート（縦）" />
                 </div>
               </div>
 
               <div className="lg:col-span-7 lg:pt-8">
-                <div className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em]">RYU NAKANE</div>
-                <h2 className="mt-3 text-green font-black leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(30px, 4vw, 52px)" }}>
+                <h2 className="text-green font-bold leading-[1.3] tracking-[-0.01em]" style={{ fontSize: "clamp(28px, 3.6vw, 46px)" }}>
                   中根 隆
                 </h2>
-                <div className="mt-3 text-[14px] font-bold text-terra">代表社員</div>
+                <div className="mt-3 text-[14px] font-bold text-charcoal/55">代表社員 / Ryu Nakane</div>
 
                 <div className="mt-10 max-w-xl space-y-6 text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
                   <p>
@@ -338,13 +292,13 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 8. COMPANY — 会社概要は素直な定義リスト（表）で。ivory 地 ===== */}
+        {/* ===== 8. COMPANY — 会社概要は素直な定義リスト（表） ===== */}
         <section className="py-20 md:py-32 bg-ivory">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-4">
-                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">COMPANY</div>
-                <h2 className="mt-4 text-green font-black leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">COMPANY</div>
+                <h2 className="mt-4 text-green font-semibold leading-[1.3] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}>
                   会社概要。
                 </h2>
               </div>
@@ -360,7 +314,7 @@ export default function AboutPage() {
                       </dt>
                       <dd className="text-[16px] md:text-[17px] text-charcoal">
                         {row.email ? (
-                          <a href="mailto:branding@momentsshare.com" className="text-green font-bold border-b-2 border-green pb-0.5 hover:text-terra hover:border-terra transition-colors">
+                          <a href="mailto:branding@momentsshare.com" className="text-green font-bold border-b border-green/60 pb-0.5 hover:text-terra hover:border-terra transition-colors">
                             {row.value}
                           </a>
                         ) : (
@@ -378,12 +332,11 @@ export default function AboutPage() {
         {/* ===== 9. FINAL CTA — Deep Green のバンドで締める ===== */}
         <section id="contact" className="scroll-mt-20 py-20 md:py-28 bg-green text-white">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <div className="text-white/60 text-[12px] font-bold tracking-[0.2em]">CONTACT</div>
-            <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-              <h2 className="lg:col-span-8 font-black leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(34px, 5.5vw, 76px)" }}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+              <h2 className="lg:col-span-8 font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 5vw, 68px)" }}>
                 この循環を、<br />次はあなたと。
               </h2>
-              <div className="lg:col-span-4 lg:pb-4">
+              <div className="lg:col-span-4 lg:pb-3">
                 <p className="text-[15px] leading-[2] text-white/75">
                   やってみたいこと、困っていること。まだカタチになっていなくても大丈夫です。
                 </p>

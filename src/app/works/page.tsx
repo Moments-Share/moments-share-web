@@ -18,7 +18,9 @@ export const metadata: Metadata = {
   },
 };
 
-const smallStats = [
+// 4つの数字を同格に扱う
+const stats = [
+  { n: "7", unit: "件", label: "DX・業務効率化の支援" },
   { n: "3", unit: "社", label: "BPO支援" },
   { n: "5", unit: "名", label: "外部パートナー" },
   { n: "4", unit: "件", label: "地域プロジェクト" },
@@ -82,15 +84,15 @@ export default function WorksPage() {
     <>
       <Nav />
       <main id="main-content">
-        {/* ===== HERO — 見出しをグラフィックとして。数字ページの序章 ===== */}
+        {/* ===== HERO — ページで最も強い見出し ===== */}
         <section className="pt-28 md:pt-32 pb-14 md:pb-20 px-6 md:px-10">
           <div className="mx-auto max-w-[1400px]">
             <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
               <span className="w-8 h-px bg-terra" />
-              WORKS — 西尾で積み上げてきた仕事
+              WORKS
             </div>
             <h1 className="mt-8 text-green font-black leading-[1.12] tracking-[-0.03em]"
-                style={{ fontSize: "clamp(44px, 7vw, 100px)" }}>
+                style={{ fontSize: "clamp(40px, 6.4vw, 92px)" }}>
               カタチにして<br />きたこと。
             </h1>
             <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
@@ -100,85 +102,60 @@ export default function WorksPage() {
           </div>
         </section>
 
-        {/* ===== 数字が主役 — 巨大な7＋現場写真、他は非対称に小さく ===== */}
-        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+        {/* ===== 数字 — 4つを同じ大きさ・同じ重みで ===== */}
+        <section className="py-16 md:py-24 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-terra text-[12px] font-bold tracking-[0.2em]">BY THE NUMBERS</div>
-            <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.4vw, 44px)" }}>
-              数字で見る Moments Share
-            </h2>
-
-            <div className="mt-14 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-center">
-              {/* 主役の数字 7 ＋ 現場写真 */}
-              <div className="md:col-span-7">
-                <div className="grid grid-cols-[auto_1fr] gap-6 md:gap-10 items-center">
-                  <div>
-                    <div className="text-green font-black leading-[0.85] tracking-[-0.04em]" style={{ fontSize: "clamp(120px, 20vw, 260px)" }}>7</div>
-                    <div className="text-[14px] font-bold text-charcoal mt-1">件</div>
-                    <div className="text-[13px] text-muted">DX・業務効率化の支援</div>
+            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">数字で見る Moments Share</div>
+            <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 border-t border-charcoal/10 pt-10">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-green font-semibold leading-none tracking-[-0.02em]" style={{ fontSize: "clamp(52px, 6.5vw, 84px)" }}>{s.n}</span>
+                    <span className="text-[15px] font-bold text-charcoal/70">{s.unit}</span>
                   </div>
-                  <PhotoNeeded ratio="4/3" kind="MOMENTS" note="DX支援の現場・手元（横）" />
+                  <div className="mt-2 text-[13px] leading-[1.7] text-charcoal/60">{s.label}</div>
                 </div>
-              </div>
-              {/* 3・5・4 は控えめに、大きさを変えた非対称の縦積みで */}
-              <div className="md:col-span-5 md:border-l md:border-charcoal/10 md:pl-8">
-                <div className="flex flex-col divide-y divide-charcoal/10">
-                  {smallStats.map((s, i) => (
-                    <div key={s.label} className="flex items-baseline gap-4 py-5 first:pt-0">
-                      <div className="flex items-baseline gap-1 shrink-0">
-                        <span
-                          className="text-terra font-black leading-none tracking-[-0.03em]"
-                          style={{ fontSize: i === 1 ? "clamp(56px, 7.5vw, 96px)" : i === 0 ? "clamp(44px, 5.5vw, 72px)" : "clamp(36px, 4.5vw, 58px)" }}
-                        >
-                          {s.n}
-                        </span>
-                        <span className="text-[13px] font-bold text-charcoal pb-1">{s.unit}</span>
-                      </div>
-                      <div className="self-center text-[13px] text-muted leading-snug">{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ===== DX CASE — 3事例を均等カードにせず、大小と写真で強弱をつける ===== */}
+        {/* ===== DX CASE — 代表事例を大きく、残りは静かなリストで ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">DX CASE</div>
-              <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">DX CASE</div>
+              <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
                 業務を、余白に変えた事例。
               </h2>
             </div>
 
-            {/* 主役事例 — 約80％削減を巨大なテラコッタ数字で、現場写真を大きく */}
-            <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+            {/* 代表事例 — 写真を主役に、成果はテキストで添える */}
+            <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
               <div className="md:col-span-6">
                 <PhotoNeeded ratio="4/3" kind="MOMENTS" note="SNS自動化の運用・作業画面と手元（横）" />
               </div>
               <div className="md:col-span-6">
-                <div className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em]">{dxCases[0].tag}</div>
+                <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.14em]">{dxCases[0].tag}</div>
+                <h3 className="mt-4 text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3vw, 36px)" }}>{dxCases[0].title}</h3>
                 <div className="mt-4 flex items-baseline gap-2">
-                  <span className="text-terra font-black leading-none tracking-[-0.04em]" style={{ fontSize: "clamp(72px, 11vw, 150px)" }}>約{dxCases[0].big}</span>
-                  <span className="text-terra font-black text-[24px] md:text-[32px] pb-3">{dxCases[0].bigUnit}</span>
+                  <span className="text-terra font-semibold leading-none tracking-[-0.02em]" style={{ fontSize: "clamp(44px, 6vw, 72px)" }}>約{dxCases[0].big}</span>
+                  <span className="text-terra font-bold text-[18px] md:text-[22px] pb-2">{dxCases[0].bigUnit}</span>
                 </div>
-                <h3 className="mt-4 text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>{dxCases[0].title}</h3>
-                <div className="mt-3 text-[15px] font-bold text-charcoal">{dxCases[0].result}</div>
+                <div className="mt-2 text-[15px] font-bold text-charcoal/80">{dxCases[0].result}</div>
                 <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{dxCases[0].desc}</p>
               </div>
             </div>
 
-            {/* 残り2事例 — 主役より控えめに、細い罫線で区切ったテキスト誌面ロウ（同型カードにしない） */}
-            <div className="mt-16 md:mt-24 flex flex-col divide-y divide-charcoal/10 border-t border-charcoal/10">
+            {/* 残り2事例 — 静かな読み物リスト */}
+            <div className="mt-14 md:mt-20 flex flex-col divide-y divide-charcoal/10 border-t border-charcoal/10">
               {dxCases.slice(1).map((c) => (
                 <div key={c.title} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 items-baseline py-8 md:py-10">
-                  <div className="md:col-span-3 text-charcoal/40 text-[13px] font-bold tracking-[0.16em]">{c.tag}</div>
+                  <div className="md:col-span-3 text-charcoal/40 text-[12px] font-bold tracking-[0.14em]">{c.tag}</div>
                   <div className="md:col-span-4">
-                    <h3 className="text-green font-black leading-[1.35] tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.4vw, 28px)" }}>{c.title}</h3>
-                    <div className="mt-3 text-terra font-black tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.6vw, 30px)" }}>{c.result}</div>
-                    <div className="mt-1 text-[13px] font-bold text-charcoal">{c.note}</div>
+                    <h3 className="text-green font-semibold leading-[1.45] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 26px)" }}>{c.title}</h3>
+                    <div className="mt-2 text-[15px] font-bold text-charcoal/80">{c.result}</div>
+                    <div className="mt-1 text-[13px] text-charcoal/55">{c.note}</div>
                   </div>
                   <p className="md:col-span-5 text-[15px] leading-[2] text-charcoal/80">{c.desc}</p>
                 </div>
@@ -188,14 +165,14 @@ export default function WorksPage() {
         </section>
 
         {/* ===== BPO CASE — 実データ準備中（TODO） ===== */}
-        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+        <section className="py-16 md:py-24 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               <div className="lg:col-span-4">
-                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">BPO CASE</div>
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">BPO CASE</div>
               </div>
               <div className="lg:col-span-8">
-                <h2 className="text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
+                <h2 className="text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
                   人が必要な仕事を、<br className="hidden sm:block" />一緒に支えた事例。
                 </h2>
                 {/* TODO: 実在するBPO支援の具体事例（企業名は伏せて内容・成果）を追記する。架空の事例は掲載しない。 */}
@@ -207,72 +184,60 @@ export default function WorksPage() {
           </div>
         </section>
 
-        {/* ===== REGIONAL PROJECTS — 雑誌の特集ページのように写真を大きく ===== */}
+        {/* ===== REGIONAL PROJECTS — 写真を主役に、同じ整列で静かに並べる ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <div className="text-terra text-[12px] font-bold tracking-[0.2em]">REGIONAL PROJECTS</div>
-              <h2 className="mt-4 text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">REGIONAL PROJECTS</div>
+              <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
                 地域に、挑戦の<br className="hidden sm:block" />きっかけをつくった。
               </h2>
             </div>
 
-            <div className="mt-14 md:mt-20 flex flex-col gap-20 md:gap-32">
-              {/* 01 西尾働き方図鑑 — FEATURE。実写真を大きく主役に */}
-              <article>
-                <div className="relative aspect-[16/9] w-full">
-                  <Image src={projects[0].photo} alt={projects[0].alt} fill sizes="(max-width:768px) 100vw, 90vw" className="object-cover" />
-                </div>
-                <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline">
-                  <div className="md:col-span-3 text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(40px, 5.5vw, 84px)" }}>01</div>
-                  <div className="md:col-span-9 md:border-l md:border-charcoal/10 md:pl-12">
-                    <h3 className="text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}>{projects[0].title}</h3>
-                    <p className="mt-4 max-w-2xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[0].desc}</p>
-                  </div>
-                </div>
-              </article>
+            {/* 代表プロジェクト — 写真を大きく */}
+            <article className="mt-12 md:mt-16">
+              <div className="relative aspect-[16/9] w-full">
+                <Image src={projects[0].photo} alt={projects[0].alt} fill sizes="(max-width:768px) 100vw, 90vw" className="object-cover" />
+              </div>
+              <div className="mt-6 max-w-2xl">
+                <h3 className="text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 2.8vw, 34px)" }}>{projects[0].title}</h3>
+                <p className="mt-3 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[0].desc}</p>
+              </div>
+            </article>
 
-              {/* 02 西尾筋肉祭り — 中サイズ、テキスト左・写真右 */}
-              <article className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center border-t border-charcoal/10 pt-14 md:pt-16">
-                <div className="md:col-span-7 md:order-1">
-                  <div className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(32px, 4vw, 56px)" }}>02</div>
-                  <h3 className="mt-4 text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 38px)" }}>{projects[1].title}</h3>
-                  <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[1].desc}</p>
-                </div>
-                <div className="md:col-span-5 md:order-2">
-                  <PhotoNeeded ratio="4/3" kind="MOMENTS" note="イベント当日・参加者が体を動かす様子（横）" />
-                </div>
-              </article>
-
-              {/* 03 AI活用研究会 — さらに控えめに、写真左・テキスト右 */}
-              <article className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center border-t border-charcoal/10 pt-14 md:pt-16">
-                <div className="md:col-span-5">
-                  <PhotoNeeded ratio="3/2" kind="PEOPLE" note="研究会で学び合う参加者（横）" />
-                </div>
-                <div className="md:col-span-7">
-                  <div className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(32px, 4vw, 56px)" }}>03</div>
-                  <h3 className="mt-4 text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 38px)" }}>{projects[2].title}</h3>
-                  <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[2].desc}</p>
-                </div>
-              </article>
+            {/* 02・03 — 同じ体裁で静かに */}
+            <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
+              {projects.slice(1).map((p, i) => (
+                <article key={p.title}>
+                  {i === 0 ? (
+                    <PhotoNeeded ratio="4/3" kind="MOMENTS" note="イベント当日・参加者が体を動かす様子（横）" />
+                  ) : (
+                    <div className="relative aspect-[4/3] w-full">
+                      <Image src={p.photo} alt={p.alt} fill sizes="(max-width:768px) 100vw, 45vw" className="object-cover" />
+                    </div>
+                  )}
+                  <h3 className="mt-5 text-green font-semibold leading-[1.45] tracking-[-0.01em]" style={{ fontSize: "clamp(20px, 2.4vw, 28px)" }}>{p.title}</h3>
+                  <p className="mt-3 text-[15px] leading-[2] text-charcoal/80">{p.desc}</p>
+                </article>
+              ))}
             </div>
 
             <p className="mt-14 text-[15px] leading-[2] text-charcoal/80">
               ほかにも地域のプロジェクトに取り組んでいます。
-              <Link href="/service-produce" className="ml-1 text-green border-b-2 border-green pb-1 font-bold hover:text-terra hover:border-terra transition-colors">地域プロデュースを見る →</Link>
+              <Link href="/service-produce" className="ml-1 text-green border-b border-green/60 pb-0.5 font-bold hover:text-terra hover:border-terra transition-colors">地域プロデュースを見る →</Link>
             </p>
           </div>
         </section>
 
         {/* ===== VOICE — 実データ準備中（TODO） ===== */}
-        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+        <section className="py-16 md:py-24 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               <div className="lg:col-span-4">
-                <div className="text-terra text-[12px] font-bold tracking-[0.2em]">VOICE</div>
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">VOICE</div>
               </div>
               <div className="lg:col-span-8">
-                <h2 className="text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
+                <h2 className="text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
                   お客様の声。
                 </h2>
                 {/* TODO: 実在するお客様の声（許諾済みのコメント・お名前/イニシャル）を掲載する。架空のコメントは作成しない。 */}
@@ -284,15 +249,14 @@ export default function WorksPage() {
           </div>
         </section>
 
-        {/* ===== CTA — Deep Green のバンド＋テラコッタのボタン ===== */}
+        {/* ===== CTA — Deep Green のバンド ===== */}
         <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-white/60 text-[12px] font-bold tracking-[0.2em]">CONTACT</div>
-            <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-              <h2 className="lg:col-span-8 font-black leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(34px, 5.5vw, 76px)" }}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+              <h2 className="lg:col-span-8 font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 5vw, 68px)" }}>
                 まず、話して<br />みませんか。
               </h2>
-              <div className="lg:col-span-4 lg:pb-4">
+              <div className="lg:col-span-4 lg:pb-3">
                 <p className="text-[15px] leading-[2] text-white/75">
                   「うちに合うかわからない」でも大丈夫です。まだ課題が整理できていなくても構いません。
                 </p>

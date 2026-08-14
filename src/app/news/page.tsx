@@ -21,25 +21,19 @@ export default function NewsPage() {
       <main id="main-content" className="pt-28 md:pt-36 pb-section bg-ivory min-h-screen">
         <div className="max-w-[1000px] mx-auto px-8 md:px-20">
 
-          {/* ===== マストヘッド — ラベル＋大見出しを非対称に、件数は大きな数字で ===== */}
-          <div className="flex items-end justify-between gap-8 border-b border-charcoal/10 pb-8 md:pb-10 mb-14 md:mb-20">
+          {/* ===== マストヘッド — 見出しと件数を静かに ===== */}
+          <div className="flex items-end justify-between gap-8 border-b border-charcoal/10 pb-7 md:pb-9 mb-12 md:mb-16">
             <div>
-              <p className="text-[12px] font-bold tracking-[0.2em] text-terra mb-6">NEWS</p>
+              <p className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40 mb-5">NEWS</p>
               <h1
-                className="font-black text-green leading-[1.05] tracking-[-0.04em]"
-                style={{ fontSize: "clamp(40px, 6vw, 84px)" }}
+                className="font-bold text-green leading-[1.15] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(32px, 4.4vw, 56px)" }}
               >
                 ニュース
               </h1>
             </div>
-            <div className="hidden sm:flex items-baseline gap-2 shrink-0 pb-1">
-              <span
-                className="text-terra font-black leading-none tracking-[-0.03em]"
-                style={{ fontSize: "clamp(40px, 5vw, 68px)" }}
-              >
-                {newsItems.length}
-              </span>
-              <span className="text-[12px] font-bold tracking-[0.14em] text-charcoal/40">POSTS</span>
+            <div className="hidden sm:block shrink-0 pb-2 text-[13px] font-bold tracking-[0.08em] text-charcoal/45">
+              {newsItems.length} POSTS
             </div>
           </div>
 
@@ -50,7 +44,7 @@ export default function NewsPage() {
                 className="border-t border-charcoal/10 last:border-b"
               >
                 <div className="py-7 md:py-9 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-12">
-                  <time className="text-[13px] font-bold tracking-[0.08em] text-terra shrink-0 pt-[3px]">
+                  <time className="text-[13px] font-bold tracking-[0.08em] text-charcoal/50 shrink-0 pt-[3px]">
                     {item.date.replace(/-/g, ".")}
                   </time>
                   <div className="flex flex-col gap-2">

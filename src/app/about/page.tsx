@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
+import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 export const metadata: Metadata = {
   title: "なぜ、この会社があるのか | Moments Share合同会社",
@@ -134,8 +135,12 @@ export default function AboutPage() {
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-4">
-                <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em] lg:sticky lg:top-24">
+                <div className="flex items-center gap-3 text-terra text-[12px] font-bold tracking-[0.2em]">
                   <span className="w-8 h-px bg-terra" />OUR STORY
+                </div>
+                <div className="mt-10 lg:mt-14 lg:mr-6">
+                  <PhotoNeeded ratio="4/5" kind="PEOPLE" note="西尾の地元企業と対話する代表（横位置・ドキュメンタリー）" />
+                  <p className="mt-3 text-[12px] leading-[1.8] text-muted">問いは、現場の対話から生まれた。</p>
                 </div>
               </div>
               <div className="lg:col-span-8 lg:pl-6">
@@ -226,37 +231,73 @@ export default function AboutPage() {
               </h2>
             </div>
 
-            {/* 3つのコアバリュー（大きな番号付きの編集リスト。均等カードにしない） */}
-            <div className="mt-16 md:mt-24 flex flex-col">
-              {coreValues.map((v, i) => (
-                <div
-                  key={v.en}
-                  className={`grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start py-10 md:py-14 ${i > 0 ? "border-t border-charcoal/10" : ""}`}
-                >
-                  <div className="md:col-span-4">
-                    <div className="flex items-baseline gap-4">
-                      <span className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(40px, 5vw, 68px)" }}>0{i + 1}</span>
-                      <span className="text-charcoal/40 text-[13px] font-bold tracking-[0.14em] uppercase pb-2">{v.en}</span>
-                    </div>
-                  </div>
-                  <div className="md:col-span-8">
-                    <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>{v.title}</h3>
-                    <p className="mt-5 max-w-xl text-[16px] md:text-[17px] leading-[2.1] text-charcoal/85">{v.body}</p>
-                  </div>
+            {/* 3つのコアバリュー — ブランドブックの見開き。3つとも別々の構図・配置・スケール */}
+            <div className="mt-16 md:mt-28">
+
+              {/* 01 Moment — 大きく、左詰め。番号を最大スケールで立てる */}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-y-6 md:gap-x-10 items-end">
+                <div className="md:col-span-7">
+                  <div className="text-charcoal/45 text-[13px] font-bold tracking-[0.18em] uppercase">{coreValues[0].en}</div>
+                  <h3 className="mt-4 text-green font-black leading-[1.16] tracking-[-0.02em]" style={{ fontSize: "clamp(30px, 5vw, 60px)" }}>
+                    {coreValues[0].title}
+                  </h3>
                 </div>
-              ))}
+                <div className="md:col-span-5 md:text-right">
+                  <span className="text-terra font-black leading-[0.8] tracking-[-0.04em] block" style={{ fontSize: "clamp(72px, 12vw, 150px)" }}>01</span>
+                </div>
+                <div className="md:col-span-7">
+                  <p className="max-w-xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">{coreValues[0].body}</p>
+                </div>
+              </div>
+
+              {/* 02 Moments — 右へオフセット、余白を大きく。番号は小さめ・本文を右カラムに寄せる */}
+              <div className="mt-20 md:mt-32 border-t border-charcoal/10 pt-16 md:pt-24 grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-x-10">
+                <div className="md:col-span-4 md:col-start-6">
+                  <span className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(44px, 5vw, 72px)" }}>02</span>
+                  <div className="mt-3 text-charcoal/45 text-[13px] font-bold tracking-[0.18em] uppercase">{coreValues[1].en}</div>
+                </div>
+                <div className="md:col-span-7 md:col-start-6">
+                  <h3 className="text-green font-black leading-[1.22] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}>
+                    {coreValues[1].title}
+                  </h3>
+                  <p className="mt-6 max-w-lg text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">{coreValues[1].body}</p>
+                </div>
+              </div>
+
+              {/* 03 Moments Share — さらに別スケール。見出しを最大・本文は横並びで締める */}
+              <div className="mt-20 md:mt-32 border-t border-charcoal/10 pt-16 md:pt-24">
+                <div className="flex items-baseline gap-5 md:gap-8">
+                  <span className="text-terra font-black leading-[0.8] tracking-[-0.04em]" style={{ fontSize: "clamp(56px, 8vw, 110px)" }}>03</span>
+                  <div className="text-charcoal/45 text-[13px] font-bold tracking-[0.18em] uppercase">{coreValues[2].en}</div>
+                </div>
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-y-6 md:gap-x-12 items-start">
+                  <h3 className="md:col-span-8 text-green font-black leading-[1.12] tracking-[-0.025em]" style={{ fontSize: "clamp(34px, 6vw, 76px)" }}>
+                    {coreValues[2].title}
+                  </h3>
+                  <p className="md:col-span-4 md:pt-4 text-[16px] md:text-[17px] leading-[2.1] text-charcoal/85">{coreValues[2].body}</p>
+                </div>
+              </div>
+
             </div>
 
-            {/* 7つのスタンス（3つより控えめ・小さな文字） */}
-            <div className="mt-16 md:mt-20 border-t border-charcoal/10 pt-10">
+            {/* 7つのスタンス — 番号＋英名＋ヘアラインのリズミカルな罫線リスト（タグ・ピルにしない） */}
+            <div className="mt-20 md:mt-28">
               <div className="text-[11px] font-bold tracking-[0.2em] text-muted">OUR STANCE</div>
-              <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
-                {stances.map((s) => (
-                  <span key={s} className="text-[14px] font-medium text-charcoal/60">
-                    {s}
-                  </span>
+              <ul className="mt-8 border-t border-charcoal/10">
+                {stances.map((s, i) => (
+                  <li
+                    key={s}
+                    className="flex items-baseline gap-5 md:gap-8 py-5 md:py-6 border-b border-charcoal/10"
+                  >
+                    <span className="text-terra font-black leading-none tracking-[-0.02em] w-[2.2ch] shrink-0" style={{ fontSize: "clamp(18px, 2vw, 26px)" }}>
+                      0{i + 1}
+                    </span>
+                    <span className="text-green font-black leading-[1.25] tracking-[-0.01em]" style={{ fontSize: "clamp(18px, 2.6vw, 30px)" }}>
+                      {s}
+                    </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </section>
@@ -267,16 +308,9 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
               <div className="lg:col-span-5">
                 <div className="text-terra text-[12px] font-bold tracking-[0.2em]">FOUNDER</div>
-                {/* 代表写真プレースホルダー（専用の写真ファイルが未配置のため） */}
-                {/* TODO: 代表写真（中根 隆）を用意でき次第、この枠を実画像に差し替える */}
-                <div className="mt-8 relative aspect-[3/4] w-full bg-ivory flex flex-col items-center justify-center gap-4">
-                  <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
-                    <span className="text-[24px] font-black text-charcoal/40 tracking-tight">RN</span>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-[13px] font-bold text-green">中根 隆</div>
-                    <div className="mt-1 text-[11px] tracking-[0.2em] text-muted">写真準備中</div>
-                  </div>
+                {/* 代表写真（中根 隆）を用意でき次第、この枠を実画像に差し替える */}
+                <div className="mt-8">
+                  <PhotoNeeded ratio="4/5" kind="PEOPLE" note="代表・中根 隆のポートレート（縦）" />
                 </div>
               </div>
 

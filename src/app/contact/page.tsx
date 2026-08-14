@@ -49,8 +49,11 @@ export default function ContactPage() {
                   AIを使いたい。人が足りない。地域で何か始めたい。<br />
                   まだ課題が整理できていなくても大丈夫です。
                 </p>
-                <div className="relative aspect-[4/3] w-full mt-10 hidden lg:block">
-                  <Image src="/photos/hero.png" alt="西尾のまちの風景" fill sizes="40vw" className="object-cover" />
+                <div className="mt-10 hidden lg:block">
+                  <div className="relative aspect-[4/3] w-full">
+                    <Image src="/photos/hero.png" alt="西尾のまちの風景" fill sizes="40vw" className="object-cover" />
+                  </div>
+                  <p className="mt-3 text-[12px] leading-[1.8] text-muted">話は、このまちのどこかから始まる。</p>
                 </div>
               </div>
 

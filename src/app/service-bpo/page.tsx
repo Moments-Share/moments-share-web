@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
+import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 export const metadata: Metadata = {
   title: "BPO | Moments Share合同会社",
@@ -232,15 +233,7 @@ export default function ServiceBPO() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               <div className="lg:col-span-5 order-1">
-                <div className="relative aspect-[4/5] w-full">
-                  <Image
-                    src="/photos/service-bpo.png"
-                    alt="多様な働き方の人が集まって業務を支える現場"
-                    fill
-                    sizes="(max-width:1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
+                <PhotoNeeded ratio="4/5" kind="PEOPLE" note="多様な働き方の人・活動中（横/縦を混在）" />
               </div>
               <div className="lg:col-span-7 order-2">
                 <div className="text-terra text-[12px] font-bold tracking-[0.2em]">TEAM</div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
+import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 export const metadata: Metadata = {
   title: "People（一緒につくる人たち）| Moments Share合同会社",
@@ -98,9 +99,8 @@ export default function PeoplePage() {
             <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
               <div className="md:col-span-5">
                 {/* TODO: 代表の顔写真に差し替え（public/photos/ に追加） */}
-                <div className="relative aspect-[4/5] w-full bg-white border border-charcoal/10 flex items-center justify-center">
-                  <span className="text-muted text-[13px]">写真 準備中</span>
-                </div>
+                <PhotoNeeded ratio="4/5" kind="PEOPLE" note="代表・中根 隆のポートレート（縦・自然光）" />
+                <p className="mt-3 text-[12px] leading-[1.8] text-muted">西尾から、挑戦と共創の循環をつくる。</p>
               </div>
               <div className="md:col-span-7 md:pt-4">
                 <div className="text-terra text-[13px] font-bold tracking-[0.16em]">代表社員 / Founder</div>
@@ -125,10 +125,43 @@ export default function PeoplePage() {
               </div>
             </div>
 
-            {/* TODO: 実在するメンバー（専門人材・副業・子育て中・学生など）を、写真／名前／得意なこと／担当／関わる理由の5項目で追記する。架空の人物は作成しない。 */}
-            <p className="mt-14 text-[15px] leading-[2] text-charcoal/70 border-t border-charcoal/10 pt-8">
-              そのほかのメンバー紹介は準備中です。順次公開します。
-            </p>
+            {/* これから加わるメンバー — 証明写真ではなく“活動中”の場面で。実在情報が揃うまで名前・肩書きは載せない。架空の人物は作成しない。 */}
+            <div className="mt-24 md:mt-36 border-t border-charcoal/10 pt-14 md:pt-20">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end">
+                <div className="lg:col-span-4">
+                  <div className="text-terra text-[12px] font-bold tracking-[0.2em]">MEMBERS / 準備中</div>
+                  <h3 className="mt-4 text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 42px)" }}>
+                    これから、<br />顔ぶれが増えていく。
+                  </h3>
+                  <p className="mt-6 max-w-sm text-[15px] leading-[2] text-charcoal/70">
+                    専門人材、副業、子育て中、学生——。それぞれの持ち場から関わる人たちを、順次紹介していきます。
+                  </p>
+                  {/* TODO: 実在するメンバーを、写真／名前／得意なこと／担当／関わる理由の5項目で追記する。架空の人物は作成しない。 */}
+                  <p className="mt-8 text-[13px] tracking-[0.04em] text-muted">※ 他メンバー準備中。掲載は本人の実在情報のみ。</p>
+                </div>
+
+                {/* 混在サイズ・向きのプレースホルダ（活動中の一場面／証明写真にしない） */}
+                <div className="lg:col-span-8">
+                  <div className="grid grid-cols-6 gap-4 md:gap-5">
+                    <div className="col-span-3 md:col-span-2">
+                      <PhotoNeeded ratio="3/4" kind="PEOPLE" note="専門人材が現場で手を動かす場面（縦）" />
+                    </div>
+                    <div className="col-span-3 md:col-span-2 md:mt-12">
+                      <PhotoNeeded ratio="1/1" kind="PEOPLE" note="副業メンバーの手元・作業中（正方）" />
+                    </div>
+                    <div className="col-span-6 md:col-span-2">
+                      <PhotoNeeded ratio="4/5" kind="PEOPLE" note="子育てをしながら働く人の一場面（縦）" />
+                    </div>
+                    <div className="col-span-6 md:col-span-4 md:-mt-6">
+                      <PhotoNeeded ratio="16/9" kind="PEOPLE" note="学生が地域で活動する場面（横・ドキュメンタリー）" />
+                    </div>
+                    <div className="col-span-6 md:col-span-2">
+                      <PhotoNeeded ratio="3/4" kind="PEOPLE" note="メンバーが集まって話し合う場面（縦）" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

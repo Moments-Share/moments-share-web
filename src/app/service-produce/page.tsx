@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
+import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 // 実在するプロジェクトのみ掲載する。架空の名称・事例は作成しない。
 const projects = [
@@ -216,72 +217,72 @@ export default function ServiceProduce() {
               </p>
             </div>
 
-            <div className="mt-16 md:mt-24 flex flex-col gap-20 md:gap-28">
-              {/* 01 西尾働き方図鑑 — 写真なし。大きな連番タイポと本文の非対称 */}
-              <article className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
-                <div className="md:col-span-4">
-                  <div className="flex items-baseline gap-4">
-                    <span
-                      className="text-terra font-black leading-none tracking-[-0.03em]"
-                      style={{ fontSize: "clamp(56px, 8vw, 104px)" }}
+            <div className="mt-16 md:mt-24 flex flex-col gap-20 md:gap-32">
+              {/* 01 西尾働き方図鑑 — FEATURE。大きな写真を主役に据えた誌面特集 */}
+              <article>
+                <div className="flex items-baseline gap-4">
+                  <span
+                    className="text-terra font-black leading-none tracking-[-0.03em]"
+                    style={{ fontSize: "clamp(64px, 10vw, 140px)" }}
+                  >
+                    01
+                  </span>
+                  <span className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em] pb-3">
+                    {projects[0].cat}
+                  </span>
+                </div>
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
+                  <div className="md:col-span-8">
+                    <PhotoNeeded ratio="16/10" kind="MOMENTS" note="取材・活動中の様子（横）" />
+                  </div>
+                  <div className="md:col-span-4">
+                    <h3
+                      className="text-green font-black leading-[1.22] tracking-[-0.02em]"
+                      style={{ fontSize: "clamp(28px, 3.6vw, 48px)" }}
                     >
-                      01
-                    </span>
-                    <span className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em] pb-2">
-                      {projects[0].cat}
-                    </span>
+                      {projects[0].name}
+                    </h3>
+                    <p className="mt-5 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                      {projects[0].desc}
+                    </p>
                   </div>
                 </div>
-                <div className="md:col-span-8 md:border-l md:border-charcoal/10 md:pl-12">
-                  <h3
-                    className="text-green font-black leading-[1.3] tracking-[-0.02em]"
-                    style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}
-                  >
-                    {projects[0].name}
-                  </h3>
-                  <p className="mt-5 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
-                    {projects[0].desc}
-                  </p>
+              </article>
+
+              {/* 02 西尾筋肉祭り — 写真を横に添えた中サイズ。01と異なる左右構成 */}
+              <article className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center border-t border-charcoal/10 pt-12 md:pt-16">
+                <div className="md:col-span-5">
+                  <PhotoNeeded ratio="4/3" kind="MOMENTS" note="イベント準備・活動中の様子（横）" />
+                </div>
+                <div className="md:col-span-7 md:pl-4">
+                  <div className="flex items-baseline gap-4">
+                    <span className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(44px, 6vw, 84px)" }}>02</span>
+                    <span className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em] pb-2">{projects[1].cat}</span>
+                  </div>
+                  <h3 className="mt-4 text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 38px)" }}>{projects[1].name}</h3>
+                  <p className="mt-4 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[1].desc}</p>
                 </div>
               </article>
 
-              {/* 02 西尾筋肉祭り */}
-              <article className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-10 md:pt-12">
+              {/* 03 AI活用研究会 — 写真なしのテキスト誌面ロウ。連番＋本文の非対称 */}
+              <article className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-12 md:pt-16">
                 <div className="md:col-span-4 flex items-baseline gap-4">
-                  <span className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(56px, 8vw, 104px)" }}>02</span>
-                  <span className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em] pb-2">{projects[1].cat}</span>
-                </div>
-                <div className="md:col-span-8">
-                  <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>{projects[1].name}</h3>
-                  <p className="mt-5 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[1].desc}</p>
-                </div>
-              </article>
-
-              {/* 03 AI活用研究会 */}
-              <article className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-10 md:pt-12">
-                <div className="md:col-span-4 flex items-baseline gap-4">
-                  <span className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(56px, 8vw, 104px)" }}>03</span>
+                  <span className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(44px, 6vw, 84px)" }}>03</span>
                   <span className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em] pb-2">{projects[2].cat}</span>
                 </div>
-                <div className="md:col-span-8">
-                  <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>{projects[2].name}</h3>
+                <div className="md:col-span-8 md:border-l md:border-charcoal/10 md:pl-12">
+                  <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 38px)" }}>{projects[2].name}</h3>
                   <p className="mt-5 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[2].desc}</p>
                 </div>
               </article>
 
-              {/* 04 その他 — 進行中のステートメントバンド（緑帯） */}
-              <article className="rounded-2xl bg-green text-white p-10 md:p-16">
+              {/* 04 その他 — 進行中のステートメントバンド（緑帯・角丸なし・バッジなし） */}
+              <article className="bg-green text-white p-10 md:p-16">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
                   <div className="md:col-span-8">
-                    <div className="flex items-center gap-3">
-                      <span className="text-white/50 text-[13px] font-bold tracking-[0.16em]">
-                        {projects[3].cat}
-                      </span>
-                      {projects[3].ongoing && (
-                        <span className="text-[11px] font-bold text-green bg-terra rounded-full px-3 py-0.5">
-                          進行中
-                        </span>
-                      )}
+                    <div className="flex items-baseline gap-4 text-[13px] font-bold tracking-[0.16em]">
+                      <span className="text-white/50">{projects[3].cat}</span>
+                      {projects[3].ongoing && <span className="text-terra">進行中</span>}
                     </div>
                     <h3
                       className="mt-4 font-black leading-[1.25] tracking-[-0.02em]"

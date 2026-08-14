@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
+import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 const problems = [
   "Excelやシステムへの転記が多い",
@@ -17,30 +18,6 @@ const outcomes = [
   { title: "作業時間を減らす。", body: "毎月繰り返している手作業を自動化し、人にしかできない仕事へ時間を戻します。" },
   { title: "ミスを減らす。", body: "転記や集計を仕組み化することで、人的ミスの起きにくい流れに変えます。" },
   { title: "属人化を減らす。", body: "「あの人しかわからない」をなくし、誰が担当しても回る状態をつくります。" },
-];
-
-const cases = [
-  {
-    tag: "SNS自動化",
-    title: "SNS投稿の自動化",
-    result: "30分 → 約6分",
-    note: "作業時間 約80％削減",
-    desc: "投稿の企画から公開までの流れを自動化し、毎日の作業を大幅に削減。",
-  },
-  {
-    tag: "請求書",
-    title: "請求書発行の自動化",
-    result: "手作業 → 自動化",
-    note: "発行・送付を仕組み化",
-    desc: "手作業だった請求書の作成・送付を自動化し、転記の手間をなくした。",
-  },
-  {
-    tag: "在庫管理",
-    title: "在庫管理の一元化",
-    result: "紙＋Excel → 一元管理",
-    note: "二重管理を解消",
-    desc: "紙とExcelに分かれていた在庫情報を一元管理し、探す・照合する手間を削減。",
-  },
 ];
 
 const menu = [
@@ -248,6 +225,14 @@ export default function ServiceDX() {
               </div>
             </div>
 
+            {/* 主役事例の現場写真。右寄せの横位置で余白を残し、80の左に空きをつくる */}
+            <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12">
+              <div className="md:col-start-5 md:col-span-8">
+                <PhotoNeeded ratio="16/9" kind="MOMENTS" note="DX作業の手元・自動化を動かす現場（横）" />
+                <p className="mt-3 text-[12px] text-muted">毎日の投稿作業が、6分に。</p>
+              </div>
+            </div>
+
             {/* 請求書自動化。テキスト事例 */}
             <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-10 md:pt-12">
               <div className="md:col-span-4 text-[13px] font-bold tracking-[0.16em] text-charcoal/40">CASE 02 — 請求書</div>
@@ -264,20 +249,24 @@ export default function ServiceDX() {
               </div>
             </div>
 
-            {/* 在庫管理（写真なしのテキスト事例。数字が控えめに効く） */}
-            <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-10 md:pt-12">
-              <div className="md:col-span-4 text-[13px] font-bold tracking-[0.16em] text-charcoal/40">CASE 03 — 在庫管理</div>
-              <div className="md:col-span-8">
-                <h3 className="text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 40px)" }}>
-                  在庫管理の一元化
-                </h3>
-                <div className="mt-3 text-green font-black tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>
-                  紙＋Excel → 一元管理
+            {/* 在庫管理 — 構成を変える。変化のフレーズを大きな型で左に、詳細を右に */}
+            <div className="mt-16 md:mt-24 border-t border-charcoal/10 pt-10 md:pt-12">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-end">
+                <div className="md:col-span-7">
+                  <div className="text-[13px] font-bold tracking-[0.16em] text-charcoal/40">CASE 03 — 在庫管理</div>
+                  <h3 className="mt-5 text-green font-black leading-[1.12] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 4.4vw, 60px)" }}>
+                    紙＋Excel →<br />一元管理
+                  </h3>
                 </div>
-                <div className="mt-1 text-[13px] font-bold text-terra">二重管理を解消</div>
-                <p className="mt-5 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
-                  紙とExcelに分かれていた在庫情報を一元管理し、探す・照合する手間を削減。
-                </p>
+                <div className="md:col-span-5 md:pb-2">
+                  <div className="text-green font-black tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 24px)" }}>
+                    在庫管理の一元化
+                  </div>
+                  <div className="mt-2 text-[13px] font-bold text-terra">二重管理を解消</div>
+                  <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                    紙とExcelに分かれていた在庫情報を一元管理し、探す・照合する手間を削減。
+                  </p>
+                </div>
               </div>
             </div>
           </div>

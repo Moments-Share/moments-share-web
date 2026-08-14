@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
+import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 export const metadata: Metadata = {
   title: "Works（実績）| Moments Share合同会社",
@@ -116,20 +117,27 @@ export default function WorksPage() {
                     <div className="text-[14px] font-bold text-charcoal mt-1">件</div>
                     <div className="text-[13px] text-muted">DX・業務効率化の支援</div>
                   </div>
-                  <div className="relative aspect-[4/3] w-full">
-                    <Image src="/photos/service-dx.png" alt="業務改善の現場での作業" fill sizes="(max-width:768px) 100vw, 40vw" className="object-cover" />
-                  </div>
+                  <PhotoNeeded ratio="4/3" kind="MOMENTS" note="DX支援の現場・手元（横）" />
                 </div>
               </div>
-              {/* 3・5・4 は控えめに、非対称に */}
-              <div className="md:col-span-5 grid grid-cols-3 gap-6 md:border-l md:border-charcoal/10 md:pl-8">
-                {smallStats.map((s) => (
-                  <div key={s.label}>
-                    <div className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(44px, 6vw, 72px)" }}>{s.n}</div>
-                    <div className="text-[12px] font-bold text-charcoal mt-1">{s.unit}</div>
-                    <div className="text-[12px] text-muted leading-snug mt-0.5">{s.label}</div>
-                  </div>
-                ))}
+              {/* 3・5・4 は控えめに、大きさを変えた非対称の縦積みで */}
+              <div className="md:col-span-5 md:border-l md:border-charcoal/10 md:pl-8">
+                <div className="flex flex-col divide-y divide-charcoal/10">
+                  {smallStats.map((s, i) => (
+                    <div key={s.label} className="flex items-baseline gap-4 py-5 first:pt-0">
+                      <div className="flex items-baseline gap-1 shrink-0">
+                        <span
+                          className="text-terra font-black leading-none tracking-[-0.03em]"
+                          style={{ fontSize: i === 1 ? "clamp(56px, 7.5vw, 96px)" : i === 0 ? "clamp(44px, 5.5vw, 72px)" : "clamp(36px, 4.5vw, 58px)" }}
+                        >
+                          {s.n}
+                        </span>
+                        <span className="text-[13px] font-bold text-charcoal pb-1">{s.unit}</span>
+                      </div>
+                      <div className="self-center text-[13px] text-muted leading-snug">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -145,12 +153,10 @@ export default function WorksPage() {
               </h2>
             </div>
 
-            {/* 主役事例 — 約80％削減を巨大なテラコッタ数字で */}
+            {/* 主役事例 — 約80％削減を巨大なテラコッタ数字で、現場写真を大きく */}
             <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
               <div className="md:col-span-6">
-                <div className="relative aspect-[4/3] w-full">
-                  <Image src={dxCases[0].photo} alt={dxCases[0].alt} fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover" />
-                </div>
+                <PhotoNeeded ratio="4/3" kind="MOMENTS" note="SNS自動化の運用・作業画面と手元（横）" />
               </div>
               <div className="md:col-span-6">
                 <div className="text-charcoal/40 text-[13px] font-bold tracking-[0.16em]">{dxCases[0].tag}</div>
@@ -164,18 +170,17 @@ export default function WorksPage() {
               </div>
             </div>
 
-            {/* 残り2事例 — 写真＋テキストを左右非対称で ===== */}
-            <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            {/* 残り2事例 — 主役より控えめに、細い罫線で区切ったテキスト誌面ロウ（同型カードにしない） */}
+            <div className="mt-16 md:mt-24 flex flex-col divide-y divide-charcoal/10 border-t border-charcoal/10">
               {dxCases.slice(1).map((c) => (
-                <div key={c.title}>
-                  <div className="relative aspect-[3/2] w-full">
-                    <Image src={c.photo} alt={c.alt} fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover" />
+                <div key={c.title} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 items-baseline py-8 md:py-10">
+                  <div className="md:col-span-3 text-charcoal/40 text-[13px] font-bold tracking-[0.16em]">{c.tag}</div>
+                  <div className="md:col-span-4">
+                    <h3 className="text-green font-black leading-[1.35] tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.4vw, 28px)" }}>{c.title}</h3>
+                    <div className="mt-3 text-terra font-black tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.6vw, 30px)" }}>{c.result}</div>
+                    <div className="mt-1 text-[13px] font-bold text-charcoal">{c.note}</div>
                   </div>
-                  <div className="mt-6 text-charcoal/40 text-[13px] font-bold tracking-[0.16em]">{c.tag}</div>
-                  <h3 className="mt-3 text-green font-black leading-[1.35] tracking-[-0.02em]" style={{ fontSize: "clamp(22px, 2.6vw, 30px)" }}>{c.title}</h3>
-                  <div className="mt-3 text-terra font-black tracking-[-0.02em]" style={{ fontSize: "clamp(22px, 3vw, 32px)" }}>{c.result}</div>
-                  <div className="mt-1 text-[13px] font-bold text-charcoal">{c.note}</div>
-                  <p className="mt-4 text-[15px] leading-[2] text-charcoal/80">{c.desc}</p>
+                  <p className="md:col-span-5 text-[15px] leading-[2] text-charcoal/80">{c.desc}</p>
                 </div>
               ))}
             </div>
@@ -212,21 +217,44 @@ export default function WorksPage() {
               </h2>
             </div>
 
-            <div className="mt-14 md:mt-20 flex flex-col gap-16 md:gap-24">
-              {projects.map((p, i) => (
-                <div key={p.title} className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
-                  <div className={`md:col-span-7 ${i % 2 === 1 ? "md:order-2" : ""}`}>
-                    <div className={`relative w-full ${i === 1 ? "aspect-[3/2]" : "aspect-[4/3]"}`}>
-                      <Image src={p.photo} alt={p.alt} fill sizes="(max-width:768px) 100vw, 58vw" className="object-cover" />
-                    </div>
-                  </div>
-                  <div className={`md:col-span-5 ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                    <div className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(32px, 4vw, 52px)" }}>0{i + 1}</div>
-                    <h3 className="mt-4 text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 38px)" }}>{p.title}</h3>
-                    <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{p.desc}</p>
+            <div className="mt-14 md:mt-20 flex flex-col gap-20 md:gap-32">
+              {/* 01 西尾働き方図鑑 — FEATURE。実写真を大きく主役に */}
+              <article>
+                <div className="relative aspect-[16/9] w-full">
+                  <Image src={projects[0].photo} alt={projects[0].alt} fill sizes="(max-width:768px) 100vw, 90vw" className="object-cover" />
+                </div>
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline">
+                  <div className="md:col-span-3 text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(40px, 5.5vw, 84px)" }}>01</div>
+                  <div className="md:col-span-9 md:border-l md:border-charcoal/10 md:pl-12">
+                    <h3 className="text-green font-black leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}>{projects[0].title}</h3>
+                    <p className="mt-4 max-w-2xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[0].desc}</p>
                   </div>
                 </div>
-              ))}
+              </article>
+
+              {/* 02 西尾筋肉祭り — 中サイズ、テキスト左・写真右 */}
+              <article className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center border-t border-charcoal/10 pt-14 md:pt-16">
+                <div className="md:col-span-7 md:order-1">
+                  <div className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(32px, 4vw, 56px)" }}>02</div>
+                  <h3 className="mt-4 text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 38px)" }}>{projects[1].title}</h3>
+                  <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[1].desc}</p>
+                </div>
+                <div className="md:col-span-5 md:order-2">
+                  <PhotoNeeded ratio="4/3" kind="MOMENTS" note="イベント当日・参加者が体を動かす様子（横）" />
+                </div>
+              </article>
+
+              {/* 03 AI活用研究会 — さらに控えめに、写真左・テキスト右 */}
+              <article className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center border-t border-charcoal/10 pt-14 md:pt-16">
+                <div className="md:col-span-5">
+                  <PhotoNeeded ratio="3/2" kind="PEOPLE" note="研究会で学び合う参加者（横）" />
+                </div>
+                <div className="md:col-span-7">
+                  <div className="text-terra font-black leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(32px, 4vw, 56px)" }}>03</div>
+                  <h3 className="mt-4 text-green font-black leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 38px)" }}>{projects[2].title}</h3>
+                  <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[2].desc}</p>
+                </div>
+              </article>
             </div>
 
             <p className="mt-14 text-[15px] leading-[2] text-charcoal/80">

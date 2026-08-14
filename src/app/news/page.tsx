@@ -18,34 +18,48 @@ export default function NewsPage() {
   return (
     <>
       <Nav />
-      <main id="main-content" className="pt-28 md:pt-36 pb-section bg-warm min-h-screen">
-        <div className="max-w-[900px] mx-auto px-8 md:px-20">
+      <main id="main-content" className="pt-28 md:pt-36 pb-section bg-ivory min-h-screen">
+        <div className="max-w-[1000px] mx-auto px-8 md:px-20">
 
-          <p className="text-[12px] font-bold tracking-[0.2em] text-terra mb-8">NEWS</p>
-          <h1
-            className="font-black text-navy leading-[1.1] tracking-[-0.04em] mb-16 md:mb-24"
-            style={{ fontSize: "clamp(32px, 5vw, 64px)" }}
-          >
-            ニュース
-          </h1>
+          {/* ===== マストヘッド — ラベル＋大見出しを非対称に、件数は大きな数字で ===== */}
+          <div className="flex items-end justify-between gap-8 border-b border-charcoal/10 pb-8 md:pb-10 mb-14 md:mb-20">
+            <div>
+              <p className="text-[12px] font-bold tracking-[0.2em] text-terra mb-6">NEWS</p>
+              <h1
+                className="font-black text-green leading-[1.05] tracking-[-0.04em]"
+                style={{ fontSize: "clamp(40px, 6vw, 84px)" }}
+              >
+                ニュース
+              </h1>
+            </div>
+            <div className="hidden sm:flex items-baseline gap-2 shrink-0 pb-1">
+              <span
+                className="text-terra font-black leading-none tracking-[-0.03em]"
+                style={{ fontSize: "clamp(40px, 5vw, 68px)" }}
+              >
+                {newsItems.length}
+              </span>
+              <span className="text-[12px] font-bold tracking-[0.14em] text-charcoal/40">POSTS</span>
+            </div>
+          </div>
 
           <div>
             {newsItems.map((item) => (
               <div
                 key={item.slug}
-                className="border-t border-black/[0.06] last:border-b"
+                className="border-t border-charcoal/10 last:border-b"
               >
-                <div className="py-6 md:py-8 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-10">
-                  <time className="text-[12px] font-bold tracking-[0.08em] text-ink/28 shrink-0 pt-[2px]">
+                <div className="py-7 md:py-9 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-12">
+                  <time className="text-[13px] font-bold tracking-[0.08em] text-terra shrink-0 pt-[3px]">
                     {item.date.replace(/-/g, ".")}
                   </time>
-                  <div className="flex flex-col gap-1">
+                  <div className="flex flex-col gap-2">
                     {item.category && (
-                      <span className="text-[10px] font-bold tracking-[0.14em] text-green/70 uppercase">
+                      <span className="text-[11px] font-bold tracking-[0.16em] text-charcoal/45 uppercase">
                         {item.category}
                       </span>
                     )}
-                    <p className="text-[16px] text-ink/75 leading-[1.65] font-medium">{item.title}</p>
+                    <p className="text-[17px] md:text-[19px] text-charcoal/85 leading-[1.7] font-medium tracking-[-0.01em]">{item.title}</p>
                   </div>
                 </div>
               </div>
@@ -55,7 +69,7 @@ export default function NewsPage() {
           <div className="mt-16">
             <Link
               href="/"
-              className="text-[12px] font-bold tracking-[0.08em] text-ink/35 hover:text-navy transition-colors"
+              className="text-[12px] font-bold tracking-[0.08em] text-charcoal/40 hover:text-green transition-colors"
             >
               ← ホームへ戻る
             </Link>

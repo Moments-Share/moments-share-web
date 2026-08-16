@@ -28,8 +28,8 @@ export function Nav() {
             <span className="relative block h-12 w-12 shrink-0 -my-2">
               <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="48px" className="object-contain" priority />
             </span>
-            <span className="text-[17px] font-black tracking-[0.02em] text-charcoal">
-              Moments <span className="text-green">Share</span>
+            <span className="text-[17px] font-black tracking-[0.02em] text-green">
+              Moments <span className="text-terra">Share</span>
             </span>
           </Link>
 
@@ -80,8 +80,8 @@ export function Nav() {
                 <span className="relative block h-9 w-9 shrink-0">
                   <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="36px" className="object-contain" />
                 </span>
-                <span className="text-[17px] font-black tracking-[0.02em] text-charcoal">
-                  Moments <span className="text-green">Share</span>
+                <span className="text-[17px] font-black tracking-[0.02em] text-green">
+                  Moments <span className="text-terra">Share</span>
                 </span>
               </span>
               <button

@@ -4,10 +4,10 @@
   /* --- Brand palette: ロゴ準拠 Navy × Teal × Warm Ivory ---
      ロゴ抽出色: navy #183048 / turquoise #30d8d8。
      クラス名(green/terra)は据え置き、値のみロゴ配色へ差し替え。 */
-  --color-green: #1d3a5f;     /* PRIMARY Navy — ロゴ, 主要見出し, 重要UI, 一部CTA（旧: green） */
-  --color-terra: #0f7f89;     /* ACCENT Teal — 数字/小さなライン/CTA/強調（深めのターコイズ／旧: terra） */
+  --color-green: #315a49;     /* PRIMARY Green — 主要見出し/ダーク帯/ワードマーク（緑基調） */
+  --color-terra: #0f7f89;     /* ACCENT Teal — 数字/小さなライン/CTA/強調（ロゴのターコイズと橋渡し／旧: terra） */
   --color-sage: #7aa0a4;      /* Supporting Muted Teal-Gray */
-  --color-leaf: #5bbf8b;      /* 地域/共創の緑 — TOP Heroの「循環を。」等、暗い地に映える生きた緑 */
+  --color-leaf: #5bbf8b;      /* 明るい葉の緑 — 暗い地に映えるアクセント（Hero「循環を。」等） */
   --color-charcoal: #252825;  /* Charcoal — 本文/濃い文字 */
   --color-ivory: #f8f5ef;     /* BASE Warm Ivory — サイト全体の基本背景 */
 

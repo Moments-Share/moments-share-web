@@ -33,7 +33,7 @@ export function Footer() {
                 <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="44px" className="object-contain" />
               </span>
               <span className="text-[20px] font-black tracking-[0.04em] text-white">
-                Moments <span className="text-teal">Share</span>
+                Moments <span className="text-leaf">Share</span>
               </span>
             </div>
             <p className="mt-5 text-[15px] font-bold leading-heading text-white/90">

@@ -7,14 +7,16 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 function Line({ children, delay, className = "" }: { children: React.ReactNode; delay: number; className?: string }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.1, ease, delay }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <div className="overflow-hidden pb-[0.12em] -mb-[0.12em]">
+      <motion.div
+        initial={{ opacity: 0, y: "115%" }}
+        animate={{ opacity: 1, y: "0%" }}
+        transition={{ duration: 1.0, ease, delay }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 }
 
@@ -65,9 +67,9 @@ export function Hero() {
           className="font-black text-white leading-[1.05] tracking-[-0.05em] mb-10"
           style={{ fontSize: "clamp(56px, 11vw, 150px)" }}
         >
-          <Line delay={0.4}>地域に、</Line>
-          <Line delay={0.65}>挑戦と共創の</Line>
-          <Line delay={0.9} className="text-terra">循環を。</Line>
+          <Line delay={0.35}>地域に、</Line>
+          <Line delay={0.6}>挑戦と共創の</Line>
+          <Line delay={0.85} className="text-leaf">循環を。</Line>
         </h1>
 
         {/* 説明文（正式サブコピー） */}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const businessLinks = [
   { href: "/service-dx", label: "DX支援" },
@@ -27,8 +28,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-12 md:gap-8">
           {/* Brand */}
           <div>
-            <div className="text-[20px] font-black tracking-[0.04em]">
-              Moments <span className="text-teal">Share</span>
+            <div className="flex items-center gap-2.5">
+              <span className="relative block h-11 w-11 shrink-0">
+                <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="44px" className="object-contain" />
+              </span>
+              <span className="text-[20px] font-black tracking-[0.04em] text-white">
+                Moments <span className="text-teal">Share</span>
+              </span>
             </div>
             <p className="mt-5 text-[15px] font-bold leading-heading text-white/90">
               地域に、挑戦と共創の循環を。

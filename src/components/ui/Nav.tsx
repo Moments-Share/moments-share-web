@@ -1,6 +1,7 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const navLinks = [
@@ -23,8 +24,13 @@ export function Nav() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-ivory/85 backdrop-blur-md border-b border-charcoal/10">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 h-16 flex items-center justify-between">
-          <Link href="/" className="text-[17px] font-black tracking-[0.02em] text-charcoal" onClick={() => setOpen(false)}>
-            Moments <span className="text-green">Share</span>
+          <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+            <span className="relative block h-12 w-12 shrink-0 -my-2">
+              <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="48px" className="object-contain" priority />
+            </span>
+            <span className="text-[17px] font-black tracking-[0.02em] text-charcoal">
+              Moments <span className="text-green">Share</span>
+            </span>
           </Link>
 
           {/* Desktop links */}
@@ -70,8 +76,13 @@ export function Nav() {
             transition={{ duration: 0.2 }}
           >
             <div className="h-16 px-6 flex items-center justify-between border-b border-charcoal/10 shrink-0">
-              <span className="text-[17px] font-black tracking-[0.02em] text-charcoal">
-                Moments <span className="text-green">Share</span>
+              <span className="flex items-center gap-2">
+                <span className="relative block h-9 w-9 shrink-0">
+                  <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="36px" className="object-contain" />
+                </span>
+                <span className="text-[17px] font-black tracking-[0.02em] text-charcoal">
+                  Moments <span className="text-green">Share</span>
+                </span>
               </span>
               <button
                 className="text-[13px] font-black tracking-[0.16em] text-terra"

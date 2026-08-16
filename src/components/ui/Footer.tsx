@@ -23,7 +23,7 @@ const snsLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-charcoal text-white">
+    <footer className="bg-[#183048] text-white">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-12 md:gap-8">
           {/* Brand */}
@@ -32,8 +32,8 @@ export function Footer() {
               <span className="relative block h-11 w-11 shrink-0">
                 <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="44px" className="object-contain" />
               </span>
-              <span className="text-[20px] font-black tracking-[0.04em] text-white">
-                Moments <span className="text-leaf">Share</span>
+              <span className="text-[20px] font-black tracking-[0.03em] text-white">
+                Moments Share
               </span>
             </div>
             <p className="mt-5 text-[15px] font-bold leading-heading text-white/90">

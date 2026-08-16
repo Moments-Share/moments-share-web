@@ -66,12 +66,29 @@ export default function PeoplePage() {
           </div>
         </section>
 
-        {/* ===== 関わり方 — 番号は小さな見出し記号として ===== */}
+        {/* ===== FELLOW — Moments Shareに関わる人の呼び名と定義 ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1000px]">
+            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">FELLOW</div>
+            <p className="mt-6 text-green font-semibold leading-[1.55] tracking-[-0.01em]"
+               style={{ fontSize: "clamp(22px, 3.2vw, 40px)" }}>
+              自分の人生を主体的に生きながら、<br className="hidden sm:block" />
+              志が重なるとき、ともに挑戦し、<br className="hidden sm:block" />
+              ともに未来を創る人。
+            </p>
+            <p className="mt-8 max-w-2xl text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
+              Moments Shareでは、ともに歩む一人ひとりを「Fellow（フェロー）」と呼んでいます。
+              立場や肩書きではなく、この姿勢を分かち合えることを大切にしています。
+            </p>
+          </div>
+        </section>
+
+        {/* ===== 関わり方 — Fellowの多様な関わり方 ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
               <div className="lg:col-span-4">
-                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">関わり方</div>
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">Fellowの関わり方</div>
                 <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
                   関わり方は、<br />ひとつじゃない。
                 </h2>
@@ -91,10 +108,10 @@ export default function PeoplePage() {
         </section>
 
         {/* ===== MEMBERS — 代表を大きな写真＋バイオで ===== */}
-        <section className="py-16 md:py-28 px-6 md:px-10">
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <h2 className="text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
-              メンバー
+              Fellow紹介
             </h2>
 
             {/* 代表（実在の情報のみ） */}

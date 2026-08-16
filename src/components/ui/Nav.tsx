@@ -22,35 +22,35 @@ export function Nav() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-ivory/85 backdrop-blur-md border-b border-charcoal/10">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#183048] border-b border-white/10">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
             <span className="relative block h-12 w-12 shrink-0 -my-2">
               <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="48px" className="object-contain" priority />
             </span>
-            <span className="text-[17px] font-black tracking-[0.02em] text-green">
-              Moments <span className="text-terra">Share</span>
+            <span className="text-[17px] font-black tracking-[0.03em] text-white">
+              Moments Share
             </span>
           </Link>
 
           {/* Desktop links */}
           <nav className="hidden md:flex items-center gap-9 text-[13px] font-bold">
             {navLinks.map(({ href, label }) => (
-              <Link key={href} href={href} className="text-charcoal/70 hover:text-green transition-colors">
+              <Link key={href} href={href} className="text-white/70 hover:text-white transition-colors">
                 {label}
               </Link>
             ))}
           </nav>
           <Link
             href="/contact"
-            className="hidden md:inline-block text-[13px] font-bold text-white bg-green px-5 py-2.5 rounded-full hover:bg-[#16283f] transition-colors"
+            className="hidden md:inline-block text-[13px] font-bold text-white bg-terra px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
           >
             お問い合わせ
           </Link>
 
           {/* Mobile: MENU only */}
           <button
-            className="md:hidden text-[13px] font-black tracking-[0.16em] text-charcoal"
+            className="md:hidden text-[13px] font-black tracking-[0.16em] text-white"
             onClick={() => setOpen(true)}
             aria-label="メニューを開く"
             aria-expanded={open}
@@ -75,17 +75,17 @@ export function Nav() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="h-16 px-6 flex items-center justify-between border-b border-charcoal/10 shrink-0">
+            <div className="h-16 px-6 flex items-center justify-between bg-[#183048] shrink-0">
               <span className="flex items-center gap-2">
                 <span className="relative block h-9 w-9 shrink-0">
                   <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="36px" className="object-contain" />
                 </span>
-                <span className="text-[17px] font-black tracking-[0.02em] text-green">
-                  Moments <span className="text-terra">Share</span>
+                <span className="text-[17px] font-black tracking-[0.03em] text-white">
+                  Moments Share
                 </span>
               </span>
               <button
-                className="text-[13px] font-black tracking-[0.16em] text-terra"
+                className="text-[13px] font-black tracking-[0.16em] text-white"
                 onClick={() => setOpen(false)}
                 aria-label="メニューを閉じる"
               >

@@ -43,7 +43,7 @@ export function Nav() {
           </nav>
           <Link
             href="/contact"
-            className="hidden md:inline-block text-[13px] font-bold text-white bg-green px-5 py-2.5 rounded-full hover:bg-[#2c4a3c] transition-colors"
+            className="hidden md:inline-block text-[13px] font-bold text-white bg-green px-5 py-2.5 rounded-full hover:bg-[#16283f] transition-colors"
           >
             お問い合わせ
           </Link>

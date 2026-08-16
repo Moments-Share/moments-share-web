@@ -20,7 +20,7 @@ function Line({ children, delay, className = "" }: { children: React.ReactNode; 
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#20261f]">
+    <section className="relative min-h-screen overflow-hidden bg-[#14243c]">
 
       {/* Ken Burns 写真背景 */}
       <div className="absolute inset-0">
@@ -38,11 +38,11 @@ export function Hero() {
             sizes="100vw"
           />
         </motion.div>
-        {/* 暗幕グラデーション（ディープグリーン基調） */}
+        {/* 暗幕グラデーション（ネイビー基調・ロゴ準拠） */}
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(20,26,19,0.55) 0%, rgba(20,26,19,0.30) 32%, rgba(20,26,19,0.78) 70%, rgba(20,26,19,0.98) 100%)"
+            background: "linear-gradient(to bottom, rgba(20,36,60,0.58) 0%, rgba(20,36,60,0.32) 32%, rgba(20,36,60,0.80) 70%, rgba(20,36,60,0.98) 100%)"
           }}
         />
       </div>

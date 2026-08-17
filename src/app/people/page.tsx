@@ -5,18 +5,26 @@ import { Nav } from "@/components/ui/Nav";
 import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 export const metadata: Metadata = {
-  title: "People（一緒につくる人たち）| Moments Share合同会社",
+  title: "People — Fellow | Moments Share合同会社",
   description:
-    "Moments Shareは社員だけで仕事をする会社ではありません。働き方も場所も得意も違う人たちが、それぞれの力を持ち寄って一緒に仕事やプロジェクトをつくっています。",
+    "Moments Shareでは、ともに歩む一人ひとりを「Fellow」と呼びます。自分の人生を主体的に生きながら、志が重なるとき、ともに挑戦し、ともに未来を創る人。専門人材・副業・子育て中・学生・地域の人など、多様な関わり方があります。",
   openGraph: {
-    title: "People（一緒につくる人たち）| Moments Share合同会社",
+    title: "People — Fellow | Moments Share合同会社",
     description:
-      "働き方も場所も得意も違う人たちが、力を持ち寄って一緒に仕事やプロジェクトをつくる。Moments Shareに関わる人たち。",
+      "自分の人生を主体的に生きながら、志が重なるとき、ともに挑戦し、ともに未来を創る人。Moments Shareの「Fellow」という関わり方。",
     type: "website",
     url: "https://moments-share.com/people",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
 };
+
+// Fellowの定義を分解した「こんな人」（定義文に忠実な言い換え）
+const fellowTraits = [
+  "自分の人生を、主体的に生きている。",
+  "心の中に、志ややってみたいことがある。",
+  "志が重なったら、立場を超えて手を組める。",
+  "ともに挑戦し、未来を創ることを楽しめる。",
+];
 
 const ways = [
   { title: "専門性を活かして企業を支える", desc: "得意分野のスキルで、企業の業務やプロジェクトに関わる。" },
@@ -40,7 +48,7 @@ export default function PeoplePage() {
     <>
       <Nav />
       <main id="main-content">
-        {/* ===== HERO — ページで最も強い見出し＋写真 ===== */}
+        {/* ===== HERO — Fellowという関わり方を最前面に ===== */}
         <section className="pt-28 md:pt-32 pb-16 md:pb-24 px-6 md:px-10">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-end">
@@ -48,12 +56,11 @@ export default function PeoplePage() {
                 <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/45">People</div>
                 <h1 className="mt-5 text-green font-semibold leading-[1.16] tracking-[-0.02em]"
                     style={{ fontSize: "clamp(34px, 5vw, 68px)" }}>
-                  一緒につくる<br />人たち。
+                  ともに未来を創る、<br />仲間たち。
                 </h1>
                 <p className="mt-8 max-w-lg text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
                   Moments Shareは、社員だけで仕事をする会社ではありません。
-                  働き方も、住んでいる場所も、得意なことも違う人たちが、
-                  それぞれの力を持ち寄って一緒に仕事やプロジェクトをつくっています。
+                  ここに関わる一人ひとりを、私たちは「Fellow（フェロー）」と呼んでいます。
                 </p>
               </div>
               <div className="lg:col-span-6">
@@ -66,25 +73,51 @@ export default function PeoplePage() {
           </div>
         </section>
 
-        {/* ===== FELLOW — Moments Shareに関わる人の呼び名と定義 ===== */}
+        {/* ===== 1. Fellowとは — 定義を静かに、大きく読ませる ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1000px]">
-            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">FELLOW</div>
+            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">FELLOW — Fellowとは</div>
             <p className="mt-6 text-green font-semibold leading-[1.55] tracking-[-0.01em]"
-               style={{ fontSize: "clamp(22px, 3.2vw, 40px)" }}>
+               style={{ fontSize: "clamp(23px, 3.4vw, 44px)" }}>
               自分の人生を主体的に生きながら、<br className="hidden sm:block" />
               志が重なるとき、ともに挑戦し、<br className="hidden sm:block" />
               ともに未来を創る人。
             </p>
             <p className="mt-8 max-w-2xl text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
               Moments Shareでは、ともに歩む一人ひとりを「Fellow（フェロー）」と呼んでいます。
-              立場や肩書きではなく、この姿勢を分かち合えることを大切にしています。
+              雇う・雇われるの関係ではなく、それぞれが自分の人生を生きながら、
+              志が重なったときに手を組む——そんな関係を大切にしています。
             </p>
           </div>
         </section>
 
-        {/* ===== 関わり方 — Fellowの多様な関わり方 ===== */}
+        {/* ===== 2. こんな人 — 定義を分解。カードにせず一覧で ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+              <div className="lg:col-span-4">
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">こんな人</div>
+                <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
+                  Fellowは、<br />こんな人。
+                </h2>
+              </div>
+              <div className="lg:col-span-8">
+                <ul className="divide-y divide-charcoal/10 border-t border-charcoal/10">
+                  {fellowTraits.map((t) => (
+                    <li key={t} className="py-6 md:py-8">
+                      <p className="text-green font-medium leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.4vw, 28px)" }}>
+                        {t}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 3. 関わり方 — Fellowの多様な関わり方 ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
               <div className="lg:col-span-4">
@@ -92,6 +125,9 @@ export default function PeoplePage() {
                 <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
                   関わり方は、<br />ひとつじゃない。
                 </h2>
+                <p className="mt-6 max-w-md text-[15px] leading-[2] text-charcoal/70">
+                  専門人材、副業、子育て中、学生、地域の人。それぞれの持ち場から、無理のない形で関わっています。
+                </p>
               </div>
               <div className="lg:col-span-8">
                 <ul className="divide-y divide-charcoal/10 border-t border-charcoal/10">
@@ -107,11 +143,12 @@ export default function PeoplePage() {
           </div>
         </section>
 
-        {/* ===== MEMBERS — 代表を大きな写真＋バイオで ===== */}
-        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+        {/* ===== 4. Fellow紹介 — 代表を大きな写真＋バイオで ===== */}
+        <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
-            <h2 className="text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
-              Fellow紹介
+            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">Fellow紹介</div>
+            <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+              Fellowを、紹介します。
             </h2>
 
             {/* 代表（実在の情報のみ） */}
@@ -144,21 +181,21 @@ export default function PeoplePage() {
               </div>
             </div>
 
-            {/* これから加わるメンバー — 活動中の場面で。実在情報が揃うまで名前・肩書きは載せない。架空の人物は作成しない。 */}
+            {/* これから加わるFellow — 活動中の場面で。実在情報が揃うまで名前・肩書きは載せない。架空の人物は作成しない。 */}
             <div className="mt-20 md:mt-28 border-t border-charcoal/10 pt-14 md:pt-20">
               <div className="max-w-2xl">
                 <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">これから</div>
                 <h3 className="mt-4 text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(23px, 3vw, 38px)" }}>
-                  これから、顔ぶれが増えていく。
+                  これから、Fellowが増えていく。
                 </h3>
                 <p className="mt-6 text-[15px] leading-[2] text-charcoal/70">
-                  専門人材、副業、子育て中、学生——。それぞれの持ち場から関わる人たちを、順次紹介していきます。
+                  専門人材、副業、子育て中、学生——。それぞれの持ち場から関わるFellowを、順次紹介していきます。
                 </p>
-                {/* TODO: 実在するメンバーを、写真／名前／得意なこと／担当／関わる理由の5項目で追記する。架空の人物は作成しない。 */}
-                <p className="mt-6 text-[13px] tracking-[0.04em] text-muted">※ 他メンバー準備中。掲載は本人の実在情報のみ。</p>
+                {/* TODO: 実在するFellowを、写真／名前／得意なこと／担当／関わる理由の5項目で追記する。架空の人物は作成しない。 */}
+                <p className="mt-6 text-[13px] tracking-[0.04em] text-muted">※ 他のFellowは準備中。掲載は本人の実在情報のみ。</p>
               </div>
 
-              {/* 活動中の一場面（証明写真にしない）。同じ体裁で静かに並べる */}
+              {/* 活動中の一場面（証明写真にしない）。向きを混在させて反復を避ける */}
               <div className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 items-start">
                 {memberPhotos.map((p, i) => (
                   <PhotoNeeded key={i} ratio={p.ratio} kind="PEOPLE" note={p.note} />
@@ -168,19 +205,22 @@ export default function PeoplePage() {
           </div>
         </section>
 
-        {/* ===== CTA — Deep Green のバンド ===== */}
+        {/* ===== 5. Fellowになる — 参加CTA。Deep Green のバンド ===== */}
         <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-              <h2 className="lg:col-span-8 font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 5vw, 68px)" }}>
-                あなたの得意を、<br />地域の挑戦へ。
-              </h2>
+              <div className="lg:col-span-8">
+                <div className="text-white/60 text-[12px] font-bold tracking-[0.16em]">Fellowになる</div>
+                <h2 className="mt-4 font-semibold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(30px, 4.4vw, 60px)" }}>
+                  志が重なったら、<br />ともに。
+                </h2>
+              </div>
               <div className="lg:col-span-4 lg:pb-3">
                 <p className="text-[15px] leading-[2] text-white/75">
-                  働き方も場所も問いません。まずは気軽に話すところから。
+                  働き方も場所も問いません。専門でも、副業でも、学生でも。まずは気軽に話すところから。
                 </p>
                 <Link href="/contact" className="mt-6 inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity">
-                  Moments Shareに関わる →
+                  Fellowとして関わる →
                 </Link>
               </div>
             </div>

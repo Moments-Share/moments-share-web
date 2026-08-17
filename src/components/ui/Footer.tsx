@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const businessLinks = [
   { href: "/service-dx", label: "DX支援" },
@@ -22,8 +24,16 @@ const snsLinks = [
 ];
 
 export function Footer() {
+  // People限定でフッター帯をネイビー→ディープティールに（他ページはネイビー維持）
+  const pathname = usePathname();
+  const isPeople = pathname?.startsWith("/people");
+  const band = isPeople ? "bg-teal-band" : "bg-[#183048]";
+  // ティール帯上ではアクセントをミントにしてコントラストを確保（teal-on-tealの視認性低下を回避）
+  const accent = isPeople ? "text-mint" : "text-teal";
+  const accentHover = isPeople ? "hover:text-mint" : "hover:text-teal";
+
   return (
-    <footer className="bg-[#183048] text-white">
+    <footer className={`${band} text-white`}>
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-12 md:gap-8">
           {/* Brand */}
@@ -44,13 +54,13 @@ export function Footer() {
               <div className="flex gap-3"><dt className="w-16 shrink-0 text-white/40">所在地</dt><dd>愛知県西尾市</dd></div>
               <div className="flex gap-3"><dt className="w-16 shrink-0 text-white/40">設立</dt><dd>2025年</dd></div>
               <div className="flex gap-3"><dt className="w-16 shrink-0 text-white/40">事業</dt><dd>DX支援・BPO・地域プロデュース</dd></div>
-              <div className="flex gap-3"><dt className="w-16 shrink-0 text-white/40">Email</dt><dd><a className="hover:text-teal transition-colors" href="mailto:branding@momentsshare.com">branding@momentsshare.com</a></dd></div>
+              <div className="flex gap-3"><dt className="w-16 shrink-0 text-white/40">Email</dt><dd><a className={`${accentHover} transition-colors`} href="mailto:branding@momentsshare.com">branding@momentsshare.com</a></dd></div>
             </dl>
           </div>
 
           {/* Business */}
           <nav aria-label="Business">
-            <div className="text-[11px] font-bold tracking-widest-label text-teal">BUSINESS</div>
+            <div className={`text-[11px] font-bold tracking-widest-label ${accent}`}>BUSINESS</div>
             <ul className="mt-5 space-y-3 text-[14px] text-white/70">
               {businessLinks.map(({ href, label }) => (
                 <li key={href}><Link href={href} className="hover:text-white transition-colors">{label}</Link></li>
@@ -60,7 +70,7 @@ export function Footer() {
 
           {/* Company */}
           <nav aria-label="Company">
-            <div className="text-[11px] font-bold tracking-widest-label text-teal">COMPANY</div>
+            <div className={`text-[11px] font-bold tracking-widest-label ${accent}`}>COMPANY</div>
             <ul className="mt-5 space-y-3 text-[14px] text-white/70">
               {companyLinks.map(({ href, label }) => (
                 <li key={href}><Link href={href} className="hover:text-white transition-colors">{label}</Link></li>
@@ -73,7 +83,7 @@ export function Footer() {
           <p className="text-[12px] text-white/50">© 2025 Moments Share合同会社. All rights reserved.</p>
           <div className="flex items-center gap-6 text-[13px] text-white/60">
             {snsLinks.map(({ href, label }) => (
-              <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="hover:text-teal transition-colors">{label}</a>
+              <a key={href} href={href} target="_blank" rel="noopener noreferrer" className={`${accentHover} transition-colors`}>{label}</a>
             ))}
           </div>
         </div>

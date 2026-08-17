@@ -18,6 +18,11 @@
   --color-coral: #0f7f89;     /* → teal */
   --color-dark: #16283f;      /* → deep navy (darkest bands) */
 
+  /* --- People限定: ネイビー帯→ディープティール（緑の色家族へ橋渡しし断絶を解消） --- */
+  --color-teal-band: #123a30;        /* People のヘッダー/フッター帯 */
+  --color-teal-band-hover: #1a4a3c;  /* 境界/ホバー用の少し明るいティール */
+  --color-mint: #8de8c8;             /* ティール帯上のアクセント文字（高コントラスト） */
+
   --color-ink: #252825;       /* body text — charcoal */
   --color-muted: #6f7b83;     /* muted cool gray */
   --color-white: #ffffff;

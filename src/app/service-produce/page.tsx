@@ -119,7 +119,7 @@ export default function ServiceProduce() {
                 <div className="mt-8 flex items-center gap-8 text-[14px] font-bold">
                   <Link
                     href="/contact"
-                    className="text-green border-b border-green/60 pb-0.5 hover:text-terra-ink hover:border-terra transition-colors"
+                    className="text-navy-ink border-b border-navy-ink/40 pb-0.5 hover:text-green hover:border-green transition-colors"
                   >
                     一緒にプロジェクトをつくる
                   </Link>
@@ -326,7 +326,7 @@ export default function ServiceProduce() {
                       {label}
                     </span>
                     {i < cycle.length - 1 && (
-                      <span className="text-terra-ink/70 text-[15px] md:text-[18px]" aria-hidden="true">→</span>
+                      <span className="text-navy-ink/50 text-[15px] md:text-[18px]" aria-hidden="true">→</span>
                     )}
                   </span>
                 ))}

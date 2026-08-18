@@ -135,7 +135,7 @@ export default function AboutPage() {
         {/* ===== 1. PURPOSE — 存在意義。開いた瞬間に「なぜ在るのか」。1画面1メッセージ・余白・装飾は最小 ===== */}
         <section className="min-h-[88vh] flex items-center pt-32 md:pt-40 pb-20 md:pb-28 bg-ivory">
           <div className="mx-auto max-w-[1400px] w-full px-6 md:px-10">
-            <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">
+            <div className="text-[12px] font-bold tracking-[0.24em] text-navy-ink">
               Purpose — 存在意義
             </div>
             <h1
@@ -155,7 +155,7 @@ export default function AboutPage() {
         {/* ===== 2. BELIEF（なぜ）— その先にある世界＝ビジョン。大きく、静かに ===== */}
         <section className="py-24 md:py-40 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">
+            <div className="text-[12px] font-bold tracking-[0.24em] text-navy-ink">
               Belief — 私たちが信じていること
             </div>
             <h2
@@ -176,7 +176,7 @@ export default function AboutPage() {
         <section className="py-24 md:py-36 bg-ivory">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="max-w-2xl">
-              <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">
+              <div className="text-[12px] font-bold tracking-[0.24em] text-navy-ink">
                 How — だから、私たちは
               </div>
               <h2
@@ -195,17 +195,17 @@ export default function AboutPage() {
                   className="group grid grid-cols-1 md:grid-cols-12 gap-y-3 md:gap-x-12 py-10 md:py-14 border-b border-navy-ink/12"
                 >
                   <div className="md:col-span-4">
-                    <div className="text-[11px] font-bold tracking-[0.22em] text-terra-ink">{b.en}</div>
+                    <div className="text-[11px] font-bold tracking-[0.22em] text-navy-ink">{b.en}</div>
                     <div className="mt-3 text-navy-ink font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(20px, 2.2vw, 28px)" }}>
                       {b.name}
                     </div>
                   </div>
                   <div className="md:col-span-8">
-                    <div className="text-terra-ink font-bold leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(17px, 1.9vw, 22px)" }}>
+                    <div className="text-navy-ink font-bold leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(17px, 1.9vw, 22px)" }}>
                       {b.lead}
                     </div>
                     <p className="mt-4 max-w-xl text-[15px] md:text-[17px] leading-[2.1] text-charcoal/80">{b.body}</p>
-                    <span className="mt-5 inline-block text-[13px] font-bold text-terra-ink border-b border-terra/50 pb-0.5 group-hover:border-terra transition-colors">
+                    <span className="mt-5 inline-block text-[13px] font-bold text-navy-ink border-b border-navy-ink/40 pb-0.5 group-hover:text-green group-hover:border-green transition-colors">
                       詳しく見る →
                     </span>
                   </div>
@@ -230,7 +230,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-4">
-                <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">Story — 原点</div>
+                <div className="text-[12px] font-bold tracking-[0.24em] text-navy-ink">Story — 原点</div>
                 <div className="mt-8 lg:mt-10 lg:mr-6">
                   <PhotoNeeded ratio="4/5" kind="PEOPLE" note="西尾の地元企業と対話する代表（横位置・ドキュメンタリー）" />
                   <p className="mt-3 text-[12px] leading-[1.8] text-muted">問いは、現場の対話から生まれた。</p>
@@ -254,7 +254,7 @@ export default function AboutPage() {
         <section className="py-24 md:py-36 bg-ivory">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="max-w-2xl">
-              <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">Values — 大切にしていること</div>
+              <div className="text-[12px] font-bold tracking-[0.24em] text-navy-ink">Values — 大切にしていること</div>
               <h2 className="mt-6 text-navy-ink font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                 存在意義を、日々の選択に。
               </h2>
@@ -270,7 +270,7 @@ export default function AboutPage() {
                 {coreValues.map((v) => (
                   <div key={v.en} className="grid grid-cols-1 md:grid-cols-12 gap-y-3 md:gap-x-12 py-10 md:py-14 border-b border-navy-ink/12">
                     <div className="md:col-span-4">
-                      <div className="text-terra-ink font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>{v.en}</div>
+                      <div className="text-navy-ink font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>{v.en}</div>
                     </div>
                     <div className="md:col-span-8">
                       <h3 className="text-navy-ink font-medium leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 27px)" }}>
@@ -292,7 +292,7 @@ export default function AboutPage() {
                     key={s.en}
                     className="grid grid-cols-1 sm:grid-cols-[minmax(160px,0.4fr)_1fr] gap-1 sm:gap-8 py-5 border-b border-navy-ink/12 items-baseline"
                   >
-                    <span className="text-terra-ink font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(17px, 1.9vw, 22px)" }}>{s.en}</span>
+                    <span className="text-navy-ink font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(17px, 1.9vw, 22px)" }}>{s.en}</span>
                     <span className="text-navy-ink/85 font-medium leading-[1.6] tracking-[-0.01em] text-[15px] md:text-[17px]">{s.ja}</span>
                   </li>
                 ))}
@@ -306,7 +306,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
               <div className="lg:col-span-5">
-                <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">Founder — 代表</div>
+                <div className="text-[12px] font-bold tracking-[0.24em] text-navy-ink">Founder — 代表</div>
                 <div className="mt-8">
                   <PhotoNeeded ratio="4/5" kind="PEOPLE" note="代表・中根 隆のポートレート（縦）" />
                 </div>
@@ -340,7 +340,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-4">
-                <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">Company — 会社概要</div>
+                <div className="text-[12px] font-bold tracking-[0.24em] text-navy-ink">Company — 会社概要</div>
                 <h2 className="mt-4 text-navy-ink font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}>
                   会社概要。
                 </h2>
@@ -357,7 +357,7 @@ export default function AboutPage() {
                       </dt>
                       <dd className="text-[16px] md:text-[17px] text-navy-ink">
                         {row.email ? (
-                          <a href="mailto:branding@momentsshare.com" className="text-terra-ink font-bold border-b border-terra/60 pb-0.5 hover:border-terra transition-colors">
+                          <a href="mailto:branding@momentsshare.com" className="text-navy-ink font-bold border-b border-navy-ink/40 pb-0.5 hover:text-green hover:border-green transition-colors">
                             {row.value}
                           </a>
                         ) : (

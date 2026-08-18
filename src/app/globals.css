@@ -2,9 +2,9 @@
 
 @theme {
   /* --- Brand palette: ロゴ準拠 Green base × Logo Cyan accent × Warm Ivory ---
-     ロゴ主色: 水色シアン #18c0d8（明るい水色の帆船マーク）。
-     差し色はロゴのシアンと同じ色相家族(H≈188)へ寄せつつ、AA(4.5:1)を確保するため
-     用途別に明度を分ける: 面/ボタン(白文字)=terra / 文字(ivory地)=terra-ink / 装飾線=terra-bright。 */
+     ロゴ主色: 水色シアン #18c0d8（明るい水色の帆船マーク）。シアンはロゴマーク画像(logo-3.png)内のみに限定。
+     テキスト/ラベル/リンク/装飾線からはターコイズを全廃し、ネイビー(#183048)＋グリーン(#315a49 hover/小アクセント)へ統一。
+     ↓terra系トークンは後方互換のため定義のみ残置。現在テキスト/UIからは未参照。 */
   --color-green: #315a49;     /* PRIMARY Green — 主要見出し/ダーク帯/ワードマーク（緑基調・据え置き） */
   --color-terra: #0e7f92;     /* ACCENT Cyan（面/ボタン）— bg-terra+白文字=4.70:1 AA。H189でロゴの水色家族 */
   --color-terra-ink: #0e7482; /* ACCENT Cyan（文字用・少し深い水色）— ivory地の小ラベル/リンク=5.03:1 AA */
@@ -75,7 +75,7 @@
   }
 
   ::selection {
-    background: #0e7f92;
+    background: #315a49;
     color: #fff;
   }
 }

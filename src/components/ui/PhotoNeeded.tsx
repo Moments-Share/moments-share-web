@@ -18,7 +18,7 @@ export function PhotoNeeded({
     <div className={`relative w-full ${className}`} style={{ aspectRatio: ratio }}>
       <div className="absolute inset-0 bg-sage/10 flex flex-col items-center justify-center text-center px-5">
         <span className="text-[10px] font-bold tracking-[0.28em] text-charcoal/35">PHOTO&nbsp;NEEDED</span>
-        <span className="mt-2 text-[11px] font-bold tracking-[0.18em] text-terra-ink">{kind}</span>
+        <span className="mt-2 text-[11px] font-bold tracking-[0.18em] text-navy-ink">{kind}</span>
         {note && <span className="mt-2 text-[11px] leading-[1.7] text-charcoal/45 max-w-[240px]">{note}</span>}
       </div>
     </div>

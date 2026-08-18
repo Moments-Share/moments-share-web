@@ -65,7 +65,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
               <Link
                 key={href}
                 href={href}
-                className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-terra-ink"}`}
+                className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-green"}`}
               >
                 {label}
               </Link>

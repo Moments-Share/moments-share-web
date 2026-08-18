@@ -87,7 +87,7 @@ export default function Home() {
                   <div className="text-[12px] font-bold tracking-[0.12em] text-charcoal/40">{b.label}</div>
                   <h3 className="mt-3 text-green font-semibold leading-[1.45] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 2.6vw, 32px)" }}>{b.title}</h3>
                   <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{b.body}</p>
-                  <Link href={b.href} className="mt-6 inline-block text-[14px] font-bold text-green border-b border-green/60 pb-0.5 hover:text-terra-ink hover:border-terra transition-colors">
+                  <Link href={b.href} className="mt-6 inline-block text-[14px] font-bold text-navy-ink border-b border-navy-ink/40 pb-0.5 hover:text-green hover:border-green transition-colors">
                     {b.label}を詳しく →
                   </Link>
                 </div>
@@ -144,7 +144,7 @@ export default function Home() {
             <h2 className="text-green font-semibold leading-[1.3] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 44px)" }}>
               西尾で、積み上げてきた。
             </h2>
-            <Link href="/works" className="text-[14px] font-bold text-green border-b border-green/60 pb-0.5 hover:text-terra-ink hover:border-terra transition-colors">実績をもっと見る →</Link>
+            <Link href="/works" className="text-[14px] font-bold text-navy-ink border-b border-navy-ink/40 pb-0.5 hover:text-green hover:border-green transition-colors">実績をもっと見る →</Link>
           </div>
 
           {/* 4つの数字 — 同じ大きさ・同じ重みで 2×4／2×2 に */}
@@ -180,7 +180,7 @@ export default function Home() {
               <p className="mt-6 max-w-md text-[16px] leading-[2] text-charcoal/80">
                 社員だけで仕事をする会社ではありません。働き方も、住む場所も、得意なことも違う人たちが、それぞれの力を持ち寄って、一緒に仕事やプロジェクトをつくっています。
               </p>
-              <Link href="/people" className="mt-7 inline-block text-[14px] font-bold text-green border-b border-green/60 pb-0.5 hover:text-terra-ink hover:border-terra transition-colors">
+              <Link href="/people" className="mt-7 inline-block text-[14px] font-bold text-navy-ink border-b border-navy-ink/40 pb-0.5 hover:text-green hover:border-green transition-colors">
                 関わる人たちを見る →
               </Link>
             </div>

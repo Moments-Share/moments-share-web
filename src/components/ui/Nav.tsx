@@ -2,7 +2,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
 const navLinks = [
@@ -15,9 +14,7 @@ const navLinks = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
-  // People限定でヘッダー帯をネイビー→ディープティールに（他ページはネイビー維持）
-  const pathname = usePathname();
-  const bandClass = pathname?.startsWith("/people") ? "bg-teal-band" : "bg-[#183048]";
+  // ヘッダーは全ページ共通で明るいクローム(ivory地)。ロゴ(白背景前提)の舞台に合わせる。
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -26,13 +23,13 @@ export function Nav() {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 ${bandClass} border-b border-white/10`}>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-ivory border-b border-border">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
             <span className="relative block h-12 w-12 shrink-0 -my-2">
               <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="48px" className="object-contain" priority />
             </span>
-            <span className="text-[17px] font-black tracking-[0.03em] text-white">
+            <span className="text-[17px] font-black tracking-[0.03em] text-navy-ink">
               Moments Share
             </span>
           </Link>
@@ -40,7 +37,7 @@ export function Nav() {
           {/* Desktop links */}
           <nav className="hidden md:flex items-center gap-9 text-[13px] font-bold">
             {navLinks.map(({ href, label }) => (
-              <Link key={href} href={href} className="text-white/70 hover:text-white transition-colors">
+              <Link key={href} href={href} className="text-navy-ink/80 hover:text-terra-ink transition-colors">
                 {label}
               </Link>
             ))}
@@ -54,7 +51,7 @@ export function Nav() {
 
           {/* Mobile: MENU only */}
           <button
-            className="md:hidden text-[13px] font-black tracking-[0.16em] text-white"
+            className="md:hidden text-[13px] font-black tracking-[0.16em] text-navy-ink"
             onClick={() => setOpen(true)}
             aria-label="メニューを開く"
             aria-expanded={open}
@@ -79,17 +76,17 @@ export function Nav() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className={`h-16 px-6 flex items-center justify-between ${bandClass} shrink-0`}>
+            <div className="h-16 px-6 flex items-center justify-between bg-ivory border-b border-border shrink-0">
               <span className="flex items-center gap-2">
                 <span className="relative block h-9 w-9 shrink-0">
                   <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="36px" className="object-contain" />
                 </span>
-                <span className="text-[17px] font-black tracking-[0.03em] text-white">
+                <span className="text-[17px] font-black tracking-[0.03em] text-navy-ink">
                   Moments Share
                 </span>
               </span>
               <button
-                className="text-[13px] font-black tracking-[0.16em] text-white"
+                className="text-[13px] font-black tracking-[0.16em] text-navy-ink"
                 onClick={() => setOpen(false)}
                 aria-label="メニューを閉じる"
               >

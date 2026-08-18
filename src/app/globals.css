@@ -13,6 +13,7 @@
   --color-leaf: #5bbf8b;      /* 明るい葉の緑 — 暗い地に映えるアクセント（Hero「循環を。」等） */
   --color-charcoal: #252825;  /* Charcoal — 本文/濃い文字 */
   --color-ivory: #f8f5ef;     /* BASE Warm Ivory — サイト全体の基本背景 */
+  --color-navy-ink: #183048;  /* LOGO NAVY — logo-1の文字色。ワードマーク/ナビ文字/明るいクローム上の見出し（ivory地12.4:1・white地13.5:1 AA） */
 
   /* --- Legacy token aliases (remapped so既存ページも自動で新パレットへ) --- */
   --color-navy: #1d3a5f;      /* → navy (headings / dark bands) */
@@ -21,10 +22,7 @@
   --color-coral: #18c0d8;     /* → ロゴシアン（同上） */
   --color-dark: #16283f;      /* → deep navy (darkest bands) */
 
-  /* --- People限定: ネイビー帯→ディープティール（緑の色家族へ橋渡しし断絶を解消） --- */
-  --color-teal-band: #294a38;        /* People のヘッダー/フッター帯（緑寄りのミディアム深緑） */
-  --color-teal-band-hover: #34573f;  /* 境界/ホバー用の少し明るい緑 */
-  --color-mint: #8de8c8;             /* ティール帯上のアクセント文字（高コントラスト） */
+  /* --- ヘッダー/フッターは明るいクローム(ivory地)に統一。People限定のダーク帯出し分けは廃止 --- */
 
   --color-ink: #252825;       /* body text — charcoal */
   --color-muted: #6f7b83;     /* muted cool gray */

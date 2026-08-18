@@ -32,19 +32,25 @@ export function Hero() {
           transition={{ duration: 18, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
         >
           <Image
-            src="/photos/hero.png"
-            alt="西尾市の風景"
+            src="/photos/hero-nishio.jpg"
+            alt="西尾市の川辺の風景"
             fill
             priority
             className="object-cover object-center"
             sizes="100vw"
           />
         </motion.div>
-        {/* 暗幕グラデーション（ディープグリーン基調） */}
+        {/* 暗幕グラデーション（明るい写真用：左＋下を暗く、右上の空と緑はクリア） */}
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(22,40,31,0.58) 0%, rgba(22,40,31,0.32) 32%, rgba(22,40,31,0.80) 70%, rgba(22,40,31,0.98) 100%)"
+            background: "linear-gradient(to right, rgba(16,32,42,0.88) 0%, rgba(16,32,42,0.66) 38%, rgba(16,32,42,0.20) 70%, rgba(16,32,42,0) 100%)"
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to bottom, rgba(16,32,42,0) 40%, rgba(16,32,42,0.30) 68%, rgba(16,32,42,0.68) 100%)"
           }}
         />
       </div>

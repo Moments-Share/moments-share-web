@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* --- Brand palette: ロゴ準拠 Navy × Teal × Warm Ivory ---
-     ロゴ抽出色: navy #183048 / turquoise #30d8d8。
-     クラス名(green/terra)は据え置き、値のみロゴ配色へ差し替え。 */
-  --color-green: #315a49;     /* PRIMARY Green — 主要見出し/ダーク帯/ワードマーク（緑基調） */
-  --color-terra: #0f7f89;     /* ACCENT Teal — 数字/小さなライン/CTA/強調（ロゴのターコイズと橋渡し／旧: terra） */
+  /* --- Brand palette: ロゴ準拠 Green base × Logo Cyan accent × Warm Ivory ---
+     ロゴ主色: 水色シアン #18c0d8（明るい水色の帆船マーク）。
+     差し色はロゴのシアンと同じ色相家族(H≈188)へ寄せつつ、AA(4.5:1)を確保するため
+     用途別に明度を分ける: 面/ボタン(白文字)=terra / 文字(ivory地)=terra-ink / 装飾線=terra-bright。 */
+  --color-green: #315a49;     /* PRIMARY Green — 主要見出し/ダーク帯/ワードマーク（緑基調・据え置き） */
+  --color-terra: #0e7f92;     /* ACCENT Cyan（面/ボタン）— bg-terra+白文字=4.70:1 AA。H189でロゴの水色家族 */
+  --color-terra-ink: #0e7482; /* ACCENT Cyan（文字用・少し深い水色）— ivory地の小ラベル/リンク=5.03:1 AA */
+  --color-terra-bright: #18c0d8; /* ロゴのフル明度シアン — 細いライン/ホバー/小面など文字コントラスト不要な箇所のみ */
   --color-sage: #7aa0a4;      /* Supporting Muted Teal-Gray */
   --color-leaf: #5bbf8b;      /* 明るい葉の緑 — 暗い地に映えるアクセント（Hero「循環を。」等） */
   --color-charcoal: #252825;  /* Charcoal — 本文/濃い文字 */
@@ -13,9 +16,9 @@
 
   /* --- Legacy token aliases (remapped so既存ページも自動で新パレットへ) --- */
   --color-navy: #1d3a5f;      /* → navy (headings / dark bands) */
-  --color-teal: #0f7f89;      /* → teal (accents/labels) */
-  --color-accent: #0f7f89;    /* → teal */
-  --color-coral: #0f7f89;     /* → teal */
+  --color-teal: #18c0d8;      /* → ロゴのフル明度シアン（暗い帯上の小ラベル/リンク専用。navy帯6.15:1 / 緑帯4.49:1 AA） */
+  --color-accent: #18c0d8;    /* → ロゴシアン（同上） */
+  --color-coral: #18c0d8;     /* → ロゴシアン（同上） */
   --color-dark: #16283f;      /* → deep navy (darkest bands) */
 
   /* --- People限定: ネイビー帯→ディープティール（緑の色家族へ橋渡しし断絶を解消） --- */
@@ -74,7 +77,7 @@
   }
 
   ::selection {
-    background: #0f7f89;
+    background: #0e7f92;
     color: #fff;
   }
 }

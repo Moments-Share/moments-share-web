@@ -54,7 +54,7 @@ export function Hero() {
 
         {/* ラベル */}
         <motion.p
-          className="text-[9px] font-bold tracking-[0.38em] uppercase text-terra mb-10"
+          className="text-[9px] font-bold tracking-[0.38em] uppercase text-terra-ink mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}

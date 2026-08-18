@@ -112,7 +112,7 @@ export default function ServiceDX() {
                 <div className="mt-8">
                   <Link
                     href="/contact"
-                    className="inline-block text-[14px] font-bold text-green border-b border-green/60 pb-0.5 hover:text-terra hover:border-terra transition-colors"
+                    className="inline-block text-[14px] font-bold text-green border-b border-green/60 pb-0.5 hover:text-terra-ink hover:border-terra transition-colors"
                   >
                     自動化できる業務を相談する →
                   </Link>

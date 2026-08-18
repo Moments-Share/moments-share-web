@@ -129,7 +129,7 @@ export default function ContactPage() {
                     </button>
                     <p className="text-[13px] leading-[1.9] text-muted">
                       お急ぎの方はメールでも受け付けています：<br className="hidden sm:block" />
-                      <a href="mailto:branding@momentsshare.com" className="text-green border-b border-green/60 pb-0.5 font-bold hover:text-terra hover:border-terra transition-colors">branding@momentsshare.com</a>
+                      <a href="mailto:branding@momentsshare.com" className="text-green border-b border-green/60 pb-0.5 font-bold hover:text-terra-ink hover:border-terra transition-colors">branding@momentsshare.com</a>
                     </p>
                   </div>
                 </form>

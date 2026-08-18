@@ -112,7 +112,7 @@ export default function ServiceBPO() {
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-9 inline-block text-[14px] font-bold text-green border-b border-green/60 pb-0.5 hover:text-terra hover:border-terra transition-colors"
+                  className="mt-9 inline-block text-[14px] font-bold text-green border-b border-green/60 pb-0.5 hover:text-terra-ink hover:border-terra transition-colors"
                 >
                   外注できる業務を相談する →
                 </Link>

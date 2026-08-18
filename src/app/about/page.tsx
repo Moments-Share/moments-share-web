@@ -286,7 +286,7 @@ export default function AboutPage() {
                       </dt>
                       <dd className="text-[16px] md:text-[17px] text-charcoal">
                         {row.email ? (
-                          <a href="mailto:branding@momentsshare.com" className="text-green font-bold border-b border-green/60 pb-0.5 hover:text-terra hover:border-terra transition-colors">
+                          <a href="mailto:branding@momentsshare.com" className="text-green font-bold border-b border-green/60 pb-0.5 hover:text-terra-ink hover:border-terra transition-colors">
                             {row.value}
                           </a>
                         ) : (

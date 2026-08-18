@@ -63,7 +63,7 @@ const stats = [
 export default function Home() {
   return (
     <>
-      <Nav />
+      <Nav heroTone="dark" />
       <Hero />
 
       {/* ===== BUSINESS — 3事業。写真＋短い言葉。番号や大きな装飾は置かない ===== */}

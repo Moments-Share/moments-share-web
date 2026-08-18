@@ -12,24 +12,49 @@ const navLinks = [
   { href: "/news", label: "News", en: "お知らせ" },
 ];
 
-export function Nav() {
+export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
   const [open, setOpen] = useState(false);
-  // ヘッダーは全ページ共通で明るいクローム(ivory地)。ロゴ(白背景前提)の舞台に合わせる。
+  const [scrolled, setScrolled] = useState(false);
+  // 最上部では透過してヒーローに溶け込み、スクロールで明るいクローム(ivory地)が実体化する。
+  // ページごとのヒーロー明暗(heroTone)で透過時の文字色を出し分ける。
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll(); // 初期状態(リロード時スクロール済み等)を反映
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // 透過かつ暗いヒーロー上のときだけ文字を白にする。それ以外は常にネイビー。
+  const whiteText = !scrolled && heroTone === "dark";
+
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-ivory border-b border-border">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 h-16 flex items-center justify-between">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,box-shadow] duration-200 ${
+          scrolled
+            ? "bg-ivory/90 backdrop-blur border-b border-border"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
+        {/* 暗いヒーロー透過時の可読性スクリム(上方向の極薄い黒grad)。実体化・明ヒーローでは非表示 */}
+        {whiteText && (
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/25 to-transparent"
+          />
+        )}
+        <div className="relative mx-auto max-w-[1400px] px-6 md:px-10 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
             <span className="relative block h-12 w-12 shrink-0 -my-2">
               <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="48px" className="object-contain" priority />
             </span>
-            <span className="text-[17px] font-black tracking-[0.03em] text-navy-ink">
+            <span className={`text-[17px] font-black tracking-[0.03em] transition-colors duration-200 ${whiteText ? "text-white" : "text-navy-ink"}`}>
               Moments Share
             </span>
           </Link>
@@ -37,7 +62,11 @@ export function Nav() {
           {/* Desktop links */}
           <nav className="hidden md:flex items-center gap-9 text-[13px] font-bold">
             {navLinks.map(({ href, label }) => (
-              <Link key={href} href={href} className="text-navy-ink/80 hover:text-terra-ink transition-colors">
+              <Link
+                key={href}
+                href={href}
+                className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-terra-ink"}`}
+              >
                 {label}
               </Link>
             ))}
@@ -51,7 +80,7 @@ export function Nav() {
 
           {/* Mobile: MENU only */}
           <button
-            className="md:hidden text-[13px] font-black tracking-[0.16em] text-navy-ink"
+            className={`md:hidden text-[13px] font-black tracking-[0.16em] transition-colors duration-200 ${whiteText ? "text-white" : "text-navy-ink"}`}
             onClick={() => setOpen(true)}
             aria-label="メニューを開く"
             aria-expanded={open}

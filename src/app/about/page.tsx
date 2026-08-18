@@ -5,13 +5,13 @@ import { Nav } from "@/components/ui/Nav";
 import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 export const metadata: Metadata = {
-  title: "なぜ、この会社があるのか | Moments Share合同会社",
+  title: "存在意義 — なぜ、私たちは在るのか | Moments Share合同会社",
   description:
-    "人生は、やりたいことを実現するための時間。私たちは、その時間を増やしたい。Moments Shareの原点・ミッション・ビジョン・バリュー・代表・会社概要。愛知県西尾市発。",
+    "すべてが繋がる瞬間を、共創する。「生きててよかった！」があふれる世界を創る。Moments Shareの存在意義（Purpose）・信念・3つの事業・原点・バリュー・会社概要。愛知県西尾市発。",
   openGraph: {
-    title: "なぜ、この会社があるのか | Moments Share合同会社",
+    title: "存在意義 — なぜ、私たちは在るのか | Moments Share合同会社",
     description:
-      "人生は、やりたいことを実現するための時間。私たちは、その時間を増やしたい。Moments Shareの思想と歩み。愛知県西尾市発。",
+      "すべてが繋がる瞬間を、共創する。「生きててよかった！」があふれる世界を創る。Moments Shareの存在意義と歩み。愛知県西尾市発。",
     locale: "ja_JP",
     type: "website",
     url: "https://moments-share.com/about",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "なぜ、この会社があるのか | Moments Share合同会社",
+    title: "存在意義 — なぜ、私たちは在るのか | Moments Share合同会社",
     description:
-      "人生は、やりたいことを実現するための時間。私たちは、その時間を増やしたい。愛知県西尾市発。",
+      "すべてが繋がる瞬間を、共創する。「生きててよかった！」があふれる世界を創る。愛知県西尾市発。",
     images: ["/og-image.png"],
   },
 };
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "name": "なぜ、この会社があるのか | Moments Share合同会社",
+  "name": "存在意義 — なぜ、私たちは在るのか | Moments Share合同会社",
   "description":
-    "人生は、やりたいことを実現するための時間。私たちは、その時間を増やしたい。Moments Shareの原点・ミッション・ビジョン・バリュー・会社概要。",
+    "すべてが繋がる瞬間を、共創する。「生きててよかった！」があふれる世界を創る。Moments Shareの存在意義・信念・事業・原点・バリュー・会社概要。",
   "url": "https://moments-share.com/about",
   "publisher": {
     "@type": "Organization",
@@ -46,6 +46,31 @@ const jsonLd = {
     ],
   },
 };
+
+// 3つの事業：存在意義を果たす手段として（サービスページの実在コピーに整合。新規事実は追加しない）
+const businesses = [
+  {
+    en: "DX",
+    name: "DX伴走支援（Core Shift）",
+    lead: "人の時間を、価値創造へ。",
+    body: "請求書・データ転記・日報集計など、毎月繰り返す業務をAI・自動化で減らす。人がやらなくてもいい仕事を仕組みに変え、人にしかできない価値へ時間を取り戻す。",
+    href: "/service-dx",
+  },
+  {
+    en: "BPO",
+    name: "BPO（業務代行）",
+    lead: "人手不足を、多様な働き方へ。",
+    body: "採用して人を増やす前に、仕事を外に出すという選択肢を。カスタマーサクセス・営業支援・SNS・経理事務。必要な仕事を、必要な分だけ支える。",
+    href: "/service-bpo",
+  },
+  {
+    en: "PRODUCE",
+    name: "地域プロデュース",
+    lead: "地域愛を、地域発展の力に。",
+    body: "地域の課題と、人や企業の「やってみたい」をつなぎ、新しいプロジェクトや事業が生まれる場をつくる。挑戦と共創が循環する地域を、西尾から。",
+    href: "/service-produce",
+  },
+];
 
 // 創業ストーリー：既存の Founder / AboutOrigin コンポーネントの実在内容を再構成（新規事実は追加しない）
 const story = [
@@ -107,39 +132,113 @@ export default function AboutPage() {
       <Nav />
       <main id="main-content">
 
-        {/* ===== 1. HERO — 文章＋大きな実写写真＋余白。装飾ラベルは置かない ===== */}
-        <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-ivory">
-          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <h1 className="text-green font-semibold leading-[1.16] tracking-[-0.02em]"
-                style={{ fontSize: "clamp(34px, 5vw, 68px)" }}>
-              なぜ、この会社が<br />あるのか。
+        {/* ===== 1. PURPOSE — 存在意義。開いた瞬間に「なぜ在るのか」。1画面1メッセージ・余白・装飾は最小 ===== */}
+        <section className="min-h-[88vh] flex items-center pt-32 md:pt-40 pb-20 md:pb-28 bg-ivory">
+          <div className="mx-auto max-w-[1400px] w-full px-6 md:px-10">
+            <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">
+              Purpose — 存在意義
+            </div>
+            <h1
+              className="mt-10 md:mt-14 text-green font-semibold leading-[1.14] tracking-[-0.03em] max-w-[16ch]"
+              style={{ fontSize: "clamp(40px, 8vw, 104px)" }}
+            >
+              すべてが繋がる瞬間を、共創する。
             </h1>
-            <p className="mt-8 max-w-xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
-              人生は、やりたいことを実現するための時間。
-              私たちは、その時間を増やしたいと思っています。
+            <p className="mt-12 md:mt-16 max-w-xl text-[16px] md:text-[18px] leading-[2.1] text-navy-ink/80">
+              人と人。仕事と人。想いと地域。
+              そのすべてが繋がる瞬間に、価値が生まれる。
+              私たちは、その瞬間を共に創るために在ります。
             </p>
+          </div>
+        </section>
 
-            <div className="relative mt-14 md:mt-20 aspect-[21/9] w-full">
-              <Image src="/photos/hero.png" alt="愛知県西尾の街並み" fill priority sizes="(max-width:1400px) 100vw, 1400px" className="object-cover" />
+        {/* ===== 2. BELIEF（なぜ）— その先にある世界＝ビジョン。大きく、静かに ===== */}
+        <section className="py-24 md:py-40 bg-white">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+            <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">
+              Belief — 私たちが信じていること
+            </div>
+            <h2
+              className="mt-10 md:mt-14 text-navy-ink font-semibold leading-[1.24] tracking-[-0.02em] max-w-[18ch]"
+              style={{ fontSize: "clamp(30px, 5.4vw, 72px)" }}
+            >
+              「生きててよかった！」が<br className="hidden md:block" />あふれる世界を創る。
+            </h2>
+            <p className="mt-12 md:mt-16 max-w-2xl text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
+              やってみたかったことに挑戦できた。仲間と一緒に、何かを生み出せた。
+              自分の仕事が、誰かの役に立った。——そんな瞬間が、一人ひとりの人生に増えていく。
+              私たちは、その積み重ねの先にある世界を信じています。だから、繋がる瞬間を増やしつづける。
+            </p>
+          </div>
+        </section>
+
+        {/* ===== 3. HOW（だから、私たちは）— 存在意義を果たす手段としての3事業。purpose目線 ===== */}
+        <section className="py-24 md:py-36 bg-ivory">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+            <div className="max-w-2xl">
+              <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">
+                How — だから、私たちは
+              </div>
+              <h2
+                className="mt-6 text-navy-ink font-semibold leading-[1.3] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}
+              >
+                存在意義を、3つの事業で果たす。
+              </h2>
+            </div>
+
+            <div className="mt-14 md:mt-20 border-t border-navy-ink/12">
+              {businesses.map((b) => (
+                <Link
+                  key={b.en}
+                  href={b.href}
+                  className="group grid grid-cols-1 md:grid-cols-12 gap-y-3 md:gap-x-12 py-10 md:py-14 border-b border-navy-ink/12"
+                >
+                  <div className="md:col-span-4">
+                    <div className="text-[11px] font-bold tracking-[0.22em] text-terra-ink">{b.en}</div>
+                    <div className="mt-3 text-navy-ink font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(20px, 2.2vw, 28px)" }}>
+                      {b.name}
+                    </div>
+                  </div>
+                  <div className="md:col-span-8">
+                    <div className="text-terra-ink font-bold leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(17px, 1.9vw, 22px)" }}>
+                      {b.lead}
+                    </div>
+                    <p className="mt-4 max-w-xl text-[15px] md:text-[17px] leading-[2.1] text-charcoal/80">{b.body}</p>
+                    <span className="mt-5 inline-block text-[13px] font-bold text-terra-ink border-b border-terra/50 pb-0.5 group-hover:border-terra transition-colors">
+                      詳しく見る →
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 静かな一枚：西尾。存在意義の原点へつなぐ ===== */}
+        <section className="bg-white">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10 pt-6 md:pt-10">
+            <div className="relative aspect-[21/9] w-full">
+              <Image src="/photos/hero.png" alt="愛知県西尾の街並み" fill sizes="(max-width:1400px) 100vw, 1400px" className="object-cover" />
             </div>
             <p className="mt-3 text-[12px] text-muted">愛知県西尾市。すべては、この街から始まった。</p>
           </div>
         </section>
 
-        {/* ===== 2. STORY — 長文プロセ。写真を静かに添える ===== */}
-        <section className="py-20 md:py-32 bg-white">
+        {/* ===== 4. STORY（原体験）— 既存ナラティブをそのまま流用して接続 ===== */}
+        <section className="py-24 md:py-36 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-4">
-                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">STORY</div>
+                <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">Story — 原点</div>
                 <div className="mt-8 lg:mt-10 lg:mr-6">
                   <PhotoNeeded ratio="4/5" kind="PEOPLE" note="西尾の地元企業と対話する代表（横位置・ドキュメンタリー）" />
                   <p className="mt-3 text-[12px] leading-[1.8] text-muted">問いは、現場の対話から生まれた。</p>
                 </div>
               </div>
               <div className="lg:col-span-8 lg:pl-6">
-                <h2 className="text-green font-semibold leading-[1.3] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.2vw, 44px)" }}>
-                  Moments Shareに込めた想い
+                <h2 className="text-navy-ink font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.2vw, 44px)" }}>
+                  なぜ、この存在意義に<br className="hidden sm:block" />たどり着いたのか。
                 </h2>
                 <div className="mt-10 max-w-2xl space-y-7 text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
                   {story.map((p, i) => (
@@ -151,58 +250,30 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 3. MISSION / VISION — 競合させず、それぞれを静かに読ませる ===== */}
-        <section className="py-20 md:py-32 bg-ivory">
-          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-16 lg:gap-x-16">
-              <div className="lg:col-span-6">
-                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">MISSION</div>
-                <h2 className="mt-6 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}>
-                  すべてが繋がる瞬間を、<br />共創する。
-                </h2>
-                <p className="mt-8 max-w-md text-[15px] md:text-[17px] leading-[2.1] text-charcoal/80">
-                  人と人。仕事と人。想いと地域。それぞれがつながり、
-                  「やりたかったこと」がカタチになる瞬間を、一緒につくります。
-                </p>
-              </div>
-              <div className="lg:col-span-6 lg:border-l lg:border-charcoal/10 lg:pl-16">
-                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">VISION</div>
-                <h2 className="mt-6 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}>
-                  「生きててよかった」が<br />あふれる世界を創る。
-                </h2>
-                <p className="mt-8 max-w-md text-[15px] md:text-[17px] leading-[2.1] text-charcoal/80">
-                  やってみたかったことに挑戦できた。仲間と一緒に何かを生み出せた。
-                  自分の仕事が誰かの役に立った。そんな瞬間が、一人ひとりの人生に増えていく。
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ===== 6. VALUES — MOMENT / MOMENTS / MOMENTS SHARE を静かに読ませる ===== */}
-        <section className="py-20 md:py-32 bg-ivory">
+        {/* ===== 5. VALUES — 3つの行動基準＋7つの判断基準（文言は保持） ===== */}
+        <section className="py-24 md:py-36 bg-ivory">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="max-w-2xl">
-              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">VALUES</div>
-              <h2 className="mt-4 text-green font-semibold leading-[1.3] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
-                私たちが、<br className="hidden sm:block" />大切にしていること。
+              <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">Values — 大切にしていること</div>
+              <h2 className="mt-6 text-navy-ink font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+                存在意義を、日々の選択に。
               </h2>
               <p className="mt-6 text-[15px] md:text-[16px] leading-[2] text-charcoal/70">
-                3つの行動基準と、7つの判断基準。
+                3つの行動基準と、7つの判断基準。すべては、繋がる瞬間を共に創るために。
               </p>
             </div>
 
-            {/* 3つの行動基準 — 先に少し大きく。言葉を静かに読ませる（カードにしない） */}
+            {/* 3つの行動基準 */}
             <div className="mt-14 md:mt-20">
-              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">3つの行動基準</div>
-              <div className="mt-6 border-t border-charcoal/10">
+              <div className="text-[12px] font-bold tracking-[0.22em] text-navy-ink/45">3つの行動基準</div>
+              <div className="mt-6 border-t border-navy-ink/12">
                 {coreValues.map((v) => (
-                  <div key={v.en} className="grid grid-cols-1 md:grid-cols-12 gap-y-3 md:gap-x-12 py-10 md:py-14 border-b border-charcoal/10">
+                  <div key={v.en} className="grid grid-cols-1 md:grid-cols-12 gap-y-3 md:gap-x-12 py-10 md:py-14 border-b border-navy-ink/12">
                     <div className="md:col-span-4">
-                      <div className="text-green font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>{v.en}</div>
+                      <div className="text-terra-ink font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>{v.en}</div>
                     </div>
                     <div className="md:col-span-8">
-                      <h3 className="text-green font-medium leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 27px)" }}>
+                      <h3 className="text-navy-ink font-medium leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 27px)" }}>
                         {v.title}
                       </h3>
                       <p className="mt-4 max-w-xl text-[15px] md:text-[17px] leading-[2.1] text-charcoal/80">{v.body}</p>
@@ -212,17 +283,17 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* 7つの判断基準 — 英語名＋日本語キャッチ。一覧性を重視（pill/badgeにしない） */}
+            {/* 7つの判断基準 */}
             <div className="mt-16 md:mt-24">
-              <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">7つの判断基準</div>
-              <ul className="mt-6 border-t border-charcoal/10">
+              <div className="text-[12px] font-bold tracking-[0.22em] text-navy-ink/45">7つの判断基準</div>
+              <ul className="mt-6 border-t border-navy-ink/12">
                 {stances.map((s) => (
                   <li
                     key={s.en}
-                    className="grid grid-cols-1 sm:grid-cols-[minmax(160px,0.4fr)_1fr] gap-1 sm:gap-8 py-5 border-b border-charcoal/10 items-baseline"
+                    className="grid grid-cols-1 sm:grid-cols-[minmax(160px,0.4fr)_1fr] gap-1 sm:gap-8 py-5 border-b border-navy-ink/12 items-baseline"
                   >
-                    <span className="text-green font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(17px, 1.9vw, 22px)" }}>{s.en}</span>
-                    <span className="text-charcoal/80 font-medium leading-[1.6] tracking-[-0.01em] text-[15px] md:text-[17px]">{s.ja}</span>
+                    <span className="text-terra-ink font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(17px, 1.9vw, 22px)" }}>{s.en}</span>
+                    <span className="text-navy-ink/85 font-medium leading-[1.6] tracking-[-0.01em] text-[15px] md:text-[17px]">{s.ja}</span>
                   </li>
                 ))}
               </ul>
@@ -230,19 +301,19 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 7. FOUNDER — 写真とバイオ ===== */}
-        <section className="py-20 md:py-32 bg-white">
+        {/* ===== 6. FOUNDER — 写真とバイオ（既存流用） ===== */}
+        <section className="py-24 md:py-36 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
               <div className="lg:col-span-5">
-                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">FOUNDER</div>
+                <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">Founder — 代表</div>
                 <div className="mt-8">
                   <PhotoNeeded ratio="4/5" kind="PEOPLE" note="代表・中根 隆のポートレート（縦）" />
                 </div>
               </div>
 
               <div className="lg:col-span-7 lg:pt-8">
-                <h2 className="text-green font-bold leading-[1.3] tracking-[-0.01em]" style={{ fontSize: "clamp(28px, 3.6vw, 46px)" }}>
+                <h2 className="text-navy-ink font-bold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 3.6vw, 46px)" }}>
                   中根 隆
                 </h2>
                 <div className="mt-3 text-[14px] font-bold text-charcoal/55">代表社員 / Ryu Nakane</div>
@@ -264,29 +335,29 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 8. COMPANY — 会社概要は素直な定義リスト（表） ===== */}
-        <section className="py-20 md:py-32 bg-ivory">
+        {/* ===== 7. COMPANY — 会社概要は素直な定義リスト（既存流用） ===== */}
+        <section className="py-24 md:py-36 bg-ivory">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-4">
-                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">COMPANY</div>
-                <h2 className="mt-4 text-green font-semibold leading-[1.3] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}>
+                <div className="text-[12px] font-bold tracking-[0.24em] text-terra-ink">Company — 会社概要</div>
+                <h2 className="mt-4 text-navy-ink font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}>
                   会社概要。
                 </h2>
               </div>
               <div className="lg:col-span-8">
-                <dl className="border-t border-charcoal/10">
+                <dl className="border-t border-navy-ink/12">
                   {company.map((row) => (
                     <div
                       key={row.label}
-                      className="flex flex-col sm:flex-row gap-1 sm:gap-10 py-6 border-b border-charcoal/10"
+                      className="flex flex-col sm:flex-row gap-1 sm:gap-10 py-6 border-b border-navy-ink/12"
                     >
                       <dt className="text-[12px] font-bold tracking-[0.16em] text-muted min-w-[140px] pt-1">
                         {row.label}
                       </dt>
-                      <dd className="text-[16px] md:text-[17px] text-charcoal">
+                      <dd className="text-[16px] md:text-[17px] text-navy-ink">
                         {row.email ? (
-                          <a href="mailto:branding@momentsshare.com" className="text-green font-bold border-b border-green/60 pb-0.5 hover:text-terra-ink hover:border-terra transition-colors">
+                          <a href="mailto:branding@momentsshare.com" className="text-terra-ink font-bold border-b border-terra/60 pb-0.5 hover:border-terra transition-colors">
                             {row.value}
                           </a>
                         ) : (
@@ -301,7 +372,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 9. FINAL CTA — Deep Green のバンドで締める ===== */}
+        {/* ===== 8. FINAL CTA — Deep Green のバンドで締める（見せ場帯・既存締めを流用） ===== */}
         <section id="contact" className="scroll-mt-20 py-20 md:py-28 bg-green text-white">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">

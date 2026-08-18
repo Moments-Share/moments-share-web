@@ -80,7 +80,9 @@ export function Hero() {
           transition={{ duration: 1, ease, delay: 1.4 }}
         >
           <p className="text-white/60 leading-[2.0]" style={{ fontSize: "clamp(14px, 1.4vw, 17px)" }}>
-            企業の仕事を変える。人の働き方を広げる。地域に、新しい挑戦を生み出す。
+            私たちは、企業に余白をつくり、<br className="hidden sm:block" />
+            多様な働き方で人手不足を支え、<br className="hidden sm:block" />
+            地域に新しい挑戦を生み出していきます。
           </p>
         </motion.div>
 
@@ -101,7 +103,7 @@ export function Hero() {
             href="/contact"
             className="btn btn-ghost-on-dark-subtle text-[13px] tracking-[0.04em] px-7 py-4"
           >
-            30分相談する →
+            相談をする →
           </Link>
         </motion.div>
 

@@ -286,7 +286,7 @@ export default function ServiceProduce() {
                   <div className="md:col-span-4">
                     <Link
                       href="/contact"
-                      className="inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity"
+                      className="btn btn-ghost-on-green px-9 py-4"
                     >
                       次の挑戦を持ち込む →
                     </Link>
@@ -452,7 +452,7 @@ export default function ServiceProduce() {
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-6 inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity"
+                  className="mt-6 btn btn-ghost-on-green px-9 py-4"
                 >
                   一緒にプロジェクトをつくる →
                 </Link>

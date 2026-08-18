@@ -255,7 +255,7 @@ export default function WorksPage() {
                 <p className="text-[15px] leading-[2] text-white/75">
                   「うちに合うかわからない」でも大丈夫です。まだ課題が整理できていなくても構いません。
                 </p>
-                <Link href="/contact" className="mt-6 inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity">
+                <Link href="/contact" className="mt-6 btn btn-ghost-on-green px-9 py-4">
                   30分相談する →
                 </Link>
               </div>

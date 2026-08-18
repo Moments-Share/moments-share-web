@@ -98,3 +98,38 @@
   .py-section { padding-top: var(--spacing-section); padding-bottom: var(--spacing-section); }
   .py-section-sm { padding-top: var(--spacing-section-sm); padding-bottom: var(--spacing-section-sm); }
 }
+
+/* --- 透過(ゴースト)ボタン ---
+   塗りつぶし面を廃し、透明背景＋1.5px枠線＋文字を基本に、hoverで枠線と同色に塗り文字を反転。
+   透過ヘッダーの考え方と一貫。背景コンテキストで色を出し分ける（terraはボタン面には使わない）。
+   角丸・サイズ・余白は呼び出し側のTailwindクラス(px/py/text/rounded-full)を踏襲。 */
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    border: 1.5px solid transparent;
+    background-color: transparent;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+  }
+
+  /* ① 明るい地(アイボリー/白)上：ネイビー枠線・文字 → hoverネイビー塗り＋白文字 */
+  .btn-ghost-navy { border-color: var(--color-navy-ink); color: var(--color-navy-ink); }
+  .btn-ghost-navy:hover { background-color: var(--color-navy-ink); color: #fff; }
+
+  /* ② 暗いヒーロー上：白枠線・文字 → hover白塗り＋ネイビー文字 */
+  .btn-ghost-on-dark { border-color: #fff; color: #fff; }
+  .btn-ghost-on-dark:hover { background-color: #fff; color: var(--color-navy-ink); }
+
+  /* ③ 緑の見せ場帯(bg-green)上：白枠線・文字 → hover白塗り＋緑文字 */
+  .btn-ghost-on-green { border-color: #fff; color: #fff; }
+  .btn-ghost-on-green:hover { background-color: #fff; color: var(--color-green); }
+
+  /* 副ボタン（暗い地・控えめ）：枠線/文字を弱め、hoverでは塗らず輪郭と文字を強めるだけ。
+     主ボタン(hoverで塗り)との主/副の区別を残す。塗りつぶしには戻さない。 */
+  .btn-ghost-on-dark-subtle { border-color: rgba(255,255,255,0.35); color: rgba(255,255,255,0.78); }
+  .btn-ghost-on-dark-subtle:hover { border-color: rgba(255,255,255,0.9); color: #fff; }
+}

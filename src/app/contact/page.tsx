@@ -123,7 +123,7 @@ export default function ContactPage() {
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-2">
                     <button
                       type="submit"
-                      className="bg-green text-white font-bold px-10 py-4 rounded-full hover:opacity-90 transition-opacity"
+                      className="btn btn-ghost-navy px-10 py-4"
                     >
                       この内容で送信する →
                     </button>

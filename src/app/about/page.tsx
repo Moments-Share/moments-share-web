@@ -383,7 +383,7 @@ export default function AboutPage() {
                 <p className="text-[15px] leading-[2] text-white/75">
                   やってみたいこと、困っていること。まだカタチになっていなくても大丈夫です。
                 </p>
-                <Link href="/contact" className="mt-6 inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity">
+                <Link href="/contact" className="mt-6 btn btn-ghost-on-green px-9 py-4">
                   まず相談してみる →
                 </Link>
               </div>

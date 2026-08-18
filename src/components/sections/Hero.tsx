@@ -93,13 +93,13 @@ export function Hero() {
         >
           <Link
             href="#business"
-            className="inline-flex items-center gap-2 bg-terra text-white font-bold text-[13px] tracking-[0.04em] px-7 py-4 rounded-full hover:opacity-90 transition-opacity"
+            className="btn btn-ghost-on-dark text-[13px] tracking-[0.04em] px-7 py-4"
           >
             事業を見る →
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 border border-white/20 text-white/70 font-bold text-[13px] tracking-[0.04em] px-7 py-4 rounded-full hover:border-white/50 hover:text-white transition-colors"
+            className="btn btn-ghost-on-dark-subtle text-[13px] tracking-[0.04em] px-7 py-4"
           >
             30分相談する →
           </Link>

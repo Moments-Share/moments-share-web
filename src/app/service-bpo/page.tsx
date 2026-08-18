@@ -285,7 +285,7 @@ export default function ServiceBPO() {
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-6 inline-block bg-terra text-white font-bold px-9 py-4 rounded-full hover:opacity-90 transition-opacity"
+                  className="mt-6 btn btn-ghost-on-green px-9 py-4"
                 >
                   外注できる業務を相談する →
                 </Link>

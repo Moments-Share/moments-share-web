@@ -73,7 +73,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
           </nav>
           <Link
             href="/contact"
-            className="hidden md:inline-block text-[13px] font-bold text-white bg-terra px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
+            className={`hidden md:inline-flex btn text-[13px] px-5 py-2.5 ${whiteText ? "btn-ghost-on-dark" : "btn-ghost-navy"}`}
           >
             お問い合わせ
           </Link>
@@ -140,7 +140,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
             <div className="px-6 pb-10 shrink-0">
               <Link
                 href="/contact"
-                className="block text-center text-[15px] font-bold text-white bg-green px-8 py-4 rounded-full"
+                className="btn w-full btn-ghost-navy text-[15px] px-8 py-4"
                 onClick={() => setOpen(false)}
               >
                 お問い合わせ

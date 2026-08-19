@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
 import { Hero } from "@/components/sections/Hero";
+import { Ecosystem } from "@/components/sections/Ecosystem";
 import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 export const metadata: Metadata = {
@@ -65,6 +66,9 @@ export default function Home() {
     <>
       <Nav heroTone="dark" />
       <Hero />
+
+      {/* ===== OUR ECOSYSTEM — RIVER LOOP：一本の細い流れで3事業の循環を描く ===== */}
+      <Ecosystem />
 
       {/* ===== BUSINESS — 3事業。写真＋短い言葉。番号や大きな装飾は置かない ===== */}
       <section id="business" className="scroll-mt-16 py-20 md:py-28 px-6 md:px-10">

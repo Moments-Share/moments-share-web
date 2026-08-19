@@ -15,6 +15,11 @@
   --color-ivory: #f8f5ef;     /* BASE Warm Ivory — サイト全体の基本背景 */
   --color-navy-ink: #183048;  /* LOGO NAVY — logo-1の文字色。ワードマーク/ナビ文字/明るいクローム上の見出し（ivory地12.4:1・white地13.5:1 AA） */
 
+  /* --- Ecosystem (RIVER LOOP) 極小面積アクセント。DX=落ち着いた青 / BPO=既存green / 地域=温かい橙。
+     線・番号・小さなノード・ごく一部の文字のみに使用。大きな面には使わない。 --- */
+  --color-dx: #3f6aa0;        /* DX — 彩度低めのブルー */
+  --color-region: #cc7a45;    /* 地域プロデュース — 温かいオレンジ */
+
   /* --- Legacy token aliases (remapped so既存ページも自動で新パレットへ) --- */
   --color-navy: #1d3a5f;      /* → navy (headings / dark bands) */
   --color-teal: #18c0d8;      /* → ロゴのフル明度シアン（暗い帯上の小ラベル/リンク専用。navy帯6.15:1 / 緑帯4.49:1 AA） */
@@ -78,6 +83,17 @@
     background: #315a49;
     color: #fff;
   }
+}
+
+/* --- Ecosystem RIVER LOOP：完成後、線上を光の点が静かに流れ続ける控えめなループ --- */
+@keyframes eco-river-flow {
+  to { stroke-dashoffset: -183; }
+}
+.eco-river-flow {
+  animation: eco-river-flow 7s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .eco-river-flow { animation: none; }
 }
 
 @layer utilities {

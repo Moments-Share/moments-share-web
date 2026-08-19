@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
@@ -60,6 +61,123 @@ const stats = [
   { n: "4", unit: "件", label: "地域プロジェクト" },
 ];
 
+/* ===== CYCLE セクション用データ（DX×BPO×地域プロデュースの循環図） ===== */
+const iconBase = {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.5,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  "aria-hidden": true,
+};
+
+const IconDX = (
+  <svg {...iconBase} className="h-7 w-7">
+    <rect x="6" y="6" width="12" height="12" rx="2" />
+    <rect x="9.5" y="9.5" width="5" height="5" rx="1" />
+    <path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" />
+  </svg>
+);
+const IconBPO = (
+  <svg {...iconBase} className="h-7 w-7">
+    <circle cx="9" cy="8" r="3" />
+    <path d="M3.5 19a5.5 5.5 0 0 1 11 0" />
+    <path d="M16 6.2a3 3 0 0 1 0 5.6" />
+    <path d="M17 14.2A5.5 5.5 0 0 1 20.5 19" />
+  </svg>
+);
+const IconProduce = (
+  <svg {...iconBase} className="h-7 w-7">
+    <path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10z" />
+    <circle cx="12" cy="11" r="2.2" />
+  </svg>
+);
+const IconCycle = (
+  <svg {...iconBase} className="h-6 w-6">
+    <path d="M4 12a8 8 0 0 1 13.7-5.6L20 8" />
+    <path d="M20 4v4h-4" />
+    <path d="M20 12a8 8 0 0 1-13.7 5.6L4 16" />
+    <path d="M4 20v-4h4" />
+  </svg>
+);
+
+type CyclePillar = {
+  no: string;
+  label: string;
+  sub: string;
+  icon: React.ReactElement;
+  href: string;
+  services: { name: string; desc?: string }[];
+  note?: string;
+};
+
+const cyclePillars: CyclePillar[] = [
+  {
+    no: "①",
+    label: "DX事業",
+    sub: "企業に「余白」を生み出す",
+    icon: IconDX,
+    href: "/service-dx",
+    services: [
+      { name: "AI導入支援" },
+      { name: "RPA・業務自動化" },
+      { name: "システム開発・導入支援" },
+      { name: "AI・DXコンサル・顧問" },
+      { name: "AI研修・ワークショップ" },
+    ],
+    note: "テクノロジーで人の時間を生み出し、人が本来やるべき仕事に集中できる環境へ。",
+  },
+  {
+    no: "②",
+    label: "BPO（代行事業）",
+    sub: "地域に雇用を生み出す",
+    icon: IconBPO,
+    href: "/service-bpo",
+    services: [
+      { name: "カスタマーサクセス代行" },
+      { name: "営業サポート代行" },
+      { name: "経理・事務代行" },
+      { name: "Web・SNS運用代行" },
+    ],
+    note: "人手不足を解決し、地域に雇用を生み出す仕組みへ。",
+  },
+  {
+    no: "③",
+    label: "地域プロデュース",
+    sub: "地域に挑戦のきっかけを生み出す",
+    icon: IconProduce,
+    href: "/service-produce",
+    services: [
+      { name: "西尾キャリアLab", desc: "若者のキャリア支援・挑戦の場づくり" },
+      { name: "西尾筋肉祭り", desc: "挑戦と努力の素晴らしさを伝える地域イベント" },
+      { name: "西尾働き方図鑑", desc: "学生と企業取材・体験を通じて、西尾で働く大人を増やす" },
+    ],
+  },
+];
+
+const cycleFlow = [
+  "人がやらなくてもいい仕事が減る",
+  "生まれた時間で価値ある仕事に集中",
+  "業務を任せて企業が成長・安定",
+  "多様な働き方が増え、地域に人が集まる",
+  "挑戦が生まれ、共創が広がる豊かな地域へ",
+];
+
+/* 循環の向きを示す矢印（PCは右向き／モバイルは下向き） */
+function CycleConnector() {
+  return (
+    <div className="flex shrink-0 items-center justify-center py-3 text-navy-ink/40 md:px-3 md:py-0">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-5 w-5 md:hidden">
+        <path d="M12 5v14M6 13l6 6 6-6" />
+      </svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="hidden h-5 w-5 md:block">
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </svg>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -110,6 +228,122 @@ export default function Home() {
             <p className="text-green font-bold text-[19px] md:text-[24px] leading-[1.7] tracking-[-0.01em] pt-2">
               私たちは、地域に挑戦と共創の循環をつくります。
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CYCLE — DX×BPO×地域プロデュースの循環図。実テキスト＋インラインSVGで再現 ===== */}
+      <section className="py-20 md:py-32 px-6 md:px-10">
+        <div className="mx-auto max-w-[1200px]">
+          {/* 見出し＋リード */}
+          <div className="max-w-3xl">
+            <div className="text-[12px] font-bold tracking-[0.12em] text-charcoal/40">DX × BPO × 地域プロデュース</div>
+            <h2 className="mt-4 text-green font-bold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.4vw, 44px)" }}>
+              DX × BPO × 地域プロデュースで、<br className="hidden md:block" />挑戦と共創が循環する豊かな地域を創る。
+            </h2>
+            <p className="mt-6 max-w-2xl text-[15px] md:text-[17px] leading-[2] text-charcoal/80">
+              DXで人がやらなくてもいい仕事を減らし、BPOで、人手不足に外注という選択肢を。
+            </p>
+          </div>
+
+          {/* 中央コア — 循環の中心となるステートメント */}
+          <div className="mt-12 md:mt-16 flex justify-center">
+            <div className="flex items-center gap-3 md:gap-4 rounded-full border border-green/30 bg-white px-6 py-4 md:px-10 md:py-6 max-w-[560px]">
+              <span className="shrink-0 text-green">{IconCycle}</span>
+              <p className="text-green font-bold leading-[1.6] tracking-[-0.01em]" style={{ fontSize: "clamp(15px, 1.9vw, 21px)" }}>
+                企業に「余白」と地域に「多様な働き方」を生み出す。
+              </p>
+            </div>
+          </div>
+
+          {/* 3本柱 — 矢印で循環を示す（PC:横並び＋右向き矢印／モバイル:縦積み＋下向き矢印） */}
+          <div className="mt-10 md:mt-14">
+            <div className="flex flex-col md:flex-row md:items-stretch">
+              {cyclePillars.map((p, i) => (
+                <Fragment key={p.label}>
+                  <div className="flex flex-1 min-w-0 flex-col rounded-2xl border border-charcoal/10 bg-white p-6 md:p-7">
+                    <div className="flex items-center gap-3">
+                      <span className="text-green">{p.icon}</span>
+                      <span className="text-[13px] font-bold text-green/70">{p.no}</span>
+                    </div>
+                    <h3 className="mt-4 text-green font-bold leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(17px, 1.8vw, 20px)" }}>{p.label}</h3>
+                    <p className="mt-1.5 text-[13px] font-semibold text-charcoal/70">{p.sub}</p>
+                    <ul className="mt-5 space-y-2.5 border-t border-charcoal/10 pt-5">
+                      {p.services.map((s) => (
+                        <li key={s.name} className="flex gap-2 text-[14px] leading-[1.7] text-charcoal/85">
+                          <span className="mt-[9px] h-[5px] w-[5px] shrink-0 rounded-full bg-green/60" />
+                          <span className="min-w-0">
+                            <span className="font-semibold">{s.name}</span>
+                            {s.desc && <span className="mt-0.5 block text-[12.5px] leading-[1.6] text-charcoal/55">{s.desc}</span>}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    {p.note && (
+                      <p className="mt-5 rounded-lg bg-ivory px-4 py-3 text-[12.5px] leading-[1.8] text-charcoal/70">{p.note}</p>
+                    )}
+                    <div className="mt-auto pt-6">
+                      <Link href={p.href} className="inline-block text-[13px] font-bold text-navy-ink border-b border-navy-ink/40 pb-0.5 hover:text-green hover:border-green transition-colors">
+                        詳しく →
+                      </Link>
+                    </div>
+                  </div>
+                  {i < cyclePillars.length - 1 && <CycleConnector />}
+                </Fragment>
+              ))}
+            </div>
+
+            {/* PC:③→①へ戻る循環ループ（下部の曲線矢印） */}
+            <div className="relative mt-2 hidden md:block">
+              <svg viewBox="0 0 1000 60" className="w-full text-navy-ink/30" aria-hidden preserveAspectRatio="xMidYMid meet">
+                <path d="M835 4 L835 40 Q835 50 825 50 L175 50 Q165 50 165 40 L165 12" fill="none" stroke="currentColor" strokeWidth={1.5} strokeDasharray="5 5" strokeLinecap="round" />
+                <path d="M157 18 L165 6 L173 18" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-ivory px-3 py-1 text-[12px] font-bold text-green">
+                  {IconCycle}循環する
+                </span>
+              </div>
+            </div>
+
+            {/* モバイル:①へ戻る循環の明示 */}
+            <div className="mt-4 flex justify-center md:hidden">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-green/30 bg-white px-4 py-1.5 text-[12px] font-bold text-green">
+                {IconCycle}①へ循環する
+              </span>
+            </div>
+          </div>
+
+          {/* 中盤タグライン */}
+          <p className="mt-12 md:mt-16 text-center text-green font-semibold leading-[1.8] tracking-[-0.01em]" style={{ fontSize: "clamp(15px, 1.8vw, 20px)" }}>
+            地域の魅力や挑戦が広がり、多様な人材と企業が集まる地域へ。
+          </p>
+
+          {/* この循環が生む未来 — 5ステップのフロー */}
+          <div className="mt-12 md:mt-16 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-9">
+            <h3 className="text-center text-green font-bold tracking-[-0.01em]" style={{ fontSize: "clamp(18px, 2.2vw, 26px)" }}>
+              この循環が生む未来
+            </h3>
+            <div className="mt-8 flex flex-col md:flex-row md:items-stretch">
+              {cycleFlow.map((f, i) => (
+                <Fragment key={f}>
+                  <div className="flex flex-1 min-w-0 items-center gap-4 md:flex-col md:items-center md:gap-3 md:text-center">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-green/40 text-[13px] font-bold text-green">{i + 1}</span>
+                    <p className="text-[13.5px] leading-[1.7] text-charcoal/85 md:mt-1">{f}</p>
+                  </div>
+                  {i < cycleFlow.length - 1 && (
+                    <div className="flex shrink-0 items-center justify-center py-2 text-navy-ink/40 md:px-1 md:py-0">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-4 w-4 md:hidden">
+                        <path d="M12 5v14M6 13l6 6 6-6" />
+                      </svg>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="hidden h-4 w-4 md:block">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </div>
+                  )}
+                </Fragment>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -6,6 +6,7 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const DX = "#3f6aa0";
+const DX_SOFT = "rgba(63,106,160,0.78)"; // 余白＝DX由来の青系淡色
 const BPO = "#315a49";
 const REGION = "#cc7a45";
 const NAVY = "#183048";
@@ -32,16 +33,17 @@ function pt(angleDeg: number, r: number = R) {
 }
 const pct = (v: number) => `${(v / VB) * 100}%`;
 
-/* 時計位置 → SVG角度（12時=-90°、時計回りに+30°/h） */
+/* 時計位置 → SVG角度（12時=-90°、時計回りに+30°/h）
+   循環順：DX→余白→BPO→多様な働き方→地域→挑戦→新しい仕事→次の挑戦へ→(DX) */
 const A = {
   dx: -90, // 12時
-  tayou: -30, // 2時（多様な働き方）
+  yohaku: -45, // 約1:30（余白）
   bpo: 30, // 4時
-  chosen: 60, // 5時（挑戦）
-  region: 105, // 6〜7時（地域プロデュース）
-  umareru: 150, // 8時（新しい仕事・事業が生まれる）
-  tsugi: 195, // 9〜10時（次の挑戦へ）
-  yohaku: 240, // 11時（余白）
+  tayou: 74, // 約5時（多様な働き方／BPOキャッチと重ねないよう下方へ）
+  region: 105, // 約6:30〜7時（地域プロデュース）
+  chosen: 150, // 約8時（挑戦）
+  umareru: 195, // 約9:30（新しい仕事・事業が生まれる）
+  tsugi: 225, // 約10:30〜11時（次の挑戦へ）
 };
 
 /* 円周上の3事業ノード */
@@ -82,14 +84,14 @@ const LABELS: Label[] = [
     catch: ["忙しさを、余白へ。"],
   },
   {
-    key: "tayou",
-    angle: A.tayou,
+    key: "yohaku",
+    angle: A.yohaku,
     transform: `translate(${OUT}px, -50%)`,
     align: "left",
     delay: 1.35,
     kind: "word",
-    color: BPO,
-    word: "多様な働き方",
+    color: DX_SOFT,
+    word: "余白",
   },
   {
     key: "bpo",
@@ -104,14 +106,14 @@ const LABELS: Label[] = [
     catch: ["人手不足を、", "多様な働き方へ。"],
   },
   {
-    key: "chosen",
-    angle: A.chosen,
-    transform: `translate(${OUT}px, -50%)`,
+    key: "tayou",
+    angle: A.tayou,
+    transform: `translate(${OUT}px, calc(-50% + 8px))`,
     align: "left",
     delay: 1.9,
     kind: "word",
-    color: REGION,
-    word: "挑戦",
+    color: BPO,
+    word: "多様な働き方",
   },
   {
     key: "region",
@@ -126,11 +128,21 @@ const LABELS: Label[] = [
     catch: ["地域課題を、", "挑戦のきっかけに。"],
   },
   {
+    key: "chosen",
+    angle: A.chosen,
+    transform: `translate(calc(-100% - ${OUT}px), -50%)`,
+    align: "right",
+    delay: 2.5,
+    kind: "word",
+    color: REGION,
+    word: "挑戦",
+  },
+  {
     key: "umareru",
     angle: A.umareru,
     transform: `translate(calc(-100% - ${OUT}px), -50%)`,
     align: "right",
-    delay: 2.5,
+    delay: 2.7,
     kind: "word",
     color: MUTE,
     word: "新しい仕事・事業が生まれる",
@@ -140,28 +152,18 @@ const LABELS: Label[] = [
     angle: A.tsugi,
     transform: `translate(calc(-100% - ${OUT}px), -50%)`,
     align: "right",
-    delay: 2.7,
+    delay: 2.9,
     kind: "word",
     color: MUTE,
     word: "次の挑戦へ",
     arrow: true,
   },
-  {
-    key: "yohaku",
-    angle: A.yohaku,
-    transform: `translate(calc(-100% - ${OUT}px), -50%)`,
-    align: "right",
-    delay: 2.9,
-    kind: "word",
-    color: MUTE,
-    word: "余白",
-  },
 ];
 
-/* 円弧：DX(12時)起点で時計回りに約270°（実線・描画） */
-const ARC_SOLID = `M ${pt(A.dx).x} ${pt(A.dx).y} A ${R} ${R} 0 1 1 ${pt(180).x} ${pt(180).y}`;
-/* 残り約90°（左上の“次の挑戦へ→DX”の戻り＝破線） */
-const ARC_DASH = `M ${pt(180).x} ${pt(180).y} A ${R} ${R} 0 0 1 ${pt(A.dx).x} ${pt(A.dx).y}`;
+/* 円弧：DX(12時)起点で時計回りに“次の挑戦へ”(約315°)まで実線・描画 */
+const ARC_SOLID = `M ${pt(A.dx).x} ${pt(A.dx).y} A ${R} ${R} 0 1 1 ${pt(A.tsugi).x} ${pt(A.tsugi).y}`;
+/* 残り（左上の“次の挑戦へ→DX”の戻り＝破線） */
+const ARC_DASH = `M ${pt(A.tsugi).x} ${pt(A.tsugi).y} A ${R} ${R} 0 0 1 ${pt(A.dx).x} ${pt(A.dx).y}`;
 const CIRC = 2 * Math.PI * R;
 
 function BizLabel({ l }: { l: Label }) {
@@ -339,9 +341,6 @@ export function EcosystemCircle() {
             <div className="relative pl-6">
               <span aria-hidden="true" className="absolute left-[3px] top-2 bottom-2 border-l border-charcoal/15" />
               <div className="flex flex-col gap-7">
-                {/* 余白 */}
-                <p className="text-[12px] font-medium tracking-[0.02em]" style={{ color: MUTE }}>余白</p>
-
                 {/* DX */}
                 <div className="relative">
                   <span aria-hidden="true" className="absolute -left-6 top-1.5 h-2.5 w-2.5 rounded-full" style={{ backgroundColor: DX, boxShadow: "0 0 0 4px #f8f5ef" }} />
@@ -352,7 +351,8 @@ export function EcosystemCircle() {
                   <div className="mt-1 font-medium" style={{ color: "rgba(37,40,37,0.72)", fontSize: 14 }}>忙しさを、余白へ。</div>
                 </div>
 
-                <p className="text-[12px] font-medium tracking-[0.02em]" style={{ color: BPO }}>多様な働き方</p>
+                {/* 余白（DX由来・青系淡色） */}
+                <p className="text-[12px] font-medium tracking-[0.02em]" style={{ color: DX_SOFT }}>余白</p>
 
                 {/* BPO */}
                 <div className="relative">
@@ -364,7 +364,7 @@ export function EcosystemCircle() {
                   <div className="mt-1 font-medium" style={{ color: "rgba(37,40,37,0.72)", fontSize: 14 }}>人手不足を、多様な働き方へ。</div>
                 </div>
 
-                <p className="text-[12px] font-medium tracking-[0.02em]" style={{ color: REGION }}>挑戦</p>
+                <p className="text-[12px] font-medium tracking-[0.02em]" style={{ color: BPO }}>多様な働き方</p>
 
                 {/* 地域 */}
                 <div className="relative">
@@ -375,6 +375,8 @@ export function EcosystemCircle() {
                   </div>
                   <div className="mt-1 font-medium" style={{ color: "rgba(37,40,37,0.72)", fontSize: 14 }}>地域課題を、挑戦のきっかけに。</div>
                 </div>
+
+                <p className="text-[12px] font-medium tracking-[0.02em]" style={{ color: REGION }}>挑戦</p>
 
                 <p className="text-[12px] font-medium tracking-[0.02em]" style={{ color: MUTE }}>新しい仕事・事業が生まれる</p>
                 <p className="flex items-center gap-1.5 text-[12px] font-medium tracking-[0.02em]" style={{ color: MUTE }}>

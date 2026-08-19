@@ -40,7 +40,7 @@ export default function ContactPage() {
                 <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/45">お問い合わせ</div>
                 <h1 className="mt-5 text-green font-semibold leading-[1.16] tracking-[-0.02em]"
                     style={{ fontSize: "clamp(34px, 4.8vw, 64px)" }}>
-                  まず、話して<br />みませんか。
+                  ご相談はこちらから
                 </h1>
                 <p className="mt-8 max-w-md text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
                   AIを使いたい。人が足りない。地域で何か始めたい。<br />

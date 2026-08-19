@@ -128,7 +128,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             <div className="lg:col-span-4">
               <h2 className="text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3vw, 40px)" }}>
-                提案では、<br />終わらせない。
+                在り方。
               </h2>
             </div>
             <div className="lg:col-span-8">
@@ -183,7 +183,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
             <div className="lg:col-span-5 order-2 lg:order-1">
               <h2 className="text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 48px)" }}>
-                一緒につくる<br />人たち。
+                関わってくれる<br />人たち。
               </h2>
               <p className="mt-6 max-w-md text-[16px] leading-[2] text-charcoal/80">
                 社員だけで仕事をする会社ではありません。働き方も、住む場所も、得意なことも違う人たちが、それぞれの力を持ち寄って、一緒に仕事やプロジェクトをつくっています。
@@ -206,7 +206,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1400px]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <h2 className="lg:col-span-8 font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 5vw, 68px)" }}>
-              まず、話して<br />みませんか。
+              ご相談はこちらから
             </h2>
             <div className="lg:col-span-4 lg:pb-3">
               <p className="text-[15px] leading-[2] text-white/75">

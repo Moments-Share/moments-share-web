@@ -377,7 +377,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
               <h2 className="lg:col-span-8 font-semibold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(30px, 4.5vw, 60px)" }}>
-                まず、話して<br />みませんか。
+                ご相談はこちらから
               </h2>
               <div className="lg:col-span-4 lg:pb-3">
                 <p className="text-[15px] leading-[2] text-white/75">

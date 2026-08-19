@@ -329,7 +329,7 @@ export default function ServiceDX() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
               <h2 className="lg:col-span-8 font-semibold leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 3.6vw, 52px)" }}>
-                まず、話して<br />みませんか。
+                ご相談はこちらから
               </h2>
               <div className="lg:col-span-4 lg:pb-4">
                 <p className="text-[15px] leading-[2] text-white/75">

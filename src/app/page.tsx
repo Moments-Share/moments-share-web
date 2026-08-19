@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { EcosystemCircle } from "@/components/sections/EcosystemCircle";
+import { VisionNishio } from "@/components/sections/VisionNishio";
 import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 export const metadata: Metadata = {
@@ -100,6 +101,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ===== OUR VISION FOR NISHIO — 2040 / 240。西尾の風景写真＋数字が主役 ===== */}
+      <VisionNishio />
 
       {/* ===== MESSAGE — 文章と余白が主役。装飾を置かず、言葉を静かに読ませる ===== */}
       <section className="py-20 md:py-32 px-6 md:px-10 bg-white">

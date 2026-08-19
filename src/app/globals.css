@@ -96,6 +96,17 @@
   .eco-river-flow { animation: none; }
 }
 
+/* --- Ecosystem CIRCLE（フライホイール）：完成後、リング上を小さな光点が円周を静かに巡る --- */
+@keyframes eco-circle-flow {
+  to { stroke-dashoffset: -1194; }
+}
+.eco-circle-flow {
+  animation: eco-circle-flow 11s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .eco-circle-flow { animation: none; }
+}
+
 @layer utilities {
   .text-display { font-size: var(--text-display); }
   .text-h1 { font-size: var(--text-h1); }

@@ -1,0 +1,234 @@
+﻿ID,ページ,セクション,種別,確定文言,ステータス,備考,最終更新日
+TOP-HERO-001,TOP,HERO,ブランドメッセージ,地域に、挑戦と共創の循環を。,確定,正本。Hero.tsxは「地域に、／挑戦と共創の／循環を。」の3行分割で表示（結合すると一致）。Footerタグライン・OGタイトルにも使用,2026-08-20
+TOP-ECOSYSTEM-001,TOP,OUR ECOSYSTEM,見出し,3つの事業で、地域に循環をつくる。,確定,正本。EcosystemCircle.tsx h2と一致,2026-08-20
+SERVICE-CONCEPT-001,SERVICE,CONCEPT,中心コピー,企業や人に『余白』を。地域に『挑戦』を。,確定,正本。★現行実装に未掲載（EcosystemCircleの円中心は空。該当コピーがサイト上に存在しない）。要反映,2026-08-20
+SERVICE-DX-001,SERVICE,DX,事業コピー,忙しさを、余白へ。,確定,正本。service-dx H1・TOP事業・EcosystemCircleと一致,2026-08-20
+SERVICE-BPO-001,SERVICE,BPO,事業コピー,人手不足を、多様な働き方へ。,確定,正本。service-bpo H1・TOP事業・EcosystemCircleと一致,2026-08-20
+SERVICE-REGION-001,SERVICE,地域プロデュース,事業コピー,地域課題を、挑戦のきっかけへ。,確定,正本。★TOP事業・service-produce H1は一致だが、EcosystemCircle.tsx（PC/モバイル）は「…きっかけに。」で不一致。残置Ecosystem.tsxも「…に。」。要修正,2026-08-20
+GOAL-2040-001,共通,2040 GOAL,目標コピー,地域に、240の事業を共創する。,確定,正本。VisionNishio.tsx（地域に、／240／の事業を共創する。）と一致,2026-08-20
+SERVICE-DX-LIST-01,SERVICE,DX / サービス名,サービス名,AI・RPA導入支援,確定,確定サービス名リスト。★現行service-dx『できること』は別セット（AI活用支援/AI研修/業務整理・DXコンサルティング/AI・RPA・GASによる業務自動化/Notionなどを使った情報整理/AIエージェント構築）。要整合,2026-08-20
+SERVICE-DX-LIST-02,SERVICE,DX / サービス名,サービス名,システム開発・導入支援,確定,確定サービス名リスト。現行実装に同名の項目なし。要整合,2026-08-20
+SERVICE-DX-LIST-03,SERVICE,DX / サービス名,サービス名,AI・DXコンサルティング,確定,確定サービス名リスト。現行は「業務整理・DXコンサルティング」。要整合,2026-08-20
+SERVICE-DX-LIST-04,SERVICE,DX / サービス名,サービス名,AI研修・ワークショップ,確定,確定サービス名リスト。現行は「AI研修」。要整合,2026-08-20
+SERVICE-BPO-LIST-01,SERVICE,BPO / サービス名,サービス名,カスタマーサクセス代行,確定,確定サービス名リスト。★現行service-bpo『支えられる仕事』は別表記（カスタマーサクセス/営業支援/SNS運用/経理・事務/その他）。要整合,2026-08-20
+SERVICE-BPO-LIST-02,SERVICE,BPO / サービス名,サービス名,営業・SNS運用支援,確定,確定サービス名リスト。現行は「営業支援」「SNS運用」が別項目。要整合,2026-08-20
+SERVICE-BPO-LIST-03,SERVICE,BPO / サービス名,サービス名,経理・事務・その他業務代行,確定,確定サービス名リスト。現行は「経理・事務」「その他」が別項目。要整合,2026-08-20
+SERVICE-REGION-LIST-01,SERVICE,地域プロデュース / サービス名,サービス名,西尾筋肉祭り,確定,確定サービス名リスト。現行service-produce/works にも掲載あり,2026-08-20
+SERVICE-REGION-LIST-02,SERVICE,地域プロデュース / サービス名,サービス名,西尾働き方図鑑,確定,確定サービス名リスト。現行service-produce/works にも掲載あり,2026-08-20
+SERVICE-REGION-LIST-03,SERVICE,地域プロデュース / サービス名,サービス名,地域ベンチャー留学,確定,確定サービス名リスト。★現行実装に未掲載（現行は代わりに「AI活用研究会」を掲載）。要整合,2026-08-20
+NAV-GLOBAL-01,共通,グローバルナビ,ラベル,About（私たちについて）,検討中,Nav.tsx,2026-08-20
+NAV-GLOBAL-02,共通,グローバルナビ,ラベル,Business（3つの事業）,検討中,Nav.tsx。/#business へ,2026-08-20
+NAV-GLOBAL-03,共通,グローバルナビ,ラベル,Works（実績）,検討中,Nav.tsx,2026-08-20
+NAV-GLOBAL-04,共通,グローバルナビ,ラベル,People（関わる人たち）,検討中,Nav.tsx,2026-08-20
+NAV-GLOBAL-05,共通,グローバルナビ,ラベル,News（お知らせ）,検討中,Nav.tsx,2026-08-20
+NAV-GLOBAL-06,共通,グローバルナビ,ボタン,お問い合わせ,検討中,Nav.tsx CTA,2026-08-20
+FOOTER-BRAND-01,共通,フッター,タグライン,地域に、挑戦と共創の循環を。,確定,Footer.tsx。TOP-HERO-001と同一（確定）,2026-08-20
+FOOTER-INFO-01,共通,フッター,会社情報,正式名称：Moments Share合同会社,検討中,Footer.tsx 会社情報,2026-08-20
+FOOTER-INFO-02,共通,フッター,会社情報,所在地：愛知県西尾市,検討中,Footer.tsx,2026-08-20
+FOOTER-INFO-03,共通,フッター,会社情報,設立：2025年,検討中,Footer.tsx,2026-08-20
+FOOTER-INFO-04,共通,フッター,会社情報,事業：DX支援・BPO・地域プロデュース,検討中,Footer.tsx,2026-08-20
+FOOTER-INFO-05,共通,フッター,会社情報,Email：branding@momentsshare.com,検討中,Footer.tsx,2026-08-20
+FOOTER-COPY-01,共通,フッター,著作権表示,© 2025 Moments Share合同会社. All rights reserved.,検討中,Footer.tsx,2026-08-20
+FOOTER-SNS-01,共通,フッター,SNSリンク,X ／ Instagram ／ note,検討中,"Footer.tsx。x.com/momentsshare_ , instagram.com/momentsshare , note.com/momentsshare",2026-08-20
+TOP-HERO-02,TOP,HERO,ラベル,"Moments Share — Nishio, Aichi",検討中,Hero.tsx ラベル,2026-08-20
+TOP-HERO-03,TOP,HERO,サブコピー,私たちは、企業に余白をつくり、多様な働き方で人手不足を支え、地域に新しい挑戦を生み出していきます。,検討中,Hero.tsx 説明文,2026-08-20
+TOP-HERO-04,TOP,HERO,ボタン,事業を見る →,検討中,Hero.tsx CTA,2026-08-20
+TOP-HERO-05,TOP,HERO,ボタン,相談をする →,検討中,Hero.tsx CTA,2026-08-20
+TOP-ECOSYSTEM-02,TOP,OUR ECOSYSTEM,ラベル,OUR ECOSYSTEM,検討中,EcosystemCircle.tsx,2026-08-20
+TOP-ECOSYSTEM-03,TOP,OUR ECOSYSTEM,本文,余白が生まれ、多様な働き方が広がり、挑戦が動き出す。新しい仕事や事業が生まれ、また次の挑戦へとつながっていく。,検討中,EcosystemCircle.tsx。残置Ecosystem.tsxは「次の余白へ」表記,2026-08-20
+TOP-ECOSYSTEM-04,TOP,OUR ECOSYSTEM,事業コピー,忙しさを、余白へ。,確定,EcosystemCircle DXキャッチ。SERVICE-DX-001と一致,2026-08-20
+TOP-ECOSYSTEM-05,TOP,OUR ECOSYSTEM,事業コピー,人手不足を、多様な働き方へ。,確定,EcosystemCircle BPOキャッチ。SERVICE-BPO-001と一致,2026-08-20
+TOP-ECOSYSTEM-06,TOP,OUR ECOSYSTEM,事業コピー,地域課題を、挑戦のきっかけに。,要確認,EcosystemCircle 地域キャッチ。★確定SERVICE-REGION-001「…きっかけへ。」と不一致（現行は「…に。」）。要修正,2026-08-20
+TOP-ECOSYSTEM-07,TOP,OUR ECOSYSTEM,循環語,余白 → 多様な働き方 → 挑戦 → 新しい仕事・事業が生まれる → 次の挑戦へ,検討中,EcosystemCircle 円周の循環語,2026-08-20
+TOP-BUSINESS-01,TOP,BUSINESS,見出し,忙しさや人手不足を、地域の力に変えていく。,検討中,page.tsx BUSINESS h2,2026-08-20
+TOP-BUSINESS-02,TOP,BUSINESS,本文,業務を整理し、AI・RPA・自動化を使って、人がやらなくてもいい仕事を減らします。,検討中,page.tsx DX本文,2026-08-20
+TOP-BUSINESS-03,TOP,BUSINESS,本文,企業に必要な仕事を整理し、外部のチームと一緒に支えます。,検討中,page.tsx BPO本文,2026-08-20
+TOP-BUSINESS-04,TOP,BUSINESS,事業コピー,地域課題を、挑戦のきっかけへ。,確定,page.tsx 地域タイトル。SERVICE-REGION-001と一致,2026-08-20
+TOP-BUSINESS-05,TOP,BUSINESS,本文,人・企業・地域をつなぎ、新しい挑戦が生まれる場をつくります。,検討中,page.tsx 地域本文,2026-08-20
+TOP-BUSINESS-06,TOP,BUSINESS,リンク,DXを詳しく → ／ BPOを詳しく → ／ 地域プロデュースを詳しく →,検討中,page.tsx 各事業リンク,2026-08-20
+TOP-MESSAGE-01,TOP,MESSAGE,見出し,起点は、いつも一人の挑戦者だ。,検討中,page.tsx MESSAGE h2,2026-08-20
+TOP-MESSAGE-02,TOP,MESSAGE,本文,人口が減り、働く人が減っても、地域の未来まで決まるわけではない。,検討中,page.tsx,2026-08-20
+TOP-MESSAGE-03,TOP,MESSAGE,本文,会社を変えようとする人。新しい仕事をつくろうとする人。地域で何かを始めようとする人。誰かが挑戦すると、そこに人が集まり、新しい仕事や価値が生まれる。そして、その挑戦がまた次の誰かの挑戦につながっていく。,検討中,page.tsx,2026-08-20
+TOP-MESSAGE-04,TOP,MESSAGE,本文,DXで、人がやらなくてもいい仕事を減らす。BPOで、必要な仕事を支え、一人ひとりに合った働き方を増やす。地域プロデュースで、人や企業の想いをつなぎ、新しい挑戦が始まるきっかけをつくる。,検討中,page.tsx,2026-08-20
+TOP-MESSAGE-05,TOP,MESSAGE,強調文,私たちは、地域に挑戦と共創の循環をつくります。,検討中,page.tsx 強調,2026-08-20
+TOP-HOWWEWORK-01,TOP,HOW WE WORK（在り方）,見出し,在り方。,検討中,page.tsx h2,2026-08-20
+TOP-HOWWEWORK-02,TOP,HOW WE WORK（在り方）,項目,整理する。／ まず「何が課題なのか」を一緒に考える。,検討中,page.tsx,2026-08-20
+TOP-HOWWEWORK-03,TOP,HOW WE WORK（在り方）,項目,仕組みにする。／ 誰か一人に頼らなくても回る形をつくる。,検討中,page.tsx,2026-08-20
+TOP-HOWWEWORK-04,TOP,HOW WE WORK（在り方）,項目,一緒に動かす。／ 提案して終わりではなく、実行し、改善し、定着するところまで伴走する。,検討中,page.tsx,2026-08-20
+TOP-WORKS-01,TOP,WORKS,見出し,西尾で、積み上げてきた。,検討中,page.tsx h2,2026-08-20
+TOP-WORKS-02,TOP,WORKS,リンク,実績をもっと見る →,検討中,page.tsx,2026-08-20
+TOP-WORKS-03,TOP,WORKS,数字,7件：DX・業務効率化の支援 ／ 3社：BPO支援 ／ 5名：外部パートナー ／ 4件：地域プロジェクト,検討中,page.tsx / works と共通のstats,2026-08-20
+TOP-WORKS-04,TOP,WORKS,キャプション,西尾の企業・地域と、一つずつ形にしてきた仕事。,検討中,page.tsx,2026-08-20
+TOP-PEOPLE-01,TOP,PEOPLE,見出し,関わってくれる人たち。,検討中,page.tsx h2,2026-08-20
+TOP-PEOPLE-02,TOP,PEOPLE,本文,社員だけで仕事をする会社ではありません。働き方も、住む場所も、得意なことも違う人たちが、それぞれの力を持ち寄って、一緒に仕事やプロジェクトをつくっています。,検討中,page.tsx,2026-08-20
+TOP-PEOPLE-03,TOP,PEOPLE,リンク,関わる人たちを見る →,検討中,page.tsx,2026-08-20
+TOP-VISION-01,TOP,OUR VISION（2040）,ラベル,OUR VISION ／ 2040年 Vision,検討中,VisionNishio.tsx,2026-08-20
+TOP-VISION-02,TOP,OUR VISION（2040）,本文,挑戦と共創の循環が、地域の未来を動かす。,検討中,VisionNishio.tsx,2026-08-20
+TOP-VISION-03,TOP,OUR VISION（2040）,本文,地域の可能性を信じ、挑戦がめぐり続けるまちへ。,検討中,VisionNishio.tsx,2026-08-20
+TOP-CONTACT-01,TOP,CONTACT,見出し,ご相談はこちらから,検討中,page.tsx CTA帯。全ページで共通見出し,2026-08-20
+TOP-CONTACT-02,TOP,CONTACT,本文,AIを使いたい。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。,検討中,page.tsx,2026-08-20
+TOP-CONTACT-03,TOP,CONTACT,ボタン,30分相談する →,検討中,page.tsx CTA,2026-08-20
+ABOUT-PURPOSE-01,About,1. PURPOSE,ラベル,Purpose — 存在意義,検討中,about/page.tsx,2026-08-20
+ABOUT-PURPOSE-02,About,1. PURPOSE,見出し,すべてが繋がる瞬間を、共創する。,確定,about h1。会社MISSIONと一致（ブランド言語シート参照）,2026-08-20
+ABOUT-PURPOSE-03,About,1. PURPOSE,本文,人と人。仕事と人。想いと地域。そのすべてが繋がる瞬間に、価値が生まれる。私たちは、その瞬間を共に創るために在ります。,検討中,about,2026-08-20
+ABOUT-BELIEF-01,About,2. BELIEF,ラベル,Belief — 私たちが信じていること,検討中,about,2026-08-20
+ABOUT-BELIEF-02,About,2. BELIEF,見出し,「生きててよかった！」があふれる世界を創る。,確定,about h2。会社VISIONと一致,2026-08-20
+ABOUT-BELIEF-03,About,2. BELIEF,本文,やってみたかったことに挑戦できた。仲間と一緒に、何かを生み出せた。自分の仕事が、誰かの役に立った。——そんな瞬間が、一人ひとりの人生に増えていく。私たちは、その積み重ねの先にある世界を信じています。だから、繋がる瞬間を増やしつづける。,検討中,about,2026-08-20
+ABOUT-HOW-01,About,3. HOW（3事業）,ラベル,How — だから、私たちは,検討中,about,2026-08-20
+ABOUT-HOW-02,About,3. HOW（3事業）,見出し,存在意義を、3つの事業で果たす。,検討中,about,2026-08-20
+ABOUT-HOW-03,About,3. HOW（3事業）,事業,DX：DX伴走支援（Core Shift）／ 人の時間を、価値創造へ。／ 請求書・データ転記・日報集計など、毎月繰り返す業務をAI・自動化で減らす。人がやらなくてもいい仕事を仕組みに変え、人にしかできない価値へ時間を取り戻す。,検討中,about businesses,2026-08-20
+ABOUT-HOW-04,About,3. HOW（3事業）,事業,BPO：BPO（業務代行）／ 人手不足を、多様な働き方へ。／ 採用して人を増やす前に、仕事を外に出すという選択肢を。カスタマーサクセス・営業支援・SNS・経理事務。必要な仕事を、必要な分だけ支える。,検討中,about businesses,2026-08-20
+ABOUT-HOW-05,About,3. HOW（3事業）,事業,PRODUCE：地域プロデュース／ 地域愛を、地域発展の力に。／ 地域の課題と、人や企業の「やってみたい」をつなぎ、新しいプロジェクトや事業が生まれる場をつくる。挑戦と共創が循環する地域を、西尾から。,検討中,about businesses,2026-08-20
+ABOUT-PHOTO-01,About,西尾写真,キャプション,愛知県西尾市。すべては、この街から始まった。,検討中,about,2026-08-20
+ABOUT-STORY-01,About,4. STORY（原点）,ラベル,Story — 原点,検討中,about,2026-08-20
+ABOUT-STORY-02,About,4. STORY（原点）,見出し,なぜ、この存在意義にたどり着いたのか。,検討中,about,2026-08-20
+ABOUT-STORY-03,About,4. STORY（原点）,本文,群馬の大学を経て、シンガポールのベンチャー企業へ。営業・CS・マーケティング・マネジメントを掛け持ちしながら、社員3名から10名へと成長する現場を走り抜けた。多いときは50社を担当しながら、新規営業も。夜も眠れない日々の中で、ひとつの問いに突き当たった。,検討中,about story[0],2026-08-20
+ABOUT-STORY-04,About,4. STORY（原点）,本文,「この仕事、本当に人がやる必要があるのか。」——多くの企業が、人にしかできない仕事ではなく、人がやらなくてもいい仕事に、時間を使っていた。,検討中,about story[1],2026-08-20
+ABOUT-STORY-05,About,4. STORY（原点）,本文,外に出たからこそ、やっぱり地元・西尾が好きだと気づいた。Uターンして地元企業と話すと、そこにも同じ問いがあった。「人手が足りない」「でも採れない」「社員は雑務で手一杯」。一方で若い人は「地元で働きたいけど仕事がない」と言う。この2つをつなぐ設計が必要だと確信した。,検討中,about story[2],2026-08-20
+ABOUT-STORY-06,About,4. STORY（原点）,本文,100社以上の企業支援を重ねる中で、確信は強くなった。DXは効率化のためではない。人にしかできない価値を生み出すためのものだ。,検討中,about story[3],2026-08-20
+ABOUT-STORY-07,About,4. STORY（原点）,本文,人口減少を止めることはできない。でも、挑戦と共創が循環する地域なら、豊かになれる。その仕組みを、西尾から創る。——それが、Moments Shareの原点になった。,検討中,about story[4],2026-08-20
+ABOUT-VALUES-01,About,5. VALUES,ラベル,Values — 大切にしていること,検討中,about,2026-08-20
+ABOUT-VALUES-02,About,5. VALUES,見出し,存在意義を、日々の選択に。,検討中,about,2026-08-20
+ABOUT-VALUES-03,About,5. VALUES,本文,3つの行動基準と、7つの判断基準。すべては、繋がる瞬間を共に創るために。,検討中,about,2026-08-20
+ABOUT-VALUES-04,About,5. VALUES / 3つの行動基準,行動基準,Moment：いま、できることをしよう。／ いまに感謝する。いま、目の前の人にどう貢献できるか考える。いま、できることを実行する。,検討中,about coreValues,2026-08-20
+ABOUT-VALUES-05,About,5. VALUES / 3つの行動基準,行動基準,Moments：一歩ずつ、積み重ねよう。／ 行動し、改善し、前に進もう。,検討中,about coreValues,2026-08-20
+ABOUT-VALUES-06,About,5. VALUES / 3つの行動基準,行動基準,Moments Share：「やってよかった」と思える瞬間を、共につくろう。／ 最後まで向き合い、喜びを分かち合おう。,検討中,about coreValues,2026-08-20
+ABOUT-VALUES-07,About,5. VALUES / 7つの判断基準,判断基準,Legacy：100年後に、誇れる選択を。,検討中,about stances,2026-08-20
+ABOUT-VALUES-08,About,5. VALUES / 7つの判断基準,判断基準,Purpose：目的から、考えよう。,検討中,about stances,2026-08-20
+ABOUT-VALUES-09,About,5. VALUES / 7つの判断基準,判断基準,Self Driven：自分ごとで動こう。,検討中,about stances,2026-08-20
+ABOUT-VALUES-10,About,5. VALUES / 7つの判断基準,判断基準,Challenge：まず、やってみよう。,検討中,about stances,2026-08-20
+ABOUT-VALUES-11,About,5. VALUES / 7つの判断基準,判断基準,Co-Create：違いを力に、共に創ろう。,検討中,about stances,2026-08-20
+ABOUT-VALUES-12,About,5. VALUES / 7つの判断基準,判断基準,Better Everyday：昨日より、少しずつ良くしよう。,検討中,about stances,2026-08-20
+ABOUT-VALUES-13,About,5. VALUES / 7つの判断基準,判断基準,Build Systems：仕組みを創ろう。,検討中,about stances,2026-08-20
+ABOUT-FOUNDER-01,About,6. FOUNDER,ラベル,Founder — 代表,検討中,about,2026-08-20
+ABOUT-FOUNDER-02,About,6. FOUNDER,氏名・肩書,中根 隆 ／ 代表社員 / Ryu Nakane,検討中,about。people/aboutで表記ゆれ注意（people HEROは「ともに未来を創る、仲間たち。」）,2026-08-20
+ABOUT-FOUNDER-03,About,6. FOUNDER,本文,群馬・シンガポールを経て西尾へ。シンガポールのベンチャー企業で営業・CS・マーケティング・マネジメントを経験し、100社以上の企業支援を重ねる中で、「人が疲弊する構造」と「DXが変える可能性」を目の当たりにしました。,検討中,about,2026-08-20
+ABOUT-FOUNDER-04,About,6. FOUNDER,本文,眠れない夜を越えてたどり着いた答えが、挑戦と共創が循環する地域をつくるという一文でした。独立・西尾市へのUターンを経て、Moments Share合同会社を設立。,検討中,about,2026-08-20
+ABOUT-COMPANY-01,About,7. COMPANY,会社概要,正式名称：Moments Share合同会社 ／ 代表者名：中根 隆（Ryu Nakane）／ 所在地：愛知県西尾市 ／ 設立：2025年 ／ 事業内容：DX支援・BPO・地域プロデュース ／ Email：branding@momentsshare.com,検討中,about company（資本金・従業員数は未確定で非掲載）,2026-08-20
+ABOUT-CTA-01,About,8. FINAL CTA,見出し,ご相談はこちらから,検討中,about CTA帯,2026-08-20
+ABOUT-CTA-02,About,8. FINAL CTA,本文,やってみたいこと、困っていること。まだカタチになっていなくても大丈夫です。,検討中,about,2026-08-20
+ABOUT-CTA-03,About,8. FINAL CTA,ボタン,まず相談してみる →,検討中,about,2026-08-20
+PEOPLE-HERO-01,People,HERO,ラベル,People,検討中,people/page.tsx,2026-08-20
+PEOPLE-HERO-02,People,HERO,見出し,ともに未来を創る、仲間たち。,検討中,people h1,2026-08-20
+PEOPLE-HERO-03,People,HERO,本文,Moments Shareは、社員だけで仕事をする会社ではありません。ここに関わる一人ひとりを、私たちは「Fellow（フェロー）」と呼んでいます。,検討中,people,2026-08-20
+PEOPLE-HERO-04,People,HERO,キャプション,得意も働き方も違う人が、力を持ち寄る。,検討中,people,2026-08-20
+PEOPLE-FELLOW-01,People,1. Fellowとは,ラベル,FELLOW — Fellowとは,検討中,people,2026-08-20
+PEOPLE-FELLOW-02,People,1. Fellowとは,定義,自分の人生を主体的に生きながら、志が重なるとき、ともに挑戦し、ともに未来を創る人。,検討中,people Fellow定義,2026-08-20
+PEOPLE-FELLOW-03,People,1. Fellowとは,本文,Moments Shareでは、ともに歩む一人ひとりを「Fellow（フェロー）」と呼んでいます。雇う・雇われるの関係ではなく、それぞれが自分の人生を生きながら、志が重なったときに手を組む——そんな関係を大切にしています。,検討中,people,2026-08-20
+PEOPLE-TRAITS-01,People,2. こんな人,見出し,Fellowは、こんな人。,検討中,people,2026-08-20
+PEOPLE-TRAITS-02,People,2. こんな人,項目,自分の人生を、主体的に生きている。／ 心の中に、志ややってみたいことがある。／ 志が重なったら、立場を超えて手を組める。／ ともに挑戦し、未来を創ることを楽しめる。,検討中,people fellowTraits（4項目）,2026-08-20
+PEOPLE-WAYS-01,People,3. 関わり方,見出し,関わり方は、ひとつじゃない。,検討中,people,2026-08-20
+PEOPLE-WAYS-02,People,3. 関わり方,本文,専門人材、副業、子育て中、学生、地域の人。それぞれの持ち場から、無理のない形で関わっています。,検討中,people,2026-08-20
+PEOPLE-WAYS-03,People,3. 関わり方,項目,専門性を活かして企業を支える ／ 副業でプロジェクトに参加する ／ 子育てをしながら働く ／ 学生として地域に関わる ／ 自分でプロジェクトを始める,検討中,people ways（5項目・各説明文あり）,2026-08-20
+PEOPLE-INTRO-01,People,4. Fellow紹介,見出し,Fellowを、紹介します。,検討中,people,2026-08-20
+PEOPLE-INTRO-02,People,4. Fellow紹介,代表,中根 隆 / RYU NAKANE ／ 代表社員 / Founder。得意なこと：業務整理・DX設計、AI／RPA／ノーコードによる自動化、地域コミュニティづくり。担当：DX支援・BPO・地域プロデュースの3事業の推進。,検討中,people 代表プロフィール,2026-08-20
+PEOPLE-INTRO-03,People,4. Fellow紹介,本文,「挑戦できる場所を、つくる側に回ろう」。西尾から、挑戦と共創が循環する地域の仕組みをつくるため。,検討中,people 代表・関わる理由,2026-08-20
+PEOPLE-FUTURE-01,People,これから,見出し,これから、Fellowが増えていく。,検討中,people,2026-08-20
+PEOPLE-FUTURE-02,People,これから,本文,専門人材、副業、子育て中、学生——。それぞれの持ち場から関わるFellowを、順次紹介していきます。※ 他のFellowは準備中。掲載は本人の実在情報のみ。,検討中,people,2026-08-20
+PEOPLE-CTA-01,People,5. Fellowになる,見出し,志が重なったら、ともに。,検討中,people CTA帯,2026-08-20
+PEOPLE-CTA-02,People,5. Fellowになる,本文,働き方も場所も問いません。専門でも、副業でも、学生でも。まずは気軽に話すところから。,検討中,people,2026-08-20
+PEOPLE-CTA-03,People,5. Fellowになる,ボタン,Fellowとして関わる →,検討中,people,2026-08-20
+WORKS-HERO-01,Works,HERO,ラベル,Works（実績）,検討中,works/page.tsx,2026-08-20
+WORKS-HERO-02,Works,HERO,見出し,カタチにしてきたこと。,検討中,works h1,2026-08-20
+WORKS-HERO-03,Works,HERO,本文,企業の業務改善から、地域のプロジェクトまで。お客様や仲間と一緒につくってきた仕事をご紹介します。,検討中,works,2026-08-20
+WORKS-STATS-01,Works,数字,数字,7件：DX・業務効率化の支援 ／ 3社：BPO支援 ／ 5名：外部パートナー ／ 4件：地域プロジェクト,検討中,works stats（TOPと共通）,2026-08-20
+WORKS-DX-01,Works,DX CASE,見出し,業務を、余白に変えた事例。,検討中,works（service-dxと同一見出し）,2026-08-20
+WORKS-DX-02,Works,DX CASE,事例,SNS投稿の自動化：30分 → 約6分（作業時間 約80％削減）。AIが企画し、X・Threadsへ自動投稿するフローを構築。毎日の投稿作業を大幅に削減。,検討中,works dxCases[0],2026-08-20
+WORKS-DX-03,Works,DX CASE,事例,請求書発行の自動化：手作業 → 自動化（転記・送付をゼロに）。フォーム入力から請求書の自動発行・メール送信までを一気通貫で自動化。,検討中,works dxCases[1],2026-08-20
+WORKS-DX-04,Works,DX CASE,事例,在庫管理の一元化：紙＋Excel → 一元管理（転記作業を削減）。スマホ入力・クラウド管理・検索・アラートを実装し、Excel転記作業をなくした。,検討中,works dxCases[2],2026-08-20
+WORKS-BPO-01,Works,BPO CASE,見出し,人が必要な仕事を、一緒に支えた事例。,検討中,works。事例は準備中（TODO）,2026-08-20
+WORKS-BPO-02,Works,BPO CASE,本文,現在、掲載できる事例を整理中です。CS代行・SNS運用・事務代行などの支援実績を順次公開します。,検討中,works（プレースホルダ）,2026-08-20
+WORKS-REGION-01,Works,地域プロジェクト,見出し,地域に、挑戦のきっかけをつくった。,検討中,works,2026-08-20
+WORKS-REGION-02,Works,地域プロジェクト,事例,西尾働き方図鑑：地元で働く人・企業の姿を伝え、就活する学生と地域企業をつなぐプロジェクト。,検討中,works projects[0],2026-08-20
+WORKS-REGION-03,Works,地域プロジェクト,事例,西尾筋肉祭り：地域の人が主役になって楽しむイベント。関わる人の輪を広げる場づくり。,検討中,works projects[1],2026-08-20
+WORKS-REGION-04,Works,地域プロジェクト,事例,AI活用研究会：地域の企業・個人がAI活用を学び合うコミュニティ。挑戦のきっかけをつくる。,検討中,works projects[2]。★確定サービス名リストは「地域ベンチャー留学」で相違,2026-08-20
+WORKS-REGION-05,Works,地域プロジェクト,リンク,ほかにも地域のプロジェクトに取り組んでいます。地域プロデュースを見る →,検討中,works,2026-08-20
+WORKS-VOICE-01,Works,VOICE（お客様の声）,見出し,実際に、どう変わったか。,検討中,works。お客様の声は準備中（TODO）,2026-08-20
+WORKS-VOICE-02,Works,VOICE（お客様の声）,本文,掲載許諾をいただいたお客様の声を、準備でき次第ご紹介します。,検討中,works（プレースホルダ）,2026-08-20
+WORKS-CTA-01,Works,CTA,見出し,ご相談はこちらから,検討中,works CTA帯,2026-08-20
+WORKS-CTA-02,Works,CTA,本文,「うちに合うかわからない」でも大丈夫です。まだ課題が整理できていなくても構いません。,検討中,works,2026-08-20
+WORKS-CTA-03,Works,CTA,ボタン,30分相談する →,検討中,works,2026-08-20
+NEWS-HEAD-01,News,マストヘッド,見出し,ニュース,検討中,news/page.tsx（ラベル NEWS / n POSTS）,2026-08-20
+NEWS-ITEM-01,News,一覧,記事,2025-11-14 [お知らせ] Moments Share合同会社を設立しました,検討中,data/news.ts,2026-08-20
+NEWS-ITEM-02,News,一覧,記事,2026-01-01 [プロジェクト] 西尾市の働き方図鑑プロジェクトを開始しました,検討中,data/news.ts,2026-08-20
+NEWS-ITEM-03,News,一覧,記事,2026-03-01 [サービス] DX支援サービスを正式ローンチしました,検討中,data/news.ts,2026-08-20
+NEWS-NAV-01,News,フッターリンク,リンク,← ホームへ戻る,検討中,news/page.tsx,2026-08-20
+CONTACT-HERO-01,Contact,HERO,ラベル,お問い合わせ,検討中,contact/page.tsx,2026-08-20
+CONTACT-HERO-02,Contact,HERO,見出し,ご相談はこちらから,検討中,contact h1,2026-08-20
+CONTACT-HERO-03,Contact,HERO,本文,AIを使いたい。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。,検討中,contact,2026-08-20
+CONTACT-HERO-04,Contact,HERO,キャプション,話は、このまちのどこかから始まる。,検討中,contact,2026-08-20
+CONTACT-FORM-01,Contact,フォーム,ラベル,お名前* ／ 会社名・屋号 ／ メールアドレス* ／ ご相談の種類* ／ ご相談内容*,検討中,contact フォーム項目,2026-08-20
+CONTACT-FORM-02,Contact,フォーム,選択肢,DX支援・業務自動化 ／ BPO・業務代行 ／ 地域プロデュース ／ 採用・複業・パートナー参加 ／ その他,検討中,contact categories,2026-08-20
+CONTACT-FORM-03,Contact,フォーム,プレースホルダ,お困りごとや、やってみたいことを、わかる範囲でお書きください。,検討中,contact textarea,2026-08-20
+CONTACT-FORM-04,Contact,フォーム,ボタン,この内容で送信する →,検討中,contact。送信先エンドポイント未設定（TODO）,2026-08-20
+CONTACT-FORM-05,Contact,フォーム,補足,お急ぎの方はメールでも受け付けています：branding@momentsshare.com,検討中,contact,2026-08-20
+DX-HERO-01,DX（service-dx）,HERO,ラベル,DX支援,検討中,service-dx/page.tsx,2026-08-20
+DX-HERO-02,DX（service-dx）,HERO,事業コピー,忙しさを、余白へ。,確定,service-dx h1。SERVICE-DX-001と一致,2026-08-20
+DX-HERO-03,DX（service-dx）,HERO,本文,毎月繰り返している、その仕事。AIや自動化で減らせるかもしれません。請求書。データ転記。日報集計。情報整理。まず業務を整理し、本当に効果のあるところから改善します。,検討中,service-dx,2026-08-20
+DX-HERO-04,DX（service-dx）,HERO,リンク,自動化できる業務を相談する →,検討中,service-dx,2026-08-20
+DX-PROBLEM-01,DX（service-dx）,こんな課題,見出し,こんな課題はありませんか？,検討中,service-dx,2026-08-20
+DX-PROBLEM-02,DX（service-dx）,こんな課題,本文,一つでも当てはまるなら、減らせる仕事があるかもしれません。まずは業務の整理から始めます。,検討中,service-dx,2026-08-20
+DX-PROBLEM-03,DX（service-dx）,こんな課題,項目,Excelやシステムへの転記が多い ／ 毎月同じ資料を手作業している ／ 請求書作成・送付に時間がかかる ／ 社内情報がバラバラ ／ ChatGPTを契約したが活用できていない ／ DX担当者がいない ／ 何から改善すればいいかわからない,検討中,service-dx problems（7項目）,2026-08-20
+DX-OUTCOME-01,DX（service-dx）,何が変わる,見出し,何が変わる？,検討中,service-dx,2026-08-20
+DX-OUTCOME-02,DX（service-dx）,何が変わる,本文,大切なのは、どのツールを使うかではありません。仕事がどう変わるか、です。,検討中,service-dx,2026-08-20
+DX-OUTCOME-03,DX（service-dx）,何が変わる,項目,作業時間を減らす。／ ミスを減らす。／ 属人化を減らす。（各説明文あり）,検討中,service-dx outcomes（3項目）,2026-08-20
+DX-CASE-01,DX（service-dx）,CASE,見出し,業務を、余白に変えた事例。,検討中,service-dx,2026-08-20
+DX-CASE-02,DX（service-dx）,CASE,事例,SNS自動化：約80％削減。投稿作業を、30分 → 約6分へ。投稿の企画から公開までの流れを自動化し、毎日の作業を大幅に削減。,検討中,service-dx,2026-08-20
+DX-CASE-03,DX（service-dx）,CASE,事例,請求書発行の自動化：手作業 → 自動化（発行・送付を仕組み化）。手作業だった請求書の作成・送付を自動化し、転記の手間をなくした。,検討中,service-dx,2026-08-20
+DX-CASE-04,DX（service-dx）,CASE,事例,在庫管理の一元化：紙＋Excel → 一元管理（二重管理を解消）。紙とExcelに分かれていた在庫情報を一元管理し、探す・照合する手間を削減。,検討中,service-dx,2026-08-20
+DX-MENU-01,DX（service-dx）,できること,見出し,できること。,検討中,service-dx,2026-08-20
+DX-MENU-02,DX（service-dx）,できること,項目,AI活用支援 ／ AI研修 ／ 業務整理・DXコンサルティング ／ AI・RPA・GASによる業務自動化 ／ Notionなどを使った情報整理 ／ AIエージェント構築,要確認,service-dx menu（6項目）。★確定サービス名リスト（SERVICE-DX-LIST）と項目名・粒度が相違。要整合,2026-08-20
+DX-PROCESS-01,DX（service-dx）,進め方,見出し,進め方。,検討中,service-dx,2026-08-20
+DX-PROCESS-02,DX（service-dx）,進め方,ステップ,01 相談 ／ 02 業務整理 ／ 03 改善提案 ／ 04 導入・開発 ／ 05 運用・改善（各説明文あり）,検討中,service-dx steps（5段階）,2026-08-20
+DX-GOAL-01,DX（service-dx）,GOAL,見出し,AIを使える会社ではなく、仕事を改善し続けられる会社へ。,検討中,service-dx,2026-08-20
+DX-CTA-01,DX（service-dx）,CTA,見出し,ご相談はこちらから,検討中,service-dx CTA帯,2026-08-20
+DX-CTA-02,DX（service-dx）,CTA,本文,「何をAI化すればいいかわからない」という段階でも大丈夫です。,検討中,service-dx,2026-08-20
+DX-CTA-03,DX（service-dx）,CTA,ボタン,自動化できる業務を相談する →,検討中,service-dx,2026-08-20
+BPO-HERO-01,BPO（service-bpo）,HERO,ラベル,BPO,検討中,service-bpo/page.tsx,2026-08-20
+BPO-HERO-02,BPO（service-bpo）,HERO,事業コピー,人手不足を、多様な働き方へ。,確定,service-bpo h1。SERVICE-BPO-001と一致,2026-08-20
+BPO-HERO-03,BPO（service-bpo）,HERO,本文,採用して人を増やす前に、仕事を外に出すという選択肢があります。カスタマーサクセス。営業支援。SNS。経理・事務。必要な仕事を、必要な分だけ支えます。,検討中,service-bpo,2026-08-20
+BPO-HERO-04,BPO（service-bpo）,HERO,リンク,外注できる業務を相談する →,検討中,service-bpo,2026-08-20
+BPO-PAIN-01,BPO（service-bpo）,こんな企業に,見出し,こんな企業に。,検討中,service-bpo,2026-08-20
+BPO-PAIN-02,BPO（service-bpo）,こんな企業に,項目,求人を出しても応募が来ない ／ 社員が事務作業に追われている ／ 1人採用するほどの仕事量ではない ／ CSやSNSをやりたいが担当者がいない ／ 一時的に人手が必要 ／ 何を外注できるかわからない,検討中,service-bpo painPoints（6項目）,2026-08-20
+BPO-MSG-01,BPO（service-bpo）,重要メッセージ,見出し,その仕事、本当に採用が必要ですか？,検討中,service-bpo,2026-08-20
+BPO-MSG-02,BPO（service-bpo）,重要メッセージ,本文,自動化できる仕事は、DXで減らす。人が必要な仕事だけ、BPOで支える。,検討中,service-bpo,2026-08-20
+BPO-MSG-03,BPO（service-bpo）,重要メッセージ,強調文,Moments Shareは、採用する・外注する・自動化する、その前に、まず仕事そのものを整理します。,検討中,service-bpo,2026-08-20
+BPO-SERVICE-01,BPO（service-bpo）,支えられる仕事,見出し,支えられる仕事。,検討中,service-bpo,2026-08-20
+BPO-SERVICE-02,BPO（service-bpo）,支えられる仕事,項目,カスタマーサクセス ／ 営業支援 ／ SNS運用 ／ 経理・事務 ／ その他（各説明文あり）,要確認,service-bpo services（5項目）。★確定サービス名リスト（SERVICE-BPO-LIST）と表記・粒度が相違。要整合,2026-08-20
+BPO-DXBPO-01,BPO（service-bpo）,DX×BPO,見出し,自動化できる仕事は減らす。人が必要な仕事だけ支える。,検討中,service-bpo 緑帯,2026-08-20
+BPO-DXBPO-02,BPO（service-bpo）,DX×BPO,本文,単に人を増やすのではなく、まず仕事を整理する。,検討中,service-bpo,2026-08-20
+BPO-TEAM-01,BPO（service-bpo）,TEAM,見出し,多様な人と、一緒に支える。,検討中,service-bpo,2026-08-20
+BPO-TEAM-02,BPO（service-bpo）,TEAM,本文,それぞれの得意を組み合わせて、企業の業務を支えます。,検討中,service-bpo,2026-08-20
+BPO-TEAM-03,BPO（service-bpo）,TEAM,項目,専門人材 ／ 副業人材 ／ 子育て中の人 ／ 地域で働く人（各説明文あり）,検討中,service-bpo team（4項目）,2026-08-20
+BPO-PROCESS-01,BPO（service-bpo）,進め方,見出し,進め方。,検討中,service-bpo,2026-08-20
+BPO-PROCESS-02,BPO（service-bpo）,進め方,ステップ,01 相談 ／ 02 業務整理 ／ 03 業務設計 ／ 04 チーム編成 ／ 05 開始・改善（各説明文あり）,検討中,service-bpo process（5段階）,2026-08-20
+BPO-CTA-01,BPO（service-bpo）,CTA,見出し,どの仕事を外に出せるか、一緒に整理します。,検討中,service-bpo CTA帯,2026-08-20
+BPO-CTA-02,BPO（service-bpo）,CTA,本文,採用するべきか、外注するべきか迷っている段階からご相談ください。,検討中,service-bpo,2026-08-20
+BPO-CTA-03,BPO（service-bpo）,CTA,ボタン,外注できる業務を相談する →,検討中,service-bpo,2026-08-20
+PRODUCE-HERO-01,地域プロデュース（service-produce）,HERO,ラベル,地域プロデュース,検討中,service-produce/page.tsx,2026-08-20
+PRODUCE-HERO-02,地域プロデュース（service-produce）,HERO,事業コピー,地域課題を、挑戦のきっかけへ。,確定,service-produce h1。SERVICE-REGION-001と一致,2026-08-20
+PRODUCE-HERO-03,地域プロデュース（service-produce）,HERO,本文,地域の課題と、人や企業の「やってみたい」をつなぐ。人をつなぎ、仲間を集め、新しいプロジェクトや事業が生まれるきっかけと場をつくります。,検討中,service-produce,2026-08-20
+PRODUCE-HERO-04,地域プロデュース（service-produce）,HERO,リンク,一緒にプロジェクトをつくる ／ 取り組みを見る →,検討中,service-produce,2026-08-20
+PRODUCE-PHIL-01,地域プロデュース（service-produce）,私たちの考え,見出し,地域愛を、地域発展の力に。,検討中,service-produce（DX伴走の事業ミッションと同語）,2026-08-20
+PRODUCE-PHIL-02,地域プロデュース（service-produce）,私たちの考え,本文,地域を良くするために、最初から大きなことをする必要はないと思っています。好きなお店に行く。面白い人を誰かに紹介する。地域のイベントに参加する。「こんなことをやってみたい」と声にする。,検討中,service-produce,2026-08-20
+PRODUCE-PHIL-03,地域プロデュース（service-produce）,私たちの考え,本文,そんな一人ひとりの小さな行動が、人をつなぎ、新しい挑戦を生み、やがて地域を動かす力になっていく。,検討中,service-produce,2026-08-20
+PRODUCE-PHIL-04,地域プロデュース（service-produce）,私たちの考え,強調文,私たちは、地域への「好き」を、行動へ変えていきます。,検討中,service-produce,2026-08-20
+PRODUCE-PROJ-01,地域プロデュース（service-produce）,PROJECTS,見出し,挑戦を、カタチにする。,検討中,service-produce,2026-08-20
+PRODUCE-PROJ-02,地域プロデュース（service-produce）,PROJECTS,本文,人・企業・地域をつなぎながら、西尾で取り組んでいるプロジェクト。一つひとつが、次の挑戦者を呼ぶ入り口になる。,検討中,service-produce,2026-08-20
+PRODUCE-PROJ-03,地域プロデュース（service-produce）,PROJECTS,事例,01 西尾働き方図鑑（メディア）：地域で働く人・企業を取材して発信するメディア。「こんな仕事があるんだ」という出会いが、地元で働く選択肢を広げる。,検討中,service-produce projects[0],2026-08-20
+PRODUCE-PROJ-04,地域プロデュース（service-produce）,PROJECTS,事例,02 西尾筋肉祭り（イベント）：体を動かして地域を盛り上げる体験型イベント。世代を越えた出会いをつくり、地域への愛着を育てる。,検討中,service-produce projects[1],2026-08-20
+PRODUCE-PROJ-05,地域プロデュース（service-produce）,PROJECTS,事例,03 AI活用研究会（コミュニティ）：地域の企業・個人がAIを学び合うコミュニティ。現場で使える知識を共有し、挑戦のきっかけをつくる。,検討中,service-produce projects[2]。★確定リストは「地域ベンチャー留学」で相違,2026-08-20
+PRODUCE-PROJ-06,地域プロデュース（service-produce）,PROJECTS,事例,その他のプロジェクト（進行中）：地域の「やってみたい」から、新しいプロジェクトが今も生まれ続けています。／ 次の挑戦を持ち込む →,検討中,service-produce projects[3],2026-08-20
+PRODUCE-CYCLE-01,地域プロデュース（service-produce）,地域推し活,見出し,好きになることから、地域は動きはじめる。,検討中,service-produce,2026-08-20
+PRODUCE-CYCLE-02,地域プロデュース（service-produce）,地域推し活,本文,「好き」から始まる関わりが、応援を生み、行動になり、やがて挑戦と共創へ。その循環が、また次の「好き」を連れてくる。,検討中,service-produce,2026-08-20
+PRODUCE-CYCLE-03,地域プロデュース（service-produce）,地域推し活,循環語,知る → 好きになる → 応援する → 関わる → 挑戦する → 共創する → 次の挑戦へ（→ 知るへ戻る）,検討中,service-produce cycle,2026-08-20
+PRODUCE-GOAL-01,地域プロデュース（service-produce）,OUR GOAL,見出し,挑戦する人を、一人ずつ増やす。,検討中,service-produce,2026-08-20
+PRODUCE-GOAL-02,地域プロデュース（service-produce）,OUR GOAL,本文,イベントを開催すること自体がゴールではありません。地域の中に「自分もやってみよう」と思う人が増えること。一人の挑戦に仲間が集まり、新しい仕事や価値が生まれ、その姿が次の誰かを動かす。そんな挑戦と共創の循環をつくります。,検討中,service-produce,2026-08-20
+PRODUCE-MIDGOAL-01,地域プロデュース（service-produce）,中期目標240,見出し,まずは、西尾から。2040年までに、西尾に240の事業を。,検討中,service-produce,2026-08-20
+PRODUCE-MIDGOAL-02,地域プロデュース（service-produce）,中期目標240,本文,数を追うことが目的ではありません。一つひとつの事業の裏には、挑戦した人がいます。一人の「やってみたい」から挑戦が始まり、仲間が集まり、仕事や事業が生まれる。その積み重ねが地域に根づいている状態を、西尾からつくります。,検討中,service-produce,2026-08-20
+PRODUCE-MIDGOAL-03,地域プロデュース（service-produce）,中期目標240,補足,※ 240事業はVisionではなく、私たちが掲げる中期目標です。,検討中,service-produce。GOAL-2040-001（Vision表現）との位置づけ差に注意,2026-08-20
+PRODUCE-HOW-01,地域プロデュース（service-produce）,進め方,見出し,私たちの進め方。,検討中,service-produce,2026-08-20
+PRODUCE-HOW-02,地域プロデュース（service-produce）,進め方,ステップ,01 人をつなぐ。／ 02 場をつくる。／ 03 カタチにする。／ 04 次につなぐ。（各説明文あり）,検討中,service-produce howWeWork（4段階）,2026-08-20
+PRODUCE-CTA-01,地域プロデュース（service-produce）,CTA,見出し,地域に、一緒に仕掛けませんか。,検討中,service-produce CTA帯,2026-08-20
+PRODUCE-CTA-02,地域プロデュース（service-produce）,CTA,本文,「こんなことをやってみたい」から話しましょう。まだアイデアがふわっとしていても大丈夫です。,検討中,service-produce,2026-08-20
+PRODUCE-CTA-03,地域プロデュース（service-produce）,CTA,ボタン,一緒にプロジェクトをつくる →,検討中,service-produce,2026-08-20

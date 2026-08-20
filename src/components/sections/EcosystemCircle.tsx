@@ -33,17 +33,17 @@ function pt(angleDeg: number, r: number = R) {
 }
 const pct = (v: number) => `${(v / VB) * 100}%`;
 
-/* 時計位置 → SVG角度（12時=-90°、時計回りに+30°/h）
-   循環順：DX→余白→BPO→多様な働き方→地域→挑戦→新しい仕事→次の挑戦へ→(DX) */
+/* 時計位置 → SVG角度（3時=0°、時計回りに+30°/h。DX=左, BPO=右, 地域=下）
+   循環順（時計回り＝角度増加）：DX(左)→余白(上)→BPO(右)→多様な働き方(右下)→地域(下)→挑戦→新しい仕事→次の挑戦へ→(DX) */
 const A = {
-  dx: -90, // 12時
-  yohaku: -45, // 約1:30（余白）
-  bpo: 30, // 4時
-  tayou: 74, // 約5時（多様な働き方／BPOキャッチと重ねないよう下方へ）
-  region: 105, // 約6:30〜7時（地域プロデュース）
-  chosen: 150, // 約8時（挑戦）
-  umareru: 195, // 約9:30（新しい仕事・事業が生まれる）
-  tsugi: 225, // 約10:30〜11時（次の挑戦へ）
+  dx: 190, // 左（約9:20）
+  yohaku: 268, // 上（余白）
+  bpo: 345, // 右（約2:30）
+  tayou: 45, // 右下（多様な働き方）
+  region: 100, // 下（約6:20＝地域プロデュース）
+  chosen: 128, // 左下（挑戦）
+  umareru: 150, // 左（新しい仕事・事業が生まれる）
+  tsugi: 172, // 左（次の挑戦へ／DXの直前）
 };
 
 /* 円周上の3事業ノード */
@@ -72,10 +72,11 @@ type Label = {
 const OUT = 16;
 const LABELS: Label[] = [
   {
+    // DXは円の左側。左40%コピー列と重ならないよう、ノードの外側＝右上へ逃がす。
     key: "dx",
     angle: A.dx,
-    transform: `translate(-50%, calc(-100% - ${OUT}px))`,
-    align: "center",
+    transform: `translate(${OUT}px, calc(-100% - ${OUT}px))`,
+    align: "left",
     delay: 1.15,
     kind: "biz",
     color: DX,
@@ -86,8 +87,8 @@ const LABELS: Label[] = [
   {
     key: "yohaku",
     angle: A.yohaku,
-    transform: `translate(${OUT}px, -50%)`,
-    align: "left",
+    transform: `translate(-50%, calc(-100% - ${OUT}px))`,
+    align: "center",
     delay: 1.35,
     kind: "word",
     color: DX_SOFT,
@@ -160,7 +161,7 @@ const LABELS: Label[] = [
   },
 ];
 
-/* 円弧：DX(12時)起点で時計回りに“次の挑戦へ”(約315°)まで実線・描画 */
+/* 円弧：DX(左)起点で時計回りに“次の挑戦へ”(左・DX直前)まで実線・描画 */
 const ARC_SOLID = `M ${pt(A.dx).x} ${pt(A.dx).y} A ${R} ${R} 0 1 1 ${pt(A.tsugi).x} ${pt(A.tsugi).y}`;
 /* 残り（左上の“次の挑戦へ→DX”の戻り＝破線） */
 const ARC_DASH = `M ${pt(A.tsugi).x} ${pt(A.tsugi).y} A ${R} ${R} 0 0 1 ${pt(A.dx).x} ${pt(A.dx).y}`;

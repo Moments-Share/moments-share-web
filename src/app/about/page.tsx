@@ -250,53 +250,67 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 5. VALUES — 3つの行動基準＋7つの判断基準（文言は保持） ===== */}
+        {/* ===== 5. VALUES — 核「一歩ずつ、できるまで続けるだけ。」から行動×判断へ繋げる ===== */}
         <section className="py-24 md:py-36 bg-ivory">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <div className="max-w-2xl">
-              <div className="text-[12px] font-bold tracking-[0.24em] text-navy-ink">Values — 大切にしていること</div>
-              <h2 className="mt-6 text-navy-ink font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
-                存在意義を、日々の選択に。
-              </h2>
-              <p className="mt-6 text-[15px] md:text-[16px] leading-[2] text-charcoal/70">
-                3つの行動基準と、7つの判断基準。すべては、繋がる瞬間を共に創るために。
-              </p>
-            </div>
+            <div className="text-[12px] font-bold tracking-[0.24em] text-navy-ink">Values — 大切にしていること</div>
 
-            {/* 3つの行動基準 */}
-            <div className="mt-14 md:mt-20">
-              <div className="text-[12px] font-bold tracking-[0.22em] text-navy-ink/45">3つの行動基準</div>
-              <div className="mt-6 border-t border-navy-ink/12">
-                {coreValues.map((v) => (
-                  <div key={v.en} className="grid grid-cols-1 md:grid-cols-12 gap-y-3 md:gap-x-12 py-10 md:py-14 border-b border-navy-ink/12">
-                    <div className="md:col-span-4">
-                      <div className="text-navy-ink font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>{v.en}</div>
+            {/* 核：VALUESセクションのVisual Peak。静かに、余白たっぷりに */}
+            <h2
+              className="mt-12 md:mt-20 text-navy-ink font-semibold leading-[1.16] tracking-[-0.03em] max-w-[15ch]"
+              style={{ fontSize: "clamp(32px, 5.4vw, 68px)" }}
+            >
+              一歩ずつ、できるまで続けるだけ<span className="text-green">。</span>
+            </h2>
+
+            {/* ブリッジ文：核と基準を繋ぐ橋渡し */}
+            <p className="mt-8 md:mt-10 max-w-xl text-[16px] md:text-[18px] leading-[2] text-charcoal/80">
+              その一歩を、3つの行動基準と7つの判断基準で支える。
+            </p>
+
+            {/* 連結：核 → 行動（どう動くか） → 判断（どう選ぶか）を一本の流れとして */}
+            <div className="mt-16 md:mt-24 border-t border-navy-ink/20">
+
+              {/* 3つの行動基準 */}
+              <div className="pt-9 md:pt-12">
+                <div className="text-[12px] font-bold tracking-[0.22em] text-navy-ink/45">
+                  3つの行動基準 <span className="text-navy-ink/30">— どう動くか</span>
+                </div>
+                <div className="mt-5 border-t border-navy-ink/12">
+                  {coreValues.map((v) => (
+                    <div key={v.en} className="grid grid-cols-1 md:grid-cols-12 gap-y-3 md:gap-x-12 py-9 md:py-12 border-b border-navy-ink/12">
+                      <div className="md:col-span-4">
+                        <div className="text-navy-ink font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>{v.en}</div>
+                      </div>
+                      <div className="md:col-span-8">
+                        <h3 className="text-navy-ink font-medium leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 27px)" }}>
+                          {v.title}
+                        </h3>
+                        <p className="mt-4 max-w-xl text-[15px] md:text-[17px] leading-[2.1] text-charcoal/80">{v.body}</p>
+                      </div>
                     </div>
-                    <div className="md:col-span-8">
-                      <h3 className="text-navy-ink font-medium leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 27px)" }}>
-                        {v.title}
-                      </h3>
-                      <p className="mt-4 max-w-xl text-[15px] md:text-[17px] leading-[2.1] text-charcoal/80">{v.body}</p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* 7つの判断基準 */}
-            <div className="mt-16 md:mt-24">
-              <div className="text-[12px] font-bold tracking-[0.22em] text-navy-ink/45">7つの判断基準</div>
-              <ul className="mt-6 border-t border-navy-ink/12">
-                {stances.map((s) => (
-                  <li
-                    key={s.en}
-                    className="grid grid-cols-1 sm:grid-cols-[minmax(160px,0.4fr)_1fr] gap-1 sm:gap-8 py-5 border-b border-navy-ink/12 items-baseline"
-                  >
-                    <span className="text-navy-ink font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(17px, 1.9vw, 22px)" }}>{s.en}</span>
-                    <span className="text-navy-ink/85 font-medium leading-[1.6] tracking-[-0.01em] text-[15px] md:text-[17px]">{s.ja}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* 7つの判断基準（行動から地続きに） */}
+              <div className="pt-12 md:pt-16">
+                <div className="text-[12px] font-bold tracking-[0.22em] text-navy-ink/45">
+                  7つの判断基準 <span className="text-navy-ink/30">— どう選ぶか</span>
+                </div>
+                <ul className="mt-5 border-t border-navy-ink/12">
+                  {stances.map((s) => (
+                    <li
+                      key={s.en}
+                      className="grid grid-cols-1 sm:grid-cols-[minmax(160px,0.4fr)_1fr] gap-1 sm:gap-8 py-5 border-b border-navy-ink/12 items-baseline"
+                    >
+                      <span className="text-navy-ink font-semibold tracking-[0.01em]" style={{ fontSize: "clamp(17px, 1.9vw, 22px)" }}>{s.en}</span>
+                      <span className="text-navy-ink/85 font-medium leading-[1.6] tracking-[-0.01em] text-[15px] md:text-[17px]">{s.ja}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
             </div>
           </div>
         </section>

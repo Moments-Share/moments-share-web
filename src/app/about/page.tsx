@@ -102,12 +102,12 @@ const coreValues = [
 
 // 7つの判断基準（正式文言）：英語名＋日本語キャッチ
 const stances = [
-  { en: "Legacy", ja: "100年後に、誇れる選択を。" },
-  { en: "Purpose", ja: "目的から、考えよう。" },
   { en: "Self Driven", ja: "自分ごとで動こう。" },
   { en: "Challenge", ja: "まず、やってみよう。" },
-  { en: "Co-Create", ja: "違いを力に、共に創ろう。" },
   { en: "Better Everyday", ja: "昨日より、少しずつ良くしよう。" },
+  { en: "Legacy", ja: "100年後に、誇れる選択を。" },
+  { en: "Purpose", ja: "目的から、考えよう。" },
+  { en: "Co-Create", ja: "違いを力に、共に創ろう。" },
   { en: "Build Systems", ja: "仕組みを創ろう。" },
 ];
 

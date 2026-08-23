@@ -88,7 +88,7 @@ ABOUT-STORY-05,About,4. STORY（原点）,本文,外に出たからこそ、や�
 ABOUT-STORY-06,About,4. STORY（原点）,本文,100社以上の企業支援を重ねる中で、確信は強くなった。DXは効率化のためではない。人にしかできない価値を生み出すためのものだ。,検討中,about story[3],2026-08-20
 ABOUT-STORY-07,About,4. STORY（原点）,本文,人口減少を止めることはできない。でも、挑戦と共創が循環する地域なら、豊かになれる。その仕組みを、西尾から創る。——それが、Moments Shareの原点になった。,検討中,about story[4],2026-08-20
 ABOUT-VALUES-01,About,5. VALUES,ラベル,Values — 大切にしていること,検討中,about,2026-08-20
-ABOUT-VALUES-02,About,5. VALUES,見出し,存在意義を、日々の選択に。,検討中,about,2026-08-20
+ABOUT-VALUES-02,About,5. VALUES,見出し,存在意義を、日々の選択に。,廃止,VALUES再構成で見出し廃止（核コピーに置換）,2026-08-20
 ABOUT-VALUES-03,About,5. VALUES,本文,3つの行動基準と、7つの判断基準。すべては、繋がる瞬間を共に創るために。,検討中,about,2026-08-20
 ABOUT-VALUES-04,About,5. VALUES / 3つの行動基準,行動基準,Moment：いま、できることをしよう。／ いまに感謝する。いま、目の前の人にどう貢献できるか考える。いま、できることを実行する。,検討中,about coreValues,2026-08-20
 ABOUT-VALUES-05,About,5. VALUES / 3つの行動基準,行動基準,Moments：一歩ずつ、積み重ねよう。／ 行動し、改善し、前に進もう。,検討中,about coreValues,2026-08-20
@@ -232,3 +232,5 @@ PRODUCE-HOW-02,地域プロデュース（service-produce）,進め方,ステッ
 PRODUCE-CTA-01,地域プロデュース（service-produce）,CTA,見出し,地域に、一緒に仕掛けませんか。,検討中,service-produce CTA帯,2026-08-20
 PRODUCE-CTA-02,地域プロデュース（service-produce）,CTA,本文,「こんなことをやってみたい」から話しましょう。まだアイデアがふわっとしていても大丈夫です。,検討中,service-produce,2026-08-20
 PRODUCE-CTA-03,地域プロデュース（service-produce）,CTA,ボタン,一緒にプロジェクトをつくる →,検討中,service-produce,2026-08-20
+ABOUT-VALUES-CORE-001,About,VALUES,核コピー,一歩ずつ、できるまで続けるだけ。,確定,Valueの核（行動基準×判断基準の起点）,2026-08-20
+ABOUT-VALUES-BRIDGE-001,About,VALUES,ブリッジ,その一歩を、3つの行動基準と7つの判断基準で支える。,確定,核と基準を繋ぐ橋渡し文,2026-08-20

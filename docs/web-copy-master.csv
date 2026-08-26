@@ -3,9 +3,9 @@ TOP-HERO-001,TOP,HERO,ブランドメッセージ,地域に、挑戦と共創の
 TOP-ECOSYSTEM-001,TOP,OUR ECOSYSTEM,見出し,3つの事業で、地域に循環をつくる。,確定,正本。EcosystemCircle.tsx h2と一致,2026-08-20
 SERVICE-CONCEPT-001,SERVICE,CONCEPT,中心コピー,企業や人に『余白』を。地域に『挑戦』を。,確定,正本。★現行実装に未掲載（EcosystemCircleの円中心は空。該当コピーがサイト上に存在しない）。要反映,2026-08-20
 SERVICE-DX-001,SERVICE,DX,事業コピー,忙しさを、余白へ。,確定,正本。service-dx H1・TOP事業・EcosystemCircleと一致,2026-08-20
-SERVICE-BPO-001,SERVICE,BPO,事業コピー,人手不足を、多様な働き方へ。,確定,正本。service-bpo H1・TOP事業・EcosystemCircleと一致,2026-08-20
-SERVICE-REGION-001,SERVICE,地域プロデュース,事業コピー,地域課題を、挑戦のきっかけへ。,確定,正本。★TOP事業・service-produce H1は一致だが、EcosystemCircle.tsx（PC/モバイル）は「…きっかけに。」で不一致。残置Ecosystem.tsxも「…に。」。要修正,2026-08-20
-GOAL-2040-001,共通,2040 GOAL,目標コピー,地域に、240の事業を共創する。,確定,正本。VisionNishio.tsx（地域に、／240／の事業を共創する。）と一致,2026-08-20
+SERVICE-BPO-001,SERVICE,BPO,事業コピー,人手不足に、社外の力を。,確定,正本。service-bpo H1・TOP事業・EcosystemCircleと一致。2026-08-26に「人手不足を、多様な働き方へ。」から更新（公開版仕上げ）,2026-08-26
+SERVICE-REGION-001,SERVICE,地域プロデュース,事業コピー,想いを、挑戦へ。,確定,正本。TOP事業・service-produce H1と一致。2026-08-26に「地域課題を、挑戦のきっかけへ。」から更新（公開版仕上げ）,2026-08-26
+GOAL-2040-001,共通,2040 GOAL,目標コピー,西尾から、240の事業を。,確定,正本。VisionNishio.tsx（西尾から、／240／の事業を。）と一致。2026-08-26に「地域に、240の事業を共創する。」から更新（公開版仕上げ）,2026-08-26
 SERVICE-DX-LIST-01,SERVICE,DX / サービス名,サービス名,AI・RPA導入支援,確定,確定サービス名リスト。★現行service-dx『できること』は別セット（AI活用支援/AI研修/業務整理・DXコンサルティング/AI・RPA・GASによる業務自動化/Notionなどを使った情報整理/AIエージェント構築）。要整合,2026-08-20
 SERVICE-DX-LIST-02,SERVICE,DX / サービス名,サービス名,システム開発・導入支援,確定,確定サービス名リスト。現行実装に同名の項目なし。要整合,2026-08-20
 SERVICE-DX-LIST-03,SERVICE,DX / サービス名,サービス名,AI・DXコンサルティング,確定,確定サービス名リスト。現行は「業務整理・DXコンサルティング」。要整合,2026-08-20
@@ -37,14 +37,14 @@ TOP-HERO-05,TOP,HERO,ボタン,相談をする →,検討中,Hero.tsx CTA,2026-0
 TOP-ECOSYSTEM-02,TOP,OUR ECOSYSTEM,ラベル,OUR ECOSYSTEM,検討中,EcosystemCircle.tsx,2026-08-20
 TOP-ECOSYSTEM-03,TOP,OUR ECOSYSTEM,本文,余白が生まれ、多様な働き方が広がり、挑戦が動き出す。新しい仕事や事業が生まれ、また次の挑戦へとつながっていく。,検討中,EcosystemCircle.tsx。残置Ecosystem.tsxは「次の余白へ」表記,2026-08-20
 TOP-ECOSYSTEM-04,TOP,OUR ECOSYSTEM,事業コピー,忙しさを、余白へ。,確定,EcosystemCircle DXキャッチ。SERVICE-DX-001と一致,2026-08-20
-TOP-ECOSYSTEM-05,TOP,OUR ECOSYSTEM,事業コピー,人手不足を、多様な働き方へ。,確定,EcosystemCircle BPOキャッチ。SERVICE-BPO-001と一致,2026-08-20
-TOP-ECOSYSTEM-06,TOP,OUR ECOSYSTEM,事業コピー,地域課題を、挑戦のきっかけに。,要確認,EcosystemCircle 地域キャッチ。★確定SERVICE-REGION-001「…きっかけへ。」と不一致（現行は「…に。」）。要修正,2026-08-20
+TOP-ECOSYSTEM-05,TOP,OUR ECOSYSTEM,事業コピー,人手不足に、社外の力を。,確定,EcosystemCircle BPOキャッチ。SERVICE-BPO-001と一致。2026-08-26更新,2026-08-26
+TOP-ECOSYSTEM-06,TOP,OUR ECOSYSTEM,事業コピー,想いを、挑戦へ。,確定,EcosystemCircle 地域キャッチ。SERVICE-REGION-001と一致。2026-08-26更新によりTOP-BUSINESS-04表記と整合（旧不一致を解消）,2026-08-26
 TOP-ECOSYSTEM-07,TOP,OUR ECOSYSTEM,循環語,余白 → 多様な働き方 → 挑戦 → 新しい仕事・事業が生まれる → 次の挑戦へ,検討中,EcosystemCircle 円周の循環語,2026-08-20
 TOP-BUSINESS-01,TOP,BUSINESS,見出し,忙しさや人手不足を、地域の力に変えていく。,検討中,page.tsx BUSINESS h2,2026-08-20
-TOP-BUSINESS-02,TOP,BUSINESS,本文,業務を整理し、AI・RPA・自動化を使って、人がやらなくてもいい仕事を減らします。,検討中,page.tsx DX本文,2026-08-20
-TOP-BUSINESS-03,TOP,BUSINESS,本文,企業に必要な仕事を整理し、外部のチームと一緒に支えます。,検討中,page.tsx BPO本文,2026-08-20
-TOP-BUSINESS-04,TOP,BUSINESS,事業コピー,地域課題を、挑戦のきっかけへ。,確定,page.tsx 地域タイトル。SERVICE-REGION-001と一致,2026-08-20
-TOP-BUSINESS-05,TOP,BUSINESS,本文,人・企業・地域をつなぎ、新しい挑戦が生まれる場をつくります。,検討中,page.tsx 地域本文,2026-08-20
+TOP-BUSINESS-02,TOP,BUSINESS,本文,AI導入・システム開発・研修を通じて企業の業務改善に伴走し、新しいことに取り組める時間をつくります。,検討中,page.tsx DX本文。2026-08-26に公開版仕上げの実装へ同期,2026-08-26
+TOP-BUSINESS-03,TOP,BUSINESS,本文,営業・事務・CS等を受託し、社外パートナーとチームを組んで企業を支えます。,検討中,page.tsx BPO本文。2026-08-26に公開版仕上げの実装へ同期,2026-08-26
+TOP-BUSINESS-04,TOP,BUSINESS,事業コピー,想いを、挑戦へ。,確定,正本。page.tsx 地域タイトル。SERVICE-REGION-001と一致。2026-08-26更新（公開版仕上げ）,2026-08-26
+TOP-BUSINESS-05,TOP,BUSINESS,本文,個の「やりたい」と地域の「課題」をつなぎ、地域内外の人や企業とともに新しい仕事や事業をつくります。,検討中,page.tsx 地域本文。2026-08-26に公開版仕上げの実装へ同期,2026-08-26
 TOP-BUSINESS-06,TOP,BUSINESS,リンク,DXを詳しく → ／ BPOを詳しく → ／ 地域プロデュースを詳しく →,検討中,page.tsx 各事業リンク,2026-08-20
 TOP-MESSAGE-01,TOP,MESSAGE,見出し,起点は、いつも一人の挑戦者だ。,検討中,page.tsx MESSAGE h2,2026-08-20
 TOP-MESSAGE-02,TOP,MESSAGE,本文,人口が減り、働く人が減っても、地域の未来まで決まるわけではない。,検討中,page.tsx,2026-08-20
@@ -62,9 +62,9 @@ TOP-WORKS-04,TOP,WORKS,キャプション,西尾の企業・地域と、一つ�
 TOP-PEOPLE-01,TOP,PEOPLE,見出し,関わってくれる人たち。,検討中,page.tsx h2,2026-08-20
 TOP-PEOPLE-02,TOP,PEOPLE,本文,社員だけで仕事をする会社ではありません。働き方も、住む場所も、得意なことも違う人たちが、それぞれの力を持ち寄って、一緒に仕事やプロジェクトをつくっています。,検討中,page.tsx,2026-08-20
 TOP-PEOPLE-03,TOP,PEOPLE,リンク,関わる人たちを見る →,検討中,page.tsx,2026-08-20
-TOP-VISION-01,TOP,OUR VISION（2040）,ラベル,OUR VISION ／ 2040年 Vision,検討中,VisionNishio.tsx,2026-08-20
-TOP-VISION-02,TOP,OUR VISION（2040）,本文,挑戦と共創の循環が、地域の未来を動かす。,検討中,VisionNishio.tsx,2026-08-20
-TOP-VISION-03,TOP,OUR VISION（2040）,本文,地域の可能性を信じ、挑戦がめぐり続けるまちへ。,検討中,VisionNishio.tsx,2026-08-20
+TOP-VISION-01,TOP,OUR VISION（2040）,ラベル,OUR VISION ／ 2040 GOAL,検討中,VisionNishio.tsx ラベル。2026-08-26更新（旧「2040年 Vision」表記を実装に合わせ修正）,2026-08-26
+TOP-VISION-02,TOP,OUR VISION（2040）,本文,西尾から、240の事業を。,検討中,VisionNishio.tsx 見出し。GOAL-2040-001と同一。2026-08-26更新,2026-08-26
+TOP-VISION-03,TOP,OUR VISION（2040）,本文,挑戦が当たり前になり、地域内外の人や企業とともに、事業を共創し続ける。,検討中,VisionNishio.tsx 補足文。2026-08-26更新,2026-08-26
 TOP-CONTACT-01,TOP,CONTACT,見出し,ご相談はこちらから,検討中,page.tsx CTA帯。全ページで共通見出し,2026-08-20
 TOP-CONTACT-02,TOP,CONTACT,本文,AIを使いたい。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。,検討中,page.tsx,2026-08-20
 TOP-CONTACT-03,TOP,CONTACT,ボタン,30分相談する →,検討中,page.tsx CTA,2026-08-20
@@ -77,7 +77,7 @@ ABOUT-BELIEF-03,About,2. BELIEF,本文,やってみたかったことに挑戦�
 ABOUT-HOW-01,About,3. HOW（3事業）,ラベル,How — だから、私たちは,検討中,about,2026-08-20
 ABOUT-HOW-02,About,3. HOW（3事業）,見出し,存在意義を、3つの事業で果たす。,検討中,about,2026-08-20
 ABOUT-HOW-03,About,3. HOW（3事業）,事業,DX：DX伴走支援（Core Shift）／ 人の時間を、価値創造へ。／ 請求書・データ転記・日報集計など、毎月繰り返す業務をAI・自動化で減らす。人がやらなくてもいい仕事を仕組みに変え、人にしかできない価値へ時間を取り戻す。,検討中,about businesses,2026-08-20
-ABOUT-HOW-04,About,3. HOW（3事業）,事業,BPO：BPO（業務代行）／ 人手不足を、多様な働き方へ。／ 採用して人を増やす前に、仕事を外に出すという選択肢を。カスタマーサクセス・営業支援・SNS・経理事務。必要な仕事を、必要な分だけ支える。,検討中,about businesses,2026-08-20
+ABOUT-HOW-04,About,3. HOW（3事業）,事業,BPO：BPO（業務代行）／ 人手不足に、社外の力を。／ 採用して人を増やす前に、仕事を外に出すという選択肢を。カスタマーサクセス・営業支援・SNS・経理事務。必要な仕事を、必要な分だけ支える。,検討中,about businesses。2026-08-26にリード「人手不足を、多様な働き方へ。」→「人手不足に、社外の力を。」へ同期,2026-08-26
 ABOUT-HOW-05,About,3. HOW（3事業）,事業,PRODUCE：地域プロデュース／ 地域愛を、地域発展の力に。／ 地域の課題と、人や企業の「やってみたい」をつなぎ、新しいプロジェクトや事業が生まれる場をつくる。挑戦と共創が循環する地域を、西尾から。,検討中,about businesses,2026-08-20
 ABOUT-PHOTO-01,About,西尾写真,キャプション,愛知県西尾市。すべては、この街から始まった。,検討中,about,2026-08-20
 ABOUT-STORY-01,About,4. STORY（原点）,ラベル,Story — 原点,検討中,about,2026-08-20
@@ -129,9 +129,9 @@ PEOPLE-CTA-01,People,5. Fellowになる,見出し,志が重なったら、とも
 PEOPLE-CTA-02,People,5. Fellowになる,本文,働き方も場所も問いません。専門でも、副業でも、学生でも。まずは気軽に話すところから。,検討中,people,2026-08-20
 PEOPLE-CTA-03,People,5. Fellowになる,ボタン,Fellowとして関わる →,検討中,people,2026-08-20
 WORKS-HERO-01,Works,HERO,ラベル,Works（実績）,検討中,works/page.tsx,2026-08-20
-WORKS-HERO-02,Works,HERO,見出し,カタチにしてきたこと。,検討中,works h1,2026-08-20
+WORKS-HERO-02,Works,HERO,見出し,ひとつずつ、形に。,検討中,works h1。2026-08-26に「カタチにしてきたこと。」から更新（公開版仕上げ）,2026-08-26
 WORKS-HERO-03,Works,HERO,本文,企業の業務改善から、地域のプロジェクトまで。お客様や仲間と一緒につくってきた仕事をご紹介します。,検討中,works,2026-08-20
-WORKS-STATS-01,Works,数字,数字,7件：DX・業務効率化の支援 ／ 3社：BPO支援 ／ 5名：外部パートナー ／ 4件：地域プロジェクト,検討中,works stats（TOPと共通）,2026-08-20
+WORKS-STATS-01,Works,数字,数字,事業 4／240（KPI） ／ DX：AI導入支援 1社・AI研修 2社・システム開発 2件実施中・効率化フロー 7件 ／ BPO：業務代行支援 3社・CS、SNS運用、事務 ／ 地域プロデュース：挑戦プロジェクト 4件 ／ PARTNERS：ともに働くパートナー 5名,検討中,works kpi(now4/goal240/label事業)＋カテゴリ別実績（現行実装）。2026-08-26に旧stats表記から更新（公開版仕上げ）,2026-08-26
 WORKS-DX-01,Works,DX CASE,見出し,業務を、余白に変えた事例。,検討中,works（service-dxと同一見出し）,2026-08-20
 WORKS-DX-02,Works,DX CASE,事例,SNS投稿の自動化：30分 → 約6分（作業時間 約80％削減）。AIが企画し、X・Threadsへ自動投稿するフローを構築。毎日の投稿作業を大幅に削減。,検討中,works dxCases[0],2026-08-20
 WORKS-DX-03,Works,DX CASE,事例,請求書発行の自動化：手作業 → 自動化（転記・送付をゼロに）。フォーム入力から請求書の自動発行・メール送信までを一気通貫で自動化。,検討中,works dxCases[1],2026-08-20
@@ -185,7 +185,7 @@ DX-CTA-01,DX（service-dx）,CTA,見出し,ご相談はこちらから,検討中
 DX-CTA-02,DX（service-dx）,CTA,本文,「何をAI化すればいいかわからない」という段階でも大丈夫です。,検討中,service-dx,2026-08-20
 DX-CTA-03,DX（service-dx）,CTA,ボタン,自動化できる業務を相談する →,検討中,service-dx,2026-08-20
 BPO-HERO-01,BPO（service-bpo）,HERO,ラベル,BPO,検討中,service-bpo/page.tsx,2026-08-20
-BPO-HERO-02,BPO（service-bpo）,HERO,事業コピー,人手不足を、多様な働き方へ。,確定,service-bpo h1。SERVICE-BPO-001と一致,2026-08-20
+BPO-HERO-02,BPO（service-bpo）,HERO,事業コピー,人手不足に、社外の力を。,確定,service-bpo h1。SERVICE-BPO-001と一致。2026-08-26更新,2026-08-26
 BPO-HERO-03,BPO（service-bpo）,HERO,本文,採用して人を増やす前に、仕事を外に出すという選択肢があります。カスタマーサクセス。営業支援。SNS。経理・事務。必要な仕事を、必要な分だけ支えます。,検討中,service-bpo,2026-08-20
 BPO-HERO-04,BPO（service-bpo）,HERO,リンク,外注できる業務を相談する →,検討中,service-bpo,2026-08-20
 BPO-PAIN-01,BPO（service-bpo）,こんな企業に,見出し,こんな企業に。,検討中,service-bpo,2026-08-20
@@ -206,7 +206,7 @@ BPO-CTA-01,BPO（service-bpo）,CTA,見出し,どの仕事を外に出せるか�
 BPO-CTA-02,BPO（service-bpo）,CTA,本文,採用するべきか、外注するべきか迷っている段階からご相談ください。,検討中,service-bpo,2026-08-20
 BPO-CTA-03,BPO（service-bpo）,CTA,ボタン,外注できる業務を相談する →,検討中,service-bpo,2026-08-20
 PRODUCE-HERO-01,地域プロデュース（service-produce）,HERO,ラベル,地域プロデュース,検討中,service-produce/page.tsx,2026-08-20
-PRODUCE-HERO-02,地域プロデュース（service-produce）,HERO,事業コピー,地域課題を、挑戦のきっかけへ。,確定,service-produce h1。SERVICE-REGION-001と一致,2026-08-20
+PRODUCE-HERO-02,地域プロデュース（service-produce）,HERO,事業コピー,想いを、挑戦へ。,確定,service-produce h1。SERVICE-REGION-001と一致。2026-08-26更新,2026-08-26
 PRODUCE-HERO-03,地域プロデュース（service-produce）,HERO,本文,地域の課題と、人や企業の「やってみたい」をつなぐ。人をつなぎ、仲間を集め、新しいプロジェクトや事業が生まれるきっかけと場をつくります。,検討中,service-produce,2026-08-20
 PRODUCE-HERO-04,地域プロデュース（service-produce）,HERO,リンク,一緒にプロジェクトをつくる ／ 取り組みを見る →,検討中,service-produce,2026-08-20
 PRODUCE-PHIL-01,地域プロデュース（service-produce）,私たちの考え,見出し,地域愛を、地域発展の力に。,検討中,service-produce（DX伴走の事業ミッションと同語）,2026-08-20

@@ -5,7 +5,6 @@ import { Nav } from "@/components/ui/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { EcosystemCircle } from "@/components/sections/EcosystemCircle";
 import { VisionNishio } from "@/components/sections/VisionNishio";
-import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 export const metadata: Metadata = {
   title: "Moments Share合同会社 — 地域に、挑戦と共創の循環を。",
@@ -170,8 +169,9 @@ export default function Home() {
 
           {/* 現場写真 — 数字の装飾ではなく、独立した一枚として */}
           <div className="mt-14 md:mt-20">
-            {/* TODO: 実写に差し替え。MOMENTS: 現場の仕事風景（DX支援・打合せなど／横長） */}
-            <PhotoNeeded ratio="16/9" kind="MOMENTS" note="現場の仕事風景（DX支援・打合せなど／横長）" />
+            <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
+              <Image src="/photos/hero.png" alt="愛知県西尾の街並み" fill sizes="(max-width:768px) 100vw, 1400px" className="object-cover" />
+            </div>
             <p className="mt-3 text-[13px] leading-[1.8] text-charcoal/55">西尾の企業・地域と、一つずつ形にしてきた仕事。</p>
           </div>
         </div>

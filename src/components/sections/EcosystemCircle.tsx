@@ -219,7 +219,7 @@ export function EcosystemCircle() {
   });
 
   return (
-    <section ref={ref} aria-labelledby="ecosystem-heading" className="py-24 md:py-36 px-6 md:px-10 overflow-hidden">
+    <section ref={ref} aria-labelledby="ecosystem-heading" className="pt-28 md:pt-44 pb-24 md:pb-36 px-6 md:px-10 overflow-hidden">
       <div className="mx-auto max-w-[1440px]">
         <div className="grid grid-cols-1 md:grid-cols-5 md:items-center gap-12 md:gap-8">
           {/* ===== 左 40%：コピー ===== */}
@@ -250,7 +250,7 @@ export function EcosystemCircle() {
 
           {/* ===== 右 60%：大きな円環（PC） ===== */}
           <div className="md:col-span-3 hidden md:flex md:justify-center md:items-center">
-            <div className="relative w-full max-w-[560px]" style={{ aspectRatio: "1 / 1" }}>
+            <div className="relative w-full max-w-[680px]" style={{ aspectRatio: "1 / 1" }}>
               <svg viewBox={`0 0 ${VB} ${VB}`} preserveAspectRatio="xMidYMid meet" className="absolute inset-0 h-full w-full overflow-visible" aria-hidden="true">
                 {/* 実線の主円弧（DX起点・時計回りに描画） */}
                 <motion.path

@@ -53,6 +53,13 @@ export function Hero() {
             background: "linear-gradient(to bottom, rgba(16,32,42,0) 40%, rgba(16,32,42,0.30) 68%, rgba(16,32,42,0.68) 100%)"
           }}
         />
+        {/* 次セクション（Ivory地）への自然なフェード。最下部だけをページ背景色へ滑らかに溶かし、継ぎ目をなくす */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-24 md:h-32"
+          style={{
+            background: "linear-gradient(to bottom, rgba(248,245,239,0) 0%, rgba(248,245,239,0.9) 75%, #f8f5ef 100%)"
+          }}
+        />
       </div>
 
       {/* コンテンツ */}

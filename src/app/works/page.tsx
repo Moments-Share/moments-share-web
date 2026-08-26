@@ -18,12 +18,27 @@ export const metadata: Metadata = {
   },
 };
 
-// 4つの数字を同格に扱う
-const stats = [
-  { n: "7", unit: "件", label: "DX・業務効率化の支援" },
-  { n: "3", unit: "社", label: "BPO支援" },
-  { n: "5", unit: "名", label: "外部パートナー" },
-  { n: "4", unit: "件", label: "地域プロジェクト" },
+// 全社KPI（現在の事業数 / 2040年ゴール）
+const kpi = { now: "4", goal: "240", label: "事業" };
+
+// カテゴリ別の実績
+const categories = [
+  {
+    name: "DX",
+    items: ["AI導入支援 1社", "AI研修 2社", "システム開発 2件実施中", "効率化フロー 7件"],
+  },
+  {
+    name: "BPO",
+    items: ["業務代行支援 3社", "CS、SNS運用、事務"],
+  },
+  {
+    name: "地域プロデュース",
+    items: ["挑戦プロジェクト 4件"],
+  },
+  {
+    name: "PARTNERS",
+    items: ["ともに働くパートナー 5名"],
+  },
 ];
 
 const dxCases = [
@@ -90,7 +105,7 @@ export default function WorksPage() {
             <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/45">Works（実績）</div>
             <h1 className="mt-5 text-green font-semibold leading-[1.16] tracking-[-0.02em]"
                 style={{ fontSize: "clamp(34px, 5vw, 68px)" }}>
-              カタチにして<br />きたこと。
+              ひとつずつ、<br />形に。
             </h1>
             <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
               企業の業務改善から、地域のプロジェクトまで。
@@ -103,14 +118,24 @@ export default function WorksPage() {
         <section className="py-16 md:py-24 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/45">数字で見る Moments Share</div>
-            <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 border-t border-charcoal/10 pt-10">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-green font-semibold leading-none tracking-[-0.02em]" style={{ fontSize: "clamp(52px, 6.5vw, 84px)" }}>{s.n}</span>
-                    <span className="text-[15px] font-bold text-charcoal/70">{s.unit}</span>
-                  </div>
-                  <div className="mt-2 text-[13px] leading-[1.7] text-charcoal/60">{s.label}</div>
+
+            {/* 全社KPI — 事業 4 / 240 */}
+            <div className="mt-10 flex items-baseline gap-2.5 border-t border-charcoal/10 pt-10">
+              <span className="text-[15px] font-bold text-charcoal/70">{kpi.label}</span>
+              <span className="text-green font-semibold leading-none tracking-[-0.02em]" style={{ fontSize: "clamp(52px, 6.5vw, 84px)" }}>{kpi.now}</span>
+              <span className="text-charcoal/40 font-semibold leading-none" style={{ fontSize: "clamp(24px, 3vw, 34px)" }}>/ {kpi.goal}</span>
+            </div>
+
+            {/* カテゴリ別 */}
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+              {categories.map((c) => (
+                <div key={c.name}>
+                  <div className="text-[13px] font-bold tracking-[0.12em] text-green">{c.name}</div>
+                  <ul className="mt-3 space-y-2">
+                    {c.items.map((it) => (
+                      <li key={it} className="text-[14px] leading-[1.8] text-charcoal/75">{it}</li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>

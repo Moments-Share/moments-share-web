@@ -52,12 +52,12 @@ export function VisionNishio() {
         </motion.p>
 
         <motion.p {...up(0.12)} className="mt-6 font-bold tracking-[0.06em] text-white/80" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>
-          2040年 Vision
+          2040 GOAL
         </motion.p>
 
         <h2 id="vision-nishio-heading" className="mt-4 font-bold text-white leading-[1.02] tracking-[-0.02em]">
           <motion.span {...up(0.24)} className="block" style={{ fontSize: "clamp(30px, 5vw, 66px)" }}>
-            地域に、
+            西尾から、
           </motion.span>
           <motion.span {...up(0.36)} className="mt-2 flex items-baseline gap-3 flex-wrap">
             <span
@@ -67,17 +67,14 @@ export function VisionNishio() {
               240
             </span>
             <span className="font-bold text-white" style={{ fontSize: "clamp(30px, 5vw, 66px)" }}>
-              の事業を共創する。
+              の事業を。
             </span>
           </motion.span>
         </h2>
 
         <motion.div {...up(0.55)} className="mt-10 md:mt-14 max-w-[46ch] space-y-2">
           <p className="text-white/75 leading-[2.0]" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
-            挑戦と共創の循環が、地域の未来を動かす。
-          </p>
-          <p className="text-white/75 leading-[2.0]" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
-            地域の可能性を信じ、挑戦がめぐり続けるまちへ。
+            挑戦が当たり前になり、地域内外の人や企業とともに、事業を共創し続ける。
           </p>
         </motion.div>
       </div>

@@ -45,10 +45,10 @@ const howWeWork = [
 export const metadata: Metadata = {
   title: "地域プロデュース | Moments Share合同会社",
   description:
-    "地域課題を、挑戦のきっかけへ。地域の課題と、人や企業の「やってみたい」をつなぎ、新しいプロジェクトや事業が生まれる場をつくります。西尾働き方図鑑・西尾筋肉祭り・AI活用研究会など。愛知県西尾市発。",
+    "想いを、挑戦へ。地域の課題と、人や企業の「やってみたい」をつなぎ、新しいプロジェクトや事業が生まれる場をつくります。西尾働き方図鑑・西尾筋肉祭り・AI活用研究会など。愛知県西尾市発。",
   openGraph: {
     title: "地域プロデュース | Moments Share合同会社",
-    description: "地域課題を、挑戦のきっかけへ。人・企業・地域をつなぎ、挑戦と共創の循環をつくります。",
+    description: "想いを、挑戦へ。人・企業・地域をつなぎ、挑戦と共創の循環をつくります。",
     locale: "ja_JP",
     type: "website",
     url: "https://moments-share.com/service-produce",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "地域プロデュース | Moments Share合同会社",
-    description: "地域課題を、挑戦のきっかけへ。挑戦と共創の循環を、西尾から。",
+    description: "想いを、挑戦へ。挑戦と共創の循環を、西尾から。",
     images: ["/og-image.png"],
   },
 };
@@ -110,7 +110,7 @@ export default function ServiceProduce() {
                   className="mt-5 text-green font-semibold leading-[1.16] tracking-[-0.02em]"
                   style={{ fontSize: "clamp(36px, 5.4vw, 80px)" }}
                 >
-                  地域課題を、<br />挑戦のきっかけへ。
+                  想いを、<br />挑戦へ。
                 </h1>
                 <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
                   地域の課題と、人や企業の「やってみたい」をつなぐ。人をつなぎ、仲間を集め、

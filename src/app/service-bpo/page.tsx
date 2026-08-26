@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BPO | Moments Share合同会社",
     description:
-      "人手不足を、多様な働き方へ。必要な仕事を、必要な分だけ支えます。採用する・外注する・自動化する、その前に、まず仕事そのものを整理します。",
+      "人手不足に、社外の力を。必要な仕事を、必要な分だけ支えます。採用する・外注する・自動化する、その前に、まず仕事そのものを整理します。",
     locale: "ja_JP",
     type: "website",
     url: "https://moments-share.com/service-bpo",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "BPO | Moments Share合同会社",
-    description: "人手不足を、多様な働き方へ。必要な仕事を、必要な分だけ支えます。",
+    description: "人手不足に、社外の力を。必要な仕事を、必要な分だけ支えます。",
     images: ["/og-image.png"],
   },
 };
@@ -105,7 +105,7 @@ export default function ServiceBPO() {
                   className="mt-5 text-green font-semibold leading-[1.18] tracking-[-0.02em]"
                   style={{ fontSize: "clamp(34px, 5vw, 72px)" }}
                 >
-                  人手不足を、<br />多様な働き方へ。
+                  人手不足に、<br />社外の力を。
                 </h1>
                 <p className="mt-8 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
                   採用して人を増やす前に、仕事を外に出すという選択肢があります。カスタマーサクセス。営業支援。SNS。経理・事務。必要な仕事を、必要な分だけ支えます。

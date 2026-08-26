@@ -40,9 +40,9 @@ const PC_PATH =
 const PC_STOPS: Stop[] = [
   { kind: "biz", num: "01", name: "DX", catch: "忙しさを、余白へ。", color: DX, x: 330, y: 78, side: "r", maxW: 160 },
   { kind: "flow", name: "余白", x: 415, y: 190, side: "l", maxW: 88 },
-  { kind: "biz", num: "02", name: "BPO", catch: "人手不足を、多様な働き方へ。", color: BPO, x: 410, y: 400, side: "l", maxW: 176 },
+  { kind: "biz", num: "02", name: "BPO", catch: "人手不足に、社外の力を。", color: BPO, x: 410, y: 400, side: "l", maxW: 176 },
   { kind: "flow", name: "多様な働き方", x: 300, y: 535, side: "r", maxW: 120 },
-  { kind: "biz", num: "03", name: "地域プロデュース", catch: "地域課題を、挑戦のきっかけに。", color: REGION, x: 140, y: 505, side: "b", maxW: 200 },
+  { kind: "biz", num: "03", name: "地域プロデュース", catch: "想いを、挑戦へ。", color: REGION, x: 140, y: 505, side: "b", maxW: 200 },
   { kind: "flow", name: "挑戦", x: 108, y: 320, side: "l", maxW: 80 },
   { kind: "flow", name: "新しい仕事・事業が生まれる", x: 135, y: 155, side: "l", maxW: 130 },
   { kind: "flow", name: "次の余白へ", x: 215, y: 82, side: "a", maxW: 110 },
@@ -59,9 +59,9 @@ const SP_LX = 46; // モバイル：ラベルは川の最大右振れより右�
 const SP_STOPS: Stop[] = [
   { kind: "biz", num: "01", name: "DX", catch: "忙しさを、余白へ。", color: DX, x: 95, y: 80, side: "r", maxW: 190, lx: SP_LX },
   { kind: "flow", name: "余白", x: 75, y: 200, side: "r", maxW: 190, lx: SP_LX },
-  { kind: "biz", num: "02", name: "BPO", catch: "人手不足を、多様な働き方へ。", color: BPO, x: 110, y: 330, side: "r", maxW: 190, lx: SP_LX },
+  { kind: "biz", num: "02", name: "BPO", catch: "人手不足に、社外の力を。", color: BPO, x: 110, y: 330, side: "r", maxW: 190, lx: SP_LX },
   { kind: "flow", name: "多様な働き方", x: 70, y: 460, side: "r", maxW: 190, lx: SP_LX },
-  { kind: "biz", num: "03", name: "地域プロデュース", catch: "地域課題を、挑戦のきっかけに。", color: REGION, x: 105, y: 600, side: "r", maxW: 190, lx: SP_LX },
+  { kind: "biz", num: "03", name: "地域プロデュース", catch: "想いを、挑戦へ。", color: REGION, x: 105, y: 600, side: "r", maxW: 190, lx: SP_LX },
   { kind: "flow", name: "挑戦", x: 75, y: 730, side: "r", maxW: 190, lx: SP_LX },
   { kind: "flow", name: "新しい仕事・事業が生まれる", x: 100, y: 850, side: "r", maxW: 190, lx: SP_LX },
   { kind: "flow", name: "次の余白へ", x: 80, y: 960, side: "r", maxW: 190, lx: SP_LX },

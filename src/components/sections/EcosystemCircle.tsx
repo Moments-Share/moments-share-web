@@ -104,7 +104,7 @@ const LABELS: Label[] = [
     color: BPO,
     num: "02",
     name: "BPO",
-    catch: ["人手不足を、", "多様な働き方へ。"],
+    catch: ["人手不足に、", "社外の力を。"],
   },
   {
     key: "tayou",
@@ -126,7 +126,7 @@ const LABELS: Label[] = [
     color: REGION,
     num: "03",
     name: "地域プロデュース",
-    catch: ["地域課題を、", "挑戦のきっかけに。"],
+    catch: ["想いを、", "挑戦へ。"],
   },
   {
     key: "chosen",
@@ -362,7 +362,7 @@ export function EcosystemCircle() {
                     <span className="font-bold tracking-[0.14em] tabular-nums" style={{ color: BPO, fontSize: 12 }}>02</span>
                     <span className="font-bold" style={{ color: NAVY, fontSize: 18 }}>BPO</span>
                   </div>
-                  <div className="mt-1 font-medium" style={{ color: "rgba(37,40,37,0.72)", fontSize: 14 }}>人手不足を、多様な働き方へ。</div>
+                  <div className="mt-1 font-medium" style={{ color: "rgba(37,40,37,0.72)", fontSize: 14 }}>人手不足に、社外の力を。</div>
                 </div>
 
                 <p className="text-[12px] font-medium tracking-[0.02em]" style={{ color: BPO }}>多様な働き方</p>
@@ -374,7 +374,7 @@ export function EcosystemCircle() {
                     <span className="font-bold tracking-[0.14em] tabular-nums" style={{ color: REGION, fontSize: 12 }}>03</span>
                     <span className="font-bold" style={{ color: NAVY, fontSize: 18 }}>地域プロデュース</span>
                   </div>
-                  <div className="mt-1 font-medium" style={{ color: "rgba(37,40,37,0.72)", fontSize: 14 }}>地域課題を、挑戦のきっかけに。</div>
+                  <div className="mt-1 font-medium" style={{ color: "rgba(37,40,37,0.72)", fontSize: 14 }}>想いを、挑戦へ。</div>
                 </div>
 
                 <p className="text-[12px] font-medium tracking-[0.02em]" style={{ color: REGION }}>挑戦</p>

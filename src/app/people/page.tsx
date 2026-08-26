@@ -34,15 +34,6 @@ const ways = [
   { title: "自分でプロジェクトを始める", desc: "「やってみたい」を持ち込み、挑戦者として動き出す。" },
 ];
 
-// 多様な関わり方が見える一場面。同サイズの反復にしないため向きを混在させる
-const memberPhotos = [
-  { ratio: "3/4", note: "専門人材が現場で手を動かす場面（縦）" },
-  { ratio: "4/5", note: "副業メンバーの作業中（縦）" },
-  { ratio: "1/1", note: "子育てをしながら働く人の一場面（横）" },
-  { ratio: "4/5", note: "学生が経営者へ質問する場面（縦）" },
-  { ratio: "3/4", note: "メンバーが集まって話し合う場面（縦）" },
-];
-
 export default function PeoplePage() {
   return (
     <>
@@ -193,13 +184,6 @@ export default function PeoplePage() {
                 </p>
                 {/* TODO: 実在するFellowを、写真／名前／得意なこと／担当／関わる理由の5項目で追記する。架空の人物は作成しない。 */}
                 <p className="mt-6 text-[13px] tracking-[0.04em] text-muted">※ 他のFellowは準備中。掲載は本人の実在情報のみ。</p>
-              </div>
-
-              {/* 活動中の一場面（証明写真にしない）。向きを混在させて反復を避ける */}
-              <div className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 items-start">
-                {memberPhotos.map((p, i) => (
-                  <PhotoNeeded key={i} ratio={p.ratio} kind="PEOPLE" note={p.note} />
-                ))}
               </div>
             </div>
           </div>

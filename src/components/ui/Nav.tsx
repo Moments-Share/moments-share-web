@@ -12,9 +12,16 @@ const navLinks = [
   { href: "/news", label: "News", en: "お知らせ" },
 ];
 
+const businessLinks = [
+  { href: "/service-dx", label: "DX" },
+  { href: "/service-bpo", label: "BPO" },
+  { href: "/service-produce", label: "地域プロデュース" },
+];
+
 export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [businessOpen, setBusinessOpen] = useState(false);
   // 最上部では透過してヒーローに溶け込み、スクロールで明るいクローム(ivory地)が実体化する。
   // ページごとのヒーロー明暗(heroTone)で透過時の文字色を出し分ける。
 
@@ -61,15 +68,62 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
 
           {/* Desktop links */}
           <nav className="hidden md:flex items-center gap-9 text-[13px] font-bold">
-            {navLinks.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-green"}`}
-              >
-                {label}
-              </Link>
-            ))}
+            {navLinks.map(({ href, label }) =>
+              href === "/#business" ? (
+                <div
+                  key={href}
+                  className="relative"
+                  onMouseEnter={() => setBusinessOpen(true)}
+                  onMouseLeave={() => setBusinessOpen(false)}
+                  onFocus={() => setBusinessOpen(true)}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                      setBusinessOpen(false);
+                    }
+                  }}
+                >
+                  <Link
+                    href={href}
+                    className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-green"}`}
+                    aria-haspopup="true"
+                    aria-expanded={businessOpen}
+                  >
+                    {label}
+                  </Link>
+                  <AnimatePresence>
+                    {businessOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute left-1/2 top-full -translate-x-1/2 pt-3"
+                      >
+                        <div className="min-w-[176px] rounded-xl border border-border bg-ivory py-2 shadow-lg">
+                          {businessLinks.map((b) => (
+                            <Link
+                              key={b.href}
+                              href={b.href}
+                              className="block px-4 py-2.5 text-[13px] font-bold text-navy-ink/80 transition-colors hover:text-green"
+                            >
+                              {b.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-green"}`}
+                >
+                  {label}
+                </Link>
+              )
+            )}
           </nav>
           <Link
             href="/contact"
@@ -124,17 +178,42 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
             </div>
 
             <nav className="flex-1 overflow-y-auto px-6 py-8 flex flex-col justify-center">
-              {navLinks.map(({ href, label, en }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="group flex items-baseline gap-4 py-4 border-b border-charcoal/10"
-                  onClick={() => setOpen(false)}
-                >
-                  <span className="text-green font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 7vw, 38px)" }}>{label}</span>
-                  <span className="text-charcoal/40 text-[12px] font-bold ml-auto self-center">{en}</span>
-                </Link>
-              ))}
+              {navLinks.map(({ href, label, en }) =>
+                href === "/#business" ? (
+                  <div key={href} className="border-b border-charcoal/10">
+                    <Link
+                      href={href}
+                      className="group flex items-baseline gap-4 py-4"
+                      onClick={() => setOpen(false)}
+                    >
+                      <span className="text-green font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 7vw, 38px)" }}>{label}</span>
+                      <span className="text-charcoal/40 text-[12px] font-bold ml-auto self-center">{en}</span>
+                    </Link>
+                    <div className="flex flex-col pb-4 pl-2">
+                      {businessLinks.map((b) => (
+                        <Link
+                          key={b.href}
+                          href={b.href}
+                          className="py-2 pl-4 text-[15px] font-bold text-navy-ink/70 transition-colors hover:text-green"
+                          onClick={() => setOpen(false)}
+                        >
+                          {b.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="group flex items-baseline gap-4 py-4 border-b border-charcoal/10"
+                    onClick={() => setOpen(false)}
+                  >
+                    <span className="text-green font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 7vw, 38px)" }}>{label}</span>
+                    <span className="text-charcoal/40 text-[12px] font-bold ml-auto self-center">{en}</span>
+                  </Link>
+                )
+              )}
             </nav>
 
             <div className="px-6 pb-10 shrink-0">

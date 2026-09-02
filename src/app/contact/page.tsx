@@ -29,33 +29,47 @@ const inputClass =
 export default function ContactPage() {
   return (
     <>
-      <Nav />
+      <Nav heroTone="dark" />
       <main id="main-content">
-        {/* ===== HERO — 大きな見出し。左に問いかけ＋写真、右にフォーム（非対称） ===== */}
-        <section className="pt-28 md:pt-32 pb-20 md:pb-28 px-6 md:px-10">
-          <div className="mx-auto max-w-[1400px]">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-              {/* 左：問いかけ＋現場写真 */}
-              <div className="lg:col-span-5 lg:sticky lg:top-28">
-                <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/45">お問い合わせ</div>
-                <h1 className="mt-5 text-green font-semibold leading-[1.16] tracking-[-0.02em]"
-                    style={{ fontSize: "clamp(34px, 4.8vw, 64px)" }}>
-                  ご相談はこちらから
-                </h1>
-                <p className="mt-8 max-w-md text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
-                  AIを使いたい。人が足りない。地域で何か始めたい。<br />
-                  まだ課題が整理できていなくても大丈夫です。
-                </p>
-                <div className="mt-10 hidden lg:block">
-                  <div className="relative aspect-[4/3] w-full">
-                    <Image src="/photos/hero.png" alt="西尾のまちの風景" fill sizes="40vw" className="object-cover" />
-                  </div>
-                  <p className="mt-3 text-[12px] leading-[1.8] text-muted">話は、このまちのどこかから始まる。</p>
-                </div>
-              </div>
+        {/* ===== HERO — 写真背景ヒーロー（TOPと同じトーン） ===== */}
+        <section className="relative min-h-[58vh] md:min-h-[66vh] overflow-hidden bg-[#16281f]">
+          <div className="absolute inset-0">
+            <Image
+              src="/photos/hero-nishio.jpg"
+              alt="西尾市の川辺の風景"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(to right, rgba(16,32,42,0.82) 0%, rgba(16,32,42,0.58) 40%, rgba(16,32,42,0.18) 72%, rgba(16,32,42,0) 100%)" }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(to bottom, rgba(16,32,42,0) 30%, rgba(16,32,42,0.35) 65%, rgba(16,32,42,0.75) 100%)" }}
+            />
+          </div>
+          <div className="relative z-10 min-h-[58vh] md:min-h-[66vh] flex flex-col justify-end max-w-[1400px] mx-auto w-full px-6 md:px-10 pb-14 md:pb-20 pt-32">
+            <div className="text-[13px] font-bold tracking-[0.14em] text-white/70">お問い合わせ</div>
+            <h1 className="mt-5 text-white font-semibold leading-[1.16] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(34px, 4.8vw, 64px)" }}>
+              ご相談はこちらから
+            </h1>
+            <p className="mt-8 max-w-md text-[16px] md:text-[17px] leading-[2] text-white/80">
+              AIを使いたい。人が足りない。地域で何か始めたい。<br />
+              まだ課題が整理できていなくても大丈夫です。
+            </p>
+          </div>
+        </section>
 
-              {/* 右：フォーム — 重いカードをやめ、下線インプットの編集スタイル */}
-              <div className="lg:col-span-7">
+        {/* ===== フォーム — 本文セクション（レイアウト・コピー維持） ===== */}
+        <section className="pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="lg:grid lg:grid-cols-12">
+              {/* フォーム — 重いカードをやめ、下線インプットの編集スタイル */}
+              <div className="lg:col-span-7 lg:col-start-6">
                 {/*
                   TODO: フォーム送信先を設定してください。
                   静的サイト（output: export）のため、送信にはFormspree等の外部エンドポイントが必要です。

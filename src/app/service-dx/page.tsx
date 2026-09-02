@@ -94,43 +94,44 @@ export default function ServiceDX() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Nav />
+      <Nav heroTone="dark" />
       <main id="main-content">
-        {/* ===== HERO — ページ唯一の最強の瞬間。大きな緑の見出し＋現場写真 ===== */}
-        <section className="pt-28 md:pt-32 pb-16 md:pb-24 px-6 md:px-10 bg-ivory">
-          <div className="mx-auto max-w-[1400px]">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
-              <div className="lg:col-span-7 lg:pb-6">
-                <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/45">DX支援</div>
-                <h1 className="mt-5 text-green font-semibold leading-[1.16] tracking-[-0.02em]"
-                    style={{ fontSize: "clamp(36px, 5.2vw, 76px)" }}>
-                  忙しさを、<br />余白へ。
-                </h1>
-                <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
-                  毎月繰り返している、その仕事。AIや自動化で減らせるかもしれません。請求書。データ転記。日報集計。情報整理。まず業務を整理し、本当に効果のあるところから改善します。
-                </p>
-                <div className="mt-8">
-                  <Link
-                    href="/contact"
-                    className="inline-block text-[14px] font-bold text-navy-ink border-b border-navy-ink/40 pb-0.5 hover:text-green hover:border-green transition-colors"
-                  >
-                    自動化できる業務を相談する →
-                  </Link>
-                </div>
-              </div>
-              <div className="lg:col-span-5">
-                <div className="relative aspect-[4/5] w-full">
-                  <Image
-                    src="/photos/service-dx.png"
-                    alt="現場でPC画面を一緒に見ながら業務を見直す様子"
-                    fill
-                    priority
-                    sizes="(max-width:1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
-                <p className="mt-3 text-[12px] text-muted">同じ画面を見ながら、どの仕事を減らせるかを探す。</p>
-              </div>
+        {/* ===== HERO — 写真背景ヒーロー（TOPと同じトーン） ===== */}
+        <section className="relative min-h-[58vh] md:min-h-[66vh] overflow-hidden bg-[#16281f]">
+          <div className="absolute inset-0">
+            <Image
+              src="/photos/service-dx.png"
+              alt="現場でPC画面を一緒に見ながら業務を見直す様子"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(to right, rgba(16,32,42,0.82) 0%, rgba(16,32,42,0.58) 40%, rgba(16,32,42,0.18) 72%, rgba(16,32,42,0) 100%)" }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(to bottom, rgba(16,32,42,0) 30%, rgba(16,32,42,0.35) 65%, rgba(16,32,42,0.75) 100%)" }}
+            />
+          </div>
+          <div className="relative z-10 min-h-[58vh] md:min-h-[66vh] flex flex-col justify-end max-w-[1400px] mx-auto w-full px-6 md:px-10 pb-14 md:pb-20 pt-32">
+            <div className="text-[13px] font-bold tracking-[0.14em] text-white/70">DX支援</div>
+            <h1 className="mt-5 text-white font-semibold leading-[1.16] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(36px, 5.2vw, 76px)" }}>
+              忙しさを、<br />余白へ。
+            </h1>
+            <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-white/80">
+              毎月繰り返している、その仕事。AIや自動化で減らせるかもしれません。請求書。データ転記。日報集計。情報整理。まず業務を整理し、本当に効果のあるところから改善します。
+            </p>
+            <div className="mt-8">
+              <Link
+                href="/contact"
+                className="inline-block text-[14px] font-bold text-white/85 border-b border-white/40 pb-0.5 hover:text-white hover:border-white transition-colors"
+              >
+                自動化できる業務を相談する →
+              </Link>
             </div>
           </div>
         </section>

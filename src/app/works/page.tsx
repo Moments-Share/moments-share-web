@@ -97,17 +97,35 @@ const projects = [
 export default function WorksPage() {
   return (
     <>
-      <Nav />
+      <Nav heroTone="dark" />
       <main id="main-content">
-        {/* ===== HERO — ページで最も強い見出し ===== */}
-        <section className="pt-28 md:pt-32 pb-14 md:pb-20 px-6 md:px-10">
-          <div className="mx-auto max-w-[1400px]">
-            <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/45">Works（実績）</div>
-            <h1 className="mt-5 text-green font-semibold leading-[1.16] tracking-[-0.02em]"
+        {/* ===== HERO — 写真背景ヒーロー（TOPと同じトーン） ===== */}
+        <section className="relative min-h-[58vh] md:min-h-[66vh] overflow-hidden bg-[#16281f]">
+          <div className="absolute inset-0">
+            <Image
+              src="/photos/hero.png"
+              alt="愛知県西尾の街並み"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(to right, rgba(16,32,42,0.82) 0%, rgba(16,32,42,0.58) 40%, rgba(16,32,42,0.18) 72%, rgba(16,32,42,0) 100%)" }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(to bottom, rgba(16,32,42,0) 30%, rgba(16,32,42,0.35) 65%, rgba(16,32,42,0.75) 100%)" }}
+            />
+          </div>
+          <div className="relative z-10 min-h-[58vh] md:min-h-[66vh] flex flex-col justify-end max-w-[1400px] mx-auto w-full px-6 md:px-10 pb-14 md:pb-20 pt-32">
+            <div className="text-[13px] font-bold tracking-[0.14em] text-white/70">Works（実績）</div>
+            <h1 className="mt-5 text-white font-semibold leading-[1.16] tracking-[-0.02em]"
                 style={{ fontSize: "clamp(34px, 5vw, 68px)" }}>
               ひとつずつ、<br />形に。
             </h1>
-            <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-charcoal/80">
+            <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-white/80">
               企業の業務改善から、地域のプロジェクトまで。
               お客様や仲間と一緒につくってきた仕事をご紹介します。
             </p>

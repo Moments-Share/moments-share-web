@@ -93,44 +93,45 @@ export default function ServiceBPO() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Nav />
+      <Nav heroTone="dark" />
       <main id="main-content">
-        {/* ===== HERO — 雑誌の見開き。大きな緑の見出し＋余白＋主役の写真を非対称に ===== */}
-        <section className="pt-28 md:pt-32 pb-16 md:pb-24 px-6 md:px-10 bg-ivory">
-          <div className="mx-auto max-w-[1400px]">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-end">
-              <div className="lg:col-span-7 lg:pb-4">
-                <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/45">BPO</div>
-                <h1
-                  className="mt-5 text-green font-semibold leading-[1.18] tracking-[-0.02em]"
-                  style={{ fontSize: "clamp(34px, 5vw, 72px)" }}
-                >
-                  人手不足に、<br />社外の力を。
-                </h1>
-                <p className="mt-8 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
-                  採用して人を増やす前に、仕事を外に出すという選択肢があります。カスタマーサクセス。営業支援。SNS。経理・事務。必要な仕事を、必要な分だけ支えます。
-                </p>
-                <Link
-                  href="/contact"
-                  className="mt-9 inline-block text-[14px] font-bold text-navy-ink border-b border-navy-ink/40 pb-0.5 hover:text-green hover:border-green transition-colors"
-                >
-                  外注できる業務を相談する →
-                </Link>
-              </div>
-              <div className="lg:col-span-5">
-                <div className="relative aspect-[4/5] w-full">
-                  <Image
-                    src="/photos/service-bpo.png"
-                    alt="コワーキングスペースで多様な人が働く様子"
-                    fill
-                    priority
-                    sizes="(max-width:1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                </div>
-                <p className="mt-3 text-[12px] text-muted">働き方も、住む場所も違う人が、それぞれの得意を持ち寄る。</p>
-              </div>
-            </div>
+        {/* ===== HERO — 写真背景ヒーロー（TOPと同じトーン） ===== */}
+        <section className="relative min-h-[58vh] md:min-h-[66vh] overflow-hidden bg-[#16281f]">
+          <div className="absolute inset-0">
+            <Image
+              src="/photos/service-bpo.png"
+              alt="コワーキングスペースで多様な人が働く様子"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(to right, rgba(16,32,42,0.82) 0%, rgba(16,32,42,0.58) 40%, rgba(16,32,42,0.18) 72%, rgba(16,32,42,0) 100%)" }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(to bottom, rgba(16,32,42,0) 30%, rgba(16,32,42,0.35) 65%, rgba(16,32,42,0.75) 100%)" }}
+            />
+          </div>
+          <div className="relative z-10 min-h-[58vh] md:min-h-[66vh] flex flex-col justify-end max-w-[1400px] mx-auto w-full px-6 md:px-10 pb-14 md:pb-20 pt-32">
+            <div className="text-[13px] font-bold tracking-[0.14em] text-white/70">BPO</div>
+            <h1
+              className="mt-5 text-white font-semibold leading-[1.18] tracking-[-0.02em]"
+              style={{ fontSize: "clamp(34px, 5vw, 72px)" }}
+            >
+              人手不足に、<br />社外の力を。
+            </h1>
+            <p className="mt-8 max-w-xl text-[15px] md:text-[16px] leading-[2] text-white/80">
+              採用して人を増やす前に、仕事を外に出すという選択肢があります。カスタマーサクセス。営業支援。SNS。経理・事務。必要な仕事を、必要な分だけ支えます。
+            </p>
+            <Link
+              href="/contact"
+              className="mt-9 inline-block text-[14px] font-bold text-white/85 border-b border-white/40 pb-0.5 hover:text-white hover:border-white transition-colors"
+            >
+              外注できる業務を相談する →
+            </Link>
           </div>
         </section>
 

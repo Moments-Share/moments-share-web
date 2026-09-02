@@ -129,22 +129,40 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Nav />
+      <Nav heroTone="dark" />
       <main id="main-content">
 
-        {/* ===== 1. PURPOSE — 存在意義。開いた瞬間に「なぜ在るのか」。1画面1メッセージ・余白・装飾は最小 ===== */}
-        <section className="min-h-[88vh] flex items-center pt-32 md:pt-40 pb-20 md:pb-28 bg-ivory">
-          <div className="mx-auto max-w-[1400px] w-full px-6 md:px-10">
-            <div className="text-[12px] font-bold tracking-[0.24em] text-navy-ink">
+        {/* ===== 1. PURPOSE — 存在意義。写真背景ヒーロー（TOPと同じトーン） ===== */}
+        <section className="relative min-h-[58vh] md:min-h-[66vh] overflow-hidden bg-[#16281f]">
+          <div className="absolute inset-0">
+            <Image
+              src="/photos/hero-nishio.jpg"
+              alt="西尾市の川辺の風景"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(to right, rgba(16,32,42,0.82) 0%, rgba(16,32,42,0.58) 40%, rgba(16,32,42,0.18) 72%, rgba(16,32,42,0) 100%)" }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(to bottom, rgba(16,32,42,0) 30%, rgba(16,32,42,0.35) 65%, rgba(16,32,42,0.75) 100%)" }}
+            />
+          </div>
+          <div className="relative z-10 min-h-[58vh] md:min-h-[66vh] flex flex-col justify-end max-w-[1400px] mx-auto w-full px-6 md:px-10 pb-16 md:pb-24 pt-32">
+            <div className="text-[12px] font-bold tracking-[0.24em] text-white/70">
               Purpose — 存在意義
             </div>
             <h1
-              className="mt-10 md:mt-14 text-green font-semibold leading-[1.14] tracking-[-0.03em] max-w-[16ch]"
+              className="mt-10 md:mt-14 text-white font-semibold leading-[1.14] tracking-[-0.03em] max-w-[16ch]"
               style={{ fontSize: "clamp(40px, 8vw, 104px)" }}
             >
               すべてが繋がる瞬間を、共創する。
             </h1>
-            <p className="mt-12 md:mt-16 max-w-xl text-[16px] md:text-[18px] leading-[2.1] text-navy-ink/80">
+            <p className="mt-12 md:mt-16 max-w-xl text-[16px] md:text-[18px] leading-[2.1] text-white/80">
               人と人。仕事と人。想いと地域。
               そのすべてが繋がる瞬間に、価値が生まれる。
               私たちは、その瞬間を共に創るために在ります。

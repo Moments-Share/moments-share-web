@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
+import { SitePhotoFill } from "@/components/ui/SitePhoto";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -31,14 +31,7 @@ export function Hero() {
           animate={{ scale: [1.12, 1.04], x: ["0%", "-2%"], y: ["0%", "1%"] }}
           transition={{ duration: 18, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
         >
-          <Image
-            src="/photos/hero-nishio.jpg"
-            alt="西尾市の川辺の風景"
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
-          />
+          <SitePhotoFill name="heroImage" priority sizes="100vw" />
         </motion.div>
         {/* 暗幕グラデーション（明るい写真用：左＋下を暗く、右上の空と緑はクリア） */}
         <div

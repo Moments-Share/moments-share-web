@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { motion, useInView, useReducedMotion } from "framer-motion";
+import { SitePhotoFill } from "@/components/ui/SitePhoto";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -28,7 +28,7 @@ export function VisionNishio() {
     <section ref={ref} aria-labelledby="vision-nishio-heading" className="relative overflow-hidden bg-[#16281f]">
       {/* 背景：西尾の風景写真 */}
       <div className="absolute inset-0">
-        <Image src="/photos/hero-nishio.jpg" alt="地域の川辺の風景" fill sizes="100vw" className="object-cover object-center" />
+        <SitePhotoFill name="visionImage" sizes="100vw" />
         {/* 暗色オーバーレイ（左〜下を暗く／ネイビー系・可読性確保） */}
         <div
           className="absolute inset-0"
@@ -72,8 +72,11 @@ export function VisionNishio() {
           </motion.span>
         </h2>
 
-        <motion.div {...up(0.55)} className="mt-10 md:mt-14 max-w-[46ch] space-y-2">
-          <p className="text-white/75 leading-[2.0]" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
+        <motion.div {...up(0.55)} className="mt-10 md:mt-14 max-w-[46em] space-y-5">
+          <p className="font-bold text-leaf leading-[1.6] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 28px)" }}>
+            生きててよかった！があふれる世界を。
+          </p>
+          <p className="max-w-[32em] text-white/75 leading-[2.0]" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
             挑戦が当たり前になり、地域内外の人や企業とともに、事業を共創し続ける。
           </p>
         </motion.div>

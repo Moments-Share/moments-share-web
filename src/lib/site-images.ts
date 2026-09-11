@@ -1,181 +1,202 @@
 /**
  * サイトで使う写真の一元管理。
  *
- * 実写が用意できたら `src` にパスを入れるだけで、その写真を使っている箇所がすべて差し替わる。
- * `src` が null の間は、必要な写真の条件（`spec`）を表示するプレースホルダーが描画される。
+ * 各枠に「どのファイルを置くか」を先に宣言しておく。ファイルが public/ にまだ無いあいだは、
+ * 必要な写真の条件を表示するプレースホルダーが出る。**画像をアップロードしてビルドし直せば、
+ * 設定を書き換えなくても自動でその写真に切り替わる**（判定は available-photos.generated.ts）。
+ *
+ * ファイル名は「コーポレートサイト用 画像素材一覧」の採番に合わせている。
+ *   public/photos/01_hero_main.jpg … 30_night_nishio.jpg
+ *   public/logo/logo_horizontal.png / logo_vertical.png / favicon.png
  *
  * 撮影・選定のルール:
- *   - 実写を最優先。フリー素材は仮置き用途に限る
  *   - 明るい自然光。カメラ目線より、仕事中・会話中・活動中の様子
- *   - 握手のストックフォト、青いAI・回路・ロボット・ネオン画像は使わない
- *   - DXは「PCを触っている人」ではなく、実際のUI・業務フロー・成果数値を優先
+ *   - DXは「PCを触っている人」だけでなく、実際のUI・業務フロー・成果数値を写す
  */
 
+import { availablePhotos } from "./available-photos.generated";
+
 export type SiteImage = {
-  /** public/ からのパス。null の間はプレースホルダーを表示する */
-  src: string | null;
+  /** public/ からのパス。ファイルが実在しないあいだはプレースホルダーになる */
+  src: string;
   /** 代替テキスト。差し替え時は実際に写っているものに合わせて更新する */
   alt: string;
-  /** 差し替え時の撮影・選定条件。プレースホルダーに表示される */
+  /** その枠に必要な写真の条件。プレースホルダーに表示される */
   spec: string;
   /** 標準の表示比率 */
   ratio: string;
   /** 置かれる背景の明暗。プレースホルダーの配色に使う */
   tone: "light" | "dark";
+  /** src がまだ無いときに使う既存素材。これも無ければプレースホルダーになる */
+  fallbackSrc?: string;
 };
-
-export type SiteImageKey =
-  | "heroImage"
-  | "aboutImage"
-  | "dxImage"
-  | "bpoImage"
-  | "regionImage"
-  | "visionImage";
 
 /**
- * プレースホルダーに撮影条件のテキストを出すかどうか。
- * 実写がすべて揃ったら false にすると、無地のブロックだけになる。
+ * 実際に表示するパスを返す。指定のファイルがまだ無ければ既存素材へ、
+ * それも無ければ null（プレースホルダー表示）。
  */
+export function resolveImageSrc(image: SiteImage): string | null {
+  if (availablePhotos.includes(image.src)) return image.src;
+  if (image.fallbackSrc && availablePhotos.includes(image.fallbackSrc)) return image.fallbackSrc;
+  return null;
+}
+
+/** その枠に表示できる画像があるか */
+export function isImageReady(image: SiteImage): boolean {
+  return resolveImageSrc(image) !== null;
+}
+
+/** プレースホルダーに撮影条件のテキストを出すか。実写がすべて揃ったら false にできる */
 export const SHOW_PHOTO_SPECS = true;
 
-export const siteImages: Record<SiteImageKey, SiteImage> = {
-  heroImage: {
-    src: "/photos/hero-nishio.jpg",
-    alt: "西尾市の川辺の風景",
-    spec: "西尾の川辺。夕方の自然光。確定素材。",
-    ratio: "16/9",
-    tone: "dark",
-  },
+const img = (
+  src: string,
+  alt: string,
+  spec: string,
+  ratio: string,
+  tone: "light" | "dark" = "light",
+  fallbackSrc?: string,
+): SiteImage => ({ src, alt, spec, ratio, tone, fallbackSrc });
 
-  aboutImage: {
-    src: null,
-    alt: "仕事に向き合う人の様子",
-    spec: "考える・働く・挑戦する人のドキュメンタリー写真。縦位置。自然光。カメラ目線・決めポーズは避ける。",
-    ratio: "4/5",
-    tone: "light",
-  },
-
-  dxImage: {
-    src: null,
-    alt: "業務の流れを整理している様子",
-    spec: "実際の業務画面・フロー図・成果数値が写ったもの。横位置。「PCを触っている人」だけの絵にしない。",
-    ratio: "16/9",
-    tone: "light",
-  },
-
-  bpoImage: {
-    src: null,
-    alt: "多様な働き方で仕事を進める様子",
-    spec: "実際の作業風景。子育て中・副業・地域の人など多様な担い手が分かるもの。横位置。握手写真は不可。",
-    ratio: "4/3",
-    tone: "light",
-  },
-
-  regionImage: {
-    src: null,
-    alt: "地域プロジェクトの現場",
-    spec: "地域イベント・プロジェクトの現場。人が動いている瞬間。横位置。",
-    ratio: "4/3",
-    tone: "light",
-  },
-
-  visionImage: {
-    // 暫定でHEROと同じ確定素材を流用している。VISIONは全面表示なので別カットへの差し替えを推奨。
-    src: "/photos/hero-nishio.jpg",
-    alt: "西尾の広い風景",
-    spec: "西尾の広い風景（川・田畑・街並みの引き）。横位置。全面表示のため高解像度が必要。",
-    ratio: "21/9",
-    tone: "dark",
-  },
+/* ---------------------------------------------------------------
+   TOPページ（01〜06）
+   --------------------------------------------------------------- */
+const top = {
+  heroImage: img(
+    "/photos/01_hero_main.jpg",
+    "西尾の川と街並みを見渡す風景",
+    "西尾の広い風景。晴天の引き。全面表示のため高解像度が必要。",
+    "16/9",
+    "dark",
+    // 差し替えまでは、確定素材の西尾の川辺を出しておく
+    "/photos/hero-nishio.jpg",
+  ),
+  aboutImage: img(
+    "/photos/02_about_challenger.jpg",
+    "前を見据える挑戦者",
+    "考える・働く・挑戦する人のドキュメンタリー写真。縦位置。自然光。",
+    "4/5",
+  ),
+  dxImage: img(
+    "/photos/03_business_dx.jpg",
+    "業務データのグラフを画面で確認している様子",
+    "実際の業務画面・フロー図・成果数値が写ったもの。横位置。",
+    "16/9",
+  ),
+  bpoImage: img(
+    "/photos/04_business_bpo.jpg",
+    "問い合わせ対応をしている様子",
+    "実際の作業風景。多様な担い手が分かるもの。横位置。",
+    "4/3",
+  ),
+  regionImage: img(
+    "/photos/05_business_region.jpg",
+    "地域イベントに人が集まっている様子",
+    "地域イベント・プロジェクトの現場。人が動いている瞬間。横位置。",
+    "4/3",
+  ),
+  visionImage: img(
+    "/photos/06_vision_nishio.jpg",
+    "夕暮れの西尾の風景",
+    "西尾の広い風景（夕景）。横位置。全面表示のため高解像度が必要。",
+    "21/9",
+    "dark",
+    "/photos/hero-nishio.jpg",
+  ),
 };
 
-/** newsImages にまだ登録がない記事に使う。記事を足したら newsImages にも1件足す。 */
-export const newsFallbackImage: SiteImage = {
-  src: null,
-  alt: "プロジェクトの様子",
-  spec: "この記事に対応する現場写真。横位置。",
-  ratio: "4/3",
-  tone: "light",
+/* ---------------------------------------------------------------
+   DXページ（07〜10）
+   --------------------------------------------------------------- */
+const dx = {
+  dxPageHero: img("/photos/07_dx_hero.jpg", "業務画面に向かう手元", "DXページのHERO。横位置。全面表示。", "16/9", "dark"),
+  dxWorkflow: img("/photos/08_dx_workflow.jpg", "業務フローを図に整理している様子", "業務フロー・判断ロジックの整理。横位置。", "16/9"),
+  dxAiSystem: img("/photos/09_dx_ai_system.jpg", "システム画面を確認している様子", "AI・システム活用の実際の画面。横位置。", "16/9"),
+  dxMeeting: img("/photos/10_dx_meeting.jpg", "打ち合わせでヒアリングしている様子", "ヒアリング・伴走支援の場面。横位置。", "16/9"),
 };
 
-/** NEWSの各記事に添える写真。news.ts の slug をキーにする */
+/* ---------------------------------------------------------------
+   BPOページ（11〜14）
+   --------------------------------------------------------------- */
+const bpo = {
+  bpoPageHero: img("/photos/11_bpo_hero.jpg", "対応中のオペレーター", "BPOページのHERO。横位置。全面表示。", "16/9", "dark"),
+  bpoCs: img("/photos/12_bpo_cs.jpg", "カスタマーサポートの様子", "カスタマーサポートの実務風景。横位置。", "4/3"),
+  bpoAdmin: img("/photos/13_bpo_admin.jpg", "事務作業の手元", "事務・バックオフィスの実務風景。横位置。", "4/3"),
+  bpoRemote: img("/photos/14_bpo_remote.jpg", "自宅から働く様子", "リモートワークの実際の様子。横位置。", "4/3"),
+};
+
+/* ---------------------------------------------------------------
+   地域プロデュースページ（15〜18）
+   --------------------------------------------------------------- */
+const region = {
+  regionPageHero: img("/photos/15_region_hero.jpg", "地域の催しに集まる人々", "地域プロデュースページのHERO。横位置。全面表示。", "16/9", "dark"),
+  regionEducation: img("/photos/16_region_education.jpg", "学生と社会人が話している様子", "教育・キャリアの場面。横位置。", "4/3"),
+  regionProject: img("/photos/17_region_project.jpg", "現場でプロジェクトを進める様子", "プロジェクトの現場。横位置。", "4/3"),
+  regionEvent: img("/photos/18_region_event.jpg", "西尾のイベント会場", "イベント当日の様子。横位置。", "16/9"),
+};
+
+/* ---------------------------------------------------------------
+   共創パートナー（19〜21）／ NEWS（22）
+   --------------------------------------------------------------- */
+const people = {
+  partnersScene: img("/photos/19_partners_scene.jpg", "パートナーと共に作業している様子", "共創パートナーのイメージ。横位置。", "16/9"),
+  teamHand: img("/photos/20_team_hand.jpg", "手を重ねるチーム", "共創・仲間のイメージ。横位置。", "16/9"),
+  partnerPlaceholder: img("/photos/21_partner_placeholder.jpg", "人物写真の準備中", "本人の実写に差し替えるまでの代替。縦位置。", "4/5"),
+  newsThumbnail: img("/photos/22_news_thumbnail.jpg", "新芽と光", "NEWSの既定サムネイル。横位置。", "4/3"),
+};
+
+/* ---------------------------------------------------------------
+   背景・装飾（23〜30）
+   --------------------------------------------------------------- */
+const decor = {
+  leafSunlight: img("/photos/23_leaf_sunlight.jpg", "木漏れ日の葉", "背景・装飾：リーフ。", "4/3"),
+  skyCloud: img("/photos/24_sky_cloud.jpg", "青空と雲", "背景・装飾：空・雲。", "16/9"),
+  riverPath: img("/photos/25_river_path.jpg", "矢作川沿いの道", "背景・装飾：矢作川・自然。", "16/9"),
+  workspaceDetail: img("/photos/26_workspace_detail.jpg", "ノートとペンのある机", "背景・装飾：ワークシーン。", "4/3"),
+  nishioTown: img("/photos/27_nishio_town.jpg", "西尾の街並み", "背景・装飾：西尾の街並み。", "16/9"),
+  growthPlant: img("/photos/28_growth_plant.jpg", "土から伸びる新芽", "背景・装飾：成長・挑戦。", "4/3"),
+  woodLight: img("/photos/29_wood_light.jpg", "窓から差し込む光", "背景・装飾：余白・光。", "4/3"),
+  nightNishio: img("/photos/30_night_nishio.jpg", "夜の西尾の風景", "背景・装飾：西尾の夜景。必要に応じて使用。", "16/9", "dark"),
+};
+
+export const siteImages = { ...top, ...dx, ...bpo, ...region, ...people, ...decor };
+
+export type SiteImageKey = keyof typeof siteImages;
+
+/* ---------------------------------------------------------------
+   NEWS の記事ごとの写真。news.ts の slug をキーにする
+   --------------------------------------------------------------- */
+export const newsFallbackImage: SiteImage = siteImages.newsThumbnail;
+
 export const newsImages: Record<string, SiteImage> = {
-  founding: {
-    src: null,
-    alt: "設立時の様子",
-    spec: "設立時のメンバー写真、または西尾の拠点。横位置。",
-    ratio: "4/3",
-    tone: "light",
-  },
-  "workstyle-zukan": {
-    src: null,
-    alt: "西尾働き方図鑑の取材風景",
-    spec: "働き方図鑑の取材・撮影現場。話を聞いている場面。横位置。",
-    ratio: "4/3",
-    tone: "light",
-  },
-  "core-shift-launch": {
-    src: null,
-    alt: "DX支援の現場",
-    spec: "DX研修または導入支援の現場。実際の画面や資料が写るとよい。横位置。",
-    ratio: "4/3",
-    tone: "light",
-  },
+  founding: siteImages.nishioTown,
+  "workstyle-zukan": siteImages.regionEducation,
+  "core-shift-launch": siteImages.dxImage,
 };
 
+/* ---------------------------------------------------------------
+   共創パートナー。名前・役割は実在の方の情報に差し替える
+   --------------------------------------------------------------- */
 export type Partner = {
   name: string;
   role: string;
   image: SiteImage;
 };
 
-/**
- * 共創パートナー。
- * 名前・役割はいずれも仮置き。実在の方の情報に差し替えて使う。
- */
 export const partners: Partner[] = [
-  {
-    name: "お名前",
-    role: "役割",
-    image: {
-      src: null,
-      alt: "共創パートナーの人物写真",
-      spec: "本人の実写。縦位置。仕事中か、自然な表情のポートレート。",
-      ratio: "4/5",
-      tone: "light",
-    },
-  },
-  {
-    name: "お名前",
-    role: "役割",
-    image: {
-      src: null,
-      alt: "共創パートナーの人物写真",
-      spec: "本人の実写。縦位置。仕事中か、自然な表情のポートレート。",
-      ratio: "4/5",
-      tone: "light",
-    },
-  },
-  {
-    name: "お名前",
-    role: "役割",
-    image: {
-      src: null,
-      alt: "共創パートナーの人物写真",
-      spec: "本人の実写。縦位置。仕事中か、自然な表情のポートレート。",
-      ratio: "4/5",
-      tone: "light",
-    },
-  },
-  {
-    name: "お名前",
-    role: "役割",
-    image: {
-      src: null,
-      alt: "共創パートナーの人物写真",
-      spec: "本人の実写。縦位置。仕事中か、自然な表情のポートレート。",
-      ratio: "4/5",
-      tone: "light",
-    },
-  },
+  { name: "お名前", role: "役割", image: siteImages.partnerPlaceholder },
+  { name: "お名前", role: "役割", image: siteImages.partnerPlaceholder },
+  { name: "お名前", role: "役割", image: siteImages.partnerPlaceholder },
+  { name: "お名前", role: "役割", image: siteImages.partnerPlaceholder },
 ];
+
+/* ---------------------------------------------------------------
+   ロゴ
+   --------------------------------------------------------------- */
+export const logos = {
+  horizontal: "/logo/logo_horizontal.png",
+  vertical: "/logo/logo_vertical.png",
+  favicon: "/logo/favicon.png",
+  /** 差し替えが済むまで使う現行ロゴ */
+  currentMark: "/logo/logo-3.png",
+};

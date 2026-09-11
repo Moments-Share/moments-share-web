@@ -1,5 +1,7 @@
 import Image from "next/image";
 import {
+  isImageReady,
+  resolveImageSrc,
   SHOW_PHOTO_SPECS,
   siteImages,
   type SiteImage,
@@ -54,9 +56,9 @@ export function SitePhoto({
       className={`relative w-full overflow-hidden ${className}`}
       style={{ aspectRatio: ratio ?? resolved.ratio }}
     >
-      {resolved.src ? (
+      {isImageReady(resolved) ? (
         <Image
-          src={resolved.src}
+          src={resolveImageSrc(resolved) as string}
           alt={resolved.alt}
           fill
           sizes={sizes}
@@ -81,11 +83,12 @@ export function SitePhotoFill({
   priority?: boolean;
 }) {
   const image = siteImages[name];
-  if (!image.src) return <PhotoSpec image={image} />;
+  const src = resolveImageSrc(image);
+  if (!src) return <PhotoSpec image={image} />;
 
   return (
     <Image
-      src={image.src}
+      src={src}
       alt={image.alt}
       fill
       sizes={sizes}

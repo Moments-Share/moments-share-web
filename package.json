@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "predev": "node scripts/scan-photos.mjs",
     "build": "next build",
+    "prebuild": "node scripts/scan-photos.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "photos": "node scripts/scan-photos.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",

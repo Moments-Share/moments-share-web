@@ -11,8 +11,7 @@ const indicators = [
   { value: "3", unit: "社", label: "BPO支援" },
   { value: "4", unit: "件", label: "地域プロジェクト" },
   { value: "5", unit: "名", label: "共創パートナー" },
-  // 実数が決まり次第 value を差し替える
-  { value: "◎", unit: "名", label: "挑戦者数" },
+  { value: "2", unit: "名", label: "新規挑戦者" },
 ];
 
 export function Kpi() {

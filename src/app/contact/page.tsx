@@ -56,13 +56,10 @@ export default function ContactPage() {
 
         {/* ===== フォーム — 本文セクション（レイアウト・コピー維持） ===== */}
         <section className="pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10">
-          <div className="mx-auto max-w-[1400px]">
-            <div className="lg:grid lg:grid-cols-12">
-              {/* フォーム — 重いカードをやめ、下線インプットの編集スタイル */}
-              <div className="lg:col-span-7 lg:col-start-6">
-                <ContactForm />
-              </div>
-            </div>
+          {/* フォーム — 重いカードをやめ、下線インプットの編集スタイル。
+              広い画面でも左に余白だけが残らないよう、中央に置いて幅を抑える */}
+          <div className="mx-auto max-w-[860px]">
+            <ContactForm />
           </div>
         </section>
       </main>

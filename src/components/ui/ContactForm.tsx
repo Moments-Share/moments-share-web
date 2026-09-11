@@ -48,7 +48,7 @@ function buildMailtoHref(form: HTMLFormElement): string {
 const mailLink = (
   <a
     href={`mailto:${CONTACT_EMAIL}`}
-    className="text-navy-ink border-b border-navy-ink/40 pb-0.5 font-bold hover:text-terra-ink hover:border-terra-ink transition-colors"
+    className="text-navy-ink border-b border-navy-ink/40 pb-0.5 font-bold hover:text-deep-green hover:border-deep-green transition-colors"
   >
     {CONTACT_EMAIL}
   </a>
@@ -107,7 +107,7 @@ export function ContactForm() {
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-8 text-[14px] font-bold text-charcoal/60 underline underline-offset-4 transition-colors hover:text-terra-ink"
+          className="mt-8 text-[14px] font-bold text-charcoal/60 underline underline-offset-4 transition-colors hover:text-deep-green"
         >
           フォームに戻る
         </button>
@@ -129,7 +129,7 @@ export function ContactForm() {
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-8 text-[14px] font-bold text-charcoal/60 underline underline-offset-4 transition-colors hover:text-terra-ink"
+          className="mt-8 text-[14px] font-bold text-charcoal/60 underline underline-offset-4 transition-colors hover:text-deep-green"
         >
           続けてもう1件送る
         </button>
@@ -277,7 +277,7 @@ export function ContactForm() {
               <>
                 <a
                   href={telHref}
-                  className="text-navy-ink border-b border-navy-ink/40 pb-0.5 font-bold hover:text-terra-ink hover:border-terra-ink transition-colors"
+                  className="text-navy-ink border-b border-navy-ink/40 pb-0.5 font-bold hover:text-deep-green hover:border-deep-green transition-colors"
                 >
                   {company.tel}
                 </a>

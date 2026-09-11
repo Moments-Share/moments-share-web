@@ -31,7 +31,7 @@ export function NewsPreview() {
 
             <Link
               href="/news"
-              className="border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-terra-ink hover:text-terra-ink"
+              className="border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
             >
               お知らせをすべて見る →
             </Link>

@@ -223,7 +223,7 @@ export default function AboutPage() {
                       {b.lead}
                     </div>
                     <p className="mt-4 max-w-xl text-[15px] md:text-[17px] leading-[2.1] text-charcoal/80">{b.body}</p>
-                    <span className="mt-5 inline-block text-[13px] font-bold text-navy-ink border-b border-navy-ink/40 pb-0.5 group-hover:text-terra-ink group-hover:border-terra-ink transition-colors">
+                    <span className="mt-5 inline-block text-[13px] font-bold text-navy-ink border-b border-navy-ink/40 pb-0.5 group-hover:text-deep-green group-hover:border-deep-green transition-colors">
                       詳しく見る →
                     </span>
                   </div>
@@ -389,7 +389,7 @@ export default function AboutPage() {
                       </dt>
                       <dd className="text-[16px] md:text-[17px] text-navy-ink">
                         {row.email ? (
-                          <a href="mailto:branding@momentsshare.com" className="text-navy-ink font-bold border-b border-navy-ink/40 pb-0.5 hover:text-terra-ink hover:border-terra-ink transition-colors">
+                          <a href="mailto:branding@momentsshare.com" className="text-navy-ink font-bold border-b border-navy-ink/40 pb-0.5 hover:text-deep-green hover:border-deep-green transition-colors">
                             {row.value}
                           </a>
                         ) : (

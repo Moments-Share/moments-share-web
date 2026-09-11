@@ -17,6 +17,7 @@
   --color-terracotta-ink: #a85a34; /* background地4.8:1 ／ 白文字5.1:1 AA */
   --color-sage-ink: #4a6139;       /* background地6.4:1 AA */
   --color-cream: #f0e6d8;          /* 暗い写真の上に置く生成り。#16281f地13.7:1 */
+  --color-sage-light: #a8c489;     /* 暗い写真の上に置くセージ。#16222b地8.5:1 AA */
 
   /* --- 既存クラス名のエイリアス。呼び出し側を壊さずに新パレットへ寄せる --- */
   --color-ivory: #f8f5ef;
@@ -39,7 +40,7 @@
   --color-teal: #c97a56;
   --color-accent: #c97a56;
   --color-coral: #c97a56;
-  --color-dx: #a85a34;           /* DX = 挑戦の色 */
+  --color-dx: #315a49;           /* DX = 濃いグリーン */
   --color-region: #6d8b5a;       /* 地域プロデュース = 地域の色 */
   --color-border: rgba(34, 34, 34, 0.12);
 
@@ -87,7 +88,7 @@
   }
 
   ::selection {
-    background: #c97a56;
+    background: #6d8b5a;
     color: #fff;
   }
 }
@@ -183,10 +184,10 @@ html[data-js] .rv-load {
     transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
   }
 
-  /* ① 明るい地(アイボリー/白)上の主ボタン＝CTA。テラコッタ枠線・文字 → hover塗り＋白文字。
-     クラス名は既存の呼び出しを壊さないため据え置き（配色のみブランドのCTA色に変更）。 */
-  .btn-ghost-navy { border-color: var(--color-terra-deep); color: var(--color-terra-deep); }
-  .btn-ghost-navy:hover { background-color: var(--color-terra-deep); color: #fff; }
+  /* ① 明るい地(アイボリー/白)上の主ボタン＝CTA。濃いグリーンの枠線・文字 → hover塗り＋白文字。
+     ivory地7.4:1 ／ 白文字7.8:1 AA。クラス名は呼び出し側を壊さないため据え置き。 */
+  .btn-ghost-navy { border-color: var(--color-deep-green); color: var(--color-deep-green); }
+  .btn-ghost-navy:hover { background-color: var(--color-deep-green); color: #fff; }
 
   /* ② 暗いヒーロー上：白枠線・文字 → hover白塗り＋ネイビー文字 */
   .btn-ghost-on-dark { border-color: #fff; color: #fff; }

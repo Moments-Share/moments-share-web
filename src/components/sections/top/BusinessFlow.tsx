@@ -28,7 +28,7 @@ type SubBusiness = {
   body: string;
   href: string;
   image: SiteImageKey;
-  /** 事業ラベルの色。3事業を同じ色で並べない */
+  /** 事業ラベルの色。3事業を同じ色で並べない（DX=濃緑／BPO=チャコール／地域=セージ） */
   labelClass: string;
 };
 
@@ -145,7 +145,7 @@ export function BusinessFlow() {
 
                   <Link
                     href={b.href}
-                    className="mt-6 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-terra-ink hover:text-terra-ink"
+                    className="mt-6 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
                   >
                     {b.label}を詳しく →
                   </Link>

@@ -262,7 +262,7 @@ export default function WorksPage() {
 
             <p className="mt-14 text-[15px] leading-[2] text-charcoal/80">
               ほかにも地域のプロジェクトに取り組んでいます。
-              <Link href="/service-produce" className="ml-1 text-navy-ink border-b border-navy-ink/40 pb-0.5 font-bold hover:text-terra-ink hover:border-terra-ink transition-colors">地域プロデュースを見る →</Link>
+              <Link href="/service-produce" className="ml-1 text-navy-ink border-b border-navy-ink/40 pb-0.5 font-bold hover:text-deep-green hover:border-deep-green transition-colors">地域プロデュースを見る →</Link>
             </p>
           </div>
         </section>

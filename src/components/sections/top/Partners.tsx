@@ -52,8 +52,8 @@ export function Partners() {
           <div className="lg:col-span-5">
             <Reveal delay={0.15}>
               <p className="text-[11px] font-bold tracking-[0.2em] text-charcoal/45">募集する分野</p>
-              {/* 上端だけテラコッタの細線。色は差さずに視線の起点をつくる */}
-              <ul className="mt-6 border-t-2 border-terracotta">
+              {/* 上端だけセージの細線。色は差さずに視線の起点をつくる */}
+              <ul className="mt-6 border-t-2 border-sage">
                 {fields.map((field) => (
                   <li
                     key={field}

@@ -89,10 +89,10 @@ export function VisionNishio() {
               >
                 240
               </span>
-              {/* 数字の足元にテラコッタの短い線。色数を増やさずに視線を止める */}
+              {/* 数字の足元に明るいセージの短い線。色数を増やさずに視線を止める */}
               <span
                 aria-hidden
-                className="absolute bottom-[0.14em] left-0 block h-[6px] w-[38%] bg-terracotta md:h-[10px]"
+                className="absolute bottom-[0.14em] left-0 block h-[6px] w-[38%] bg-sage-light md:h-[10px]"
               />
             </span>
             <span className="font-bold text-white" style={{ fontSize: "clamp(30px, 5vw, 66px)" }}>

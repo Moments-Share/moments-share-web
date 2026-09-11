@@ -84,7 +84,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
                 >
                   <Link
                     href={href}
-                    className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-terra-ink"}`}
+                    className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-deep-green"}`}
                     aria-haspopup="true"
                     aria-expanded={businessOpen}
                   >
@@ -104,7 +104,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
                             <Link
                               key={b.href}
                               href={b.href}
-                              className="block px-4 py-2.5 text-[13px] font-bold text-navy-ink/80 transition-colors hover:text-terra-ink"
+                              className="block px-4 py-2.5 text-[13px] font-bold text-navy-ink/80 transition-colors hover:text-deep-green"
                             >
                               {b.label}
                             </Link>
@@ -118,7 +118,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
                 <Link
                   key={href}
                   href={href}
-                  className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-terra-ink"}`}
+                  className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-deep-green"}`}
                 >
                   {label}
                 </Link>
@@ -194,7 +194,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
                         <Link
                           key={b.href}
                           href={b.href}
-                          className="py-2 pl-4 text-[15px] font-bold text-navy-ink/70 transition-colors hover:text-terra-ink"
+                          className="py-2 pl-4 text-[15px] font-bold text-navy-ink/70 transition-colors hover:text-deep-green"
                           onClick={() => setOpen(false)}
                         >
                           {b.label}

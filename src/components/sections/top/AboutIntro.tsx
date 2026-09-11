@@ -35,7 +35,7 @@ export function AboutIntro() {
 
             <Link
               href="/about"
-              className="mt-9 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-terra-ink hover:text-terra-ink"
+              className="mt-9 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
             >
               私たちについて →
             </Link>

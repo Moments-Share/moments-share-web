@@ -86,7 +86,7 @@ export default function NewsPage() {
             <div className="mt-16">
               <Link
                 href="/"
-                className="text-[12px] font-bold tracking-[0.08em] text-charcoal/40 hover:text-terra-ink transition-colors"
+                className="text-[12px] font-bold tracking-[0.08em] text-charcoal/40 hover:text-deep-green transition-colors"
               >
                 ← ホームへ戻る
               </Link>

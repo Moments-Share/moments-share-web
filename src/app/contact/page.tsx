@@ -66,7 +66,7 @@ export default function ContactPage() {
                 日程を決めて話したい方へ
               </p>
               <p className="mt-3 max-w-[32em] text-[13px] leading-[2] text-charcoal/65">
-                空いている時間からお選びいただけます。フォームの入力は不要です。
+                空いている時間からお選びいただけます。下のフォームの入力は不要です。
               </p>
               <p className="mt-4">
                 <BookingLink>予約ページを開く</BookingLink>

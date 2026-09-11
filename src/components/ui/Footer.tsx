@@ -71,8 +71,8 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="relative block h-11 w-11 shrink-0">
-                <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="44px" className="object-contain" />
+              <span className="relative block h-11 w-9 shrink-0">
+                <Image src="/logo/logo-3-trim.png" alt="Moments Share ロゴ" fill sizes="36px" className="object-contain" />
               </span>
               <span className="text-[20px] font-black tracking-[0.03em] text-navy-ink">
                 Moments Share

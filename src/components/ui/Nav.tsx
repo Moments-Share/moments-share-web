@@ -58,8 +58,8 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
         )}
         <div className="relative mx-auto max-w-[1400px] px-6 md:px-10 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-            <span className="relative block h-12 w-12 shrink-0 -my-2">
-              <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="48px" className="object-contain" priority />
+            <span className="relative block h-12 w-10 shrink-0 -my-2">
+              <Image src="/logo/logo-3-trim.png" alt="Moments Share ロゴ" fill sizes="40px" className="object-contain" priority />
             </span>
             <span className={`text-[17px] font-black tracking-[0.03em] transition-colors duration-200 ${whiteText ? "text-white" : "text-navy-ink"}`}>
               Moments Share
@@ -161,8 +161,8 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
           >
             <div className="h-16 px-6 flex items-center justify-between bg-ivory border-b border-border shrink-0">
               <span className="flex items-center gap-2">
-                <span className="relative block h-9 w-9 shrink-0">
-                  <Image src="/logo/logo-3.png" alt="Moments Share ロゴ" fill sizes="36px" className="object-contain" />
+                <span className="relative block h-9 w-7 shrink-0">
+                  <Image src="/logo/logo-3-trim.png" alt="Moments Share ロゴ" fill sizes="29px" className="object-contain" />
                 </span>
                 <span className="text-[17px] font-black tracking-[0.03em] text-navy-ink">
                   Moments Share

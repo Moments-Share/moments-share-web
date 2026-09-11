@@ -4,6 +4,7 @@
 
 export const availablePhotos: readonly string[] = [
   "/logo/logo-1.png",
+  "/logo/logo-3-trim.png",
   "/logo/logo-3.png",
   "/photos/01_hero_main.jpg",
   "/photos/02_about_challenger.jpg",

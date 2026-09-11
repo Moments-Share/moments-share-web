@@ -106,7 +106,7 @@ export function VisionNishio() {
             生きててよかった！があふれる世界を。
           </p>
           <p className="max-w-[32em] text-white/75 leading-[2.0]" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
-            挑戦が当たり前になり、地域内外の人や企業とともに、事業を共創し続ける。
+            地域に、挑戦と共創が循環するエコシステム（4th Place）を創る
           </p>
         </div>
       </div>

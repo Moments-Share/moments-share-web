@@ -1,13 +1,14 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
-
-const ease = [0.22, 1, 0.36, 1] as const;
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 
 /**
- * スクロールで一度だけ静かに立ち上がる。派手な動きは置かず、読み始めのきっかけだけをつくる。
- * OSで視差効果を減らす設定のときは、最初から最終状態で描画する。
+ * スクロールで一度だけ静かに立ち上がる。
+ *
+ * 中身はHTMLの時点で「見えている」状態で出力し、JSが動いた環境でだけ
+ * （html[data-js]）隠してから動かす。JSの読み込みが失敗・遅延しても
+ * 本文が消えないようにするため、初期状態を opacity:0 にはしない。
+ * 実際の見た目は globals.css の .rv / .rv-in が持つ。
  */
 export function Reveal({
   children,
@@ -20,20 +21,40 @@ export function Reveal({
   y?: number;
   className?: string;
 }) {
-  const reduce = useReducedMotion() ?? false;
   const ref = useRef<HTMLDivElement>(null);
-  const rawInView = useInView(ref, { once: true, amount: 0.2 });
-  const inView = reduce ? true : rawInView;
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // 監視できない環境では、すぐ最終状態にする
+    if (typeof IntersectionObserver === "undefined") {
+      el.classList.add("rv-in");
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          el.classList.add("rv-in");
+          io.disconnect();
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+    );
+
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={reduce ? false : { opacity: 0, y }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : y }}
-      transition={reduce ? { duration: 0 } : { duration: 0.8, ease, delay }}
-      className={className}
+      className={`rv ${className}`}
+      style={{ "--rv-delay": `${delay}s`, "--rv-y": `${y}px` } as CSSProperties}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

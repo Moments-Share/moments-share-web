@@ -6,6 +6,7 @@ import {
   CONTACT_ENDPOINT,
   isContactEndpointConfigured,
 } from "@/lib/contact";
+import { company, hasTel, telHref } from "@/lib/company";
 
 const categories = [
   "DX支援・業務自動化",
@@ -20,7 +21,29 @@ const inputClass =
 
 const labelClass = "block text-[12px] font-bold tracking-[0.14em] text-charcoal/55 mb-3";
 
-type Status = "idle" | "submitting" | "success" | "error";
+type Status = "idle" | "submitting" | "success" | "error" | "mailto";
+
+/**
+ * 送信先サービスが未設定のあいだの代替手段。
+ * 入力内容を本文に載せたメールを、閲覧者のメールソフトで開く。
+ * サーバーも外部サービスも要らないぶん確実性は落ちるが、
+ * 「押しても何も起きない」状態よりは確実に届く。
+ */
+function buildMailtoHref(form: HTMLFormElement): string {
+  const data = new FormData(form);
+  const value = (key: string) => String(data.get(key) ?? "").trim();
+  const body = [
+    `お名前: ${value("name")}`,
+    `会社名・屋号: ${value("company")}`,
+    `メールアドレス: ${value("email")}`,
+    `ご相談の種類: ${value("category")}`,
+    "",
+    "ご相談内容:",
+    value("message"),
+  ].join("\n");
+  const subject = encodeURIComponent("Webサイトからのお問い合わせ");
+  return `mailto:${company.email}?subject=${subject}&body=${encodeURIComponent(body)}`;
+}
 
 const mailLink = (
   <a
@@ -35,13 +58,19 @@ export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorDetail, setErrorDetail] = useState("");
 
-  const disabled = !isContactEndpointConfigured || status === "submitting";
+  const disabled = status === "submitting";
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!isContactEndpointConfigured) return;
-
     const form = event.currentTarget;
+
+    // 送信先が未設定のときは、メールソフトを開く経路に切り替える
+    if (!isContactEndpointConfigured) {
+      window.location.href = buildMailtoHref(form);
+      setStatus("mailto");
+      return;
+    }
+
     setStatus("submitting");
     setErrorDetail("");
 
@@ -62,6 +91,28 @@ export function ContactForm() {
       setErrorDetail(err instanceof Error ? err.message : "原因を特定できませんでした");
       setStatus("error");
     }
+  }
+
+  // メールソフトへ引き渡した直後の案内
+  if (status === "mailto") {
+    return (
+      <div role="status" aria-live="polite" className="border-t border-sage/40 pt-10">
+        <p className="text-[20px] font-bold leading-[1.6] tracking-[-0.01em] text-charcoal md:text-[24px]">
+          メールソフトを開きました。
+        </p>
+        <p className="mt-6 max-w-[32em] text-[15px] leading-[2] text-charcoal/75">
+          入力内容を本文に入れたメールが作成されます。<strong className="font-bold">そのまま送信してください。</strong>
+          メールソフトが開かない場合は、お手数ですが {mailLink} 宛に直接お送りください。
+        </p>
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="mt-8 text-[14px] font-bold text-charcoal/60 underline underline-offset-4 transition-colors hover:text-terra-ink"
+        >
+          フォームに戻る
+        </button>
+      </div>
+    );
   }
 
   // 送信完了。フォームは畳み、次にどうなるかだけを伝える
@@ -90,13 +141,13 @@ export function ContactForm() {
     <>
       {/* 送信先が未設定のあいだは、押せば届くように見せない */}
       {!isContactEndpointConfigured && (
-        <div className="mb-10 border-l-2 border-charcoal/25 pl-5">
-          <p className="text-[13px] font-bold tracking-[0.08em] text-charcoal/70">
-            フォームは現在準備中です
+        <div className="mb-10 border-l-2 border-sage pl-5">
+          <p className="text-[13px] font-bold tracking-[0.08em] text-charcoal/80">
+            送信ボタンを押すと、メールソフトが開きます
           </p>
-          <p className="mt-3 max-w-[32em] text-[13px] leading-[2] text-charcoal/60">
-            送信先の設定が完了するまで、フォームからの送信を停止しています。
-            お手数ですが {mailLink} までメールでご連絡ください。
+          <p className="mt-3 max-w-[32em] text-[13px] leading-[2] text-charcoal/65">
+            入力内容を本文に入れたメールが作成されるので、そのまま送信してください。
+            メールソフトをお使いでない場合は、{mailLink} 宛に直接お送りいただいても構いません。
           </p>
         </div>
       )}
@@ -213,11 +264,26 @@ export function ContactForm() {
 
         <div className="flex flex-col items-start gap-6 pt-2 sm:flex-row sm:items-center">
           <button type="submit" disabled={disabled} className="btn btn-ghost-navy px-10 py-4 disabled:cursor-not-allowed disabled:opacity-40">
-            {status === "submitting" ? "送信中…" : "この内容で送信する →"}
+            {status === "submitting"
+              ? "送信中…"
+              : isContactEndpointConfigured
+                ? "この内容で送信する →"
+                : "この内容をメールで送る →"}
           </button>
           <p className="text-[13px] leading-[1.9] text-muted">
-            お急ぎの方はメールでも受け付けています：
+            お急ぎの方はこちらからも受け付けています：
             <br className="hidden sm:block" />
+            {hasTel && (
+              <>
+                <a
+                  href={telHref}
+                  className="text-navy-ink border-b border-navy-ink/40 pb-0.5 font-bold hover:text-terra-ink hover:border-terra-ink transition-colors"
+                >
+                  {company.tel}
+                </a>
+                <span className="mx-2 text-charcoal/40">/</span>
+              </>
+            )}
             {mailLink}
           </p>
         </div>

@@ -85,6 +85,11 @@ export default function RootLayout({
   return (
     <html lang="ja" className="h-full scroll-smooth">
       <head>
+        {/* 描画前に実行し、JSが動く環境だけ表示アニメーションを有効にする。
+            この属性が付かない環境では、本文は最初から見えている。 */}
+        <script
+          dangerouslySetInnerHTML={{ __html: 'document.documentElement.dataset.js="1"' }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}

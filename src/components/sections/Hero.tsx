@@ -1,21 +1,31 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { SitePhotoFill } from "@/components/ui/SitePhoto";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+/**
+ * 立ち上がりの演出はCSS（.rv-load）に任せる。HTMLの時点では見えている状態で
+ * 出力されるため、JSが動かない環境でもコピーが読める。
+ * 背景のKen Burnsだけは framer-motion の連続アニメーションを使う（初期状態は不透明）。
+ */
+const rise = (delay: number, y = 18): CSSProperties =>
+  ({ "--rv-delay": `${delay}s`, "--rv-y": `${y}px` }) as CSSProperties;
 
-function Line({ children, delay, className = "" }: { children: React.ReactNode; delay: number; className?: string }) {
+function Line({
+  children,
+  delay,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay: number;
+  className?: string;
+}) {
   return (
     <div className="overflow-hidden pb-[0.12em] -mb-[0.12em]">
-      <motion.div
-        initial={{ opacity: 0, y: "115%" }}
-        animate={{ opacity: 1, y: "0%" }}
-        transition={{ duration: 1.0, ease, delay }}
-        className={className}
-      >
+      <div className={`rv-load ${className}`} style={rise(delay, 115)}>
         {children}
-      </motion.div>
+      </div>
     </div>
   );
 }
@@ -59,14 +69,12 @@ export function Hero() {
       <div className="relative z-10 min-h-screen flex flex-col justify-end max-w-[1280px] mx-auto px-8 md:px-20 pb-20 md:pb-28 pt-36">
 
         {/* ラベル */}
-        <motion.p
-          className="text-[9px] font-bold tracking-[0.38em] uppercase text-white/70 mb-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
+        <p
+          className="rv-load text-[9px] font-bold tracking-[0.38em] uppercase text-white/70 mb-10"
+          style={rise(0.2, 0)}
         >
           Moments Share — Nishio, Aichi
-        </motion.p>
+        </p>
 
         {/* キャッチコピー — サイト全体のVisual Peak */}
         <h1
@@ -79,26 +87,16 @@ export function Hero() {
         </h1>
 
         {/* 説明文（正式サブコピー） */}
-        <motion.div
-          className="mb-12 max-w-[40ch]"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease, delay: 1.4 }}
-        >
+        <div className="rv-load mb-12 max-w-[40ch]" style={rise(1.4, 24)}>
           <p className="text-white/60 leading-[2.0]" style={{ fontSize: "clamp(14px, 1.4vw, 17px)" }}>
             私たちは、企業に余白をつくり、<br className="hidden sm:block" />
             多様な働き方で人手不足を支え、<br className="hidden sm:block" />
             地域に新しい挑戦を生み出していきます。
           </p>
-        </motion.div>
+        </div>
 
         {/* CTAボタン */}
-        <motion.div
-          className="flex flex-wrap gap-3"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease, delay: 1.9 }}
-        >
+        <div className="rv-load flex flex-wrap gap-3" style={rise(1.9, 16)}>
           <Link
             href="#business"
             className="btn btn-ghost-on-dark text-[13px] tracking-[0.04em] px-7 py-4"
@@ -111,20 +109,18 @@ export function Hero() {
           >
             相談をする →
           </Link>
-        </motion.div>
+        </div>
 
       </div>
 
       {/* スクロールインジケーター */}
       <div className="absolute bottom-10 right-10 md:right-20 z-10 flex flex-col items-center gap-2">
-        <motion.p
-          className="text-[8px] tracking-[0.3em] uppercase text-white/20 font-bold"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2.4 }}
+        <p
+          className="rv-load text-[8px] tracking-[0.3em] uppercase text-white/20 font-bold"
+          style={rise(2.4, 0)}
         >
           Scroll
-        </motion.p>
+        </p>
         <motion.div
           className="w-px h-14 bg-white/15 origin-top"
           animate={{ scaleY: [0, 1, 0] }}

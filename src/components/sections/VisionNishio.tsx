@@ -1,31 +1,50 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, type CSSProperties } from "react";
 import { SitePhotoFill } from "@/components/ui/SitePhoto";
-
-const ease = [0.22, 1, 0.36, 1] as const;
 
 /* ============================================================
    OUR VISION FOR NISHIO — 2040 / 240
    全幅の西尾の風景写真＋暗色オーバーレイ。数字「240」が主役。
    派手なCG・未来都市・イラストは禁止。粒子は入れない（静かに）。
+
+   表示アニメーションはCSS（.rv）に任せる。HTMLの時点では見えている状態で
+   出力されるため、JSが動かない環境でも文字が消えない。
    ============================================================ */
 
-export function VisionNishio() {
-  const reduce = useReducedMotion() ?? false;
-  const ref = useRef<HTMLDivElement>(null);
-  const rawInView = useInView(ref, { once: true, amount: 0.3 });
-  const inView = reduce ? true : rawInView;
+const rise = (delay: number, y = 20): CSSProperties =>
+  ({ "--rv-delay": `${delay}s`, "--rv-y": `${y}px` }) as CSSProperties;
 
-  const up = (delay: number, y = 20) => ({
-    initial: reduce ? false : { opacity: 0, y },
-    animate: { opacity: inView ? 1 : 0, y: inView ? 0 : y },
-    transition: reduce ? { duration: 0 } : { duration: 0.9, ease, delay },
-  });
+export function VisionNishio() {
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      el.classList.add("rv-in");
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          el.classList.add("rv-in");
+          io.disconnect();
+        }
+      },
+      { threshold: 0.25 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <section ref={ref} aria-labelledby="vision-nishio-heading" className="relative overflow-hidden bg-[#16281f]">
+    <section
+      ref={ref}
+      aria-labelledby="vision-nishio-heading"
+      className="relative overflow-hidden bg-[#16281f]"
+    >
       {/* 背景：西尾の風景写真 */}
       <div className="absolute inset-0">
         <SitePhotoFill name="visionImage" sizes="100vw" />
@@ -47,19 +66,22 @@ export function VisionNishio() {
 
       {/* コンテンツ */}
       <div className="relative z-10 mx-auto max-w-[1280px] px-6 md:px-10 py-28 md:py-44">
-        <motion.p {...up(0)} className="text-[11px] font-bold tracking-[0.34em] text-white/70">
+        <p className="rv text-[11px] font-bold tracking-[0.34em] text-white/70" style={rise(0)}>
           OUR VISION
-        </motion.p>
+        </p>
 
-        <motion.p {...up(0.12)} className="mt-6 font-bold tracking-[0.06em] text-white/80" style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}>
+        <p
+          className="rv mt-6 font-bold tracking-[0.06em] text-white/80"
+          style={{ ...rise(0.12), fontSize: "clamp(20px, 2.4vw, 30px)" }}
+        >
           2040 GOAL
-        </motion.p>
+        </p>
 
         <h2 id="vision-nishio-heading" className="mt-4 font-bold text-white leading-[1.02] tracking-[-0.02em]">
-          <motion.span {...up(0.24)} className="block" style={{ fontSize: "clamp(30px, 5vw, 66px)" }}>
+          <span className="rv block" style={{ ...rise(0.24), fontSize: "clamp(30px, 5vw, 66px)" }}>
             西尾から、
-          </motion.span>
-          <motion.span {...up(0.36)} className="mt-2 flex items-baseline gap-3 flex-wrap">
+          </span>
+          <span className="rv mt-2 flex items-baseline gap-3 flex-wrap" style={rise(0.36)}>
             <span className="relative inline-block">
               <span
                 className="text-cream font-black leading-[0.9] tracking-[-0.04em] tabular-nums"
@@ -76,17 +98,17 @@ export function VisionNishio() {
             <span className="font-bold text-white" style={{ fontSize: "clamp(30px, 5vw, 66px)" }}>
               の事業を。
             </span>
-          </motion.span>
+          </span>
         </h2>
 
-        <motion.div {...up(0.55)} className="mt-10 md:mt-14 max-w-[46em] space-y-5">
+        <div className="rv mt-10 md:mt-14 max-w-[46em] space-y-5" style={rise(0.55)}>
           <p className="font-bold text-cream leading-[1.6] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 28px)" }}>
             生きててよかった！があふれる世界を。
           </p>
           <p className="max-w-[32em] text-white/75 leading-[2.0]" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
             挑戦が当たり前になり、地域内外の人や企業とともに、事業を共創し続ける。
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

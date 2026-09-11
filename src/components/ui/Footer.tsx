@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { newsItems } from "@/data/news";
+import { company, hasTel, telHref } from "@/lib/company";
 
 /** フッターに常時出す最新のお知らせ。個別記事のページは無いため、リンク先は一覧に統一する。 */
 const latestNews = [...newsItems].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 2);
@@ -81,11 +82,22 @@ export function Footer() {
               地域に、挑戦と共創の循環を。
             </p>
             <dl className="mt-6 space-y-1.5 text-[13px] text-charcoal/70 leading-relaxed">
-              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">正式名称</dt><dd>Moments Share合同会社</dd></div>
-              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">所在地</dt><dd>愛知県西尾市</dd></div>
-              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">設立</dt><dd>2025年</dd></div>
-              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">事業</dt><dd>DX支援・BPO・地域プロデュース</dd></div>
-              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">Email</dt><dd><a className="text-navy-ink font-bold underline underline-offset-2 hover:text-terra-ink transition-colors" href="mailto:branding@momentsshare.com">branding@momentsshare.com</a></dd></div>
+              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">正式名称</dt><dd>{company.name}</dd></div>
+              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">代表者</dt><dd>{company.representative}</dd></div>
+              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">所在地</dt><dd>{company.address}</dd></div>
+              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">設立</dt><dd>{company.founded}</dd></div>
+              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">事業</dt><dd>{company.business}</dd></div>
+              {/* 電話番号は company.tel が入ったときだけ出す。空欄の行を見せない */}
+              {hasTel && (
+                <div className="flex gap-3">
+                  <dt className="w-16 shrink-0 text-charcoal/50">電話</dt>
+                  <dd>
+                    <a className="text-navy-ink font-bold underline underline-offset-2 hover:text-terra-ink transition-colors" href={telHref}>{company.tel}</a>
+                    <span className="ml-2 text-charcoal/50">{company.telNote}</span>
+                  </dd>
+                </div>
+              )}
+              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">Email</dt><dd><a className="text-navy-ink font-bold underline underline-offset-2 hover:text-terra-ink transition-colors" href={`mailto:${company.email}`}>{company.email}</a></dd></div>
             </dl>
           </div>
 

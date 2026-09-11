@@ -114,6 +114,39 @@
   .eco-circle-flow { animation: none; }
 }
 
+/* --- 表示アニメーション ---
+   既定では「見えている」状態にしておき、JSが動いた環境（html[data-js]）でだけ
+   隠してから動かす。JSの読み込みが失敗・遅延しても本文が消えない。
+   data-js は layout.tsx のインラインスクリプトが描画前に付与する。 */
+.rv, .rv-load { opacity: 1; }
+
+html[data-js] .rv {
+  opacity: 0;
+  transform: translateY(var(--rv-y, 18px));
+  transition:
+    opacity 800ms cubic-bezier(0.22, 1, 0.36, 1) var(--rv-delay, 0s),
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1) var(--rv-delay, 0s);
+  will-change: opacity, transform;
+}
+/* 自分が画面に入ったとき／親のまとまりが画面に入ったとき、どちらでも最終状態になる */
+html[data-js] .rv.rv-in,
+html[data-js] .rv-in .rv { opacity: 1; transform: none; }
+
+/* 読み込み直後に立ち上がる要素（HERO）。画面内にあることが自明なので監視しない */
+html[data-js] .rv-load {
+  animation: rv-rise 1000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--rv-delay, 0s);
+}
+@keyframes rv-rise {
+  from { opacity: 0; transform: translateY(var(--rv-y, 18px)); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-js] .rv { opacity: 1; transform: none; transition: none; }
+  html[data-js] .rv-load { animation: none; }
+}
+
 @layer utilities {
   .text-display { font-size: var(--text-display); }
   .text-h1 { font-size: var(--text-h1); }

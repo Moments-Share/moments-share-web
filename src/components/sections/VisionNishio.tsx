@@ -60,11 +60,18 @@ export function VisionNishio() {
             西尾から、
           </motion.span>
           <motion.span {...up(0.36)} className="mt-2 flex items-baseline gap-3 flex-wrap">
-            <span
-              className="text-leaf font-black leading-[0.9] tracking-[-0.04em] tabular-nums"
-              style={{ fontSize: "clamp(120px, 26vw, 340px)" }}
-            >
-              240
+            <span className="relative inline-block">
+              <span
+                className="text-cream font-black leading-[0.9] tracking-[-0.04em] tabular-nums"
+                style={{ fontSize: "clamp(120px, 26vw, 340px)" }}
+              >
+                240
+              </span>
+              {/* 数字の足元にテラコッタの短い線。色数を増やさずに視線を止める */}
+              <span
+                aria-hidden
+                className="absolute bottom-[0.14em] left-0 block h-[6px] w-[38%] bg-terracotta md:h-[10px]"
+              />
             </span>
             <span className="font-bold text-white" style={{ fontSize: "clamp(30px, 5vw, 66px)" }}>
               の事業を。
@@ -73,7 +80,7 @@ export function VisionNishio() {
         </h2>
 
         <motion.div {...up(0.55)} className="mt-10 md:mt-14 max-w-[46em] space-y-5">
-          <p className="font-bold text-leaf leading-[1.6] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 28px)" }}>
+          <p className="font-bold text-cream leading-[1.6] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 28px)" }}>
             生きててよかった！があふれる世界を。
           </p>
           <p className="max-w-[32em] text-white/75 leading-[2.0]" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>

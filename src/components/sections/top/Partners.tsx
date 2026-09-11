@@ -19,7 +19,7 @@ export function Partners() {
                 CO-CREATION PARTNERS
               </p>
               <h2
-                className="mt-6 font-bold leading-[1.35] tracking-[-0.02em] text-green"
+                className="mt-6 font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
                 style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}
               >
                 共創パートナー
@@ -28,7 +28,7 @@ export function Partners() {
 
             <Link
               href="/people"
-              className="border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-green hover:text-green"
+              className="border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-terra-ink hover:text-terra-ink"
             >
               関わる人たちを見る →
             </Link>

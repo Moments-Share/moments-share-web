@@ -1,49 +1,46 @@
 @import "tailwindcss";
 
 @theme {
-  /* --- Brand palette ---
-     一覧表「コーポレートサイト用 画像素材一覧」で確定した4色。
-       #C97A56 テラコッタ … 挑戦・行動・人の熱量・CTA
-       #6D8B5A セージグリーン … 地域・自然・共創・安心感
-       #F8F5EF アイボリー … 背景
-       #222222 … 本文・見出し
+  /* =========================================================================
+     ブランドカラー（正）
+     色は「役割」で決める。見た目が緑一色にならないよう、緑は短い語・番号・
+     ラベル・装飾線に限定し、本文と大見出しは text を使う。
+     ========================================================================= */
+  --color-background: #f8f5ef;   /* ページ地。白セクションと交互に敷く */
+  --color-surface: #ffffff;      /* セクション地（明） */
+  --color-text: #222222;         /* 本文・大見出し。background地14.2:1 AA */
+  --color-terracotta: #c97a56;   /* 挑戦・行動・CTA。面と装飾に */
+  --color-sage: #6d8b5a;         /* 地域・共創。短い語/番号/ラベル/罫線に限定 */
+  --color-deep-green: #315a49;   /* 濃いグリーンが要るときだけ */
 
-     ブランド2色はアイボリー地で 3.0〜3.6:1。大きな見出しや面には十分だが、
-     小さい文字や白抜き文字には足りない。そのため用途別に濃度違いを用意し、
-     文字・ボタン面には -ink / -deep を使う。数値は WCAG のコントラスト比。 */
+  /* 文字と塗り面でAAを満たすための濃度違い。ブランド色の印象は保ったまま暗くしている */
+  --color-terracotta-ink: #a85a34; /* background地4.8:1 ／ 白文字5.1:1 AA */
+  --color-sage-ink: #4a6139;       /* background地6.4:1 AA */
+  --color-cream: #f0e6d8;          /* 暗い写真の上に置く生成り。#16281f地13.7:1 */
 
-  --color-terra: #c97a56;      /* ブランド指定。装飾・大きな面 */
-  --color-terra-deep: #a85a34; /* CTAボタン面。白文字5.1:1 AA ／ ivory地4.8:1 AA */
-  --color-terra-ink: #9e5636;  /* ivory地の小さい文字・リンク 5.2:1 AA */
-
-  --color-green: #6d8b5a;      /* ブランド指定。大見出し（24px以上）ivory地3.6:1 */
-  --color-green-deep: #3f5436; /* 暗い帯の地。白文字7.9:1 AA */
-  --color-green-ink: #4a6139;  /* ivory地の小さい文字 6.4:1 AA */
-
-  --color-ivory: #f8f5ef;      /* BASE 背景 */
-  --color-charcoal: #222222;   /* 本文・見出し。ivory地14.2:1 AA */
-
-  /* 暗い写真の上に載せる明るいセージ。#16281f 地で8.5:1 AA（Hero「循環を。」） */
-  --color-leaf: #a8c489;
-  /* 補助。プレースホルダーの地など、文字を載せない面のみ */
-  --color-sage: #9bae8b;
-
-  /* 3事業のラベル用アクセント（極小面積のみ） */
-  --color-dx: #9e5636;         /* DX = 挑戦の色 */
-  --color-region: #6d8b5a;     /* 地域プロデュース = 地域の色 */
-
-  /* --- 旧トークンの読み替え。既存クラスをそのまま新パレットへ寄せる --- */
-  --color-navy-ink: #222222;   /* ナビ/フッターの文字・ワードマーク */
-  --color-navy: #3f5436;
-  --color-teal: #a8c489;
-  --color-accent: #c97a56;
-  --color-coral: #c97a56;
-  --color-dark: #1c2b18;
-  --color-ink: #222222;
-  --color-muted: #6b6862;      /* 補足テキスト。ivory地5.1:1 AA */
+  /* --- 既存クラス名のエイリアス。呼び出し側を壊さずに新パレットへ寄せる --- */
+  --color-ivory: #f8f5ef;
+  --color-warm: #f8f5ef;
   --color-white: #ffffff;
   --color-light: #efece4;
-  --color-warm: #f8f5ef;
+  --color-charcoal: #222222;
+  --color-ink: #222222;
+  --color-navy-ink: #222222;
+  --color-muted: #6b6862;        /* 補足テキスト。background地5.1:1 AA */
+  --color-terra: #c97a56;
+  --color-terra-ink: #a85a34;
+  --color-terra-deep: #a85a34;
+  --color-green: #6d8b5a;
+  --color-green-ink: #4a6139;
+  --color-green-deep: #315a49;
+  --color-leaf: #f0e6d8;
+  --color-navy: #315a49;
+  --color-dark: #16281f;
+  --color-teal: #c97a56;
+  --color-accent: #c97a56;
+  --color-coral: #c97a56;
+  --color-dx: #a85a34;           /* DX = 挑戦の色 */
+  --color-region: #6d8b5a;       /* 地域プロデュース = 地域の色 */
   --color-border: rgba(34, 34, 34, 0.12);
 
   --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
@@ -90,7 +87,7 @@
   }
 
   ::selection {
-    background: #6d8b5a;
+    background: #c97a56;
     color: #fff;
   }
 }
@@ -163,8 +160,12 @@
   .btn-ghost-on-dark:hover { background-color: #fff; color: var(--color-navy-ink); }
 
   /* ③ 緑の見せ場帯(bg-green)上：白枠線・文字 → hover白塗り＋緑文字 */
-  .btn-ghost-on-green { border-color: #fff; color: #fff; }
-  .btn-ghost-on-green:hover { background-color: #fff; color: var(--color-green-deep); }
+  .btn-ghost-on-green {
+    border-color: var(--color-cream);
+    background-color: var(--color-cream);
+    color: var(--color-deep-green);
+  }
+  .btn-ghost-on-green:hover { background-color: #fff; border-color: #fff; color: var(--color-deep-green); }
 
   /* 副ボタン（暗い地・控えめ）：枠線/文字を弱め、hoverでは塗らず輪郭と文字を強めるだけ。
      主ボタン(hoverで塗り)との主/副の区別を残す。塗りつぶしには戻さない。 */

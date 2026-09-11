@@ -36,7 +36,7 @@ export function Footer() {
             <div className="text-[11px] font-bold tracking-widest-label text-navy-ink">LATEST NEWS</div>
             <Link
               href="/news"
-              className="text-[13px] font-bold text-charcoal/70 hover:text-green transition-colors"
+              className="text-[13px] font-bold text-charcoal/70 hover:text-terra-ink transition-colors"
             >
               お知らせ一覧 →
             </Link>
@@ -57,7 +57,7 @@ export function Footer() {
                       {item.category}
                     </span>
                   )}
-                  <span className="text-[14px] leading-[1.8] text-charcoal/80 transition-colors group-hover:text-green">
+                  <span className="text-[14px] leading-[1.8] text-charcoal/80 transition-colors group-hover:text-terra-ink">
                     {item.title}
                   </span>
                 </Link>
@@ -85,7 +85,7 @@ export function Footer() {
               <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">所在地</dt><dd>愛知県西尾市</dd></div>
               <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">設立</dt><dd>2025年</dd></div>
               <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">事業</dt><dd>DX支援・BPO・地域プロデュース</dd></div>
-              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">Email</dt><dd><a className="text-navy-ink font-bold underline underline-offset-2 hover:text-green transition-colors" href="mailto:branding@momentsshare.com">branding@momentsshare.com</a></dd></div>
+              <div className="flex gap-3"><dt className="w-16 shrink-0 text-charcoal/50">Email</dt><dd><a className="text-navy-ink font-bold underline underline-offset-2 hover:text-terra-ink transition-colors" href="mailto:branding@momentsshare.com">branding@momentsshare.com</a></dd></div>
             </dl>
           </div>
 
@@ -94,7 +94,7 @@ export function Footer() {
             <div className="text-[11px] font-bold tracking-widest-label text-navy-ink">BUSINESS</div>
             <ul className="mt-5 space-y-3 text-[14px] text-charcoal/80">
               {businessLinks.map(({ href, label }) => (
-                <li key={href}><Link href={href} className="hover:text-green transition-colors">{label}</Link></li>
+                <li key={href}><Link href={href} className="hover:text-terra-ink transition-colors">{label}</Link></li>
               ))}
             </ul>
           </nav>
@@ -104,7 +104,7 @@ export function Footer() {
             <div className="text-[11px] font-bold tracking-widest-label text-navy-ink">COMPANY</div>
             <ul className="mt-5 space-y-3 text-[14px] text-charcoal/80">
               {companyLinks.map(({ href, label }) => (
-                <li key={href}><Link href={href} className="hover:text-green transition-colors">{label}</Link></li>
+                <li key={href}><Link href={href} className="hover:text-terra-ink transition-colors">{label}</Link></li>
               ))}
             </ul>
           </nav>
@@ -114,7 +114,7 @@ export function Footer() {
           <p className="text-[12px] text-charcoal/70">© 2025 Moments Share合同会社. All rights reserved.</p>
           <div className="flex items-center gap-6 text-[13px] text-charcoal/80">
             {snsLinks.map(({ href, label }) => (
-              <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="hover:text-green transition-colors">{label}</a>
+              <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="hover:text-terra-ink transition-colors">{label}</a>
             ))}
           </div>
         </div>

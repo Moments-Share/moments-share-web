@@ -28,6 +28,8 @@ type SubBusiness = {
   body: string;
   href: string;
   image: SiteImageKey;
+  /** 事業ラベルの色。3事業を同じ色で並べない */
+  labelClass: string;
 };
 
 const subBusinesses: SubBusiness[] = [
@@ -38,6 +40,7 @@ const subBusinesses: SubBusiness[] = [
     body: "営業・事務・CS等を受託し、社外パートナーとチームを組んで企業を支えます。",
     href: "/service-bpo",
     image: "bpoImage",
+    labelClass: "text-charcoal/55",
   },
   {
     no: "03",
@@ -46,6 +49,7 @@ const subBusinesses: SubBusiness[] = [
     body: "個の「やりたい」と地域の「課題」をつなぎ、地域内外の人や企業とともに新しい仕事や事業をつくります。",
     href: "/service-produce",
     image: "regionImage",
+    labelClass: "text-sage-ink",
   },
 ];
 
@@ -56,7 +60,7 @@ export function BusinessFlow() {
         <Reveal>
           <p className="text-[11px] font-bold tracking-[0.28em] text-charcoal/40">OUR BUSINESS</p>
           <h2
-            className="mt-6 font-bold leading-[1.35] tracking-[-0.02em] text-green"
+            className="mt-6 font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
             style={{ fontSize: "clamp(26px, 3.6vw, 46px)" }}
           >
             3つの事業で、
@@ -70,7 +74,7 @@ export function BusinessFlow() {
           <Reveal>
             <div className="flex items-baseline gap-5">
               <span
-                className="font-black leading-none tracking-[-0.04em] tabular-nums text-green/20"
+                className="font-black leading-none tracking-[-0.04em] tabular-nums text-sage/55"
                 style={{ fontSize: "clamp(56px, 8vw, 116px)" }}
               >
                 01
@@ -79,7 +83,7 @@ export function BusinessFlow() {
             </div>
 
             <h3
-              className="mt-4 font-bold leading-[1.25] tracking-[-0.03em] text-green"
+              className="mt-4 font-bold leading-[1.25] tracking-[-0.03em] text-charcoal"
               style={{ fontSize: "clamp(34px, 5.4vw, 76px)" }}
             >
               忙しさを、余白へ。
@@ -118,18 +122,18 @@ export function BusinessFlow() {
                 <div className={`md:col-span-7 ${i % 2 === 1 ? "md:order-1" : ""}`}>
                   <div className="flex items-baseline gap-4">
                     <span
-                      className="font-black leading-none tracking-[-0.04em] tabular-nums text-green/20"
+                      className="font-black leading-none tracking-[-0.04em] tabular-nums text-sage/55"
                       style={{ fontSize: "clamp(30px, 3.4vw, 52px)" }}
                     >
                       {b.no}
                     </span>
-                    <span className="text-[12px] font-bold tracking-[0.18em] text-charcoal/50">
+                    <span className={`text-[12px] font-bold tracking-[0.18em] ${b.labelClass}`}>
                       {b.label}
                     </span>
                   </div>
 
                   <h3
-                    className="mt-3 font-bold leading-[1.35] tracking-[-0.02em] text-green"
+                    className="mt-3 font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
                     style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
                   >
                     {b.title}
@@ -141,7 +145,7 @@ export function BusinessFlow() {
 
                   <Link
                     href={b.href}
-                    className="mt-6 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-green hover:text-green"
+                    className="mt-6 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-terra-ink hover:text-terra-ink"
                   >
                     {b.label}を詳しく →
                   </Link>

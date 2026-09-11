@@ -78,7 +78,7 @@ export default function PeoplePage() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1000px]">
             <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">FELLOW — Fellowとは</div>
-            <p className="mt-6 text-green font-semibold leading-[1.55] tracking-[-0.01em]"
+            <p className="mt-6 text-charcoal font-semibold leading-[1.55] tracking-[-0.01em]"
                style={{ fontSize: "clamp(23px, 3.4vw, 44px)" }}>
               自分の人生を主体的に生きながら、<br className="hidden sm:block" />
               志が重なるとき、ともに挑戦し、<br className="hidden sm:block" />
@@ -98,7 +98,7 @@ export default function PeoplePage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
               <div className="lg:col-span-4">
                 <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">こんな人</div>
-                <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
+                <h2 className="mt-4 text-charcoal font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
                   Fellowは、<br />こんな人。
                 </h2>
               </div>
@@ -106,7 +106,7 @@ export default function PeoplePage() {
                 <ul className="divide-y divide-charcoal/10 border-t border-charcoal/10">
                   {fellowTraits.map((t) => (
                     <li key={t} className="py-6 md:py-8">
-                      <p className="text-green font-medium leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.4vw, 28px)" }}>
+                      <p className="text-charcoal font-medium leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.4vw, 28px)" }}>
                         {t}
                       </p>
                     </li>
@@ -123,7 +123,7 @@ export default function PeoplePage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
               <div className="lg:col-span-4">
                 <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">Fellowの関わり方</div>
-                <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
+                <h2 className="mt-4 text-charcoal font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
                   関わり方は、<br />ひとつじゃない。
                 </h2>
                 <p className="mt-6 max-w-md text-[15px] leading-[2] text-charcoal/70">
@@ -134,7 +134,7 @@ export default function PeoplePage() {
                 <ul className="divide-y divide-charcoal/10 border-t border-charcoal/10">
                   {ways.map((w) => (
                     <li key={w.title} className="py-7 md:py-9">
-                      <h3 className="text-green font-semibold leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(18px, 2.2vw, 25px)" }}>{w.title}</h3>
+                      <h3 className="text-charcoal font-semibold leading-[1.5] tracking-[-0.01em]" style={{ fontSize: "clamp(18px, 2.2vw, 25px)" }}>{w.title}</h3>
                       <p className="mt-2 max-w-xl text-[15px] leading-[2] text-charcoal/80">{w.desc}</p>
                     </li>
                   ))}
@@ -148,7 +148,7 @@ export default function PeoplePage() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">Fellow紹介</div>
-            <h2 className="mt-4 text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+            <h2 className="mt-4 text-charcoal font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
               Fellowを、紹介します。
             </h2>
 
@@ -162,7 +162,7 @@ export default function PeoplePage() {
               <div className="md:col-span-7 md:pt-4">
                 <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/50">代表社員 / Founder</div>
                 <div className="mt-4 flex items-baseline gap-4 flex-wrap">
-                  <span className="text-green font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 4.2vw, 56px)" }}>中根 隆</span>
+                  <span className="text-charcoal font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 4.2vw, 56px)" }}>中根 隆</span>
                   <span className="text-[13px] font-bold text-muted tracking-[0.14em]">RYU NAKANE</span>
                 </div>
                 <dl className="mt-8 divide-y divide-charcoal/10 border-t border-charcoal/10">
@@ -186,7 +186,7 @@ export default function PeoplePage() {
             <div className="mt-20 md:mt-28 border-t border-charcoal/10 pt-14 md:pt-20">
               <div className="max-w-2xl">
                 <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">これから</div>
-                <h3 className="mt-4 text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(23px, 3vw, 38px)" }}>
+                <h3 className="mt-4 text-charcoal font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(23px, 3vw, 38px)" }}>
                   これから、Fellowが増えていく。
                 </h3>
                 <p className="mt-6 text-[15px] leading-[2] text-charcoal/70">

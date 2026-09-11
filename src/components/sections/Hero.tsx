@@ -75,7 +75,7 @@ export function Hero() {
         >
           <Line delay={0.35}>地域に、</Line>
           <Line delay={0.6}>挑戦と共創の</Line>
-          <Line delay={0.85} className="text-leaf">循環を。</Line>
+          <Line delay={0.85} className="text-terracotta">循環を。</Line>
         </h1>
 
         {/* 説明文（正式サブコピー） */}

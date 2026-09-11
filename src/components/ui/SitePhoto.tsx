@@ -17,7 +17,7 @@ function PhotoSpec({ image }: { image: SiteImage }) {
   return (
     <div
       className={`absolute inset-0 flex items-center justify-center px-6 ${
-        dark ? "bg-[#16281f]" : "bg-sage/15"
+        dark ? "bg-[#16281f]" : "bg-charcoal/[0.07]"
       }`}
     >
       {SHOW_PHOTO_SPECS && (

@@ -223,7 +223,7 @@ export default function AboutPage() {
                       {b.lead}
                     </div>
                     <p className="mt-4 max-w-xl text-[15px] md:text-[17px] leading-[2.1] text-charcoal/80">{b.body}</p>
-                    <span className="mt-5 inline-block text-[13px] font-bold text-navy-ink border-b border-navy-ink/40 pb-0.5 group-hover:text-green group-hover:border-green transition-colors">
+                    <span className="mt-5 inline-block text-[13px] font-bold text-navy-ink border-b border-navy-ink/40 pb-0.5 group-hover:text-terra-ink group-hover:border-terra-ink transition-colors">
                       詳しく見る →
                     </span>
                   </div>
@@ -278,7 +278,7 @@ export default function AboutPage() {
               className="mt-12 md:mt-20 text-navy-ink font-semibold leading-[1.16] tracking-[-0.03em] max-w-[15ch]"
               style={{ fontSize: "clamp(32px, 5.4vw, 68px)" }}
             >
-              一歩ずつ、できるまで続けるだけ<span className="text-green">。</span>
+              一歩ずつ、できるまで続けるだけ<span className="text-charcoal">。</span>
             </h2>
 
             {/* ブリッジ文：核と基準を繋ぐ橋渡し */}
@@ -389,7 +389,7 @@ export default function AboutPage() {
                       </dt>
                       <dd className="text-[16px] md:text-[17px] text-navy-ink">
                         {row.email ? (
-                          <a href="mailto:branding@momentsshare.com" className="text-navy-ink font-bold border-b border-navy-ink/40 pb-0.5 hover:text-green hover:border-green transition-colors">
+                          <a href="mailto:branding@momentsshare.com" className="text-navy-ink font-bold border-b border-navy-ink/40 pb-0.5 hover:text-terra-ink hover:border-terra-ink transition-colors">
                             {row.value}
                           </a>
                         ) : (

@@ -131,7 +131,7 @@ export default function ServiceBPO() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <h2 className="text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
+              <h2 className="text-charcoal font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
                 こんな企業に。
               </h2>
             </div>
@@ -152,14 +152,14 @@ export default function ServiceBPO() {
         <section className="py-24 md:py-40 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <h2
-              className="text-green font-semibold leading-[1.22] tracking-[-0.02em]"
+              className="text-charcoal font-semibold leading-[1.22] tracking-[-0.02em]"
               style={{ fontSize: "clamp(28px, 4vw, 54px)" }}
             >
               その仕事、本当に<br />採用が必要ですか？
             </h2>
             <div className="mt-14 max-w-2xl space-y-7 text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
               <p>自動化できる仕事は、DXで減らす。人が必要な仕事だけ、BPOで支える。</p>
-              <p className="text-green font-semibold text-[20px] md:text-[24px] leading-[1.6] tracking-[-0.01em] pt-2">
+              <p className="text-charcoal font-semibold text-[20px] md:text-[24px] leading-[1.6] tracking-[-0.01em] pt-2">
                 Moments Shareは、採用する・外注する・自動化する、その前に、まず仕事そのものを整理します。
               </p>
             </div>
@@ -170,7 +170,7 @@ export default function ServiceBPO() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <h2 className="text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
+              <h2 className="text-charcoal font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
                 支えられる仕事。
               </h2>
             </div>
@@ -181,7 +181,7 @@ export default function ServiceBPO() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="text-green font-semibold tracking-[-0.02em] leading-[1.3]" style={{ fontSize: "clamp(19px, 2vw, 22px)" }}>
+                    <h3 className="text-charcoal font-semibold tracking-[-0.02em] leading-[1.3]" style={{ fontSize: "clamp(19px, 2vw, 22px)" }}>
                       {s.title}
                     </h3>
                     <p className="mt-2 text-[14px] md:text-[15px] leading-[1.9] text-muted max-w-md">{s.desc}</p>
@@ -222,7 +222,7 @@ export default function ServiceBPO() {
                 <SitePhoto name="bpoRemote" ratio="4/3" sizes="(max-width: 768px) 100vw, 50vw" />
               </div>
               <div className="lg:col-span-7 order-2">
-                <h2 className="text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
+                <h2 className="text-charcoal font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
                   多様な人と、一緒に支える。
                 </h2>
                 <p className="mt-6 max-w-lg text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
@@ -231,7 +231,7 @@ export default function ServiceBPO() {
                 <div className="mt-10 border-t border-charcoal/10">
                   {team.map((t) => (
                     <div key={t.label} className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-1 sm:gap-6 py-5 border-b border-charcoal/10">
-                      <span className="text-green font-semibold text-[16px] md:text-[18px] tracking-[-0.01em]">{t.label}</span>
+                      <span className="text-charcoal font-semibold text-[16px] md:text-[18px] tracking-[-0.01em]">{t.label}</span>
                       <p className="text-[14px] md:text-[15px] leading-[1.9] text-muted">{t.desc}</p>
                     </div>
                   ))}
@@ -245,7 +245,7 @@ export default function ServiceBPO() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <h2 className="text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
+              <h2 className="text-charcoal font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>
                 進め方。
               </h2>
             </div>
@@ -255,7 +255,7 @@ export default function ServiceBPO() {
                   <div className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>
                     {p.step}
                   </div>
-                  <h3 className="mt-5 text-green font-semibold tracking-[-0.02em] leading-[1.3]" style={{ fontSize: "clamp(19px, 2vw, 22px)" }}>
+                  <h3 className="mt-5 text-charcoal font-semibold tracking-[-0.02em] leading-[1.3]" style={{ fontSize: "clamp(19px, 2vw, 22px)" }}>
                     {p.title}
                   </h3>
                   <p className="mt-3 text-[14px] md:text-[15px] leading-[1.9] text-muted">{p.body}</p>

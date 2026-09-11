@@ -159,7 +159,7 @@ export default function ServiceProduce() {
               </div>
               <div className="lg:col-span-9 lg:pl-8">
                 <h2
-                  className="text-green font-semibold leading-[1.18] tracking-[-0.02em]"
+                  className="text-charcoal font-semibold leading-[1.18] tracking-[-0.02em]"
                   style={{ fontSize: "clamp(28px, 3.6vw, 48px)" }}
                 >
                   地域愛を、<br />地域発展の力に。
@@ -172,7 +172,7 @@ export default function ServiceProduce() {
                   <p>
                     そんな一人ひとりの小さな行動が、人をつなぎ、新しい挑戦を生み、やがて地域を動かす力になっていく。
                   </p>
-                  <p className="text-green font-semibold text-[19px] md:text-[24px] leading-[1.6] tracking-[-0.01em] pt-2">
+                  <p className="text-charcoal font-semibold text-[19px] md:text-[24px] leading-[1.6] tracking-[-0.01em] pt-2">
                     私たちは、地域への「好き」を、行動へ変えていきます。
                   </p>
                 </div>
@@ -187,7 +187,7 @@ export default function ServiceProduce() {
             <div className="max-w-3xl">
               <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">PROJECTS</div>
               <h2
-                className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]"
+                className="mt-4 text-charcoal font-semibold leading-[1.25] tracking-[-0.02em]"
                 style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}
               >
                 挑戦を、カタチにする。
@@ -218,7 +218,7 @@ export default function ServiceProduce() {
                   </div>
                   <div className="md:col-span-4">
                     <h3
-                      className="text-green font-semibold leading-[1.22] tracking-[-0.02em]"
+                      className="text-charcoal font-semibold leading-[1.22] tracking-[-0.02em]"
                       style={{ fontSize: "clamp(26px, 3.2vw, 40px)" }}
                     >
                       {projects[0].name}
@@ -241,7 +241,7 @@ export default function ServiceProduce() {
                     <SitePhoto name="regionEvent" ratio="4/3" sizes="(max-width: 768px) 100vw, 50vw" />
                   </div>
                   <div className="md:col-span-7">
-                    <h3 className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[1].name}</h3>
+                    <h3 className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[1].name}</h3>
                     <p className="mt-4 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[1].desc}</p>
                   </div>
                 </div>
@@ -254,7 +254,7 @@ export default function ServiceProduce() {
                   <span className="text-charcoal/40 text-[13px] font-semibold tracking-[0.16em]">{projects[2].cat}</span>
                 </div>
                 <div className="mt-4 max-w-xl">
-                  <h3 className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[2].name}</h3>
+                  <h3 className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[2].name}</h3>
                   <p className="mt-4 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[2].desc}</p>
                 </div>
               </article>
@@ -297,7 +297,7 @@ export default function ServiceProduce() {
             <div className="max-w-3xl">
               <div className="text-charcoal/40 text-[12px] font-bold tracking-[0.16em]">地域推し活</div>
               <h2
-                className="mt-4 text-green font-semibold leading-[1.25] tracking-[-0.02em]"
+                className="mt-4 text-charcoal font-semibold leading-[1.25] tracking-[-0.02em]"
                 style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}
               >
                 好きになることから、<br className="hidden sm:block" />地域は動きはじめる。
@@ -314,7 +314,7 @@ export default function ServiceProduce() {
                 {cycle.map((label, i) => (
                   <span key={label} className="flex items-center gap-x-3 md:gap-x-4">
                     <span
-                      className="text-green font-medium tracking-[-0.01em]"
+                      className="text-charcoal font-medium tracking-[-0.01em]"
                       style={{ fontSize: "clamp(18px, 2.4vw, 30px)" }}
                     >
                       {label}
@@ -338,7 +338,7 @@ export default function ServiceProduce() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-5">
                 <h2
-                  className="text-green font-semibold leading-[1.25] tracking-[-0.02em]"
+                  className="text-charcoal font-semibold leading-[1.25] tracking-[-0.02em]"
                   style={{ fontSize: "clamp(26px, 3.2vw, 44px)" }}
                 >
                   挑戦する人を、<br />一人ずつ増やす。
@@ -364,15 +364,15 @@ export default function ServiceProduce() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-baseline">
               <div className="md:col-span-5">
-                <h2 className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 40px)" }}>
+                <h2 className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3vw, 40px)" }}>
                   まずは、西尾から。
                 </h2>
-                <div className="mt-6 flex items-baseline gap-2 text-green font-semibold tracking-[-0.02em]">
+                <div className="mt-6 flex items-baseline gap-2 text-charcoal font-semibold tracking-[-0.02em]">
                   <span className="text-[15px] md:text-[16px] text-charcoal/70 font-medium">2040年までに、西尾に</span>
                 </div>
                 <div className="mt-1 flex items-baseline gap-2">
-                  <span className="text-green font-semibold leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(52px, 7vw, 88px)" }}>240</span>
-                  <span className="text-[18px] md:text-[22px] font-semibold text-green">の事業を。</span>
+                  <span className="text-charcoal font-semibold leading-none tracking-[-0.03em]" style={{ fontSize: "clamp(52px, 7vw, 88px)" }}>240</span>
+                  <span className="text-[18px] md:text-[22px] font-semibold text-charcoal">の事業を。</span>
                 </div>
               </div>
               <div className="md:col-span-7 md:pl-6">
@@ -394,7 +394,7 @@ export default function ServiceProduce() {
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
               <h2
-                className="text-green font-semibold leading-[1.25] tracking-[-0.02em]"
+                className="text-charcoal font-semibold leading-[1.25] tracking-[-0.02em]"
                 style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}
               >
                 私たちの進め方。
@@ -416,7 +416,7 @@ export default function ServiceProduce() {
                     </span>
                   </div>
                   <h3
-                    className="md:col-span-4 text-green font-semibold tracking-[-0.02em] leading-[1.3]"
+                    className="md:col-span-4 text-charcoal font-semibold tracking-[-0.02em] leading-[1.3]"
                     style={{ fontSize: "clamp(22px, 2.4vw, 30px)" }}
                   >
                     {h.title}

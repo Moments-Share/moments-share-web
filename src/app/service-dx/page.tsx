@@ -133,7 +133,7 @@ export default function ServiceDX() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-4">
-                <h2 className="text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+                <h2 className="text-charcoal font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                   こんな課題は<br className="hidden sm:block" />ありませんか？
                 </h2>
                 <p className="mt-6 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
@@ -158,7 +158,7 @@ export default function ServiceDX() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <h2 className="text-green font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+              <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                 何が変わる？
               </h2>
               <p className="mt-6 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
@@ -169,7 +169,7 @@ export default function ServiceDX() {
             <div className="mt-14 md:mt-20 flex flex-col divide-y divide-charcoal/10 border-t border-charcoal/10">
               {outcomes.map((o) => (
                 <div key={o.title} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 items-baseline py-9 md:py-11">
-                  <h3 className="md:col-span-6 text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.4vw, 32px)" }}>
+                  <h3 className="md:col-span-6 text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.4vw, 32px)" }}>
                     {o.title}
                   </h3>
                   <p className="md:col-span-6 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{o.body}</p>
@@ -183,7 +183,7 @@ export default function ServiceDX() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <h2 className="text-green font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+              <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                 業務を、余白に変えた事例。
               </h2>
             </div>
@@ -193,14 +193,14 @@ export default function ServiceDX() {
               <div className="md:col-span-5">
                 <div className="text-[13px] font-semibold tracking-[0.08em] text-charcoal/45 mb-4">SNS自動化</div>
                 <div className="flex items-end gap-3">
-                  <span className="text-green font-semibold leading-[0.9] tracking-[-0.03em]" style={{ fontSize: "clamp(48px, 6vw, 72px)" }}>
+                  <span className="text-charcoal font-semibold leading-[0.9] tracking-[-0.03em]" style={{ fontSize: "clamp(48px, 6vw, 72px)" }}>
                     約80
                   </span>
-                  <span className="text-green font-semibold pb-2" style={{ fontSize: "clamp(18px, 2.2vw, 26px)" }}>％削減</span>
+                  <span className="text-charcoal font-semibold pb-2" style={{ fontSize: "clamp(18px, 2.2vw, 26px)" }}>％削減</span>
                 </div>
               </div>
               <div className="md:col-span-7 md:pb-4">
-                <h3 className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(22px, 2.6vw, 34px)" }}>
+                <h3 className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(22px, 2.6vw, 34px)" }}>
                   投稿作業を、30分 → 約6分へ。
                 </h3>
                 <p className="mt-5 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
@@ -221,10 +221,10 @@ export default function ServiceDX() {
             <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-10 md:pt-12">
               <div className="md:col-span-4 text-[13px] font-semibold tracking-[0.08em] text-charcoal/45">請求書</div>
               <div className="md:col-span-8">
-                <h3 className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(22px, 2.8vw, 36px)" }}>
+                <h3 className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(22px, 2.8vw, 36px)" }}>
                   請求書発行の自動化
                 </h3>
-                <div className="mt-3 text-green font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(19px, 2.2vw, 27px)" }}>
+                <div className="mt-3 text-charcoal font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(19px, 2.2vw, 27px)" }}>
                   手作業 → 自動化<span className="text-charcoal/60 text-[15px] font-medium ml-3 align-middle">発行・送付を仕組み化</span>
                 </div>
                 <p className="mt-5 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
@@ -238,12 +238,12 @@ export default function ServiceDX() {
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-end">
                 <div className="md:col-span-7">
                   <div className="text-[13px] font-semibold tracking-[0.08em] text-charcoal/45">在庫管理</div>
-                  <h3 className="mt-5 text-green font-semibold leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.4vw, 48px)" }}>
+                  <h3 className="mt-5 text-charcoal font-semibold leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.4vw, 48px)" }}>
                     紙＋Excel →<br />一元管理
                   </h3>
                 </div>
                 <div className="md:col-span-5 md:pb-2">
-                  <div className="text-green font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 24px)" }}>
+                  <div className="text-charcoal font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 24px)" }}>
                     在庫管理の一元化
                   </div>
                   <div className="mt-2 text-[13px] font-medium text-charcoal/50">二重管理を解消</div>
@@ -261,7 +261,7 @@ export default function ServiceDX() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-4">
-                <h2 className="text-green font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+                <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                   できること。
                 </h2>
               </div>
@@ -272,7 +272,7 @@ export default function ServiceDX() {
                       <span className="text-charcoal/30 font-medium tabular-nums leading-none w-10 shrink-0" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <p className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 26px)" }}>
+                      <p className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 26px)" }}>
                         {m}
                       </p>
                     </li>
@@ -287,7 +287,7 @@ export default function ServiceDX() {
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <h2 className="text-green font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+              <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                 進め方。
               </h2>
             </div>
@@ -298,7 +298,7 @@ export default function ServiceDX() {
                   <div className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>
                     {s.num}
                   </div>
-                  <h3 className="mt-4 text-green font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 24px)" }}>
+                  <h3 className="mt-4 text-charcoal font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 24px)" }}>
                     {s.title}
                   </h3>
                   <p className="mt-3 text-[14px] md:text-[15px] leading-[1.9] text-charcoal/80">{s.desc}</p>
@@ -311,7 +311,7 @@ export default function ServiceDX() {
         {/* ===== GOAL — 言明 ===== */}
         <section className="py-20 md:py-36 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
-            <h2 className="max-w-5xl text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 48px)" }}>
+            <h2 className="max-w-5xl text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 48px)" }}>
               AIを使える会社ではなく、<br className="hidden sm:block" />仕事を改善し続けられる会社へ。
             </h2>
           </div>

@@ -14,7 +14,7 @@ export function PhotoNeeded({
 }) {
   return (
     <div className={`relative w-full ${className}`} style={{ aspectRatio: ratio }}>
-      <div className="absolute inset-0 bg-sage/10" />
+      <div className="absolute inset-0 bg-charcoal/[0.07]" />
     </div>
   );
 }

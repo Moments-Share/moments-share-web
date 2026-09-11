@@ -16,7 +16,7 @@ export function AboutIntro() {
           <Reveal>
             <p className="text-[11px] font-bold tracking-[0.28em] text-charcoal/40">ABOUT US</p>
             <h2
-              className="mt-6 font-bold leading-[1.3] tracking-[-0.02em] text-green"
+              className="mt-6 font-bold leading-[1.3] tracking-[-0.02em] text-charcoal"
               style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
             >
               起点は、いつも
@@ -35,7 +35,7 @@ export function AboutIntro() {
 
             <Link
               href="/about"
-              className="mt-9 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-green hover:text-green"
+              className="mt-9 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-terra-ink hover:text-terra-ink"
             >
               私たちについて →
             </Link>

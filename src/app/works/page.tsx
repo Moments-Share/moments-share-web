@@ -140,7 +140,7 @@ export default function WorksPage() {
             {/* 全社KPI — 事業 4 / 240 */}
             <div className="mt-10 flex items-baseline gap-2.5 border-t border-charcoal/10 pt-10">
               <span className="text-[15px] font-bold text-charcoal/70">{kpi.label}</span>
-              <span className="text-green font-semibold leading-none tracking-[-0.02em]" style={{ fontSize: "clamp(52px, 6.5vw, 84px)" }}>{kpi.now}</span>
+              <span className="text-charcoal font-semibold leading-none tracking-[-0.02em]" style={{ fontSize: "clamp(52px, 6.5vw, 84px)" }}>{kpi.now}</span>
               <span className="text-charcoal/40 font-semibold leading-none" style={{ fontSize: "clamp(24px, 3vw, 34px)" }}>/ {kpi.goal}</span>
             </div>
 
@@ -148,7 +148,7 @@ export default function WorksPage() {
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
               {categories.map((c) => (
                 <div key={c.name}>
-                  <div className="text-[13px] font-bold tracking-[0.12em] text-green">{c.name}</div>
+                  <div className="text-[13px] font-bold tracking-[0.12em] text-charcoal">{c.name}</div>
                   <ul className="mt-3 space-y-2">
                     {c.items.map((it) => (
                       <li key={it} className="text-[14px] leading-[1.8] text-charcoal/75">{it}</li>
@@ -164,7 +164,7 @@ export default function WorksPage() {
         <section className="py-16 md:py-28 px-6 md:px-10">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <h2 className="text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+              <h2 className="text-charcoal font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                 業務を、余白に変えた事例。
               </h2>
             </div>
@@ -176,10 +176,10 @@ export default function WorksPage() {
               </div>
               <div className="md:col-span-6">
                 <div className="text-charcoal/45 text-[12px] font-semibold tracking-[0.08em]">{dxCases[0].tag}</div>
-                <h3 className="mt-4 text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 2.8vw, 34px)" }}>{dxCases[0].title}</h3>
+                <h3 className="mt-4 text-charcoal font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 2.8vw, 34px)" }}>{dxCases[0].title}</h3>
                 <div className="mt-4 flex items-baseline gap-2">
-                  <span className="text-green font-semibold leading-none tracking-[-0.02em]" style={{ fontSize: "clamp(40px, 5.4vw, 64px)" }}>約{dxCases[0].big}</span>
-                  <span className="text-green font-semibold text-[17px] md:text-[20px] pb-1.5">{dxCases[0].bigUnit}</span>
+                  <span className="text-charcoal font-semibold leading-none tracking-[-0.02em]" style={{ fontSize: "clamp(40px, 5.4vw, 64px)" }}>約{dxCases[0].big}</span>
+                  <span className="text-charcoal font-semibold text-[17px] md:text-[20px] pb-1.5">{dxCases[0].bigUnit}</span>
                 </div>
                 <div className="mt-2 text-[15px] font-bold text-charcoal/80">{dxCases[0].result}</div>
                 <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{dxCases[0].desc}</p>
@@ -192,7 +192,7 @@ export default function WorksPage() {
                 <div key={c.title} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 items-baseline py-8 md:py-10">
                   <div className="md:col-span-3 text-charcoal/40 text-[12px] font-bold tracking-[0.14em]">{c.tag}</div>
                   <div className="md:col-span-4">
-                    <h3 className="text-green font-semibold leading-[1.45] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 26px)" }}>{c.title}</h3>
+                    <h3 className="text-charcoal font-semibold leading-[1.45] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 26px)" }}>{c.title}</h3>
                     <div className="mt-2 text-[15px] font-bold text-charcoal/80">{c.result}</div>
                     <div className="mt-1 text-[13px] text-charcoal/55">{c.note}</div>
                   </div>
@@ -211,7 +211,7 @@ export default function WorksPage() {
                 <div className="text-[12px] font-bold tracking-[0.14em] text-charcoal/45">BPO事例</div>
               </div>
               <div className="lg:col-span-8">
-                <h2 className="text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 3vw, 38px)" }}>
+                <h2 className="text-charcoal font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 3vw, 38px)" }}>
                   人が必要な仕事を、<br className="hidden sm:block" />一緒に支えた事例。
                 </h2>
                 {/* TODO: 実在するBPO支援の具体事例（企業名は伏せて内容・成果）を追記する。架空の事例は掲載しない。 */}
@@ -227,7 +227,7 @@ export default function WorksPage() {
         <section className="py-16 md:py-28 px-6 md:px-10">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
-              <h2 className="text-green font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+              <h2 className="text-charcoal font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                 地域に、挑戦の<br className="hidden sm:block" />きっかけをつくった。
               </h2>
             </div>
@@ -238,7 +238,7 @@ export default function WorksPage() {
                 <Image src={projects[0].photo} alt={projects[0].alt} fill sizes="(max-width:768px) 100vw, 90vw" className="object-cover" />
               </div>
               <div className="mt-6 max-w-2xl">
-                <h3 className="text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 2.8vw, 34px)" }}>{projects[0].title}</h3>
+                <h3 className="text-charcoal font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 2.8vw, 34px)" }}>{projects[0].title}</h3>
                 <p className="mt-3 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[0].desc}</p>
               </div>
             </article>
@@ -254,7 +254,7 @@ export default function WorksPage() {
                       <Image src={p.photo} alt={p.alt} fill sizes="(max-width:768px) 100vw, 45vw" className="object-cover" />
                     </div>
                   )}
-                  <h3 className="mt-5 text-green font-semibold leading-[1.45] tracking-[-0.01em]" style={{ fontSize: "clamp(20px, 2.4vw, 28px)" }}>{p.title}</h3>
+                  <h3 className="mt-5 text-charcoal font-semibold leading-[1.45] tracking-[-0.01em]" style={{ fontSize: "clamp(20px, 2.4vw, 28px)" }}>{p.title}</h3>
                   <p className="mt-3 text-[15px] leading-[2] text-charcoal/80">{p.desc}</p>
                 </article>
               ))}
@@ -262,7 +262,7 @@ export default function WorksPage() {
 
             <p className="mt-14 text-[15px] leading-[2] text-charcoal/80">
               ほかにも地域のプロジェクトに取り組んでいます。
-              <Link href="/service-produce" className="ml-1 text-navy-ink border-b border-navy-ink/40 pb-0.5 font-bold hover:text-green hover:border-green transition-colors">地域プロデュースを見る →</Link>
+              <Link href="/service-produce" className="ml-1 text-navy-ink border-b border-navy-ink/40 pb-0.5 font-bold hover:text-terra-ink hover:border-terra-ink transition-colors">地域プロデュースを見る →</Link>
             </p>
           </div>
         </section>
@@ -275,7 +275,7 @@ export default function WorksPage() {
                 <div className="text-[12px] font-bold tracking-[0.14em] text-charcoal/45">お客様の声</div>
               </div>
               <div className="lg:col-span-8">
-                <h2 className="text-green font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 3vw, 38px)" }}>
+                <h2 className="text-charcoal font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(22px, 3vw, 38px)" }}>
                   実際に、どう変わったか。
                 </h2>
                 {/* TODO: 実在するお客様の声（許諾済みのコメント・お名前/イニシャル）を掲載する。架空のコメントは作成しない。 */}

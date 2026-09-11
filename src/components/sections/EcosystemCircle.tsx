@@ -230,7 +230,7 @@ export function EcosystemCircle() {
             <motion.h2
               id="ecosystem-heading"
               {...head(0.12)}
-              className="mt-6 text-green font-semibold leading-[1.45] tracking-[-0.01em]"
+              className="mt-6 text-charcoal font-semibold leading-[1.45] tracking-[-0.01em]"
               style={{ fontSize: "clamp(26px, 3vw, 42px)" }}
             >
               3つの事業で、

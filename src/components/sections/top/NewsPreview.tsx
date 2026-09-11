@@ -22,7 +22,7 @@ export function NewsPreview() {
             <div>
               <p className="text-[11px] font-bold tracking-[0.28em] text-charcoal/40">NEWS</p>
               <h2
-                className="mt-6 font-bold leading-[1.35] tracking-[-0.02em] text-green"
+                className="mt-6 font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
                 style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}
               >
                 お知らせ
@@ -31,7 +31,7 @@ export function NewsPreview() {
 
             <Link
               href="/news"
-              className="border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-green hover:text-green"
+              className="border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-terra-ink hover:text-terra-ink"
             >
               お知らせをすべて見る →
             </Link>

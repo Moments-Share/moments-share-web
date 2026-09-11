@@ -84,7 +84,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
                 >
                   <Link
                     href={href}
-                    className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-green"}`}
+                    className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-terra-ink"}`}
                     aria-haspopup="true"
                     aria-expanded={businessOpen}
                   >
@@ -104,7 +104,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
                             <Link
                               key={b.href}
                               href={b.href}
-                              className="block px-4 py-2.5 text-[13px] font-bold text-navy-ink/80 transition-colors hover:text-green"
+                              className="block px-4 py-2.5 text-[13px] font-bold text-navy-ink/80 transition-colors hover:text-terra-ink"
                             >
                               {b.label}
                             </Link>
@@ -118,7 +118,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
                 <Link
                   key={href}
                   href={href}
-                  className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-green"}`}
+                  className={`transition-colors ${whiteText ? "text-white/85 hover:text-white" : "text-navy-ink/80 hover:text-terra-ink"}`}
                 >
                   {label}
                 </Link>
@@ -186,7 +186,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
                       className="group flex items-baseline gap-4 py-4"
                       onClick={() => setOpen(false)}
                     >
-                      <span className="text-green font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 7vw, 38px)" }}>{label}</span>
+                      <span className="text-charcoal font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 7vw, 38px)" }}>{label}</span>
                       <span className="text-charcoal/40 text-[12px] font-bold ml-auto self-center">{en}</span>
                     </Link>
                     <div className="flex flex-col pb-4 pl-2">
@@ -194,7 +194,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
                         <Link
                           key={b.href}
                           href={b.href}
-                          className="py-2 pl-4 text-[15px] font-bold text-navy-ink/70 transition-colors hover:text-green"
+                          className="py-2 pl-4 text-[15px] font-bold text-navy-ink/70 transition-colors hover:text-terra-ink"
                           onClick={() => setOpen(false)}
                         >
                           {b.label}
@@ -209,7 +209,7 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
                     className="group flex items-baseline gap-4 py-4 border-b border-charcoal/10"
                     onClick={() => setOpen(false)}
                   >
-                    <span className="text-green font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 7vw, 38px)" }}>{label}</span>
+                    <span className="text-charcoal font-semibold tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 7vw, 38px)" }}>{label}</span>
                     <span className="text-charcoal/40 text-[12px] font-bold ml-auto self-center">{en}</span>
                   </Link>
                 )

@@ -25,7 +25,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 const mailLink = (
   <a
     href={`mailto:${CONTACT_EMAIL}`}
-    className="text-navy-ink border-b border-navy-ink/40 pb-0.5 font-bold hover:text-green hover:border-green transition-colors"
+    className="text-navy-ink border-b border-navy-ink/40 pb-0.5 font-bold hover:text-terra-ink hover:border-terra-ink transition-colors"
   >
     {CONTACT_EMAIL}
   </a>
@@ -67,8 +67,8 @@ export function ContactForm() {
   // 送信完了。フォームは畳み、次にどうなるかだけを伝える
   if (status === "success") {
     return (
-      <div role="status" aria-live="polite" className="border-t border-green/30 pt-10">
-        <p className="text-[22px] font-bold leading-[1.6] tracking-[-0.01em] text-green md:text-[26px]">
+      <div role="status" aria-live="polite" className="border-t border-sage/40 pt-10">
+        <p className="text-[22px] font-bold leading-[1.6] tracking-[-0.01em] text-charcoal md:text-[26px]">
           送信しました。ありがとうございます。
         </p>
         <p className="mt-6 max-w-[32em] text-[15px] leading-[2] text-charcoal/75">
@@ -78,7 +78,7 @@ export function ContactForm() {
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-8 text-[14px] font-bold text-charcoal/60 underline underline-offset-4 transition-colors hover:text-green"
+          className="mt-8 text-[14px] font-bold text-charcoal/60 underline underline-offset-4 transition-colors hover:text-terra-ink"
         >
           続けてもう1件送る
         </button>

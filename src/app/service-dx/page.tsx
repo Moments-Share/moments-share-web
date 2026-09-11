@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
-import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
+import { SitePhoto, SitePhotoFill } from "@/components/ui/SitePhoto";
 
 const problems = [
   "Excelやシステムへの転記が多い",
@@ -99,14 +98,7 @@ export default function ServiceDX() {
         {/* ===== HERO — 写真背景ヒーロー（TOPと同じトーン） ===== */}
         <section className="relative min-h-[58vh] md:min-h-[66vh] overflow-hidden bg-[#16281f]">
           <div className="absolute inset-0">
-            <Image
-              src="/photos/service-dx.png"
-              alt="現場でPC画面を一緒に見ながら業務を見直す様子"
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="100vw"
-            />
+            <SitePhotoFill name="dxPageHero" priority sizes="100vw" />
             <div
               className="absolute inset-0"
               style={{ background: "linear-gradient(to right, rgba(16,32,42,0.82) 0%, rgba(16,32,42,0.58) 40%, rgba(16,32,42,0.18) 72%, rgba(16,32,42,0) 100%)" }}
@@ -220,7 +212,7 @@ export default function ServiceDX() {
             {/* 主役事例の現場写真。左揃え・横位置 */}
             <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12">
               <div className="md:col-span-8">
-                <PhotoNeeded ratio="16/9" kind="MOMENTS" note="DX作業の手元・自動化を動かす現場（横）" />
+                <SitePhoto name="dxWorkflow" sizes="(max-width: 768px) 100vw, 50vw" />
                 <p className="mt-3 text-[12px] text-muted">毎日の投稿作業が、6分に。</p>
               </div>
             </div>

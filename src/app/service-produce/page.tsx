@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
-import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
+import { SitePhoto, SitePhotoFill } from "@/components/ui/SitePhoto";
 
 // 実在するプロジェクトのみ掲載する。架空の名称・事例は作成しない。
 const projects = [
@@ -103,14 +103,7 @@ export default function ServiceProduce() {
         {/* ===== HERO — 写真背景ヒーロー（TOPと同じトーン） ===== */}
         <section className="relative min-h-[58vh] md:min-h-[66vh] overflow-hidden bg-[#16281f]">
           <div className="absolute inset-0">
-            <Image
-              src="/photos/service-produce.png"
-              alt="西尾の夜市で笑い合う地域の人々"
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="100vw"
-            />
+            <SitePhotoFill name="regionPageHero" priority sizes="100vw" />
             <div
               className="absolute inset-0"
               style={{ background: "linear-gradient(to right, rgba(16,32,42,0.82) 0%, rgba(16,32,42,0.58) 40%, rgba(16,32,42,0.18) 72%, rgba(16,32,42,0) 100%)" }}
@@ -221,7 +214,7 @@ export default function ServiceProduce() {
                 </div>
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
                   <div className="md:col-span-8">
-                    <PhotoNeeded ratio="16/10" kind="MOMENTS" note="取材・活動中の様子（横）" />
+                    <SitePhoto name="regionProject" ratio="16/10" sizes="(max-width: 768px) 100vw, 50vw" />
                   </div>
                   <div className="md:col-span-4">
                     <h3
@@ -245,7 +238,7 @@ export default function ServiceProduce() {
                 </div>
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
                   <div className="md:col-span-5">
-                    <PhotoNeeded ratio="4/3" kind="MOMENTS" note="イベント準備・活動中の様子（横）" />
+                    <SitePhoto name="regionEvent" ratio="4/3" sizes="(max-width: 768px) 100vw, 50vw" />
                   </div>
                   <div className="md:col-span-7">
                     <h3 className="text-green font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[1].name}</h3>

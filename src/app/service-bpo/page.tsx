@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
-import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
+import { SitePhoto, SitePhotoFill } from "@/components/ui/SitePhoto";
 
 export const metadata: Metadata = {
   title: "BPO | Moments Share合同会社",
@@ -98,14 +97,7 @@ export default function ServiceBPO() {
         {/* ===== HERO — 写真背景ヒーロー（TOPと同じトーン） ===== */}
         <section className="relative min-h-[58vh] md:min-h-[66vh] overflow-hidden bg-[#16281f]">
           <div className="absolute inset-0">
-            <Image
-              src="/photos/service-bpo.png"
-              alt="コワーキングスペースで多様な人が働く様子"
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="100vw"
-            />
+            <SitePhotoFill name="bpoPageHero" priority sizes="100vw" />
             <div
               className="absolute inset-0"
               style={{ background: "linear-gradient(to right, rgba(16,32,42,0.82) 0%, rgba(16,32,42,0.58) 40%, rgba(16,32,42,0.18) 72%, rgba(16,32,42,0) 100%)" }}
@@ -227,7 +219,7 @@ export default function ServiceBPO() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               <div className="lg:col-span-5 order-1">
-                <PhotoNeeded ratio="4/5" kind="PEOPLE" note="多様な働き方の人・活動中（横/縦を混在）" />
+                <SitePhoto name="bpoRemote" ratio="4/3" sizes="(max-width: 768px) 100vw, 50vw" />
               </div>
               <div className="lg:col-span-7 order-2">
                 <h2 className="text-green font-semibold leading-[1.25] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 40px)" }}>

@@ -6,7 +6,7 @@ import { SitePhoto, SitePhotoFill } from "@/components/ui/SitePhoto";
 
 const problems = [
   "Excelやシステムへの転記が多い",
-  "毎月同じ資料を手作業している",
+  "毎月同じ資料を手作業で作成している",
   "請求書作成・送付に時間がかかる",
   "社内情報がバラバラ",
   "ChatGPTを契約したが活用できていない",
@@ -21,12 +21,20 @@ const outcomes = [
 ];
 
 const menu = [
-  "AI活用支援",
-  "AI研修",
-  "業務整理・DXコンサルティング",
-  "AI・RPA・GASによる業務自動化",
-  "Notionなどを使った情報整理",
-  "AIエージェント構築",
+  { name: "AI活用支援", desc: "現場で使えるAIの使いどころを整理し、定着まで伴走。" },
+  { name: "AI研修", desc: "チームがAIを使いこなすための実践研修。" },
+  { name: "業務整理・DXコンサルティング", desc: "どの作業を減らすべきか、優先順位から設計。" },
+  { name: "AI・RPA・GASによる業務自動化", desc: "入力・転記・集計を自動処理に置き換え。" },
+  { name: "Notionなどを使った情報整理", desc: "散らばった社内情報を一元化。" },
+  { name: "AIエージェント構築", desc: "定型業務を任せられる仕組みをつくる。" },
+];
+
+/* §3 時間とコストの試算。試算であることは本文の注記で明示する */
+const savings = [
+  { value: "60", unit: "分", label: "1日の手作業" },
+  { value: "20", unit: "時間", label: "月あたり（20日換算）" },
+  { value: "240", unit: "時間", label: "年間で戻る時間" },
+  { value: "72", unit: "万円", label: "年間の削減額（試算）" },
 ];
 
 const steps = [
@@ -38,13 +46,13 @@ const steps = [
 ];
 
 export const metadata: Metadata = {
-  title: "DX支援 | Moments Share合同会社",
+  title: "西尾・愛知の中小企業向けDX支援 ｜ 業務自動化・AI活用 ｜ Core Shift（Moments Share）",
   description:
-    "忙しさを、余白へ。請求書・データ転記・日報集計など、毎月繰り返す業務をAI・自動化で減らす伴走型DX支援。まず業務を整理し、本当に効果のあるところから改善します。愛知県西尾市発。",
+    "その作業、人がやらなくていい。毎日の入力・転記・集計・定型対応をAIと自動化で手放す伴走型DX支援「Core Shift」。1日60分の手作業をなくすだけで、年間240時間が戻ります。愛知県西尾市発、中小企業向け。",
   openGraph: {
-    title: "DX支援 | Moments Share合同会社",
+    title: "西尾・愛知の中小企業向けDX支援 ｜ Core Shift（Moments Share）",
     description:
-      "忙しさを、余白へ。毎月繰り返す業務をAI・自動化で減らす伴走型DX支援。まず業務を整理し、効果のあるところから改善します。愛知県西尾市発。",
+      "その作業、人がやらなくていい。人の時間を、価値創造へ。毎日の入力・転記・集計をAIと自動化で手放す伴走型DX支援。愛知県西尾市発。",
     locale: "ja_JP",
     type: "website",
     url: "https://moments-share.com/service-dx",
@@ -52,8 +60,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DX支援 | Moments Share合同会社",
-    description: "忙しさを、余白へ。毎月繰り返す業務をAI・自動化で減らす伴走型DX支援。愛知県西尾市発。",
+    title: "西尾・愛知の中小企業向けDX支援 ｜ Core Shift（Moments Share）",
+    description: "その作業、人がやらなくていい。人の時間を、価値創造へ。愛知県西尾市発の伴走型DX支援。",
     images: ["/og-image.png"],
   },
 };
@@ -61,9 +69,9 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "DX支援",
+  "name": "Core Shift（DX支援）",
   "description":
-    "忙しさを、余白へ。請求書・データ転記・日報集計・情報整理など毎月繰り返す業務を、AIや自動化で減らします。まず業務を整理し、本当に効果のあるところから改善する伴走型DX支援です。",
+    "人の時間を、価値創造へ。毎日の入力・転記・集計・定型対応など、人がやらなくていい仕事をAIと自動化で減らします。まず業務を整理し、本当に効果のあるところから改善する伴走型DX支援です。",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Moments Share合同会社",
@@ -82,7 +90,7 @@ const jsonLd = {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://moments-share.com/" },
-      { "@type": "ListItem", "position": 2, "name": "DX支援", "item": "https://moments-share.com/service-dx" },
+      { "@type": "ListItem", "position": 2, "name": "Core Shift（DX支援）", "item": "https://moments-share.com/service-dx" },
     ],
   },
 };
@@ -110,20 +118,23 @@ export default function ServiceDX() {
             />
           </div>
           <div className="relative z-10 min-h-[58vh] md:min-h-[66vh] flex flex-col justify-end max-w-[1400px] mx-auto w-full px-6 md:px-10 pb-14 md:pb-20 pt-32">
-            <div className="text-[13px] font-bold tracking-[0.14em] text-white/70">DX支援</div>
+            <div className="text-[13px] font-bold tracking-[0.14em] text-white/70">Core Shift｜DX支援</div>
             <h1 className="mt-5 text-white font-semibold leading-[1.16] tracking-[-0.02em]"
                 style={{ fontSize: "clamp(36px, 5.2vw, 76px)" }}>
-              忙しさを、<br />余白へ。
+              その作業、<br />人がやらなくていい。
             </h1>
-            <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-white/80">
-              毎月繰り返している、その仕事。AIや自動化で減らせるかもしれません。請求書。データ転記。日報集計。情報整理。まず業務を整理し、本当に効果のあるところから改善します。
+            <p className="mt-6 text-cream font-bold tracking-[0.02em]" style={{ fontSize: "clamp(17px, 2vw, 24px)" }}>
+              人の時間を、価値創造へ。
+            </p>
+            <p className="mt-7 max-w-xl text-[16px] md:text-[17px] leading-[2] text-white/80">
+              毎日の入力・転記・集計・定型対応を、AIと自動化で手放す。1日60分の手作業をなくすだけで、年間240時間があなたの会社に戻ります。
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
               <Link
                 href="/contact"
                 className="inline-block text-[14px] font-bold text-white/85 border-b border-white/40 pb-0.5 hover:text-white hover:border-white transition-colors"
               >
-                自動化できる業務を相談する →
+                まずは無料でご相談 →
               </Link>
               {/* 話す内容が決まっている人向けの近道。フォームと同格に置く */}
               <BookingLink variant="onGreen" />
@@ -164,8 +175,35 @@ export default function ServiceDX() {
               <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                 何が変わる？
               </h2>
-              <p className="mt-6 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
-                大切なのは、どのツールを使うかではありません。仕事がどう変わるか、です。
+              <p className="mt-6 max-w-[34em] text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                大切なのは、ツールを入れることではありません。「人がやらなくていい仕事（Non Human Task）」を減らし、時間を価値ある仕事へ戻すことです。
+              </p>
+            </div>
+
+            {/* §3 削減規模の試算。カードにせず、罫線と数字だけで静かに見せる */}
+            <div className="mt-12 md:mt-16">
+              <div className="grid grid-cols-2 border-t border-charcoal/15 md:grid-cols-4 md:border-b">
+                {savings.map((s) => (
+                  <div
+                    key={s.label}
+                    className="border-t border-charcoal/15 py-7 even:border-l md:border-t-0 md:border-l md:px-7 md:py-9 md:first:border-l-0 md:first:pl-0"
+                  >
+                    <div className="flex items-baseline gap-1.5">
+                      <span
+                        className="font-semibold leading-none tracking-[-0.03em] tabular-nums text-charcoal"
+                        style={{ fontSize: "clamp(38px, 4.4vw, 60px)" }}
+                      >
+                        {s.value}
+                      </span>
+                      <span className="text-[14px] font-bold text-sage-ink">{s.unit}</span>
+                    </div>
+                    <div className="mt-3 text-[13px] leading-[1.8] text-charcoal/60">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-5 max-w-[40em] text-[12px] leading-[1.9] text-charcoal/55">
+                1日60分 × 月20日 ＝ 月20時間、年間240時間。削減額は時給3,000〜3,500円で試算しています。
+                ※ 試算および一例です。業務内容によって結果は異なり、効果を保証するものではありません。
               </p>
             </div>
 
@@ -209,6 +247,9 @@ export default function ServiceDX() {
                 <p className="mt-5 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
                   投稿の企画から公開までの流れを自動化し、毎日の作業を大幅に削減。
                 </p>
+                <p className="mt-4 max-w-md text-[12px] leading-[1.9] text-charcoal/55">
+                  ※ 特定業務での一例です。効果を保証するものではありません。
+                </p>
               </div>
             </div>
 
@@ -231,7 +272,7 @@ export default function ServiceDX() {
                   手作業 → 自動化<span className="text-charcoal/60 text-[15px] font-medium ml-3 align-middle">発行・送付を仕組み化</span>
                 </div>
                 <p className="mt-5 max-w-md text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
-                  手作業だった請求書の作成・送付を自動化し、転記の手間をなくした。
+                  手作業だった請求書の作成・送付を自動化し、転記の手間を解消。
                 </p>
               </div>
             </div>
@@ -256,6 +297,15 @@ export default function ServiceDX() {
                 </div>
               </div>
             </div>
+
+            <div className="mt-14 md:mt-20">
+              <Link
+                href="/works"
+                className="inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
+              >
+                実績をもっと見る →
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -271,13 +321,18 @@ export default function ServiceDX() {
               <div className="lg:col-span-8">
                 <ul className="border-t border-charcoal/10">
                   {menu.map((m, i) => (
-                    <li key={m} className="flex items-baseline gap-6 border-b border-charcoal/10 py-6">
+                    <li key={m.name} className="flex items-baseline gap-6 border-b border-charcoal/10 py-6">
                       <span className="text-charcoal/30 font-medium tabular-nums leading-none w-10 shrink-0" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <p className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 26px)" }}>
-                        {m}
-                      </p>
+                      <div>
+                        <p className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 26px)" }}>
+                          {m.name}
+                        </p>
+                        <p className="mt-2 max-w-[30em] text-[14px] md:text-[15px] leading-[1.9] text-charcoal/70">
+                          {m.desc}
+                        </p>
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -293,6 +348,21 @@ export default function ServiceDX() {
               <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                 進め方。
               </h2>
+              {/* §6 着手前の不安を先に消す。距離・期間・保証の3点 */}
+              <dl className="mt-8 grid grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-3">
+                <div className="border-t-2 border-sage pt-4">
+                  <dt className="text-[12px] font-bold tracking-[0.1em] text-charcoal/50">ご対応</dt>
+                  <dd className="mt-2 text-[15px] font-bold leading-[1.6] text-charcoal">オンラインで完結</dd>
+                </div>
+                <div className="border-t-2 border-sage pt-4">
+                  <dt className="text-[12px] font-bold tracking-[0.1em] text-charcoal/50">期間</dt>
+                  <dd className="mt-2 text-[15px] font-bold leading-[1.6] text-charcoal">全体で約3週間</dd>
+                </div>
+                <div className="border-t-2 border-sage pt-4">
+                  <dt className="text-[12px] font-bold tracking-[0.1em] text-charcoal/50">保証</dt>
+                  <dd className="mt-2 text-[15px] font-bold leading-[1.6] text-charcoal">納品後30日間の無料保証</dd>
+                </div>
+              </dl>
             </div>
 
             <div className="mt-14 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
@@ -332,7 +402,7 @@ export default function ServiceDX() {
                   「何をAI化すればいいかわからない」という段階でも大丈夫です。
                 </p>
                 <Link href="/contact" className="mt-6 btn btn-ghost-on-green px-9 py-4">
-                  自動化できる業務を相談する →
+                  まずは無料でご相談 →
                 </Link>
                 <p className="mt-5 text-[14px] leading-[1.9] text-white/70">
                   日程が決まっている方は <BookingLink variant="onGreen">予約ページから</BookingLink>

@@ -176,22 +176,6 @@ export const newsImages: Record<string, SiteImage> = {
 };
 
 /* ---------------------------------------------------------------
-   共創パートナー。名前・役割は実在の方の情報に差し替える
-   --------------------------------------------------------------- */
-export type Partner = {
-  name: string;
-  role: string;
-  image: SiteImage;
-};
-
-export const partners: Partner[] = [
-  { name: "お名前", role: "役割", image: siteImages.partnerPlaceholder },
-  { name: "お名前", role: "役割", image: siteImages.partnerPlaceholder },
-  { name: "お名前", role: "役割", image: siteImages.partnerPlaceholder },
-  { name: "お名前", role: "役割", image: siteImages.partnerPlaceholder },
-];
-
-/* ---------------------------------------------------------------
    ロゴ
    --------------------------------------------------------------- */
 export const logos = {

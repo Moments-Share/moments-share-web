@@ -167,6 +167,14 @@
   }
   .btn-ghost-on-green:hover { background-color: #fff; border-color: #fff; color: var(--color-deep-green); }
 
+  /* ④ 明るい地の上の塗りボタン。ゴースト主ボタンより強い導線に使う。白文字7.8:1 AA */
+  .btn-solid-green {
+    background-color: var(--color-deep-green);
+    border-color: var(--color-deep-green);
+    color: #fff;
+  }
+  .btn-solid-green:hover { background-color: #264437; }
+
   /* 副ボタン（暗い地・控えめ）：枠線/文字を弱め、hoverでは塗らず輪郭と文字を強めるだけ。
      主ボタン(hoverで塗り)との主/副の区別を残す。塗りつぶしには戻さない。 */
   .btn-ghost-on-dark-subtle { border-color: rgba(255,255,255,0.35); color: rgba(255,255,255,0.78); }

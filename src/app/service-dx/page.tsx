@@ -48,11 +48,11 @@ const steps = [
 export const metadata: Metadata = {
   title: "西尾・愛知の中小企業向けDX支援 ｜ 業務自動化・AI活用 ｜ Core Shift（Moments Share）",
   description:
-    "その作業、人がやらなくていい。毎日の入力・転記・集計・定型対応をAIと自動化で手放す伴走型DX支援「Core Shift」。1日60分の手作業をなくすだけで、年間240時間が戻ります。愛知県西尾市発、中小企業向け。",
+    "人がやらなくてもいい仕事を減らす。毎日の入力・転記・集計・定型対応をAIと自動化で手放す伴走型DX支援「Core Shift」。1日60分の手作業をなくすだけで、年間240時間が戻ります。愛知県西尾市発、中小企業向け。",
   openGraph: {
     title: "西尾・愛知の中小企業向けDX支援 ｜ Core Shift（Moments Share）",
     description:
-      "その作業、人がやらなくていい。人の時間を、価値創造へ。毎日の入力・転記・集計をAIと自動化で手放す伴走型DX支援。愛知県西尾市発。",
+      "人がやらなくてもいい仕事を減らす。人の時間を、価値創造へ。毎日の入力・転記・集計をAIと自動化で手放す伴走型DX支援。愛知県西尾市発。",
     locale: "ja_JP",
     type: "website",
     url: "https://moments-share.com/service-dx",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "西尾・愛知の中小企業向けDX支援 ｜ Core Shift（Moments Share）",
-    description: "その作業、人がやらなくていい。人の時間を、価値創造へ。愛知県西尾市発の伴走型DX支援。",
+    description: "人がやらなくてもいい仕事を減らす。人の時間を、価値創造へ。愛知県西尾市発の伴走型DX支援。",
     images: ["/og-image.png"],
   },
 };
@@ -121,7 +121,7 @@ export default function ServiceDX() {
             <div className="text-[13px] font-bold tracking-[0.14em] text-white/70">Core Shift｜DX支援</div>
             <h1 className="mt-5 text-white font-semibold leading-[1.16] tracking-[-0.02em]"
                 style={{ fontSize: "clamp(36px, 5.2vw, 76px)" }}>
-              その作業、<br />人がやらなくていい。
+              人がやらなくてもいい<br />仕事を減らす
             </h1>
             <p className="mt-6 text-cream font-bold tracking-[0.02em]" style={{ fontSize: "clamp(17px, 2vw, 24px)" }}>
               人の時間を、価値創造へ。

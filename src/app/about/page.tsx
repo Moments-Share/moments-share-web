@@ -116,7 +116,7 @@ const company: { label: string; value: string; email?: boolean }[] = [
   { label: "正式名称", value: "Moments Share合同会社" },
   { label: "代表者名", value: "中根 隆（Ryu Nakane）" },
   { label: "所在地", value: "愛知県西尾市" },
-  { label: "設立", value: "2025年" },
+  { label: "設立", value: "2025年11月" },
   { label: "事業内容", value: "DX支援・BPO・地域プロデュース" },
   { label: "Email", value: "branding@momentsshare.com", email: true },
   // TODO: 資本金・従業員数などは未確定のため掲載しない（架空の数値を入れない）
@@ -340,6 +340,7 @@ export default function AboutPage() {
               <div className="lg:col-span-5">
                 <div className="text-[12px] font-bold tracking-[0.24em] text-navy-ink">Founder — 代表</div>
                 <div className="mt-8">
+                  {/* TODO: 代表写真 — 中根 隆のポートレート（縦 4:5）。public/photos に置いて site-images.ts に登録する */}
                   <PhotoNeeded ratio="4/5" kind="PEOPLE" note="代表・中根 隆のポートレート（縦）" />
                 </div>
               </div>
@@ -348,20 +349,41 @@ export default function AboutPage() {
                 <h2 className="text-navy-ink font-bold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 3.6vw, 46px)" }}>
                   中根 隆
                 </h2>
-                <div className="mt-3 text-[14px] font-bold text-charcoal/55">代表社員 / Ryu Nakane</div>
+                <div className="mt-3 text-[14px] font-bold text-charcoal/55">
+                  代表社員 / Ryu Nakane — DX伴走パートナー
+                </div>
 
                 <div className="mt-10 max-w-xl space-y-6 text-[16px] md:text-[18px] leading-[2.1] text-charcoal/85">
                   <p>
-                    群馬・シンガポールを経て西尾へ。シンガポールのベンチャー企業で
-                    営業・CS・マーケティング・マネジメントを経験し、100社以上の企業支援を重ねる中で、
-                    「人が疲弊する構造」と「DXが変える可能性」を目の当たりにしました。
+                    1997年、愛知県西尾市生まれ。高崎経済大学経営学部卒。
+                    就活に疑問を感じ200社以上を見て回ったのち、シンガポールのベンチャーで
+                    営業・マーケティング・採用・地方創生に携わり、大手から自治体まで100社以上を担当。
+                  </p>
+                  <p>
+                    組織づくりに追われる日々のなかで「人がやらなくていい仕事を減らしたい」と
+                    業務効率化へ。2024年に独立、2025年11月に Moments Share 合同会社を設立。
                   </p>
                   <p>
                     眠れない夜を越えてたどり着いた答えが、
                     挑戦と共創が循環する地域をつくるという一文でした。
-                    独立・西尾市へのUターンを経て、Moments Share合同会社を設立。
                   </p>
                 </div>
+
+                {/* 経歴の要点。本文を追いきれない読み手のための補助線 */}
+                <dl className="mt-10 grid max-w-xl grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-3">
+                  <div className="border-t-2 border-sage pt-4">
+                    <dt className="text-[12px] font-bold tracking-[0.1em] text-charcoal/50">出身</dt>
+                    <dd className="mt-2 text-[15px] font-bold leading-[1.6] text-charcoal">愛知県西尾市</dd>
+                  </div>
+                  <div className="border-t-2 border-sage pt-4">
+                    <dt className="text-[12px] font-bold tracking-[0.1em] text-charcoal/50">支援実績</dt>
+                    <dd className="mt-2 text-[15px] font-bold leading-[1.6] text-charcoal">100社以上</dd>
+                  </div>
+                  <div className="border-t-2 border-sage pt-4">
+                    <dt className="text-[12px] font-bold tracking-[0.1em] text-charcoal/50">設立</dt>
+                    <dd className="mt-2 text-[15px] font-bold leading-[1.6] text-charcoal">2025年11月</dd>
+                  </div>
+                </dl>
               </div>
             </div>
           </div>

@@ -17,7 +17,7 @@
   --color-terracotta-ink: #a85a34; /* background地4.8:1 ／ 白文字5.1:1 AA */
   --color-sage-ink: #4a6139;       /* background地6.4:1 AA */
   --color-cream: #f0e6d8;          /* 暗い写真の上に置く生成り。#16281f地13.7:1 */
-  --color-sage-light: #a8c489;     /* 暗い写真の上に置くセージ。#16222b地8.5:1 AA */
+  --color-leaf-green: #5bbf8b;     /* 明るい葉の緑 — 暗い地に映えるアクセント（Hero「循環を。」等）。#16222b地7.3:1 AA */
 
   /* --- 既存クラス名のエイリアス。呼び出し側を壊さずに新パレットへ寄せる --- */
   --color-ivory: #f8f5ef;
@@ -34,7 +34,7 @@
   --color-green: #6d8b5a;
   --color-green-ink: #4a6139;
   --color-green-deep: #315a49;
-  --color-leaf: #f0e6d8;
+  --color-leaf: #5bbf8b;
   --color-navy: #315a49;
   --color-dark: #16281f;
   --color-teal: #c97a56;

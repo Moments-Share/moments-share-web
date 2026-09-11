@@ -23,3 +23,13 @@ export const CONTACT_EMAIL = "branding@momentsshare.com";
 
 /** 送信先が設定済みか。https のURLだけを有効とみなす */
 export const isContactEndpointConfigured = /^https:\/\/\S+$/.test(CONTACT_ENDPOINT);
+
+/**
+ * 日程を決めて相談したい人向けの予約ページ（Google カレンダーの予約枠）。
+ *
+ * フォームが「まだ課題が整理できていない人」の入口なのに対し、
+ * こちらは「話す内容が決まっていて、早く話したい人」の入口。
+ * 外部サイトなので、リンクは必ず別タブで開く（BookingLink を使う）。
+ */
+export const BOOKING_URL =
+  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3HBg13jAppAUeOb3TmN5lLrpTZRhG1bCGNtFdnp1WAtetpzbQhLMbL3fYg_ckge7W08_beek67";

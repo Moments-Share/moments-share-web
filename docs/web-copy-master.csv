@@ -64,9 +64,9 @@ TOP-PEOPLE-02,TOP,PEOPLE,本文,社員だけで仕事をする会社ではあり
 TOP-PEOPLE-03,TOP,PEOPLE,リンク,関わる人たちを見る →,検討中,page.tsx,2026-08-20
 TOP-VISION-01,TOP,OUR VISION（2040）,ラベル,OUR VISION ／ 2040 GOAL,検討中,VisionNishio.tsx ラベル。2026-08-26更新（旧「2040年 Vision」表記を実装に合わせ修正）,2026-08-26
 TOP-VISION-02,TOP,OUR VISION（2040）,本文,西尾から、240の事業を。,検討中,VisionNishio.tsx 見出し。GOAL-2040-001と同一。2026-08-26更新,2026-08-26
-TOP-VISION-03,TOP,OUR VISION（2040）,本文,挑戦が当たり前になり、地域内外の人や企業とともに、事業を共創し続ける。,検討中,VisionNishio.tsx 補足文。2026-08-26更新,2026-08-26
+TOP-VISION-03,TOP,OUR VISION（2040）,本文,地域に、挑戦と共創が循環するエコシステム（4th Place）を創る,検討中,VisionNishio.tsx 補足文。2026-08-26更新,2026-08-26
 TOP-CONTACT-01,TOP,CONTACT,見出し,ご相談はこちらから,検討中,page.tsx CTA帯。全ページで共通見出し,2026-08-20
-TOP-CONTACT-02,TOP,CONTACT,本文,AIを使いたい。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。,検討中,page.tsx,2026-08-20
+TOP-CONTACT-02,TOP,CONTACT,本文,この作業、減らせないか。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。,検討中,page.tsx,2026-08-20
 TOP-CONTACT-03,TOP,CONTACT,ボタン,30分相談する →,検討中,page.tsx CTA,2026-08-20
 ABOUT-PURPOSE-01,About,1. PURPOSE,ラベル,Purpose — 存在意義,検討中,about/page.tsx,2026-08-20
 ABOUT-PURPOSE-02,About,1. PURPOSE,見出し,すべてが繋がる瞬間を、共創する。,確定,about h1。会社MISSIONと一致（ブランド言語シート参照）,2026-08-20
@@ -155,7 +155,7 @@ NEWS-ITEM-03,News,一覧,記事,2026-03-01 [サービス] DX支援サービス�
 NEWS-NAV-01,News,フッターリンク,リンク,← ホームへ戻る,検討中,news/page.tsx,2026-08-20
 CONTACT-HERO-01,Contact,HERO,ラベル,お問い合わせ,検討中,contact/page.tsx,2026-08-20
 CONTACT-HERO-02,Contact,HERO,見出し,ご相談はこちらから,検討中,contact h1,2026-08-20
-CONTACT-HERO-03,Contact,HERO,本文,AIを使いたい。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。,検討中,contact,2026-08-20
+CONTACT-HERO-03,Contact,HERO,本文,この作業、減らせないか。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。,検討中,contact,2026-08-20
 CONTACT-HERO-04,Contact,HERO,キャプション,話は、このまちのどこかから始まる。,検討中,contact,2026-08-20
 CONTACT-FORM-01,Contact,フォーム,ラベル,お名前* ／ 会社名・屋号 ／ メールアドレス* ／ ご相談の種類* ／ ご相談内容*,検討中,contact フォーム項目,2026-08-20
 CONTACT-FORM-02,Contact,フォーム,選択肢,DX支援・業務自動化 ／ BPO・業務代行 ／ 地域プロデュース ／ 採用・複業・パートナー参加 ／ その他,検討中,contact categories,2026-08-20

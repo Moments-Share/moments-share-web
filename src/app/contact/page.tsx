@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
 import { ContactForm } from "@/components/ui/ContactForm";
+import { BookingLink } from "@/components/ui/BookingLink";
 
 export const metadata: Metadata = {
   title: "お問い合わせ | Moments Share合同会社",
   description:
-    "AIを使いたい。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。Moments Shareへのご相談・お問い合わせはこちらから。",
+    "この作業、減らせないか。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。Moments Shareへのご相談・お問い合わせはこちらから。",
   openGraph: {
     title: "お問い合わせ | Moments Share合同会社",
     description: "DX・BPO・地域プロデュースのご相談。まずは30分、話してみませんか。",
@@ -48,7 +49,7 @@ export default function ContactPage() {
               ご相談はこちらから
             </h1>
             <p className="mt-8 max-w-md text-[16px] md:text-[17px] leading-[2] text-white/80">
-              AIを使いたい。人が足りない。地域で何か始めたい。<br />
+              この作業、減らせないか。人が足りない。地域で何か始めたい。<br />
               まだ課題が整理できていなくても大丈夫です。
             </p>
           </div>
@@ -59,6 +60,18 @@ export default function ContactPage() {
           {/* フォーム — 重いカードをやめ、下線インプットの編集スタイル。
               広い画面でも左に余白だけが残らないよう、中央に置いて幅を抑える */}
           <div className="mx-auto max-w-[860px]">
+            {/* 日程を押さえたい人はフォームを埋めずに済ませられるようにする */}
+            <div className="mb-12 border-l-2 border-sage pl-5">
+              <p className="text-[13px] font-bold tracking-[0.08em] text-charcoal/80">
+                日程を決めて話したい方へ
+              </p>
+              <p className="mt-3 max-w-[32em] text-[13px] leading-[2] text-charcoal/65">
+                空いている時間からお選びいただけます。フォームの入力は不要です。
+              </p>
+              <p className="mt-4">
+                <BookingLink>予約ページを開く</BookingLink>
+              </p>
+            </div>
             <ContactForm />
           </div>
         </section>

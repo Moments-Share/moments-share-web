@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Nav } from "@/components/ui/Nav";
+import { BookingLink } from "@/components/ui/BookingLink";
 import { SitePhoto, SitePhotoFill } from "@/components/ui/SitePhoto";
 
 const problems = [
@@ -117,13 +118,15 @@ export default function ServiceDX() {
             <p className="mt-8 max-w-xl text-[16px] md:text-[17px] leading-[2] text-white/80">
               毎月繰り返している、その仕事。AIや自動化で減らせるかもしれません。請求書。データ転記。日報集計。情報整理。まず業務を整理し、本当に効果のあるところから改善します。
             </p>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
               <Link
                 href="/contact"
                 className="inline-block text-[14px] font-bold text-white/85 border-b border-white/40 pb-0.5 hover:text-white hover:border-white transition-colors"
               >
                 自動化できる業務を相談する →
               </Link>
+              {/* 話す内容が決まっている人向けの近道。フォームと同格に置く */}
+              <BookingLink variant="onGreen" />
             </div>
           </div>
         </section>
@@ -331,6 +334,9 @@ export default function ServiceDX() {
                 <Link href="/contact" className="mt-6 btn btn-ghost-on-green px-9 py-4">
                   自動化できる業務を相談する →
                 </Link>
+                <p className="mt-5 text-[14px] leading-[1.9] text-white/70">
+                  日程が決まっている方は <BookingLink variant="onGreen">予約ページから</BookingLink>
+                </p>
               </div>
             </div>
           </div>

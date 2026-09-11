@@ -70,7 +70,7 @@ export default function Home() {
               </h2>
               <div className="lg:col-span-4 lg:pb-3">
                 <p className="text-[15px] leading-[2] text-white/75">
-                  AIを使いたい。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。
+                  この作業、減らせないか。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。
                 </p>
                 <Link href="/contact" className="btn btn-ghost-on-green mt-6 px-9 py-4">
                   30分相談する →

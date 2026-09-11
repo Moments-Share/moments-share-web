@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Nav } from "@/components/ui/Nav";
 import { BookingLink } from "@/components/ui/BookingLink";
+import { DeckEmbed } from "@/components/ui/DeckEmbed";
 import { SitePhoto, SitePhotoFill } from "@/components/ui/SitePhoto";
 
 const problems = [
@@ -387,6 +388,16 @@ export default function ServiceDX() {
             <h2 className="max-w-5xl text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 48px)" }}>
               AIを使える会社ではなく、<br className="hidden sm:block" />仕事を改善し続けられる会社へ。
             </h2>
+          </div>
+        </section>
+
+        {/* ===== DECK — サービス紹介資料。CTAの直前、詳しく知りたい人の受け皿 ===== */}
+        <section className="py-16 md:py-24 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1400px]">
+            <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+              資料で詳しく。
+            </h2>
+            <DeckEmbed />
           </div>
         </section>
 

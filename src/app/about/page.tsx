@@ -405,7 +405,7 @@ export default function AboutPage() {
         </section>
 
         {/* ===== 8. FINAL CTA — Deep Green のバンドで締める（見せ場帯・既存締めを流用） ===== */}
-        <section id="contact" className="scroll-mt-20 py-20 md:py-28 bg-green text-white">
+        <section id="contact" className="scroll-mt-20 py-20 md:py-28 bg-green-deep text-white">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
               <h2 className="lg:col-span-8 font-semibold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(30px, 4.5vw, 60px)" }}>

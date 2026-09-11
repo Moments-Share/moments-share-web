@@ -93,7 +93,7 @@ export default function RootLayout({
       <body className={`${notoSansJP.className} min-h-full antialiased`}>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-green focus:text-white focus:px-4 focus:py-2 focus:rounded focus:text-sm focus:font-bold focus:shadow-lg"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-green-deep focus:text-white focus:px-4 focus:py-2 focus:rounded focus:text-sm focus:font-bold focus:shadow-lg"
         >
           メインコンテンツへスキップ
         </a>

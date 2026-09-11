@@ -59,7 +59,7 @@ export default function Home() {
         <NewsPreview />
 
         {/* ===== CONTACT — Deep Green のバンドで締める ===== */}
-        <section id="contact" className="scroll-mt-16 bg-green px-6 py-20 text-white md:px-10 md:py-28">
+        <section id="contact" className="scroll-mt-16 bg-green-deep px-6 py-20 text-white md:px-10 md:py-28">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
               <h2

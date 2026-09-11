@@ -200,7 +200,7 @@ export default function PeoplePage() {
         </section>
 
         {/* ===== 5. Fellowになる — 参加CTA。Deep Green のバンド ===== */}
-        <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
+        <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green-deep text-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
               <div className="lg:col-span-8">

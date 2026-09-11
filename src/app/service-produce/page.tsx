@@ -267,7 +267,7 @@ export default function ServiceProduce() {
               </article>
 
               {/* 04 その他 — 進行中のステートメントバンド（緑帯・角丸なし・バッジなし） */}
-              <article className="bg-green text-white p-10 md:p-16">
+              <article className="bg-green-deep text-white p-10 md:p-16">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
                   <div className="md:col-span-8">
                     <div className="flex items-baseline gap-4 text-[13px] font-semibold tracking-[0.16em]">
@@ -438,7 +438,7 @@ export default function ServiceProduce() {
         </section>
 
         {/* ===== CTA — Deep Green のバンド＋テラコッタボタンで締める ===== */}
-        <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green text-white">
+        <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green-deep text-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
               <h2

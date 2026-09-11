@@ -1,40 +1,50 @@
 @import "tailwindcss";
 
 @theme {
-  /* --- Brand palette: ロゴ準拠 Green base × Logo Cyan accent × Warm Ivory ---
-     ロゴ主色: 水色シアン #18c0d8（明るい水色の帆船マーク）。シアンはロゴマーク画像(logo-3.png)内のみに限定。
-     テキスト/ラベル/リンク/装飾線からはターコイズを全廃し、ネイビー(#183048)＋グリーン(#315a49 hover/小アクセント)へ統一。
-     ↓terra系トークンは後方互換のため定義のみ残置。現在テキスト/UIからは未参照。 */
-  --color-green: #315a49;     /* PRIMARY Green — 主要見出し/ダーク帯/ワードマーク（緑基調・据え置き） */
-  --color-terra: #0e7f92;     /* ACCENT Cyan（面/ボタン）— bg-terra+白文字=4.70:1 AA。H189でロゴの水色家族 */
-  --color-terra-ink: #0e7482; /* ACCENT Cyan（文字用・少し深い水色）— ivory地の小ラベル/リンク=5.03:1 AA */
-  --color-terra-bright: #18c0d8; /* ロゴのフル明度シアン — 細いライン/ホバー/小面など文字コントラスト不要な箇所のみ */
-  --color-sage: #7aa0a4;      /* Supporting Muted Teal-Gray */
-  --color-leaf: #5bbf8b;      /* 明るい葉の緑 — 暗い地に映えるアクセント（Hero「循環を。」等） */
-  --color-charcoal: #252825;  /* Charcoal — 本文/濃い文字 */
-  --color-ivory: #f8f5ef;     /* BASE Warm Ivory — サイト全体の基本背景 */
-  --color-navy-ink: #183048;  /* LOGO NAVY — logo-1の文字色。ワードマーク/ナビ文字/明るいクローム上の見出し（ivory地12.4:1・white地13.5:1 AA） */
+  /* --- Brand palette ---
+     一覧表「コーポレートサイト用 画像素材一覧」で確定した4色。
+       #C97A56 テラコッタ … 挑戦・行動・人の熱量・CTA
+       #6D8B5A セージグリーン … 地域・自然・共創・安心感
+       #F8F5EF アイボリー … 背景
+       #222222 … 本文・見出し
 
-  /* --- Ecosystem (RIVER LOOP) 極小面積アクセント。DX=落ち着いた青 / BPO=既存green / 地域=温かい橙。
-     線・番号・小さなノード・ごく一部の文字のみに使用。大きな面には使わない。 --- */
-  --color-dx: #3f6aa0;        /* DX — 彩度低めのブルー */
-  --color-region: #cc7a45;    /* 地域プロデュース — 温かいオレンジ */
+     ブランド2色はアイボリー地で 3.0〜3.6:1。大きな見出しや面には十分だが、
+     小さい文字や白抜き文字には足りない。そのため用途別に濃度違いを用意し、
+     文字・ボタン面には -ink / -deep を使う。数値は WCAG のコントラスト比。 */
 
-  /* --- Legacy token aliases (remapped so既存ページも自動で新パレットへ) --- */
-  --color-navy: #1d3a5f;      /* → navy (headings / dark bands) */
-  --color-teal: #18c0d8;      /* → ロゴのフル明度シアン（暗い帯上の小ラベル/リンク専用。navy帯6.15:1 / 緑帯4.49:1 AA） */
-  --color-accent: #18c0d8;    /* → ロゴシアン（同上） */
-  --color-coral: #18c0d8;     /* → ロゴシアン（同上） */
-  --color-dark: #16283f;      /* → deep navy (darkest bands) */
+  --color-terra: #c97a56;      /* ブランド指定。装飾・大きな面 */
+  --color-terra-deep: #a85a34; /* CTAボタン面。白文字5.1:1 AA ／ ivory地4.8:1 AA */
+  --color-terra-ink: #9e5636;  /* ivory地の小さい文字・リンク 5.2:1 AA */
 
-  /* --- ヘッダー/フッターは明るいクローム(ivory地)に統一。People限定のダーク帯出し分けは廃止 --- */
+  --color-green: #6d8b5a;      /* ブランド指定。大見出し（24px以上）ivory地3.6:1 */
+  --color-green-deep: #3f5436; /* 暗い帯の地。白文字7.9:1 AA */
+  --color-green-ink: #4a6139;  /* ivory地の小さい文字 6.4:1 AA */
 
-  --color-ink: #252825;       /* body text — charcoal */
-  --color-muted: #6f7b83;     /* muted cool gray */
+  --color-ivory: #f8f5ef;      /* BASE 背景 */
+  --color-charcoal: #222222;   /* 本文・見出し。ivory地14.2:1 AA */
+
+  /* 暗い写真の上に載せる明るいセージ。#16281f 地で8.5:1 AA（Hero「循環を。」） */
+  --color-leaf: #a8c489;
+  /* 補助。プレースホルダーの地など、文字を載せない面のみ */
+  --color-sage: #9bae8b;
+
+  /* 3事業のラベル用アクセント（極小面積のみ） */
+  --color-dx: #9e5636;         /* DX = 挑戦の色 */
+  --color-region: #6d8b5a;     /* 地域プロデュース = 地域の色 */
+
+  /* --- 旧トークンの読み替え。既存クラスをそのまま新パレットへ寄せる --- */
+  --color-navy-ink: #222222;   /* ナビ/フッターの文字・ワードマーク */
+  --color-navy: #3f5436;
+  --color-teal: #a8c489;
+  --color-accent: #c97a56;
+  --color-coral: #c97a56;
+  --color-dark: #1c2b18;
+  --color-ink: #222222;
+  --color-muted: #6b6862;      /* 補足テキスト。ivory地5.1:1 AA */
   --color-white: #ffffff;
-  --color-light: #eef1f2;     /* cool off-white — subtle band */
-  --color-warm: #f8f5ef;      /* ivory (alt band) */
-  --color-border: rgba(29, 58, 95, 0.12);
+  --color-light: #efece4;
+  --color-warm: #f8f5ef;
+  --color-border: rgba(34, 34, 34, 0.12);
 
   --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
 
@@ -72,7 +82,7 @@
 
   body {
     background: #f8f5ef;
-    color: #252825;
+    color: #222222;
     font-family: var(--font-sans);
     font-size: 17px;
     line-height: 2.0;
@@ -80,7 +90,7 @@
   }
 
   ::selection {
-    background: #315a49;
+    background: #6d8b5a;
     color: #fff;
   }
 }
@@ -143,9 +153,10 @@
     transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
   }
 
-  /* ① 明るい地(アイボリー/白)上：ネイビー枠線・文字 → hoverネイビー塗り＋白文字 */
-  .btn-ghost-navy { border-color: var(--color-navy-ink); color: var(--color-navy-ink); }
-  .btn-ghost-navy:hover { background-color: var(--color-navy-ink); color: #fff; }
+  /* ① 明るい地(アイボリー/白)上の主ボタン＝CTA。テラコッタ枠線・文字 → hover塗り＋白文字。
+     クラス名は既存の呼び出しを壊さないため据え置き（配色のみブランドのCTA色に変更）。 */
+  .btn-ghost-navy { border-color: var(--color-terra-deep); color: var(--color-terra-deep); }
+  .btn-ghost-navy:hover { background-color: var(--color-terra-deep); color: #fff; }
 
   /* ② 暗いヒーロー上：白枠線・文字 → hover白塗り＋ネイビー文字 */
   .btn-ghost-on-dark { border-color: #fff; color: #fff; }
@@ -153,7 +164,7 @@
 
   /* ③ 緑の見せ場帯(bg-green)上：白枠線・文字 → hover白塗り＋緑文字 */
   .btn-ghost-on-green { border-color: #fff; color: #fff; }
-  .btn-ghost-on-green:hover { background-color: #fff; color: var(--color-green); }
+  .btn-ghost-on-green:hover { background-color: #fff; color: var(--color-green-deep); }
 
   /* 副ボタン（暗い地・控えめ）：枠線/文字を弱め、hoverでは塗らず輪郭と文字を強めるだけ。
      主ボタン(hoverで塗り)との主/副の区別を残す。塗りつぶしには戻さない。 */

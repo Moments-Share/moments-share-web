@@ -93,7 +93,7 @@ export function Footer() {
                   <dt className="w-16 shrink-0 text-charcoal/50">電話</dt>
                   <dd>
                     <a className="text-navy-ink font-bold underline underline-offset-2 hover:text-terra-ink transition-colors" href={telHref}>{company.tel}</a>
-                    <span className="ml-2 text-charcoal/50">{company.telNote}</span>
+                    {company.telNote && <span className="ml-2 text-charcoal/50">{company.telNote}</span>}
                   </dd>
                 </div>
               )}

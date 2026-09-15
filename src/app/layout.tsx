@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://moments-share.com",
     siteName: "Moments Share合同会社",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Moments Share合同会社 — 地域愛を地域発展の力に。",
     description: "愛知県西尾市発。DX・BPO・地域プロデュースで、地域に挑戦と共創の循環を。",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -43,7 +43,7 @@ const organizationJsonLd = {
       "url": "https://moments-share.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://moments-share.com/og-image.png",
+        "url": "https://moments-share.com/og-image.jpg",
       },
       "description": "愛知県西尾市発。DX支援・地域プロデュース・BPOの3事業で、地域の持続性を支えます。挑戦と共創が循環する仕組みをつくる会社。",
       "foundingDate": "2025",

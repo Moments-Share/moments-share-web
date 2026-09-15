@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     type: "website",
     url: "https://moments-share.com/service-bpo",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "BPO | Moments Share合同会社",
     description: "人手不足に、社外の力を。必要な仕事を、必要な分だけ支えます。",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 

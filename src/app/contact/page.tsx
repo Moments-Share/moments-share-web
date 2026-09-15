@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: "DX・BPO・地域プロデュースのご相談。まずは30分、話してみませんか。",
     type: "website",
     url: "https://moments-share.com/contact",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 

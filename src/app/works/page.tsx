@@ -14,7 +14,7 @@ export const metadata: Metadata = {
       "企業のDX・業務改善から地域プロジェクトまで。Moments Shareがつくってきた仕事の実績。",
     type: "website",
     url: "https://moments-share.com/works",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
 };
 

@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     type: "website",
     url: "https://moments-share.com/about",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "存在意義 — なぜ、私たちは在るのか | Moments Share合同会社",
     description:
       "すべてが繋がる瞬間を、共創する。「生きててよかった！」があふれる世界を創る。愛知県西尾市発。",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 

@@ -52,13 +52,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     type: "website",
     url: "https://moments-share.com/service-produce",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "地域プロデュース | Moments Share合同会社",
     description: "想いを、挑戦へ。挑戦と共創の循環を、西尾から。",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 

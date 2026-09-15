@@ -57,13 +57,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     type: "website",
     url: "https://moments-share.com/service-dx",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "西尾・愛知の中小企業向けDX支援 ｜ Core Shift（Moments Share）",
     description: "人がやらなくてもいい仕事を減らす。人の時間を、価値創造へ。愛知県西尾市発の伴走型DX支援。",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 

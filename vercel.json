@@ -1,8 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
-    { "source": "/mvv", "destination": "/about", "permanent": true },
-    { "source": "/group", "destination": "/about", "permanent": true },
-    { "source": "/projects", "destination": "/works", "permanent": true }
+    { "source": "/about-us", "destination": "/about/", "permanent": true },
+    { "source": "/service", "destination": "/#business", "permanent": true },
+    { "source": "/service-dx-support", "destination": "/service-dx/", "permanent": true },
+    { "source": "/member", "destination": "/people/", "permanent": true },
+
+    { "source": "/mvv", "destination": "/about/", "permanent": true },
+    { "source": "/group", "destination": "/about/", "permanent": true },
+    { "source": "/projects", "destination": "/works/", "permanent": true }
   ]
 }

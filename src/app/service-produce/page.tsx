@@ -3,40 +3,69 @@ import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
 import { SitePhoto, SitePhotoFill } from "@/components/ui/SitePhoto";
+import type { SiteImageKey } from "@/lib/site-images";
 import { ExternalLink } from "@/components/ui/ExternalLink";
+import { Carousel, CarouselItem } from "@/components/ui/Carousel";
 import { careerLab, kinnikuMatsuri, zukan } from "@/lib/community";
 
 // 実在するプロジェクトのみ掲載する。架空の名称・事例は作成しない。
-const projects = [
+//
+// カルーセルで横に並べるため、5件とも同じ項目を持たせている。
+// image / href / media が無いものは、その部分だけ出ない。
+const projects: {
+  no: string;
+  name: string;
+  cat: string;
+  desc: string;
+  image?: SiteImageKey;
+  href?: string;
+  hrefLabel?: string;
+  media?: { label: string; url: string }[];
+  extra?: { label: string; href: string };
+}[] = [
   {
+    no: "01",
     name: "西尾働き方図鑑",
     cat: "キャリア教育",
     desc: "小学生から大学生までが世代を越えてチームを組み、地域企業を取材・体験して発信するキャリア教育プロジェクト。「こんな仕事があるんだ」という出会いが、地元で働く選択肢を広げる。",
-    ongoing: false,
+    image: "regionProject",
+    href: "/nishio-hatarakikata-zukan",
+    hrefLabel: "西尾働き方図鑑について",
+    media: zukan.media,
+    extra: { label: "大学生PMを1名募集しています", href: "/student-internship#zukan-pm" },
   },
   {
+    no: "02",
     name: "西尾筋肉祭り",
     cat: "イベント",
     desc: "「筋肉のパワーで西尾を盛り上げよう」を合言葉に、2026年5月に第1回を開催した地域活性化イベント。キッズ・U18から年代別クラスまで部門を設け、子どもから大人までが参加した。",
-    ongoing: false,
+    image: "regionEvent",
+    media: kinnikuMatsuri.media,
+    extra: { label: "大学生PMを1名募集しています", href: "/student-internship#kinniku-pm" },
   },
   {
-    name: "AI活用研究会",
-    cat: "コミュニティ",
-    desc: "地域の企業・個人がAIを学び合うコミュニティ。現場で使える知識を共有し、挑戦のきっかけをつくる。",
-    ongoing: false,
-  },
-  {
+    no: "03",
     name: "西尾キャリアLab",
     cat: "コミュニティ",
     desc: "大学生が自分らしいキャリアを描くためのコミュニティ。地域の企業・社会人との出会いと、実践型インターンなどの行動の機会をつくる。",
-    ongoing: false,
+    image: "regionEducation",
+    href: "/nishio-career-lab",
+    hrefLabel: "西尾キャリアLabについて",
+    media: careerLab.media,
   },
   {
+    no: "04",
+    name: "AI活用研究会",
+    cat: "コミュニティ",
+    desc: "地域の企業・個人がAIを学び合うコミュニティ。現場で使える知識を共有し、挑戦のきっかけをつくる。",
+  },
+  {
+    no: "05",
     name: "その他のプロジェクト",
     cat: "PROJECTS",
     desc: "地域の「やってみたい」から、新しいプロジェクトが今も生まれ続けています。",
-    ongoing: true,
+    href: "/contact",
+    hrefLabel: "次の挑戦を持ち込む",
   },
 ];
 
@@ -217,148 +246,86 @@ export default function ServiceProduce() {
               </p>
             </div>
 
-            <div className="mt-16 md:mt-24 flex flex-col gap-20 md:gap-32">
-              {/* 01 西尾働き方図鑑 — FEATURE。大きな写真を主役に据えた誌面特集 */}
-              <article>
-                <div className="flex items-baseline gap-3">
-                  <span
-                    className="text-charcoal/30 font-medium tabular-nums leading-none"
-                    style={{ fontSize: "clamp(18px, 2vw, 28px)" }}
-                  >
-                    01
-                  </span>
-                  <span className="text-charcoal/40 text-[13px] font-semibold tracking-[0.16em]">
-                    {projects[0].cat}
-                  </span>
-                </div>
-                <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
-                  <div className="md:col-span-8">
-                    <SitePhoto name="regionProject" ratio="16/10" sizes="(max-width: 768px) 100vw, 50vw" />
-                  </div>
-                  <div className="md:col-span-4">
-                    <h3
-                      className="text-charcoal font-semibold leading-[1.22] tracking-[-0.02em]"
-                      style={{ fontSize: "clamp(26px, 3.2vw, 40px)" }}
-                    >
-                      {projects[0].name}
-                    </h3>
-                    <p className="mt-5 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
-                      {projects[0].desc}
-                    </p>
-                    {/* 記事の本体は外部媒体。詳細は専用ページへ、最新は媒体へ渡す */}
-                    <div className="mt-6 flex flex-col gap-3 items-start">
-                      <Link
-                        href="/nishio-hatarakikata-zukan"
-                        className="inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
-                      >
-                        西尾働き方図鑑について →
-                      </Link>
-                      {zukan.media.map((m) => (
-                        <ExternalLink key={m.url} href={m.url}>
-                          {m.label}
-                        </ExternalLink>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </article>
+            {/* 横スクロールのカルーセル。以前は5件を縦に大きく積んでいて
+                この節だけで3,370pxあった。5件あるのでPCでも自動送りが効く。
+                カードの形は5件とも同じにする。1件ずつ違う組みにすると、
+                横に並べたときに高さも視線の流れもそろわない */}
+            <div className="mt-12 md:mt-16">
+              <Carousel label="西尾で取り組んでいるプロジェクト">
+                {projects.map((p) => (
+                  <CarouselItem key={p.name}>
+                    <article className="flex w-full flex-col border border-charcoal/12 bg-white">
+                      {p.image ? (
+                        <SitePhoto
+                          name={p.image}
+                          ratio="4/3"
+                          sizes="(max-width: 640px) 86vw, (max-width: 1024px) 58vw, 33vw"
+                        />
+                      ) : (
+                        // 写真が無いプロジェクトは、連番を大きく置いて面をつくる
+                        <div
+                          className="flex items-center justify-center bg-light"
+                          style={{ aspectRatio: "4/3" }}
+                        >
+                          <span
+                            aria-hidden
+                            className="font-bold leading-none tabular-nums text-charcoal/15"
+                            style={{ fontSize: "clamp(64px, 7vw, 104px)" }}
+                          >
+                            {p.no}
+                          </span>
+                        </div>
+                      )}
 
-              {/* 02 西尾筋肉祭り — 写真を横に添えた中サイズ。01と異なる左右構成 */}
-              <article className="border-t border-charcoal/10 pt-12 md:pt-16">
-                <div className="flex items-baseline gap-3">
-                  <span className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>02</span>
-                  <span className="text-charcoal/40 text-[13px] font-semibold tracking-[0.16em]">{projects[1].cat}</span>
-                </div>
-                <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
-                  <div className="md:col-span-5 flex flex-col gap-4">
-                    <SitePhoto name="regionEvent" ratio="3/2" sizes="(max-width: 768px) 100vw, 40vw" />
-                    <SitePhoto name="regionEventStage" ratio="3/2" sizes="(max-width: 768px) 100vw, 40vw" />
-                  </div>
-                  <div className="md:col-span-7">
-                    <h3 className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[1].name}</h3>
-                    <p className="mt-4 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[1].desc}</p>
-                    <div className="mt-6 flex flex-col gap-3 items-start">
-                      <Link
-                        href="/student-internship#kinniku-pm"
-                        className="inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
-                      >
-                        大学生PMを1名募集しています →
-                      </Link>
-                      {kinnikuMatsuri.media.map((m) => (
-                        <ExternalLink key={m.url} href={m.url}>
-                          {m.label}
-                        </ExternalLink>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </article>
+                      <div className="flex flex-1 flex-col p-7 md:p-8">
+                        <div className="flex items-baseline gap-3">
+                          <span className="font-medium tabular-nums leading-none text-charcoal/65 text-[15px]">
+                            {p.no}
+                          </span>
+                          <span className="text-[12px] font-bold tracking-[0.16em] text-sage-ink">
+                            {p.cat}
+                          </span>
+                        </div>
 
-              {/* 03 AI活用研究会 — 写真なしのテキスト誌面ロウ。連番＋本文の非対称 */}
-              <article className="border-t border-charcoal/10 pt-12 md:pt-16">
-                <div className="flex items-baseline gap-3">
-                  <span className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>03</span>
-                  <span className="text-charcoal/40 text-[13px] font-semibold tracking-[0.16em]">{projects[2].cat}</span>
-                </div>
-                <div className="mt-4 max-w-xl">
-                  <h3 className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[2].name}</h3>
-                  <p className="mt-4 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[2].desc}</p>
-                </div>
-              </article>
+                        <h3
+                          className="mt-4 text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]"
+                          style={{ fontSize: "clamp(21px, 2.2vw, 28px)" }}
+                        >
+                          {p.name}
+                        </h3>
 
-              {/* 04 西尾キャリアLab — 03と同じテキスト誌面ロウ。専用ページへ渡す */}
-              <article className="border-t border-charcoal/10 pt-12 md:pt-16">
-                <div className="flex items-baseline gap-3">
-                  <span className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>04</span>
-                  <span className="text-charcoal/40 text-[13px] font-semibold tracking-[0.16em]">{projects[3].cat}</span>
-                </div>
-                <div className="mt-4 max-w-xl">
-                  <h3 className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[3].name}</h3>
-                  <p className="mt-4 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[3].desc}</p>
-                  <div className="mt-6 flex flex-col gap-3 items-start">
-                    <Link
-                      href="/nishio-career-lab"
-                      className="inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
-                    >
-                      西尾キャリアLabについて →
-                    </Link>
-                    {careerLab.media.map((m) => (
-                      <ExternalLink key={m.url} href={m.url}>
-                        {m.label}
-                      </ExternalLink>
-                    ))}
-                  </div>
-                </div>
-              </article>
+                        <p className="mt-4 flex-1 text-[15px] leading-[1.95] text-charcoal/80">
+                          {p.desc}
+                        </p>
 
-              {/* 05 その他 — 進行中のステートメントバンド（緑帯・角丸なし・バッジなし） */}
-              <article className="bg-green-deep text-white p-10 md:p-16">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
-                  <div className="md:col-span-8">
-                    <div className="flex items-baseline gap-4 text-[13px] font-semibold tracking-[0.16em]">
-                      <span className="text-white/50">{projects[4].cat}</span>
-                      {projects[4].ongoing && <span className="text-white/60">進行中</span>}
-                    </div>
-                    <h3
-                      className="mt-4 font-semibold leading-[1.25] tracking-[-0.02em]"
-                      style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
-                    >
-                      {projects[4].name}
-                    </h3>
-                    <p className="mt-5 max-w-lg text-[15px] md:text-[16px] leading-[2] text-white/80">
-                      {projects[4].desc}
-                    </p>
-                  </div>
-                  <div className="md:col-span-4">
-                    <Link
-                      href="/contact"
-                      className="btn btn-ghost-on-green px-9 py-4"
-                    >
-                      次の挑戦を持ち込む →
-                    </Link>
-                  </div>
-                </div>
-              </article>
+                        <div className="mt-7 flex flex-col items-start gap-3">
+                          {p.href && (
+                            <Link
+                              href={p.href}
+                              className="inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
+                            >
+                              {p.hrefLabel} →
+                            </Link>
+                          )}
+                          {p.extra && (
+                            <Link
+                              href={p.extra.href}
+                              className="inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
+                            >
+                              {p.extra.label} →
+                            </Link>
+                          )}
+                          {p.media?.map((m) => (
+                            <ExternalLink key={m.url} href={m.url}>
+                              {m.label}
+                            </ExternalLink>
+                          ))}
+                        </div>
+                      </div>
+                    </article>
+                  </CarouselItem>
+                ))}
+              </Carousel>
             </div>
           </div>
         </section>

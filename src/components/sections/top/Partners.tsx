@@ -35,15 +35,13 @@ export function Partners() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="mt-8 max-w-[34em] space-y-5 text-[15px] leading-[2.1] text-charcoal md:text-[16px]">
-                <p>
-                  Moments Shareでは、地域や企業の未来をともにつくる外部パートナーを募集しています。
+              {/* 短い言い切りで積む。分野の列挙は右のリストと重複するので本文からは外した */}
+              <div className="mt-8 max-w-[30em] space-y-5 text-[16px] leading-[2] text-charcoal md:text-[18px]">
+                <p>プロジェクトごとに、外部のパートナーと組んでいます。</p>
+                <p>専門を持ち寄って、一社では届かない挑戦を形にする。</p>
+                <p className="text-[15px] text-charcoal/80 md:text-[16px]">
+                  働き方も、関わる深さも、そのつど相談で決めます。まずは、お互いを知るところから。
                 </p>
-                <p>
-                  DX・業務効率化、システム開発、業務支援、デザイン、広報、地域プロジェクトなど、さまざまな専門性や経験を掛け合わせながら、新しい挑戦を形にしていきます。
-                </p>
-                <p>働き方や関わり方は、プロジェクトに応じて相談できます。</p>
-                <p>まずは、お互いのことを知るところから始めましょう。</p>
               </div>
             </Reveal>
           </div>
@@ -51,7 +49,7 @@ export function Partners() {
           {/* 右 — 募集分野。カードにせず、細い罫線で区切るだけにとどめる */}
           <div className="lg:col-span-5">
             <Reveal delay={0.15}>
-              <p className="text-[11px] font-bold tracking-[0.2em] text-charcoal/45">募集する分野</p>
+              <p className="text-[11px] font-bold tracking-[0.2em] text-charcoal/70">募集する分野</p>
               {/* 上端だけセージの細線。色は差さずに視線の起点をつくる */}
               <ul className="mt-6 border-t-2 border-sage">
                 {fields.map((field) => (
@@ -63,8 +61,8 @@ export function Partners() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-[13px] leading-[1.9] text-charcoal/55">
-                上記以外の専門性でも、お気軽にご相談ください。
+              <p className="mt-5 text-[13px] leading-[1.9] text-charcoal/75">
+                ここに無い専門性でも、まずはご相談ください。
               </p>
             </Reveal>
           </div>

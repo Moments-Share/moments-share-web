@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { SitePhoto } from "@/components/ui/SitePhoto";
 import type { SiteImageKey } from "@/lib/site-images";
+import { Carousel, CarouselItem } from "@/components/ui/Carousel";
 
 /* ============================================================
    OUR BUSINESS — 3つの事業
@@ -15,6 +16,10 @@ import type { SiteImageKey } from "@/lib/site-images";
 
    事業のあいだの循環は、以前は事業と事業のあいだに縦線で入れていた。
    これも縦に伸びる原因だったので、カードの下に一行でまとめている。
+
+   並べ方は横スクロールのカルーセル。PCでは3枚とも収まるので
+   自動送りは動かない（Carousel 側が、はみ出しているときだけ送る）。
+   スマホでは1枚ずつ送られるので、縦に3枚積まれずに済む。
    ============================================================ */
 
 type Business = {
@@ -76,14 +81,15 @@ export function BusinessFlow() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:mt-16 md:gap-8">
+          <div className="mt-12 md:mt-16">
+          <Carousel label="3つの事業">
             {businesses.map((b) => {
               const dark = b.primary;
               return (
+                <CarouselItem key={b.label}>
                 <Link
-                  key={b.label}
                   href={b.href}
-                  className={`group flex flex-col transition-shadow hover:shadow-lg ${
+                  className={`group flex w-full flex-col transition-shadow hover:shadow-lg ${
                     dark ? "bg-green-deep text-white" : "bg-white border border-charcoal/12"
                   }`}
                 >
@@ -137,8 +143,10 @@ export function BusinessFlow() {
                     </span>
                   </div>
                 </Link>
+                </CarouselItem>
               );
             })}
+          </Carousel>
           </div>
         </Reveal>
 

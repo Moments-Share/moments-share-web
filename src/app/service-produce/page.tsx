@@ -17,7 +17,7 @@ const projects = [
   {
     name: "西尾筋肉祭り",
     cat: "イベント",
-    desc: "体を動かして地域を盛り上げる体験型イベント。世代を越えた出会いをつくり、地域への愛着を育てる。",
+    desc: "「筋肉のパワーで西尾を盛り上げよう」を合言葉に、2026年5月に第1回を開催した地域活性化イベント。キッズ・U18から年代別クラスまで部門を設け、子どもから大人までが参加した。",
     ongoing: false,
   },
   {
@@ -270,8 +270,9 @@ export default function ServiceProduce() {
                   <span className="text-charcoal/40 text-[13px] font-semibold tracking-[0.16em]">{projects[1].cat}</span>
                 </div>
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
-                  <div className="md:col-span-5">
-                    <SitePhoto name="regionEvent" ratio="4/3" sizes="(max-width: 768px) 100vw, 50vw" />
+                  <div className="md:col-span-5 flex flex-col gap-4">
+                    <SitePhoto name="regionEvent" ratio="3/2" sizes="(max-width: 768px) 100vw, 40vw" />
+                    <SitePhoto name="regionEventStage" ratio="3/2" sizes="(max-width: 768px) 100vw, 40vw" />
                   </div>
                   <div className="md:col-span-7">
                     <h3 className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[1].name}</h3>

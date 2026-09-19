@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Nav } from "@/components/ui/Nav";
 import { newsItems } from "@/data/news";
+import { ExternalLink } from "@/components/ui/ExternalLink";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -14,6 +15,9 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
+/* 配列の順番に依存せず、常に新しい順で見せる */
+const sorted = [...newsItems].sort((a, b) => b.date.localeCompare(a.date));
 
 export default function NewsPage() {
   return (
@@ -61,22 +65,27 @@ export default function NewsPage() {
         <div className="pt-12 md:pt-16 pb-section bg-ivory min-h-screen">
           <div className="max-w-[1000px] mx-auto px-8 md:px-20">
             <div>
-              {newsItems.map((item) => (
+              {sorted.map((item) => (
                 <div
                   key={item.slug}
                   className="border-t border-charcoal/10 last:border-b"
                 >
                   <div className="py-7 md:py-9 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-12">
-                    <time className="text-[13px] font-bold tracking-[0.08em] text-charcoal/50 shrink-0 pt-[3px]">
+                    <time className="text-[13px] font-bold tracking-[0.08em] text-charcoal/70 shrink-0 pt-[3px]">
                       {item.date.replace(/-/g, ".")}
                     </time>
                     <div className="flex flex-col gap-2">
                       {item.category && (
-                        <span className="text-[11px] font-bold tracking-[0.16em] text-charcoal/45 uppercase">
+                        <span className="text-[11px] font-bold tracking-[0.16em] text-charcoal/70 uppercase">
                           {item.category}
                         </span>
                       )}
                       <p className="text-[17px] md:text-[19px] text-charcoal/85 leading-[1.7] font-medium tracking-[-0.01em]">{item.title}</p>
+                      {item.href && (
+                        <ExternalLink href={item.href} className="mt-1 self-start">
+                          {item.source ?? "記事を読む"}
+                        </ExternalLink>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -86,7 +95,7 @@ export default function NewsPage() {
             <div className="mt-16">
               <Link
                 href="/"
-                className="text-[12px] font-bold tracking-[0.08em] text-charcoal/40 hover:text-deep-green transition-colors"
+                className="text-[12px] font-bold tracking-[0.08em] text-charcoal/70 hover:text-deep-green transition-colors"
               >
                 ← ホームへ戻る
               </Link>

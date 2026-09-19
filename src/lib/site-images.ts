@@ -133,7 +133,9 @@ const region = {
   regionPageHero: img("/photos/15_region_hero.jpg", "地域の催しに集まる人々", "地域プロデュースページのHERO。横位置。全面表示。", "16/9", "dark"),
   regionEducation: img("/photos/16_region_education.jpg", "学生と社会人が話している様子", "教育・キャリアの場面。横位置。", "4/3"),
   regionProject: img("/photos/17_region_project.jpg", "現場でプロジェクトを進める様子", "プロジェクトの現場。横位置。", "4/3"),
-  regionEvent: img("/photos/18_region_event.jpg", "西尾のイベント会場", "イベント当日の様子。横位置。", "16/9"),
+  /* 第1回西尾筋肉祭り（2026年5月17日・にししん文化会館）の実写に差し替え済み */
+  regionEvent: img("/photos/18_region_event.jpg", "西尾筋肉祭りの客席で、出場者と子どもたちがハイタッチしている様子", "イベント当日の様子。横位置。", "16/9"),
+  regionEventStage: img("/photos/31_kinniku_stage.jpg", "西尾筋肉祭りのステージ上に並ぶ出場者・スタッフの集合写真", "イベント当日の集合写真。横位置。", "16/9"),
 };
 
 /* ---------------------------------------------------------------
@@ -173,6 +175,8 @@ export const newsImages: Record<string, SiteImage> = {
   founding: siteImages.nishioTown,
   "workstyle-zukan": siteImages.regionEducation,
   "core-shift-launch": siteImages.dxImage,
+  "kinniku-matsuri-1st": siteImages.regionEvent,
+  "kinniku-matsuri-press": siteImages.regionEventStage,
 };
 
 /* ---------------------------------------------------------------

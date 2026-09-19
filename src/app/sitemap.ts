@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { newsItems } from "@/data/news";
 
 /**
  * output: "export" では、このルートハンドラを静的として扱うことを
@@ -37,11 +38,23 @@ const routes: { path: string; priority: number; changeFrequency: MetadataRoute.S
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  return routes.map(({ path, priority, changeFrequency }) => ({
+  const pages = routes.map(({ path, priority, changeFrequency }) => ({
     // next.config.ts が trailingSlash: true のため、実際のURLと形を揃える
     url: path === "/" ? `${BASE}/` : `${BASE}${path}/`,
     lastModified,
     changeFrequency,
     priority,
   }));
+
+  /* お知らせの1件ずつ。data/news.ts に足せば自動で載るので、
+     ここに手で書き足す必要はない。
+     lastModified はその記事の日付。出来事の日を渡すほうが正確 */
+  const news = newsItems.map((n) => ({
+    url: `${BASE}/news/${n.slug}/`,
+    lastModified: new Date(n.date),
+    changeFrequency: "yearly" as const,
+    priority: 0.5,
+  }));
+
+  return [...pages, ...news];
 }

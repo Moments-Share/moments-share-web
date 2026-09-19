@@ -40,8 +40,10 @@ export function NewsPreview() {
 
         <Reveal delay={0.1}>
           <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 md:mt-16 md:grid-cols-3">
+            {/* カード全体を押せるようにする。写真と日付とタイトルが
+                別々に押せると、どこを押せばいいのか迷う */}
             {latest.map((item) => (
-              <article key={item.slug}>
+              <Link key={item.slug} href={`/news/${item.slug}`} className="group block">
                 <SitePhoto
                   image={newsImages[item.slug] ?? newsFallbackImage}
                   ratio="4/3"
@@ -57,10 +59,10 @@ export function NewsPreview() {
                     </span>
                   )}
                 </div>
-                <h3 className="mt-3 text-[17px] font-medium leading-[1.8] tracking-[-0.01em] text-charcoal/85 md:text-[18px]">
+                <h3 className="mt-3 text-[17px] font-medium leading-[1.8] tracking-[-0.01em] text-charcoal/85 transition-colors group-hover:text-deep-green md:text-[18px]">
                   {item.title}
                 </h3>
-              </article>
+              </Link>
             ))}
           </div>
         </Reveal>

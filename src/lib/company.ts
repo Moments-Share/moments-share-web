@@ -10,7 +10,7 @@ export const company = {
   representative: "中根 隆",
   address: "愛知県西尾市",
   founded: "2025年11月",
-  business: "DX支援・BPO・地域プロデュース",
+  business: "DX・AX支援／BPO／地域プロデュース",
   email: "branding@momentsshare.com",
 
   /**

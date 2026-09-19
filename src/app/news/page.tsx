@@ -81,7 +81,13 @@ export default function NewsPage() {
                           {item.category}
                         </span>
                       )}
-                      <p className="text-[17px] md:text-[19px] text-charcoal/85 leading-[1.7] font-medium tracking-[-0.01em]">{item.title}</p>
+                      {/* タイトルを押すと、その1件の報告ページへ */}
+                      <Link
+                        href={`/news/${item.slug}`}
+                        className="self-start text-[17px] font-medium leading-[1.7] tracking-[-0.01em] text-charcoal/85 transition-colors hover:text-deep-green md:text-[19px]"
+                      >
+                        {item.title}
+                      </Link>
                       {item.href && (
                         <ExternalLink href={item.href} className="mt-1 self-start">
                           {item.source ?? "記事を読む"}

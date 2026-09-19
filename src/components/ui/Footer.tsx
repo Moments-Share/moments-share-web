@@ -10,13 +10,17 @@ const businessLinks = [
   { href: "/service-dx", label: "DX支援" },
   { href: "/service-bpo", label: "BPO" },
   { href: "/service-produce", label: "地域プロデュース" },
-  { href: "/works", label: "Works（実績）" },
+  // /works は準備中のため一時的に非表示。公開時にこの行のコメントを外す
+  // { href: "/works", label: "Works（実績）" },
+  { href: "/nishio-hatarakikata-zukan", label: "西尾働き方図鑑" },
+  { href: "/nishio-career-lab", label: "西尾キャリアLab" },
 ];
 
 const companyLinks = [
   { href: "/about", label: "About" },
   { href: "/people", label: "People" },
   { href: "/news", label: "News" },
+  { href: "/student-internship", label: "大学生インターン募集" },
   { href: "/contact", label: "お問い合わせ" },
 ];
 

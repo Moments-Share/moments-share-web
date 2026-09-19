@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
 import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
+import { fellows } from "@/data/fellows";
 
 export const metadata: Metadata = {
   title: "People — Fellow | Moments Share合同会社",
@@ -77,7 +78,7 @@ export default function PeoplePage() {
         {/* ===== 1. Fellowとは — 定義を静かに、大きく読ませる ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1000px]">
-            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">FELLOW — Fellowとは</div>
+            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/70">FELLOW — Fellowとは</div>
             <p className="mt-6 text-charcoal font-semibold leading-[1.55] tracking-[-0.01em]"
                style={{ fontSize: "clamp(23px, 3.4vw, 44px)" }}>
               自分の人生を主体的に生きながら、<br className="hidden sm:block" />
@@ -97,7 +98,7 @@ export default function PeoplePage() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
               <div className="lg:col-span-4">
-                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">こんな人</div>
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/70">こんな人</div>
                 <h2 className="mt-4 text-charcoal font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
                   Fellowは、<br />こんな人。
                 </h2>
@@ -122,7 +123,7 @@ export default function PeoplePage() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
               <div className="lg:col-span-4">
-                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">Fellowの関わり方</div>
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/70">Fellowの関わり方</div>
                 <h2 className="mt-4 text-charcoal font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(26px, 3.4vw, 42px)" }}>
                   関わり方は、<br />ひとつじゃない。
                 </h2>
@@ -147,7 +148,7 @@ export default function PeoplePage() {
         {/* ===== 4. Fellow紹介 — 代表を大きな写真＋バイオで ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
-            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">Fellow紹介</div>
+            <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/70">Fellow紹介</div>
             <h2 className="mt-4 text-charcoal font-semibold leading-[1.35] tracking-[-0.01em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
               Fellowを、紹介します。
             </h2>
@@ -160,32 +161,90 @@ export default function PeoplePage() {
                 <p className="mt-3 text-[12px] leading-[1.8] text-muted">西尾から、挑戦と共創の循環をつくる。</p>
               </div>
               <div className="md:col-span-7 md:pt-4">
-                <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/50">代表社員 / Founder</div>
+                <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/70">代表社員 / Founder</div>
                 <div className="mt-4 flex items-baseline gap-4 flex-wrap">
                   <span className="text-charcoal font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 4.2vw, 56px)" }}>中根 隆</span>
                   <span className="text-[13px] font-bold text-muted tracking-[0.14em]">RYU NAKANE</span>
                 </div>
                 <dl className="mt-8 divide-y divide-charcoal/10 border-t border-charcoal/10">
                   <div className="py-5">
-                    <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/50">得意なこと</dt>
+                    <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/70">得意なこと</dt>
                     <dd className="mt-2 text-[15px] md:text-[16px] leading-[2] text-charcoal/85">業務整理・DX設計、AI／RPA／ノーコードによる自動化、地域コミュニティづくり。</dd>
                   </div>
                   <div className="py-5">
-                    <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/50">担当していること</dt>
+                    <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/70">担当していること</dt>
                     <dd className="mt-2 text-[15px] md:text-[16px] leading-[2] text-charcoal/85">DX支援・BPO・地域プロデュースの3事業の推進。</dd>
                   </div>
                   <div className="py-5">
-                    <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/50">なぜMoments Shareに関わっているか</dt>
+                    <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/70">なぜMoments Shareに関わっているか</dt>
                     <dd className="mt-2 text-[15px] md:text-[16px] leading-[2] text-charcoal/85">「挑戦できる場所を、つくる側に回ろう」。西尾から、挑戦と共創が循環する地域の仕組みをつくるため。</dd>
                   </div>
                 </dl>
               </div>
             </div>
 
+            {/* Fellow一覧 — src/data/fellows.ts の実在情報のみ。
+                未確認の項目（肩書き・得意なこと等）は undefined にしておけば表示されない */}
+            {fellows.map((f) => (
+              <div
+                key={f.name}
+                className="mt-16 md:mt-20 border-t border-charcoal/10 pt-14 md:pt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start"
+              >
+                <div className="md:col-span-5">
+                  {f.photo ? (
+                    <div className="relative w-full overflow-hidden bg-light" style={{ aspectRatio: "4/5" }}>
+                      <Image
+                        src={f.photo}
+                        alt={f.photoAlt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 40vw"
+                      />
+                    </div>
+                  ) : (
+                    <PhotoNeeded ratio="4/5" kind="PEOPLE" note={f.photoAlt} />
+                  )}
+                  {f.caption && <p className="mt-3 text-[12px] leading-[1.8] text-muted">{f.caption}</p>}
+                </div>
+                <div className="md:col-span-7 md:pt-4">
+                  {f.role && (
+                    <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/70">{f.role}</div>
+                  )}
+                  <div className="mt-4 flex items-baseline gap-4 flex-wrap">
+                    <span
+                      className="text-charcoal font-bold leading-[1.2] tracking-[-0.01em]"
+                      style={{ fontSize: "clamp(30px, 3.8vw, 50px)" }}
+                    >
+                      {f.name}
+                    </span>
+                    {f.nameEn && (
+                      <span className="text-[13px] font-bold text-muted tracking-[0.14em]">{f.nameEn}</span>
+                    )}
+                  </div>
+                  {(f.strengths || f.duty || f.why) && (
+                    <dl className="mt-8 divide-y divide-charcoal/10 border-t border-charcoal/10">
+                      {[
+                        { k: "得意なこと", v: f.strengths },
+                        { k: "担当していること", v: f.duty },
+                        { k: "なぜMoments Shareに関わっているか", v: f.why },
+                      ]
+                        .filter((x) => x.v)
+                        .map(({ k, v }) => (
+                          <div key={k} className="py-5">
+                            <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/70">{k}</dt>
+                            <dd className="mt-2 text-[15px] md:text-[16px] leading-[2] text-charcoal/85">{v}</dd>
+                          </div>
+                        ))}
+                    </dl>
+                  )}
+                </div>
+              </div>
+            ))}
+
             {/* これから加わるFellow — 活動中の場面で。実在情報が揃うまで名前・肩書きは載せない。架空の人物は作成しない。 */}
             <div className="mt-20 md:mt-28 border-t border-charcoal/10 pt-14 md:pt-20">
               <div className="max-w-2xl">
-                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/40">これから</div>
+                <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/70">これから</div>
                 <h3 className="mt-4 text-charcoal font-semibold leading-[1.4] tracking-[-0.01em]" style={{ fontSize: "clamp(23px, 3vw, 38px)" }}>
                   これから、Fellowが増えていく。
                 </h3>

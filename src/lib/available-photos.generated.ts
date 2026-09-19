@@ -25,6 +25,7 @@ export const availablePhotos: readonly string[] = [
   "/photos/17_region_project.jpg",
   "/photos/18_region_event.jpg",
   "/photos/31_kinniku_stage.jpg",
+  "/photos/32_fellow_tanimoto.jpg",
   "/photos/hero-nishio.jpg",
   "/photos/hero.png",
   "/photos/service-bpo.png",

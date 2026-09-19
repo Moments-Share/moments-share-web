@@ -16,6 +16,10 @@ export const metadata: Metadata = {
     url: "https://moments-share.com/works",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
+  /* 内容が整うまで検索結果に出さない。URLは生きているので、
+     すでにリンクを持っている人は開ける。
+     公開するときは robots と sitemap.ts、Nav の1行を戻す。 */
+  robots: { index: false, follow: false },
 };
 
 // 全社KPI（現在の事業数 / 2040年ゴール）
@@ -99,6 +103,27 @@ export default function WorksPage() {
     <>
       <Nav heroTone="dark" />
       <main id="main-content">
+        {/* ===== 準備中の告知。内容が整うまで最上部に出す =====
+            公開するときは、このセクションと metadata.robots を消す */}
+        <section className="pt-28 md:pt-36 pb-12 md:pb-16 px-6 md:px-10 bg-green-deep text-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="text-white/75 text-[12px] font-bold tracking-[0.16em]">COMING SOON</div>
+            <p
+              className="mt-5 font-semibold leading-[1.15] tracking-[-0.02em]"
+              style={{ fontSize: "clamp(40px, 7vw, 92px)" }}
+            >
+              準備中です。
+            </p>
+            <p className="mt-7 max-w-[34em] text-[16px] md:text-[18px] leading-[2] text-white/85">
+              実績ページは現在まとめている途中です。以下の内容は暫定のもので、
+              数字や事例は今後更新します。お急ぎの場合は、お問い合わせください。
+            </p>
+            <Link href="/contact" className="btn btn-ghost-on-green px-9 py-4 mt-9 inline-block">
+              実績について問い合わせる →
+            </Link>
+          </div>
+        </section>
+
         {/* ===== HERO — 写真背景ヒーロー（TOPと同じトーン） ===== */}
         <section className="relative min-h-[58vh] md:min-h-[66vh] overflow-hidden bg-[#16281f]">
           <div className="absolute inset-0">

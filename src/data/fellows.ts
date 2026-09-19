@@ -30,8 +30,8 @@ export const fellows: Fellow[] = [
     name: "中根 隆",
     nameEn: "RYU NAKANE",
     role: "代表社員 / Founder",
-    /* TODO: 代表の顔写真に差し替え（public/photos/ に追加） */
-    photoAlt: "代表・中根 隆のポートレート（縦・自然光）",
+    photo: "/photos/33_founder_portrait.jpg",
+    photoAlt: "山頂で片手を上げて笑う代表・中根 隆",
     caption: "西尾から、挑戦と共創の循環をつくる。",
     strengths: "業務整理・DX設計、AI／RPA／ノーコードによる自動化、地域コミュニティづくり。",
     duty: "DX支援・BPO・地域プロデュースの3事業の推進。",

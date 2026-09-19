@@ -375,7 +375,7 @@ export default function ServiceProduce() {
           <div className="mx-auto max-w-[1400px]">
             <div className="text-charcoal/70 text-[12px] font-bold tracking-[0.16em]">VISION 2040</div>
             <div className="mt-5">
-              <CycleDiagram />
+              <CycleDiagram variant="ring" />
             </div>
           </div>
         </section>

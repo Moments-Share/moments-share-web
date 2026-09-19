@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FIRST_CONSULT_FREE, REPLY_WITHIN } from "@/lib/contact";
 import { Nav } from "@/components/ui/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { AboutIntro } from "@/components/sections/top/AboutIntro";
@@ -58,23 +59,36 @@ export default function Home() {
         {/* お知らせ — 直近3件 */}
         <NewsPreview />
 
-        {/* ===== CONTACT — Deep Green のバンドで締める ===== */}
-        <section id="contact" className="scroll-mt-16 bg-green-deep px-6 py-20 text-white md:px-10 md:py-28">
+        {/* ===== CONTACT — Deep Green の面で締める。
+             以前は388pxしかなく、前後が白とアイボリーだったため
+             「取ってつけた帯」に見えていた。高さは余白ではなく、
+             足りていなかった情報（無料であること・返信の目安）で稼ぐ。
+             文言は lib/contact.ts と同じものを使い、ページ間でずれないようにする ===== */}
+        <section id="contact" className="scroll-mt-16 bg-green-deep px-6 py-24 text-white md:px-10 md:py-36">
           <div className="mx-auto max-w-[1400px]">
-            <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
-              <h2
-                className="font-bold leading-[1.2] tracking-[-0.01em] lg:col-span-8"
-                style={{ fontSize: "clamp(32px, 5vw, 68px)" }}
-              >
-                ご相談はこちらから
-              </h2>
-              <div className="lg:col-span-4 lg:pb-3">
-                <p className="text-[15px] leading-[2] text-white/75">
-                  この作業、減らせないか。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。
+            <p className="text-[11px] font-bold tracking-[0.28em] text-white/75">CONTACT</p>
+            <div className="mt-9 grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-12">
+              <div className="lg:col-span-8">
+                <h2
+                  className="font-bold leading-[1.2] tracking-[-0.01em]"
+                  style={{ fontSize: "clamp(32px, 5vw, 68px)" }}
+                >
+                  ご相談はこちらから
+                </h2>
+                <p className="mt-8 max-w-[30em] text-[16px] leading-[2] text-white/85 md:text-[17px]">
+                  この作業、減らせないか。人が足りない。地域で何か始めたい。
+                  まだ課題が整理できていなくても大丈夫です。
                 </p>
-                <Link href="/contact" className="btn btn-ghost-on-green mt-6 px-9 py-4">
+              </div>
+              <div className="lg:col-span-4 lg:pb-2">
+                <Link href="/contact" className="btn btn-ghost-on-green px-9 py-4">
                   30分相談する →
                 </Link>
+                <p className="mt-7 text-[14px] leading-[2] text-white/85">
+                  {FIRST_CONSULT_FREE}
+                  <br />
+                  {REPLY_WITHIN}にご返信します。
+                </p>
               </div>
             </div>
           </div>

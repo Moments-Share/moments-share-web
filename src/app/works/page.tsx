@@ -5,11 +5,11 @@ import { Nav } from "@/components/ui/Nav";
 import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 export const metadata: Metadata = {
-  title: "Works（実績）| Moments Share合同会社",
+  title: "実績（Works）｜Moments Share",
   description:
     "Moments Shareがカタチにしてきた仕事。企業のDX・業務改善から地域プロジェクトまで、お客様や仲間と一緒につくってきた実績をご紹介します。",
   openGraph: {
-    title: "Works（実績）| Moments Share合同会社",
+    title: "実績（Works）｜Moments Share",
     description:
       "企業のDX・業務改善から地域プロジェクトまで。Moments Shareがつくってきた仕事の実績。",
     type: "website",

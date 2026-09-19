@@ -81,13 +81,13 @@ const faqs = [
 ];
 
 export const metadata: Metadata = {
-  title: "西尾市の業務効率化・AI導入・DX支援｜Moments Share合同会社",
+  title: "西尾市の業務効率化・AI導入・DX/AX支援｜Moments Share",
   description:
-    "人がやらなくてもいい仕事を減らす。毎日の入力・転記・集計・定型対応をAIと自動化で手放す伴走型DX支援「Core Shift」。1日60分の手作業をなくすだけで、年間240時間が戻ります。愛知県西尾市発、中小企業向け。",
+    "愛知県西尾市の中小企業向け、業務効率化・AI導入の伴走支援「Core Shift」。DX（業務のデジタル化）に加え、AX（AIを前提に仕事のやり方そのものを組み替える）まで支援します。入力・転記・集計を手放せば、1日60分の手作業が年間240時間になって戻ります。",
   openGraph: {
-    title: "西尾市の業務効率化・AI導入・DX支援｜Moments Share合同会社",
+    title: "西尾市の業務効率化・AI導入・DX/AX支援｜Moments Share",
     description:
-      "人がやらなくてもいい仕事を減らす。人の時間を、価値創造へ。毎日の入力・転記・集計をAIと自動化で手放す伴走型DX支援。愛知県西尾市発。",
+      "人がやらなくてもいい仕事を減らす。人の時間を、価値創造へ。入力・転記・集計をAIと自動化で手放す、伴走型のDX/AX支援。愛知県西尾市発。",
     locale: "ja_JP",
     type: "website",
     url: "https://moments-share.com/service-dx",
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "西尾市の業務効率化・AI導入・DX支援｜Moments Share合同会社",
+    title: "西尾市の業務効率化・AI導入・DX/AX支援｜Moments Share",
     description: "愛知県西尾市の中小企業向け業務効率化・DX/AX支援。人がやらなくてもいい仕事を減らします。",
     images: ["/og-image.jpg"],
   },
@@ -114,7 +114,7 @@ const faqJsonLd = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Core Shift（DX支援）",
+  "name": "Core Shift（DX・AX支援）",
   "description":
     "人の時間を、価値創造へ。毎日の入力・転記・集計・定型対応など、人がやらなくていい仕事をAIと自動化で減らします。まず業務を整理し、本当に効果のあるところから改善する伴走型DX支援です。",
   "provider": {
@@ -128,14 +128,14 @@ const jsonLd = {
       "addressCountry": "JP",
     },
   },
-  "serviceType": "DXコンサルティング・業務自動化",
+  "serviceType": ["DXコンサルティング", "AX（AI活用）支援", "業務自動化", "AI導入支援", "業務改善コンサルティング"],
   "areaServed": { "@type": "Place", "name": "愛知県 西尾市" },
   "url": "https://moments-share.com/service-dx",
   "breadcrumb": {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://moments-share.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Core Shift（DX支援）", "item": "https://moments-share.com/service-dx" },
+      { "@type": "ListItem", "position": 2, "name": "Core Shift（DX・AX支援）", "item": "https://moments-share.com/service-dx" },
     ],
   },
 };

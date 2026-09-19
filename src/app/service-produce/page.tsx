@@ -92,11 +92,11 @@ const howWeWork = [
 ];
 
 export const metadata: Metadata = {
-  title: "地域プロデュース | Moments Share合同会社",
+  title: "西尾市の地域プロデュース・地域活性化｜Moments Share",
   description:
-    "想いを、挑戦へ。地域の課題と、人や企業の「やってみたい」をつなぎ、新しいプロジェクトや事業が生まれる場をつくります。西尾働き方図鑑・西尾筋肉祭り・AI活用研究会など。愛知県西尾市発。",
+    "愛知県西尾市の地域プロデュース事業。地域の課題と、人や企業の「やってみたい」をつなぎ、新しいプロジェクトや事業が生まれる場をつくります。西尾働き方図鑑・西尾筋肉祭り・AI活用研究会など、挑戦と共創が循環する地域へ。",
   openGraph: {
-    title: "地域プロデュース | Moments Share合同会社",
+    title: "西尾市の地域プロデュース・地域活性化｜Moments Share",
     description: "想いを、挑戦へ。人・企業・地域をつなぎ、挑戦と共創の循環をつくります。",
     locale: "ja_JP",
     type: "website",
@@ -105,7 +105,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "地域プロデュース | Moments Share合同会社",
+    title: "西尾市の地域プロデュース・地域活性化｜Moments Share",
     description: "想いを、挑戦へ。挑戦と共創の循環を、西尾から。",
     images: ["/og-image.jpg"],
   },

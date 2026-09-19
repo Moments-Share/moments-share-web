@@ -14,7 +14,7 @@ const navLinks = [
 ];
 
 const businessLinks = [
-  { href: "/service-dx", label: "DX" },
+  { href: "/service-dx", label: "DX・AX" },
   { href: "/service-bpo", label: "BPO" },
   { href: "/service-produce", label: "地域プロデュース" },
 ];

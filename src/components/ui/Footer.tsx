@@ -7,7 +7,7 @@ import { company, hasTel, telHref } from "@/lib/company";
 const latestNews = [...newsItems].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 2);
 
 const businessLinks = [
-  { href: "/service-dx", label: "DX支援" },
+  { href: "/service-dx", label: "DX・AX支援" },
   { href: "/service-bpo", label: "BPO" },
   { href: "/service-produce", label: "地域プロデュース" },
   // /works は準備中のため一時的に非表示。公開時にこの行のコメントを外す

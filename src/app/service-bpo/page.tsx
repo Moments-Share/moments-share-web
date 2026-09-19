@@ -4,11 +4,11 @@ import { Nav } from "@/components/ui/Nav";
 import { SitePhoto, SitePhotoFill } from "@/components/ui/SitePhoto";
 
 export const metadata: Metadata = {
-  title: "BPO | Moments Share合同会社",
+  title: "西尾市のBPO・業務委託（営業・事務・CS）｜Moments Share",
   description:
-    "採用して人を増やす前に、仕事を外に出すという選択肢があります。カスタマーサクセス・営業支援・SNS・経理事務。必要な仕事を、必要な分だけ支えるMoments ShareのBPOサービス。",
+    "愛知県西尾市のBPO・業務委託サービス。採用して人を増やす前に、仕事を外に出すという選択肢があります。営業支援・カスタマーサクセス・SNS運用・経理事務を、必要な分だけ受託。まず仕事そのものを整理してから、外に出す範囲を決めます。",
   openGraph: {
-    title: "BPO | Moments Share合同会社",
+    title: "西尾市のBPO・業務委託（営業・事務・CS）｜Moments Share",
     description:
       "人手不足に、社外の力を。必要な仕事を、必要な分だけ支えます。採用する・外注する・自動化する、その前に、まず仕事そのものを整理します。",
     locale: "ja_JP",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BPO | Moments Share合同会社",
+    title: "西尾市のBPO・業務委託（営業・事務・CS）｜Moments Share",
     description: "人手不足に、社外の力を。必要な仕事を、必要な分だけ支えます。",
     images: ["/og-image.jpg"],
   },

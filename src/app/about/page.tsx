@@ -5,11 +5,11 @@ import { Nav } from "@/components/ui/Nav";
 import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 
 export const metadata: Metadata = {
-  title: "存在意義 — なぜ、私たちは在るのか | Moments Share合同会社",
+  title: "会社概要・存在意義｜Moments Share合同会社",
   description:
-    "すべてが繋がる瞬間を、共創する。「生きててよかった！」があふれる世界を創る。Moments Shareの存在意義（Purpose）・信念・3つの事業・原点・バリュー・会社概要。愛知県西尾市発。",
+    "Moments Share合同会社の会社概要と存在意義。すべてが繋がる瞬間を、共創する。愛知県西尾市を拠点に、DX/AX支援・BPO・地域プロデュースの3事業を展開しています。信念・原点・バリュー・会社情報をご紹介します。",
   openGraph: {
-    title: "存在意義 — なぜ、私たちは在るのか | Moments Share合同会社",
+    title: "会社概要・存在意義｜Moments Share合同会社",
     description:
       "すべてが繋がる瞬間を、共創する。「生きててよかった！」があふれる世界を創る。Moments Shareの存在意義と歩み。愛知県西尾市発。",
     locale: "ja_JP",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "存在意義 — なぜ、私たちは在るのか | Moments Share合同会社",
+    title: "会社概要・存在意義｜Moments Share合同会社",
     description:
       "すべてが繋がる瞬間を、共創する。「生きててよかった！」があふれる世界を創る。愛知県西尾市発。",
     images: ["/og-image.jpg"],
@@ -117,7 +117,7 @@ const company: { label: string; value: string; email?: boolean }[] = [
   { label: "代表者名", value: "中根 隆（Ryu Nakane）" },
   { label: "所在地", value: "愛知県西尾市" },
   { label: "設立", value: "2025年11月" },
-  { label: "事業内容", value: "DX支援・BPO・地域プロデュース" },
+  { label: "事業内容", value: "DX・AX支援／BPO／地域プロデュース" },
   { label: "Email", value: "branding@momentsshare.com", email: true },
   // TODO: 資本金・従業員数などは未確定のため掲載しない（架空の数値を入れない）
 ];

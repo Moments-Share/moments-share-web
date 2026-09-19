@@ -16,12 +16,12 @@ import { roles, PAY, DAYS, HOURS, POSTED_AT } from "@/lib/recruit";
    ============================================================ */
 
 export const metadata: Metadata = {
-  title: "西尾市の大学生インターン募集｜Moments Share合同会社",
+  title: "西尾市の大学生・長期インターン募集｜Moments Share",
   description:
-    "愛知県西尾市で、大学生の長期インターン（有償）を募集しています。西尾働き方図鑑と西尾筋肉祭り、2つのプロジェクトのPMを各1名。時給1,200円、週2〜3日、1日1〜3時間。取材・動画制作・SNS運営・イベント運営・スポンサー交渉まで、実務を一気通貫で経験できます。",
+    "愛知県西尾市で、大学生の長期インターン（有償）を募集中。西尾働き方図鑑と西尾筋肉祭り、2つのプロジェクトのPMを各1名。時給1,200円、週2〜3日、1日1〜3時間。取材・動画制作・SNS運営・イベント運営・スポンサー交渉まで、実務を一気通貫で経験できます。",
   alternates: { canonical: "https://moments-share.com/student-internship/" },
   openGraph: {
-    title: "西尾市の大学生インターン募集｜Moments Share合同会社",
+    title: "西尾市の大学生・長期インターン募集｜Moments Share",
     description:
       "西尾働き方図鑑と西尾筋肉祭り、2つのプロジェクトのPMを各1名募集。時給1,200円、週2〜3日。",
     locale: "ja_JP",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "西尾市の大学生インターン募集｜Moments Share合同会社",
+    title: "西尾市の大学生・長期インターン募集｜Moments Share",
     description: "こんなことを、お願いします。西尾のプロジェクトを動かすPMを募集中。",
     images: ["/og-image.jpg"],
   },

@@ -14,7 +14,7 @@ import { company, hasTel, telHref } from "@/lib/company";
    ============================================================ */
 
 const categories = [
-  "DX支援・業務自動化",
+  "DX・AX支援（AI導入・業務自動化）",
   "BPO・業務代行",
   "地域プロデュース",
   "採用・複業・パートナー参加",

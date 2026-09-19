@@ -14,7 +14,7 @@ import { CountUpStat } from "@/components/ui/CountUpStat";
    このサイトは色数を絞る前提で組んであるので、既存の色で回す。
    accent は文字、underline は下線。同じ色を指す。 */
 const indicators = [
-  { value: 7, unit: "件", label: "DX支援", accent: "text-deep-green", underline: "bg-deep-green" },
+  { value: 7, unit: "件", label: "DX・AX支援", accent: "text-deep-green", underline: "bg-deep-green" },
   { value: 3, unit: "社", label: "BPO支援", accent: "text-terracotta-ink", underline: "bg-terracotta-ink" },
   { value: 4, unit: "件", label: "地域プロジェクト", accent: "text-sage-ink", underline: "bg-sage-ink" },
   { value: 5, unit: "名", label: "共創パートナー", accent: "text-deep-green", underline: "bg-deep-green" },

@@ -6,10 +6,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "ニュース | Moments Share合同会社",
-  description: "Moments Share合同会社のお知らせ・プロジェクト情報・サービスリリース情報。",
+  title: "ニュース・お知らせ｜Moments Share",
+  description:
+    "Moments Share合同会社のお知らせ・プロジェクト情報・サービスリリース。愛知県西尾市での取り組みや、新聞・ニュースへの掲載情報をお届けします。",
   openGraph: {
-    title: "ニュース | Moments Share合同会社",
+    title: "ニュース・お知らせ｜Moments Share",
     description: "Moments Share合同会社のお知らせ・プロジェクト・サービス情報。",
     locale: "ja_JP",
     type: "website",

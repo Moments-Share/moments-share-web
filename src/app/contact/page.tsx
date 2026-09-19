@@ -6,12 +6,12 @@ import { BookingLink } from "@/components/ui/BookingLink";
 import { FIRST_CONSULT_FREE, REPLY_WITHIN, TEL_PURPOSE } from "@/lib/contact";
 
 export const metadata: Metadata = {
-  title: "お問い合わせ | Moments Share合同会社",
+  title: "お問い合わせ・無料相談｜Moments Share",
   description:
-    "この作業、減らせないか。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。Moments Shareへのご相談・お問い合わせはこちらから。",
+    "愛知県西尾市のMoments Share合同会社へのご相談・お問い合わせ。この作業、減らせないか。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。初回のご相談は無料です。",
   openGraph: {
-    title: "お問い合わせ | Moments Share合同会社",
-    description: "DX・BPO・地域プロデュースのご相談。まずは30分、話してみませんか。",
+    title: "お問い合わせ・無料相談｜Moments Share",
+    description: "DX/AX・BPO・地域プロデュースのご相談。まずは30分、話してみませんか。",
     type: "website",
     url: "https://moments-share.com/contact",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],

@@ -37,7 +37,7 @@ type Business = {
 const businesses: Business[] = [
   {
     no: "01",
-    label: "DX支援",
+    label: "DX・AX支援",
     title: "忙しさを、余白へ。",
     body: "AI導入・システム開発・研修を通じて企業の業務改善に伴走し、新しいことに取り組める時間をつくります。",
     href: "/service-dx",
@@ -95,18 +95,21 @@ export function BusinessFlow() {
 
                   <div className="flex flex-1 flex-col p-7 md:p-8">
                     <div className="flex items-baseline gap-3">
+                      {/* 番号は目印。事業名より目立たせない */}
                       <span
-                        className={`font-black leading-none tabular-nums tracking-[-0.04em] ${
+                        className={`font-bold leading-none tabular-nums tracking-[-0.03em] ${
                           dark ? "text-white/60" : "text-sage-ink/75"
                         }`}
-                        style={{ fontSize: "clamp(26px, 2.6vw, 34px)" }}
+                        style={{ fontSize: "clamp(16px, 1.5vw, 19px)" }}
                       >
                         {b.no}
                       </span>
+                      {/* 事業名。3枚を見比べる人が最初に探すのはここなのに
+                          カードの中で一番小さい12pxだった。字間は大きい文字だと
+                          間延びするので、広げていたぶんを詰める */}
                       <span
-                        className={`text-[12px] font-bold tracking-[0.18em] ${
-                          dark ? "text-white/85" : "text-charcoal/75"
-                        }`}
+                        className={`font-bold tracking-[0.04em] ${dark ? "text-white" : "text-charcoal"}`}
+                        style={{ fontSize: "clamp(17px, 1.8vw, 21px)" }}
                       >
                         {b.label}
                       </span>

@@ -8,7 +8,7 @@ import { FIRST_CONSULT_FREE, REPLY_WITHIN, TEL_PURPOSE } from "@/lib/contact";
 export const metadata: Metadata = {
   title: "お問い合わせ・無料相談｜Moments Share",
   description:
-    "愛知県西尾市のMoments Share合同会社へのご相談・お問い合わせ。この作業、減らせないか。人が足りない。地域で何か始めたい。まずはお気軽にご連絡ください。初回のご相談は無料です。",
+    "愛知県西尾市のMoments Share合同会社へのご相談・お問い合わせ。この作業、減らせないか。人が足りない。地域で何か始めたい。まずはお気軽にお問い合わせください。初回のご相談は無料です。",
   openGraph: {
     title: "お問い合わせ・無料相談｜Moments Share",
     description: "DX/AX・BPO・地域プロデュースのご相談。まずは30分、話してみませんか。",
@@ -49,9 +49,11 @@ export default function ContactPage() {
                 style={{ fontSize: "clamp(34px, 4.8vw, 64px)" }}>
               ご相談はこちらから
             </h1>
+            {/* 冒頭は一行だけ。相談の例（この作業、減らせないか…）は
+                フォームの直前に置いてある。ここで先に並べると、
+                見出しを読んだ直後に3つの例を読まされることになる */}
             <p className="mt-8 max-w-md text-[16px] md:text-[17px] leading-[2] text-white/80">
-              この作業、減らせないか。人が足りない。地域で何か始めたい。<br />
-              まずはお気軽にご連絡ください。
+              まずはお気軽にお問い合わせください。
             </p>
           </div>
         </section>
@@ -76,8 +78,11 @@ export default function ContactPage() {
               ))}
             </dl>
 
+            {/* 相談の例はここに置く。フォームを埋める直前が、
+                「自分の話でいいのか」を確かめたくなるところ */}
             <p className="mb-12 max-w-[34em] text-[15px] leading-[2] text-charcoal/80">
-              まだ何も決まっていない段階で構いません。「この作業、減らせないか」だけでも大丈夫です。
+              「この作業、減らせないか」「人が足りない」「地域で何か始めたい」——
+              まだ何も決まっていない段階で構いません。
             </p>
 
             {/* 日程を押さえたい人はフォームを埋めずに済ませられるようにする */}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
-import { roles } from "@/lib/recruit";
+import { roles, DAYS, HOURS } from "@/lib/recruit";
 
 /* ============================================================
    PARTNERS — 外部パートナーの募集
@@ -27,7 +27,11 @@ const paths = [
     // 2件とも職種は同じ「大学生PM」で、違うのはプロジェクト。
     // 「2職種」だと職種が2種類あることになるので「2名」にする
     badge: openRoles > 0 ? `募集中 ${openRoles}名` : undefined,
-    body: "有償の長期インターン。地域にかかわるプロジェクトを、ひとつ丸ごと任せます。",
+    // 「任せます」は、読む側からすると責任の話に聞こえて重い。
+    // 学生が最初に知りたいのは「どのくらい時間を取られるのか」と
+    // 「いま決めなくていいのか」なので、そこを先に出す。
+    // 週2〜3日・1日1〜3時間は lib/recruit.ts の条件そのまま
+    body: `有償の長期インターン。${DAYS}・${HOURS}から。まずは話を聞くだけでも大丈夫です。`,
     href: "/student-internship",
     action: "インターンに参加する",
   },

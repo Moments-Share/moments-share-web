@@ -3,6 +3,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SitePhoto } from "@/components/ui/SitePhoto";
 import type { SiteImageKey } from "@/lib/site-images";
 import { Carousel, CarouselItem } from "@/components/ui/Carousel";
+import { CycleDiagram } from "@/components/ui/CycleDiagram";
 
 /* ============================================================
    OUR BUSINESS — 3つの事業
@@ -60,9 +61,6 @@ const businesses: Business[] = [
     image: "regionImage",
   },
 ];
-
-/** 事業がつながって循環になることを、カードの下に一行で示す */
-const cycle = ["余白が生まれる", "多様な働き方が生まれる", "挑戦が生まれる"];
 
 export function BusinessFlow() {
   return (
@@ -150,21 +148,17 @@ export function BusinessFlow() {
           </div>
         </Reveal>
 
-        {/* 循環。以前は事業のあいだに縦線で入れていたものを一行に畳んだ */}
+        {/* 循環。御社の構想図（VISION 2040）の6段階に差し替えた。
+            TOPでは段階の名前だけを見せ、詳細は地域プロデュースへ渡す */}
         <Reveal delay={0.15}>
-          <div className="mt-12 border-t border-charcoal/12 pt-8 md:mt-16">
-            <p className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] font-bold tracking-[0.06em] text-charcoal/75 md:text-[14px]">
-              {cycle.map((c) => (
-                <span key={c} className="flex items-center gap-x-3">
-                  <span>{c}</span>
-                  <span aria-hidden className="text-sage-ink">→</span>
-                </span>
-              ))}
-              <span className="text-charcoal/75">そして、次の挑戦へ。</span>
-            </p>
-            <p className="mt-5 max-w-[34em] text-[14px] leading-[2] text-charcoal/75 md:text-[15px]">
-              新しい仕事・事業が生まれ、それがまた次の挑戦につながっていく。
-            </p>
+          <div className="mt-12 border-t border-charcoal/12 pt-10 md:mt-16">
+            <CycleDiagram variant="compact" />
+            <Link
+              href="/service-produce"
+              className="mt-7 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
+            >
+              この循環をつくる取り組みを見る →
+            </Link>
           </div>
         </Reveal>
       </div>

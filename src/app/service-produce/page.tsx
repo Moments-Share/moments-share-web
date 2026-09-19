@@ -6,6 +6,7 @@ import { SitePhoto, SitePhotoFill } from "@/components/ui/SitePhoto";
 import type { SiteImageKey } from "@/lib/site-images";
 import { ExternalLink } from "@/components/ui/ExternalLink";
 import { Carousel, CarouselItem } from "@/components/ui/Carousel";
+import { CycleDiagram } from "@/components/ui/CycleDiagram";
 import { careerLab, kinnikuMatsuri, zukan } from "@/lib/community";
 
 // 実在するプロジェクトのみ掲載する。架空の名称・事例は作成しない。
@@ -365,6 +366,17 @@ export default function ServiceProduce() {
             >
               プロジェクトについて相談する →
             </Link>
+          </div>
+        </section>
+
+        {/* ===== 循環の全体像 — 構想図（VISION 2040）の6段階。
+             上のプロジェクトが、どの段階を担っているのかを示す ===== */}
+        <section className="py-16 md:py-24 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="text-charcoal/70 text-[12px] font-bold tracking-[0.16em]">VISION 2040</div>
+            <div className="mt-5">
+              <CycleDiagram />
+            </div>
           </div>
         </section>
 

@@ -42,11 +42,25 @@ export function Kpi() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mt-12 grid grid-cols-1 border-t border-charcoal/15 sm:grid-cols-2 md:mt-16 md:grid-cols-5 md:border-b">
-            {indicators.map((item, i) => (
+          {/* 狭い画面でも2つずつ横に並べる。
+              1列だと5項目で縦に長くなり、指標を見比べられないまま
+              スクロールで流れていってしまう。
+              2列なら「DX・AX支援 7／BPO支援 3」が同時に目に入る。
+
+              罫線は、1行目（1・2番目）だけ上を消し、
+              右の列（偶数番目）に左の罫線を入れる。
+              md以上は5列なので、上の罫線をすべて消して左だけにする。 */}
+          <div className="mt-12 grid grid-cols-2 border-t border-charcoal/15 md:mt-16 md:grid-cols-5 md:border-b">
+            {indicators.map((item, i) => {
+              /* 項目数が奇数のとき、最後のひとつは2列にまたがらせる。
+                 片側だけに残ると、上の罫線が半分で切れて描きかけに見える */
+              const lastAlone = indicators.length % 2 === 1 && i === indicators.length - 1;
+              return (
               <div
                 key={item.label}
-                className="border-t border-charcoal/15 py-8 first:border-t-0 sm:even:border-l md:border-t-0 md:border-l md:px-7 md:py-10 md:first:border-l-0 md:first:pl-0"
+                className={`border-t border-charcoal/15 py-8 first:border-t-0 [&:nth-child(2)]:border-t-0 even:border-l even:pl-6 sm:even:pl-8 md:border-t-0 md:border-l md:px-7 md:py-10 md:first:border-l-0 md:first:pl-0 md:even:pl-7 ${
+                  lastAlone ? "col-span-2 md:col-span-1" : ""
+                }`}
               >
                 <CountUpStat
                   to={item.value}
@@ -57,7 +71,8 @@ export function Kpi() {
                   underlineClass={item.underline}
                 />
               </div>
-            ))}
+              );
+            })}
           </div>
         </Reveal>
       </div>

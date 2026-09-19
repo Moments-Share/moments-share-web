@@ -10,10 +10,11 @@ import type { CSSProperties } from "react";
 
    形は∞（無限大）。輪をひとつ描くより、この形のほうが正確だった。
    ・左のループ＝挑戦（個人の「やってみたい」）
-   ・右のループ＝共創（地域に価値が生まれる）
-   ・交わるところ＝西尾
-   挑戦と共創は別々に回っているのではなく、西尾で交わって
-   互いに送り合っている。輪ひとつだと、この「交わり」が描けない。
+   ・右のループ＝共創（地域の「課題」）
+   ・交わるところ＝地域
+   個人の「やってみたい」と地域の「課題」は別々にあるのではなく、
+   地域で交わって互いに送り合っている。
+   輪ひとつだと、この「交わり」が描けない。
 
    光の帯が∞の上を一周し、通過した段階の点が灯る。
    「循環します」と書く代わりに、回っているところを見せる。
@@ -38,8 +39,8 @@ type Step = {
   side: Side;
   title: string;
   body: string;
-  /** その段階を担うプロジェクト */
-  project: string;
+  /** その段階を担うプロジェクト。無いときは何も出さない */
+  project?: string;
   href?: string;
   note?: string;
 };
@@ -104,7 +105,6 @@ const steps: Step[] = [
     side: "up",
     title: "人と企業が変わる",
     body: "採用・育成・DX・組織が変わる。",
-    project: "地域の人事部",
   },
   {
     no: "05",
@@ -150,6 +150,7 @@ const sideVars: Record<Side, CSSProperties> = {
 
 /** 段階を担うプロジェクト。リンクがあれば辿れるようにする */
 function ProjectTag({ step }: { step: Step }) {
+  if (!step.project) return null;
   if (step.href) {
     return (
       <Link
@@ -193,7 +194,7 @@ export function CycleDiagram({ variant = "full" }: { variant?: "full" | "compact
   return (
     <div className={compact ? "mt-8" : "mt-10 md:mt-14"}>
       {/* 見出しは図の外、上に置く。∞の真ん中は交点なので、
-          長い文を置く場所がない（そこに入るのは「西尾」の2文字だけ） */}
+          長い文を置く場所がない（そこに入るのは2文字だけ） */}
       <div className="text-center">
         <h3
           className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]"
@@ -309,7 +310,7 @@ export function CycleDiagram({ variant = "full" }: { variant?: "full" | "compact
             共創
           </p>
           <p className="mt-1 text-center text-[11px] leading-[1.7] text-charcoal/75">
-            地域に生まれる価値
+            地域の「課題」
           </p>
         </div>
         <div
@@ -318,7 +319,7 @@ export function CycleDiagram({ variant = "full" }: { variant?: "full" | "compact
           style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}
         >
           <span className="block rounded-full bg-background px-2.5 py-2 text-center text-[13px] font-bold leading-none tracking-[0.06em] text-charcoal">
-            西尾
+            地域
           </span>
         </div>
 
@@ -372,9 +373,11 @@ export function CycleDiagram({ variant = "full" }: { variant?: "full" | "compact
                 {detail && (
                   <>
                     <p className="mt-1.5 text-[12px] leading-[1.75] text-charcoal/80">{s.body}</p>
-                    <div className="mt-2.5">
-                      <ProjectTag step={s} />
-                    </div>
+                    {s.project && (
+                      <div className="mt-2.5">
+                        <ProjectTag step={s} />
+                      </div>
+                    )}
                   </>
                 )}
               </div>

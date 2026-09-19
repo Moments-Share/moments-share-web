@@ -118,7 +118,9 @@ export function CycleDiagram({
           挑戦と共創が、循環する地域へ。
         </h3>
         <p className="mt-4 text-[15px] leading-[2] text-charcoal/80 md:text-[16px]">
-          挑戦したい若者と、変わりたい企業。出会いから挑戦、企業の変容、共創までを地域で伴走します。
+          {compact
+            ? "挑戦したい若者と、変わりたい企業をつなぐ。"
+            : "挑戦したい若者と、変わりたい企業。出会いから挑戦、企業の変容、共創までを地域で伴走します。"}
         </p>
       </div>
 
@@ -226,25 +228,89 @@ export function CycleDiagram({
           </p>
         </div>
       ) : compact ? (
-        /* TOP版。段階の名前だけを矢印でつなぐ */
-        <div className="mt-8">
-          <p className="flex flex-wrap items-center gap-x-3 gap-y-3">
+        /* TOP版。横一本の道に6つの点を置き、最後から最初へ戻る線を描く。
+           矢印と文字を並べるより短く、しかも「戻る」ことが絵で分かるので、
+           「↻ また地域を知るへ戻ります」という説明文が要らなくなる。
+           狭い画面では縦一本の道に切り替える */
+        <div className="mt-9">
+          {/* 06から01へ戻る線。道の下に引くと段階名の上を通ってしまうので、
+              道の上を通して01の点に真上から降ろす。
+              これが「循環」の説明そのものになるので、
+              「↻ また地域を知るへ戻ります」という一文は要らない */}
+          <div aria-hidden className="relative -mb-1 hidden h-11 lg:block">
+            <svg
+              viewBox="0 0 100 16"
+              preserveAspectRatio="none"
+              className="absolute inset-0 h-full w-full"
+            >
+              <path
+                d="M91.667 16 C91.667 1, 8.333 1, 8.333 13"
+                fill="none"
+                stroke="var(--color-charcoal)"
+                strokeOpacity="0.22"
+                strokeWidth="1"
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+            {/* 戻り先（01）を指す矢印。下向きの三角 */}
+            <svg
+              viewBox="0 0 10 10"
+              width="14"
+              height="14"
+              className="absolute"
+              style={{ left: "8.333%", bottom: 0, transform: "translate(-50%, -10%) rotate(90deg)" }}
+            >
+              <polygon points="1,1 9,5 1,9" fill="var(--color-charcoal)" fillOpacity="0.38" />
+            </svg>
+          </div>
+
+          <ol className="relative grid grid-cols-1 gap-y-5 lg:grid-cols-6 lg:gap-y-0">
+            {/* 道。広い画面では横一本。両端は01と06の点の中心（各列の中央）に合わせる */}
+            <span
+              aria-hidden
+              className="absolute left-[8.333%] right-[8.333%] top-[7px] hidden h-px bg-charcoal/20 lg:block"
+            />
             {steps.map((s, i) => (
-              <span key={s.no} className="flex items-center gap-x-3">
-                <span className="text-charcoal font-medium tracking-[-0.01em] text-[15px] md:text-[17px]">
-                  {s.title}
-                </span>
+              <li
+                key={s.no}
+                className="relative flex items-center gap-3 lg:block lg:text-center"
+              >
+                <span
+                  aria-hidden
+                  className="block h-[15px] w-[15px] shrink-0 rounded-full border-2 border-sage-ink bg-background lg:mx-auto"
+                />
+                {/* 狭い画面の道。点の下端から次の点の上端まで。
+                    行の高さが揃っているので 100% + 行間(20px) - 点(14px) で届く */}
                 {i < steps.length - 1 && (
-                  <span aria-hidden className="text-sage-ink text-[14px]">
-                    →
-                  </span>
+                  <span
+                    aria-hidden
+                    className="absolute left-[7px] top-[calc(50%+7px)] h-[calc(100%+6px)] w-px bg-charcoal/20 lg:hidden"
+                  />
                 )}
-              </span>
+                <span className="flex items-baseline gap-2 lg:block">
+                  <span className="text-[11px] font-medium tabular-nums text-charcoal/65 lg:mt-3 lg:block">
+                    {s.no}
+                  </span>
+                  <span className="text-[14px] font-semibold leading-[1.45] text-charcoal md:text-[15px] lg:mt-1 lg:block">
+                    {s.title}
+                  </span>
+                </span>
+              </li>
             ))}
+          </ol>
+
+          {/* 狭い画面の戻り。縦の道にはカーブを描く余白がないので、
+              点の列に合わせた小さな印で「01へ戻る」ことを示す */}
+          <p className="mt-4 flex items-center gap-3 text-[12px] text-charcoal/70 lg:hidden">
+            <span
+              aria-hidden
+              className="block w-[15px] shrink-0 text-center text-[13px] leading-none text-sage-ink"
+            >
+              &#8635;
+            </span>
+            01「地域を知る」へ戻る
           </p>
-          <p className="mt-5 text-[14px] leading-[1.9] text-charcoal/75">
-            ↻ 「次の挑戦へ」は、また「地域を知る」へ戻っていきます。
-          </p>
+
         </div>
       ) : (
         /* 地域プロデュース版。説明と、その段階を担うプロジェクトまで */

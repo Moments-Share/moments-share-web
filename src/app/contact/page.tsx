@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { BookingLink } from "@/components/ui/BookingLink";
+import { FIRST_CONSULT_FREE, REPLY_WITHIN, TEL_PURPOSE } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "お問い合わせ | Moments Share合同会社",
@@ -60,6 +61,25 @@ export default function ContactPage() {
           {/* フォーム — 重いカードをやめ、下線インプットの編集スタイル。
               広い画面でも左に余白だけが残らないよう、中央に置いて幅を抑える */}
           <div className="mx-auto max-w-[860px]">
+            {/* 送信する前に相手が知りたい3つ。ここが無いと、
+                必須項目を埋める前に離脱する。文言は lib/contact.ts で管理 */}
+            <dl className="mb-12 grid grid-cols-1 gap-6 border-y border-charcoal/12 py-7 sm:grid-cols-3 md:gap-8">
+              {[
+                { k: "相談の費用", v: FIRST_CONSULT_FREE },
+                { k: "返信の目安", v: `${REPLY_WITHIN}にご返信します。` },
+                { k: "お電話番号について", v: TEL_PURPOSE },
+              ].map(({ k, v }) => (
+                <div key={k}>
+                  <dt className="text-[11px] font-bold tracking-[0.14em] text-charcoal/70">{k}</dt>
+                  <dd className="mt-2 text-[14px] leading-[1.9] text-charcoal/85">{v}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <p className="mb-12 max-w-[34em] text-[15px] leading-[2] text-charcoal/80">
+              まだ何も決まっていない段階で構いません。「この作業、減らせないか」だけでも大丈夫です。
+            </p>
+
             {/* 日程を押さえたい人はフォームを埋めずに済ませられるようにする */}
             <div className="mb-12 border-l-2 border-sage pl-5">
               <p className="text-[13px] font-bold tracking-[0.08em] text-charcoal/80">

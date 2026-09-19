@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CONTACT_EMAIL, CONTACT_ENDPOINT } from "@/lib/contact";
+import { CONTACT_EMAIL, CONTACT_ENDPOINT, TEL_PURPOSE } from "@/lib/contact";
 import { company, hasTel, telHref } from "@/lib/company";
 
 /* ============================================================
@@ -198,6 +198,8 @@ export function ContactForm() {
             placeholder="09012345678"
             className={inputClass}
           />
+          {/* 必須で求める以上、何に使うのかをその場で伝える */}
+          <p className="mt-2 text-[12px] leading-[1.8] text-charcoal/70">{TEL_PURPOSE}</p>
         </div>
       </div>
 

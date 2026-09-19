@@ -102,18 +102,19 @@ export function VisionNishio() {
         </h2>
 
         <div className="rv mt-10 md:mt-14 max-w-[46em] space-y-5" style={rise(0.55)}>
-          {/* 語尾を「創る。」にした。次の行が「〜を。」で終わるので、
-              ここも「を。」だと2行続けて同じ止め方になる。
-              /about/ のPurposeも「あふれる世界を創る。」なので表記も揃う */}
+          {/* 会社のPurposeは「『生きててよかった！』があふれる世界を創る。」で、
+              それは /about/ に置いてある。ここはその地域版として、
+              「挑戦してよかった！」「地域」に絞って言い換えている */}
           <p className="font-bold text-cream leading-[1.6] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 28px)" }}>
-            生きててよかった！があふれる世界を創る。
+            「挑戦してよかった！」があふれる地域を創る。
           </p>
           {/* 4th Place は残すが、そのままだと読む人が立ち止まる言葉なので、
               「自己実現の場」という言い換えを括弧で添える。
-              「エコシステム」は外した。4th Place と意味が重なるうえ、
-              2語続くと読む側が2回つまずく。29.5字 → 17字 */}
+
+              頭を「そのための、」にしたのは、上の行が「〜地域を創る。」に
+              なったため。「地域に、」で受けると2行続けて地域が出てくる */}
           <p className="max-w-[32em] text-white/75 leading-[2.0]" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
-            地域に、4th Place（自己実現の場）を。
+            そのための、4th Place（自己実現の場）を。
           </p>
         </div>
       </div>

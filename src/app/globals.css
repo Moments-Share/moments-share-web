@@ -224,11 +224,13 @@ html[data-js] .rv-load {
 
    帯は pathLength="100" で長さを正規化してあるので、
    楕円の実寸が変わっても dasharray を書き直さなくてよい。
-   開始位置を -75 にしているのは、そこが 01「地域を知る」の
-   真上にあたるため（SVGの楕円は3時から時計回りに描かれる）。 */
+   開始位置を -20.33 にしているのは、そこで帯の先頭がちょうど
+   01「地域を知る」に重なるため。帯の長さが13、01が位置33.33なので
+   13 − 33.33 = -20.33。6つの節点は道のりで等間隔に置いてあるので、
+   灯る時刻はそのまま 0/2/4/6/8/10秒になる。 */
 @keyframes cycle-sweep {
-  from { stroke-dashoffset: -75; }
-  to   { stroke-dashoffset: -175; }
+  from { stroke-dashoffset: -20.33; }
+  to   { stroke-dashoffset: -120.33; }
 }
 .cycle-sweep {
   animation: cycle-sweep 12s linear infinite;

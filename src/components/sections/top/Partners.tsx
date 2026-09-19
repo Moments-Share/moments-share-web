@@ -55,11 +55,11 @@ export function Partners() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              {/* 短い言い切りで積む */}
-              <div className="mt-8 max-w-[26em] space-y-5 text-[16px] leading-[2] text-charcoal md:text-[18px]">
-                <p>プロジェクトごとに、外部のパートナーと組んでいます。</p>
-                <p>専門を持ち寄って、一社では届かない挑戦を形にする。</p>
-              </div>
+              {/* 一文だけ。下に入口のカードが2枚あるので、
+                  ここで働き方まで説明すると同じことを二度言うことになる */}
+              <p className="mt-8 max-w-[26em] text-[16px] leading-[2] text-charcoal md:text-[18px]">
+                弊社は、一緒に働ける仲間を募集しています。
+              </p>
             </Reveal>
           </div>
 

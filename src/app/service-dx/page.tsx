@@ -80,11 +80,11 @@ const faqs = [
 ];
 
 export const metadata: Metadata = {
-  title: "西尾市の業務効率化（DX・AX）支援会社｜Moments Share",
+  title: "西尾市の業務効率化・AI導入・DX支援｜Moments Share合同会社",
   description:
     "人がやらなくてもいい仕事を減らす。毎日の入力・転記・集計・定型対応をAIと自動化で手放す伴走型DX支援「Core Shift」。1日60分の手作業をなくすだけで、年間240時間が戻ります。愛知県西尾市発、中小企業向け。",
   openGraph: {
-    title: "西尾市の業務効率化（DX・AX）支援会社｜Moments Share",
+    title: "西尾市の業務効率化・AI導入・DX支援｜Moments Share合同会社",
     description:
       "人がやらなくてもいい仕事を減らす。人の時間を、価値創造へ。毎日の入力・転記・集計をAIと自動化で手放す伴走型DX支援。愛知県西尾市発。",
     locale: "ja_JP",
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "西尾市の業務効率化（DX・AX）支援会社｜Moments Share",
+    title: "西尾市の業務効率化・AI導入・DX支援｜Moments Share合同会社",
     description: "愛知県西尾市の中小企業向け業務効率化・DX/AX支援。人がやらなくてもいい仕事を減らします。",
     images: ["/og-image.jpg"],
   },
@@ -166,7 +166,7 @@ export default function ServiceDX() {
             />
           </div>
           <div className="relative z-10 min-h-[58vh] md:min-h-[66vh] flex flex-col justify-end max-w-[1400px] mx-auto w-full px-6 md:px-10 pb-14 md:pb-20 pt-32">
-            <div className="text-[13px] font-bold tracking-[0.14em] text-white/70">Core Shift｜西尾市の業務効率化・DX/AX支援</div>
+            <div className="text-[13px] font-bold tracking-[0.14em] text-white/70">Core Shift｜西尾市の業務効率化・AI導入・DX支援</div>
             <h1 className="mt-5 text-white font-semibold leading-[1.16] tracking-[-0.02em]"
                 style={{ fontSize: "clamp(36px, 5.2vw, 76px)" }}>
               人がやらなくてもいい<br />仕事を減らす
@@ -175,7 +175,7 @@ export default function ServiceDX() {
               人の時間を、価値創造へ。
             </p>
             <p className="mt-7 max-w-xl text-[16px] md:text-[17px] leading-[2] text-white/80">
-              愛知県西尾市から、中小企業の業務効率化を伴走支援。毎日の入力・転記・集計・定型対応を、AIと自動化で手放す。1日60分の手作業をなくすだけで、年間240時間があなたの会社に戻ります。
+              愛知県西尾市から、中小企業の業務効率化とAI導入を伴走支援。毎日の入力・転記・集計・定型対応を、AIと自動化で手放す。1日60分の手作業をなくすだけで、年間240時間があなたの会社に戻ります。
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
               <Link

@@ -47,7 +47,7 @@ const organizationJsonLd = {
         "@type": "ImageObject",
         "url": "https://moments-share.com/og-image.jpg",
       },
-      "description": "愛知県西尾市の中小企業向けに、業務効率化とDX・AX（AI活用）を伴走支援。請求書処理・データ転記・日報集計などの定型業務を自動化します。BPO・地域プロデュース事業も展開。",
+      "description": "愛知県西尾市の中小企業向けに、業務効率化・AI導入・DX支援を伴走型で提供。請求書処理・データ転記・日報集計などの定型業務を自動化します。BPO・地域プロデュース事業も展開。",
       "foundingDate": "2025-11",
       "email": "branding@momentsshare.com",
       "address": {
@@ -80,7 +80,7 @@ const organizationJsonLd = {
       "@type": "WebSite",
       "@id": "https://moments-share.com/#website",
       "url": "https://moments-share.com/",
-      "name": "Moments Share合同会社｜西尾市の業務効率化・DX/AX支援",
+      "name": "Moments Share合同会社｜西尾市の業務効率化・AI導入・DX支援",
       "publisher": {
         "@id": "https://moments-share.com/#organization",
       },

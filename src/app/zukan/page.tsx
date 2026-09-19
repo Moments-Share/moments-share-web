@@ -338,8 +338,15 @@ export default function Zukan() {
             </h2>
             <p className="mt-8 max-w-[34em] text-[15px] leading-[2] text-charcoal/75">
               西尾働き方図鑑は、Moments Shareの地域プロデュース事業のプロジェクトのひとつです。
-              西尾筋肉祭り、AI活用研究会など、ほかの取り組みもあわせてご覧ください。
+              大学生向けのコミュニティ「西尾キャリアLab」とは別事業ですが、
+              「知る」から「行動する」までをつなぐ関係にあります。
             </p>
+            <Link
+              href="/career-lab"
+              className="mt-6 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
+            >
+              西尾キャリアLabを見る →
+            </Link>
             <Link
               href="/service-produce"
               className="mt-6 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"

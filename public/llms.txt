@@ -49,6 +49,18 @@
   現在の掲載は1社。取材の受け入れ企業と、参加者・運営ボランティアを募集中。
 - 西尾筋肉祭り — 体を動かして地域を盛り上げる体験型イベント。
   Instagram: @nishiokinnikumaturi
+- 西尾キャリアLab — 大学生が自分らしいキャリアを描くためのコミュニティ。
+  合言葉は「興味は知識に比例する。好きは行動から生まれる。」
+  知る → 興味を持つ → 出会う → やってみる → 振り返る → 自分のキャリアを描く、の6段階。
+  活動はキャリア交流会、企業訪問、社会人との座談会、実践型インターン、
+  地域・企業プロジェクト、キャリア振り返り。対象は西尾・三河地域の大学生で、
+  西尾出身に限らない。西尾への就職を促すことが目的ではなく、
+  知ったうえで自分で選択できる状態をつくることを目的にしている。
+  就活塾・求人サービス・合同企業説明会ではない。
+  Instagram: @nishio_career_lab
+  サイト内のページ: https://moments-share.com/career-lab/
+  ※ 西尾働き方図鑑とは別事業。図鑑は「知る」ための入口で対象が小中高大と広く、
+    キャリアLabは大学生向けのコミュニティ。連携はするが同じ事業ではない。
 - AI活用研究会 — 地域の企業・個人がAIを学び合うコミュニティ。
 
 準備中:
@@ -68,6 +80,7 @@
 - BPO: https://moments-share.com/service-bpo/
 - 地域プロデュース: https://moments-share.com/service-produce/
 - 西尾働き方図鑑: https://moments-share.com/zukan/
+- 西尾キャリアLab: https://moments-share.com/career-lab/
 - 私たちについて: https://moments-share.com/about/
 - 実績: https://moments-share.com/works/
 - お知らせ: https://moments-share.com/news/

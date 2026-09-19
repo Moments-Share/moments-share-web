@@ -45,9 +45,22 @@ export const kinnikuMatsuri = {
 };
 
 /* ------------------------------------------------------------
-   TODO: @nishio_career_lab の扱いが未確定。
-         どのプロジェクトのアカウントかを確認できるまで、
-         どのページにも出さない。確認できたら上のどれかに足すか、
-         新しい定数として起こす。
-         https://www.instagram.com/nishio_career_lab/
+   西尾キャリアLab
+
+   西尾働き方図鑑とは別のプロジェクト。混同しないこと。
+   図鑑は「知る」ための入口で、対象は小中高大生まで広い。
+   キャリアLabは大学生向けのコミュニティで、交流・実践・
+   キャリア形成が中心。連携はするが、同じ事業ではない。
+
+   TODO: Mission / Vision / Value・正式なキャッチコピー・ロゴ・
+         ブランドカラーは運営メンバーで検討中。決まったら反映する。
+   TODO: note や X のアカウントがあれば media に足す。
 ------------------------------------------------------------ */
+export const careerLab = {
+  name: "西尾キャリアLab",
+  /** 合言葉。ブランドの核なので、言い換えずにこのまま使う */
+  motto: "興味は知識に比例する。好きは行動から生まれる。",
+  media: [
+    { label: "Instagram（@nishio_career_lab）", url: "https://www.instagram.com/nishio_career_lab/" },
+  ] satisfies ExternalMedia[],
+};

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
 import { SitePhoto, SitePhotoFill } from "@/components/ui/SitePhoto";
 import { ExternalLink } from "@/components/ui/ExternalLink";
-import { kinnikuMatsuri, zukan } from "@/lib/community";
+import { careerLab, kinnikuMatsuri, zukan } from "@/lib/community";
 
 // 実在するプロジェクトのみ掲載する。架空の名称・事例は作成しない。
 const projects = [
@@ -24,6 +24,12 @@ const projects = [
     name: "AI活用研究会",
     cat: "コミュニティ",
     desc: "地域の企業・個人がAIを学び合うコミュニティ。現場で使える知識を共有し、挑戦のきっかけをつくる。",
+    ongoing: false,
+  },
+  {
+    name: "西尾キャリアLab",
+    cat: "コミュニティ",
+    desc: "大学生が自分らしいキャリアを描くためのコミュニティ。地域の企業・社会人との出会いと、実践型インターンなどの行動の機会をつくる。",
     ongoing: false,
   },
   {
@@ -293,22 +299,47 @@ export default function ServiceProduce() {
                 </div>
               </article>
 
-              {/* 04 その他 — 進行中のステートメントバンド（緑帯・角丸なし・バッジなし） */}
+              {/* 04 西尾キャリアLab — 03と同じテキスト誌面ロウ。専用ページへ渡す */}
+              <article className="border-t border-charcoal/10 pt-12 md:pt-16">
+                <div className="flex items-baseline gap-3">
+                  <span className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>04</span>
+                  <span className="text-charcoal/40 text-[13px] font-semibold tracking-[0.16em]">{projects[3].cat}</span>
+                </div>
+                <div className="mt-4 max-w-xl">
+                  <h3 className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[3].name}</h3>
+                  <p className="mt-4 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[3].desc}</p>
+                  <div className="mt-6 flex flex-col gap-3 items-start">
+                    <Link
+                      href="/career-lab"
+                      className="inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
+                    >
+                      西尾キャリアLabについて →
+                    </Link>
+                    {careerLab.media.map((m) => (
+                      <ExternalLink key={m.url} href={m.url}>
+                        {m.label}
+                      </ExternalLink>
+                    ))}
+                  </div>
+                </div>
+              </article>
+
+              {/* 05 その他 — 進行中のステートメントバンド（緑帯・角丸なし・バッジなし） */}
               <article className="bg-green-deep text-white p-10 md:p-16">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
                   <div className="md:col-span-8">
                     <div className="flex items-baseline gap-4 text-[13px] font-semibold tracking-[0.16em]">
-                      <span className="text-white/50">{projects[3].cat}</span>
-                      {projects[3].ongoing && <span className="text-white/60">進行中</span>}
+                      <span className="text-white/50">{projects[4].cat}</span>
+                      {projects[4].ongoing && <span className="text-white/60">進行中</span>}
                     </div>
                     <h3
                       className="mt-4 font-semibold leading-[1.25] tracking-[-0.02em]"
                       style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
                     >
-                      {projects[3].name}
+                      {projects[4].name}
                     </h3>
                     <p className="mt-5 max-w-lg text-[15px] md:text-[16px] leading-[2] text-white/80">
-                      {projects[3].desc}
+                      {projects[4].desc}
                     </p>
                   </div>
                   <div className="md:col-span-4">

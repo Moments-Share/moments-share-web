@@ -268,3 +268,26 @@ html[data-js] .rv-load {
   .cycle-sweep, .cycle-fill, .cycle-pulse { animation: none; }
   .cycle-sweep { display: none; }
 }
+
+/* --- 文字が少しずつ現れる（RevealChars）---
+   span は inline のまま。inline-block にすると1文字ずつが
+   独立した箱になり、行頭に「。」が来る（禁則処理が崩れる）。
+   動かすのは opacity だけなので inline で足りる。
+
+   既定は「見えている」。JSが動いた環境でだけ隠してから出すので、
+   読み込みに失敗しても本文は残る。 */
+html[data-js] .rc > span {
+  opacity: 0;
+}
+html[data-js] .rc.rc-in > span {
+  animation: rc-fade 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--rc-start, 0ms) + var(--ci) * var(--rc-step, 18ms));
+}
+@keyframes rc-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-js] .rc > span { opacity: 1; }
+  html[data-js] .rc.rc-in > span { animation: none; }
+}

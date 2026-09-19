@@ -101,20 +101,16 @@ export function VisionNishio() {
           </span>
         </h2>
 
-        <div className="rv mt-10 md:mt-14 max-w-[46em] space-y-5" style={rise(0.55)}>
-          {/* 会社のPurposeは「『生きててよかった！』があふれる世界を創る。」で、
-              それは /about/ に置いてある。ここはその地域版として、
-              「挑戦してよかった！」「地域」に絞って言い換えている */}
+        {/* 会社のPurposeは「『生きててよかった！』があふれる世界を創る。」で、
+            それは /about/ に置いてある。ここはその地域版として、
+            「挑戦してよかった！」「地域」に絞って言い換えている。
+
+            以前はこの下に「4th Place（自己実現の場）を。」を添えていたが、
+            外した。大きな数字（240）と一行だけのほうが、
+            見出しから目を移したときに読むものが1つに決まる */}
+        <div className="rv mt-10 md:mt-14 max-w-[46em]" style={rise(0.55)}>
           <p className="font-bold text-cream leading-[1.6] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 28px)" }}>
             「挑戦してよかった！」があふれる地域を創る。
-          </p>
-          {/* 4th Place は残すが、そのままだと読む人が立ち止まる言葉なので、
-              「自己実現の場」という言い換えを括弧で添える。
-
-              頭を「そのための、」にしたのは、上の行が「〜地域を創る。」に
-              なったため。「地域に、」で受けると2行続けて地域が出てくる */}
-          <p className="max-w-[32em] text-white/75 leading-[2.0]" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
-            そのための、4th Place（自己実現の場）を。
           </p>
         </div>
       </div>

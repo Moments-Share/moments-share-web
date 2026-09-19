@@ -38,6 +38,18 @@
 ### 地域プロデュース
 地域の課題を、挑戦のきっかけに変えるプロジェクト。
 
+進行中のプロジェクト:
+- 西尾働き方図鑑 — 西尾市で働く人と企業を取材して発信するメディア。
+  記事本体はInstagram（@nishiodehataraku）とnote（@momentsshare）で公開。
+  サイト内の入口: https://moments-share.com/zukan/
+  現在の掲載は1社。掲載・取材の希望を受け付けています。
+- 西尾筋肉祭り — 体を動かして地域を盛り上げる体験型イベント。
+  Instagram: @nishiokinnikumaturi
+- AI活用研究会 — 地域の企業・個人がAIを学び合うコミュニティ。
+
+準備中:
+- コワーキングスペース — 西尾市内に開設を準備中。時期・場所は未定。
+
 ## 用語
 
 - DX: 業務のデジタル化による変革
@@ -51,6 +63,7 @@
 - DX支援（Core Shift）: https://moments-share.com/service-dx/
 - BPO: https://moments-share.com/service-bpo/
 - 地域プロデュース: https://moments-share.com/service-produce/
+- 西尾働き方図鑑: https://moments-share.com/zukan/
 - 私たちについて: https://moments-share.com/about/
 - 実績: https://moments-share.com/works/
 - お知らせ: https://moments-share.com/news/

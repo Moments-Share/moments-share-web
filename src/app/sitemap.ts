@@ -22,6 +22,8 @@ const routes: { path: string; priority: number; changeFrequency: MetadataRoute.S
   { path: "/service-dx", priority: 0.9, changeFrequency: "monthly" },
   { path: "/service-bpo", priority: 0.8, changeFrequency: "monthly" },
   { path: "/service-produce", priority: 0.8, changeFrequency: "monthly" },
+  // 西尾働き方図鑑。外部媒体（Instagram / note）の入口ページ
+  { path: "/zukan", priority: 0.6, changeFrequency: "monthly" },
   { path: "/works", priority: 0.7, changeFrequency: "monthly" },
   { path: "/people", priority: 0.6, changeFrequency: "monthly" },
   { path: "/news", priority: 0.6, changeFrequency: "weekly" },

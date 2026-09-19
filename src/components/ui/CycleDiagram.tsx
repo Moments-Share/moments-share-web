@@ -176,14 +176,60 @@ export function CycleDiagram({ variant = "full" }: { variant?: "full" | "compact
           viewBox="0 0 150 100"
           className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block"
         >
+          {/* 重なり合う2つの円。左＝地域・共創（sage）、右＝挑戦・行動（terracotta）。
+              ブランドの色の決めごとに合わせてある。
+              重なった部分が濃くなるよう multiply で混ぜてあり、
+              その重なりのところに見出しが乗る。
+              「循環は、この2つが重なるところで起きている」という図。
+
+              塗りは中心から外へ薄くしていく。べた塗りだと円が3つ
+              （2つの円＋輪）並んで見えて、どれを見ればいいのか分からなくなる。
+              縁は細い線で残すので、円であることは読み取れる。
+
+              中心を57と93に置いてあるのは、重なりの幅を見出しの幅に
+              合わせるため。見出しが重なりからはみ出すと、
+              「重なりに乗っている」ように見えない。 */}
+          <defs>
+            <radialGradient id="cycle-fade-l">
+              <stop offset="0%" stopColor="var(--color-sage)" stopOpacity="0.17" />
+              <stop offset="62%" stopColor="var(--color-sage)" stopOpacity="0.15" />
+              <stop offset="100%" stopColor="var(--color-sage)" stopOpacity="0.04" />
+            </radialGradient>
+            <radialGradient id="cycle-fade-r">
+              <stop offset="0%" stopColor="var(--color-terracotta)" stopOpacity="0.15" />
+              <stop offset="62%" stopColor="var(--color-terracotta)" stopOpacity="0.13" />
+              <stop offset="100%" stopColor="var(--color-terracotta)" stopOpacity="0.03" />
+            </radialGradient>
+          </defs>
+          <g style={{ mixBlendMode: "multiply" }}>
+            <circle
+              cx="57"
+              cy="50"
+              r="38"
+              fill="url(#cycle-fade-l)"
+              stroke="var(--color-sage)"
+              strokeOpacity="0.3"
+              strokeWidth="0.14"
+            />
+            <circle
+              cx="93"
+              cy="50"
+              r="38"
+              fill="url(#cycle-fade-r)"
+              stroke="var(--color-terracotta)"
+              strokeOpacity="0.3"
+              strokeWidth="0.14"
+            />
+          </g>
           <ellipse
             cx="75"
             cy="50"
             rx="63"
             ry="41"
             fill="none"
-            stroke="var(--color-sage)"
-            strokeWidth="0.16"
+            stroke="var(--color-sage-ink)"
+            strokeOpacity="0.55"
+            strokeWidth="0.18"
             strokeDasharray="0.9 0.9"
           />
           {/* 一周する光の帯。pathLength で長さを100に正規化しているので、

@@ -24,8 +24,10 @@ const openRoles = roles.filter((r) => r.status === "募集中").length;
 const paths = [
   {
     title: "大学生インターン",
-    badge: openRoles > 0 ? `募集中 ${openRoles}職種` : undefined,
-    body: "有償の長期インターン。プロジェクトのPMとして、企画から実行まで任せます。",
+    // 2件とも職種は同じ「大学生PM」で、違うのはプロジェクト。
+    // 「2職種」だと職種が2種類あることになるので「2名」にする
+    badge: openRoles > 0 ? `募集中 ${openRoles}名` : undefined,
+    body: "有償の長期インターン。地域にかかわるプロジェクトを、ひとつ丸ごと任せます。",
     href: "/student-internship",
     action: "インターンに参加する",
   },

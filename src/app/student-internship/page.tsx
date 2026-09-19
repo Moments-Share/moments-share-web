@@ -121,7 +121,7 @@ export default function StudentInternship() {
                 { k: "報酬", v: PAY.label },
                 { k: "頻度", v: DAYS },
                 { k: "時間", v: HOURS },
-                { k: "募集", v: "2職種・各1名" },
+                { k: "募集", v: "2プロジェクト・各1名" },
               ].map(({ k, v }) => (
                 <div key={k}>
                   <dt className="text-charcoal/70 text-[12px] font-bold tracking-[0.12em]">{k}</dt>

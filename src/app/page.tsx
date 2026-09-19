@@ -67,8 +67,10 @@ export default function Home() {
         <section id="contact" className="scroll-mt-16 bg-green-deep px-6 py-24 text-white md:px-10 md:py-36">
           <div className="mx-auto max-w-[1400px]">
             <p className="text-[11px] font-bold tracking-[0.28em] text-white/75">CONTACT</p>
+            {/* 8:4 だと見出しの文字が左カラムを使い切らず、中央が空いて見えた。
+                7:5 に詰めて、見出しの右端とボタンの距離を近づける */}
             <div className="mt-9 grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-12">
-              <div className="lg:col-span-8">
+              <div className="lg:col-span-7">
                 <h2
                   className="font-bold leading-[1.2] tracking-[-0.01em]"
                   style={{ fontSize: "clamp(32px, 5vw, 68px)" }}
@@ -80,7 +82,7 @@ export default function Home() {
                   まだ課題が整理できていなくても大丈夫です。
                 </p>
               </div>
-              <div className="lg:col-span-4 lg:pb-2">
+              <div className="lg:col-span-5 lg:pb-2">
                 <Link href="/contact" className="btn btn-ghost-on-green px-9 py-4">
                   30分相談する →
                 </Link>

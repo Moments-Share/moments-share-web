@@ -45,7 +45,7 @@
   目的は、子どもたちの未来の選択肢を広げること。西尾市は製造業が多い一方、
   若者が就職の段階で市外へ流出する課題があり、地元の仕事を知る機会をつくる取り組み。
   記事本体はInstagram（@nishiodehataraku）とnote（@momentsshare）で公開。
-  サイト内の入口: https://moments-share.com/zukan/
+  サイト内の入口: https://moments-share.com/nishio-hatarakikata-zukan/
   現在の掲載は1社。取材の受け入れ企業と、参加者・運営ボランティアを募集中。
 - 西尾筋肉祭り — 体を動かして地域を盛り上げる体験型イベント。
   Instagram: @nishiokinnikumaturi
@@ -58,7 +58,7 @@
   知ったうえで自分で選択できる状態をつくることを目的にしている。
   就活塾・求人サービス・合同企業説明会ではない。
   Instagram: @nishio_career_lab
-  サイト内のページ: https://moments-share.com/career-lab/
+  サイト内のページ: https://moments-share.com/nishio-career-lab/
   ※ 西尾働き方図鑑とは別事業。図鑑は「知る」ための入口で対象が小中高大と広く、
     キャリアLabは大学生向けのコミュニティ。連携はするが同じ事業ではない。
 - AI活用研究会 — 地域の企業・個人がAIを学び合うコミュニティ。
@@ -79,8 +79,8 @@
 - DX支援（Core Shift）: https://moments-share.com/service-dx/
 - BPO: https://moments-share.com/service-bpo/
 - 地域プロデュース: https://moments-share.com/service-produce/
-- 西尾働き方図鑑: https://moments-share.com/zukan/
-- 西尾キャリアLab: https://moments-share.com/career-lab/
+- 西尾働き方図鑑: https://moments-share.com/nishio-hatarakikata-zukan/
+- 西尾キャリアLab: https://moments-share.com/nishio-career-lab/
 - 私たちについて: https://moments-share.com/about/
 - 実績: https://moments-share.com/works/
 - お知らせ: https://moments-share.com/news/

@@ -22,22 +22,22 @@ import { careerLab } from "@/lib/community";
    ============================================================ */
 
 export const metadata: Metadata = {
-  title: "西尾キャリアLab｜大学生のキャリアコミュニティ",
+  title: "西尾市の大学生インターン・キャリア｜西尾キャリアLab",
   description:
-    "大学生が自分らしいキャリアを描くためのコミュニティ「西尾キャリアLab」。西尾・三河の企業や社会人との出会い、交流会、実践型インターンを通じて、知らなかった仕事や生き方を知り、行動するきっかけをつくります。愛知県西尾市発。",
-  alternates: { canonical: "https://moments-share.com/career-lab/" },
+    "愛知県西尾市・三河地域の大学生のためのキャリアコミュニティ「西尾キャリアLab」。地域企業や社会人との出会い、キャリア交流会、企業訪問、実践型インターンを通じて、知らなかった仕事や生き方を知り、実際に行動するきっかけをつくります。やりたいことが決まっていない大学生も歓迎。",
+  alternates: { canonical: "https://moments-share.com/nishio-career-lab/" },
   openGraph: {
-    title: "西尾キャリアLab｜大学生のキャリアコミュニティ",
+    title: "西尾市の大学生インターン・キャリア｜西尾キャリアLab",
     description:
       "興味は知識に比例する。好きは行動から生まれる。大学生が自分らしいキャリアを描くためのコミュニティです。",
     locale: "ja_JP",
     type: "website",
-    url: "https://moments-share.com/career-lab/",
+    url: "https://moments-share.com/nishio-career-lab/",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "西尾キャリアLab｜大学生のキャリアコミュニティ",
+    title: "西尾市の大学生インターン・キャリア｜西尾キャリアLab",
     description: "興味は知識に比例する。好きは行動から生まれる。",
     images: ["/og-image.jpg"],
   },
@@ -80,9 +80,11 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "西尾キャリアLab",
+  /* AI検索が読みや表記ゆれから名寄せできるようにする */
+  "alternateName": ["西尾キャリアラボ", "にしおキャリアラボ", "Nishio Career Lab"],
   "description":
     "大学生が自分らしいキャリアを描くためのコミュニティ。愛知県西尾市・三河地域の企業や社会人との出会い、交流会、実践型インターンを通じて、知らなかった仕事や生き方を知り、行動するきっかけをつくる。",
-  "url": "https://moments-share.com/career-lab/",
+  "url": "https://moments-share.com/nishio-career-lab/",
   "inLanguage": "ja",
   "mainEntity": {
     "@type": "EducationalOccupationalProgram",
@@ -108,7 +110,7 @@ const jsonLd = {
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://moments-share.com/" },
       { "@type": "ListItem", "position": 2, "name": "地域プロデュース", "item": "https://moments-share.com/service-produce/" },
-      { "@type": "ListItem", "position": 3, "name": "西尾キャリアLab", "item": "https://moments-share.com/career-lab/" },
+      { "@type": "ListItem", "position": 3, "name": "西尾キャリアLab", "item": "https://moments-share.com/nishio-career-lab/" },
     ],
   },
 };
@@ -126,7 +128,7 @@ export default function CareerLab() {
         <section className="pt-28 md:pt-36 pb-14 md:pb-20 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="text-charcoal/70 text-[12px] font-bold tracking-[0.16em]">
-              PROJECT｜西尾キャリアLab・大学生のキャリアコミュニティ
+              西尾キャリアLab｜西尾市・三河の大学生インターン＆キャリア
             </div>
             <h1
               className="mt-5 max-w-[17em] text-charcoal font-semibold leading-[1.22] tracking-[-0.02em]"
@@ -322,7 +324,7 @@ export default function CareerLab() {
                   地域で働く人・企業・仕事を「知る」ための入口。小中高生まで対象を広げたプロジェクトです。
                 </p>
                 <Link
-                  href="/zukan"
+                  href="/nishio-hatarakikata-zukan"
                   className="mt-5 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
                 >
                   西尾働き方図鑑を見る →

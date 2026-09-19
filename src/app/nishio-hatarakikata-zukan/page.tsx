@@ -23,22 +23,22 @@ import { zukan } from "@/lib/community";
    ============================================================ */
 
 export const metadata: Metadata = {
-  title: "西尾働き方図鑑｜西尾市のキャリア教育プロジェクト",
+  title: "西尾市のキャリア教育・職場体験｜西尾働き方図鑑",
   description:
-    "小学生から大学生までが世代を越えてチームを組み、西尾市の企業を取材・体験して発信するキャリア教育プロジェクト「西尾働き方図鑑」。地元にどんな仕事があるのかを知る機会をつくります。受け入れ企業と参加者を募集中。",
-  alternates: { canonical: "https://moments-share.com/zukan/" },
+    "愛知県西尾市のキャリア教育・職場体験プロジェクト「西尾働き方図鑑」。小学生から大学生までが世代を越えてチームを組み、地域の企業を訪問して取材・体験し、記事と動画で発信します。地元にどんな仕事があるのかを知る機会をつくる取り組みです。受け入れ企業と参加者を募集中。",
+  alternates: { canonical: "https://moments-share.com/nishio-hatarakikata-zukan/" },
   openGraph: {
-    title: "西尾働き方図鑑｜西尾市のキャリア教育プロジェクト",
+    title: "西尾市のキャリア教育・職場体験｜西尾働き方図鑑",
     description:
       "小学生から大学生までが世代を越えてチームを組み、西尾市の企業を取材・体験して発信するキャリア教育プロジェクト。",
     locale: "ja_JP",
     type: "website",
-    url: "https://moments-share.com/zukan/",
+    url: "https://moments-share.com/nishio-hatarakikata-zukan/",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "西尾働き方図鑑｜西尾市のキャリア教育プロジェクト",
+    title: "西尾市のキャリア教育・職場体験｜西尾働き方図鑑",
     description: "西尾に、こんな仕事があった。子どもたちが地域企業を取材して発信します。",
     images: ["/og-image.jpg"],
   },
@@ -80,9 +80,11 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "西尾働き方図鑑",
+  /* AI検索が読みや表記ゆれから名寄せできるようにする */
+  "alternateName": ["にしおはたらきかたずかん", "西尾 働き方図鑑", "Nishio Hatarakikata Zukan"],
   "description":
     "小学生から大学生までが世代を越えてチームを組み、愛知県西尾市の企業を取材・体験して発信するキャリア教育プロジェクト。",
-  "url": "https://moments-share.com/zukan/",
+  "url": "https://moments-share.com/nishio-hatarakikata-zukan/",
   "inLanguage": "ja",
   "spatialCoverage": { "@type": "Place", "name": "愛知県 西尾市" },
   /* 記事の本体は外部媒体にある。どこで読めるかを検索側にも示す */
@@ -110,7 +112,7 @@ const jsonLd = {
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://moments-share.com/" },
       { "@type": "ListItem", "position": 2, "name": "地域プロデュース", "item": "https://moments-share.com/service-produce/" },
-      { "@type": "ListItem", "position": 3, "name": "西尾働き方図鑑", "item": "https://moments-share.com/zukan/" },
+      { "@type": "ListItem", "position": 3, "name": "西尾働き方図鑑", "item": "https://moments-share.com/nishio-hatarakikata-zukan/" },
     ],
   },
 };
@@ -128,7 +130,7 @@ export default function Zukan() {
         <section className="pt-28 md:pt-36 pb-14 md:pb-20 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="text-charcoal/70 text-[12px] font-bold tracking-[0.16em]">
-              PROJECT｜地域プロデュース
+              西尾働き方図鑑｜西尾市のキャリア教育・職場体験
             </div>
             <h1
               className="mt-5 max-w-[16em] text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]"
@@ -342,7 +344,7 @@ export default function Zukan() {
               「知る」から「行動する」までをつなぐ関係にあります。
             </p>
             <Link
-              href="/career-lab"
+              href="/nishio-career-lab"
               className="mt-6 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
             >
               西尾キャリアLabを見る →

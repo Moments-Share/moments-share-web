@@ -248,7 +248,7 @@ export default function ServiceProduce() {
                     {/* 記事の本体は外部媒体。詳細は専用ページへ、最新は媒体へ渡す */}
                     <div className="mt-6 flex flex-col gap-3 items-start">
                       <Link
-                        href="/zukan"
+                        href="/nishio-hatarakikata-zukan"
                         className="inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
                       >
                         西尾働き方図鑑について →
@@ -310,7 +310,7 @@ export default function ServiceProduce() {
                   <p className="mt-4 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[3].desc}</p>
                   <div className="mt-6 flex flex-col gap-3 items-start">
                     <Link
-                      href="/career-lab"
+                      href="/nishio-career-lab"
                       className="inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
                     >
                       西尾キャリアLabについて →

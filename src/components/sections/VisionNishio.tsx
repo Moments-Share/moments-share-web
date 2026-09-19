@@ -105,11 +105,12 @@ export function VisionNishio() {
           <p className="font-bold text-cream leading-[1.6] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 28px)" }}>
             生きててよかった！があふれる世界を。
           </p>
-          {/* 「エコシステム（4th Place）」は、読む人が2語ぶん立ち止まる。
-              意味（挑戦と共創が循環する場所）は言葉を外しても残るので、
-              外したぶんを短さに変えた。29.5字 → 18字 */}
+          {/* 4th Place は残すが、そのままだと読む人が立ち止まる言葉なので、
+              「自己実現の場」という言い換えを括弧で添える。
+              「エコシステム」は外した。4th Place と意味が重なるうえ、
+              2語続くと読む側が2回つまずく。29.5字 → 17字 */}
           <p className="max-w-[32em] text-white/75 leading-[2.0]" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
-            挑戦と共創が循環する場所を、地域に。
+            地域に、4th Place（自己実現の場）を。
           </p>
         </div>
       </div>

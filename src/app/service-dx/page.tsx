@@ -46,12 +46,45 @@ const steps = [
   { num: "05", title: "運用・改善", desc: "使いながら詰まりを解消し、改善を続けられる状態にします。" },
 ];
 
+/* よくある質問。内容はこのページに既出の事実だけで構成している。
+   FAQPage の構造化データにも同じ配列を使い、表示と機械可読を一致させる。 */
+const faqs = [
+  {
+    q: "対応エリアはどこまでですか？",
+    a: "愛知県西尾市を拠点に、西尾市および愛知県内の企業を中心に支援しています。打ち合わせから納品までオンラインで完結するため、遠方からのご相談も承ります。",
+  },
+  {
+    q: "どのくらいの期間がかかりますか？",
+    a: "相談・業務整理・改善提案・導入開発・運用改善の5段階で、全体で約3週間が目安です。対象業務の範囲によって前後します。",
+  },
+  {
+    q: "AIの知識がないと相談できませんか？",
+    a: "必要ありません。「何をAI化すればいいかわからない」という段階からで大丈夫です。まず業務を分解して、どこに時間がかかっているかを見える化するところから始めます。",
+  },
+  {
+    q: "どんな業務を減らせますか？",
+    a: "毎日の入力・転記・集計・定型対応です。具体例として、請求書の作成と送付、Excelへの売上入力、日報の集計、同じ問い合わせへのメール返信、レポートや議事録の作成などがあります。",
+  },
+  {
+    q: "導入したあとのサポートはありますか？",
+    a: "納品後30日間の無料保証を設けています。使いながら詰まった箇所を解消し、改善を続けられる状態にするまで伴走します。",
+  },
+  {
+    q: "相談に費用はかかりますか？",
+    a: "初回のご相談は無料です。その後の費用は、対象となる業務の範囲によって異なります。",
+  },
+  {
+    q: "DXとAXは何が違うのですか？",
+    a: "DXは業務のデジタル化による変革、AXはAI活用による変革を指します。どちらも目的は同じで、人がやらなくてもいい仕事を減らし、人にしかできない仕事へ時間を戻すことです。手段が違うだけです。",
+  },
+];
+
 export const metadata: Metadata = {
-  title: "西尾・愛知の中小企業向けDX支援 ｜ 業務自動化・AI活用 ｜ Core Shift（Moments Share）",
+  title: "西尾市の業務効率化（DX・AX）支援会社｜Moments Share",
   description:
     "人がやらなくてもいい仕事を減らす。毎日の入力・転記・集計・定型対応をAIと自動化で手放す伴走型DX支援「Core Shift」。1日60分の手作業をなくすだけで、年間240時間が戻ります。愛知県西尾市発、中小企業向け。",
   openGraph: {
-    title: "西尾・愛知の中小企業向けDX支援 ｜ Core Shift（Moments Share）",
+    title: "西尾市の業務効率化（DX・AX）支援会社｜Moments Share",
     description:
       "人がやらなくてもいい仕事を減らす。人の時間を、価値創造へ。毎日の入力・転記・集計をAIと自動化で手放す伴走型DX支援。愛知県西尾市発。",
     locale: "ja_JP",
@@ -61,10 +94,20 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "西尾・愛知の中小企業向けDX支援 ｜ Core Shift（Moments Share）",
-    description: "人がやらなくてもいい仕事を減らす。人の時間を、価値創造へ。愛知県西尾市発の伴走型DX支援。",
+    title: "西尾市の業務効率化（DX・AX）支援会社｜Moments Share",
+    description: "愛知県西尾市の中小企業向け業務効率化・DX/AX支援。人がやらなくてもいい仕事を減らします。",
     images: ["/og-image.jpg"],
   },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
 };
 
 const jsonLd = {
@@ -103,6 +146,10 @@ export default function ServiceDX() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Nav heroTone="dark" />
       <main id="main-content">
         {/* ===== HERO — 写真背景ヒーロー（TOPと同じトーン） ===== */}
@@ -119,7 +166,7 @@ export default function ServiceDX() {
             />
           </div>
           <div className="relative z-10 min-h-[58vh] md:min-h-[66vh] flex flex-col justify-end max-w-[1400px] mx-auto w-full px-6 md:px-10 pb-14 md:pb-20 pt-32">
-            <div className="text-[13px] font-bold tracking-[0.14em] text-white/70">Core Shift｜DX支援</div>
+            <div className="text-[13px] font-bold tracking-[0.14em] text-white/70">Core Shift｜西尾市の業務効率化・DX/AX支援</div>
             <h1 className="mt-5 text-white font-semibold leading-[1.16] tracking-[-0.02em]"
                 style={{ fontSize: "clamp(36px, 5.2vw, 76px)" }}>
               人がやらなくてもいい<br />仕事を減らす
@@ -128,7 +175,7 @@ export default function ServiceDX() {
               人の時間を、価値創造へ。
             </p>
             <p className="mt-7 max-w-xl text-[16px] md:text-[17px] leading-[2] text-white/80">
-              毎日の入力・転記・集計・定型対応を、AIと自動化で手放す。1日60分の手作業をなくすだけで、年間240時間があなたの会社に戻ります。
+              愛知県西尾市から、中小企業の業務効率化を伴走支援。毎日の入力・転記・集計・定型対応を、AIと自動化で手放す。1日60分の手作業をなくすだけで、年間240時間があなたの会社に戻ります。
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
               <Link
@@ -177,7 +224,7 @@ export default function ServiceDX() {
                 何が変わる？
               </h2>
               <p className="mt-6 max-w-[34em] text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
-                大切なのは、ツールを入れることではありません。「人がやらなくていい仕事（Non Human Task）」を減らし、時間を価値ある仕事へ戻すことです。
+                大切なのは、ツールを入れることではありません。「人がやらなくていい仕事（Non Human Task）」を減らし、時間を価値ある仕事へ戻すことです。これがDX（業務のデジタル化による変革）であり、AX（AI活用による変革）で目指すところです。
               </p>
             </div>
 
@@ -388,6 +435,34 @@ export default function ServiceDX() {
             <h2 className="max-w-5xl text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 48px)" }}>
               AIを使える会社ではなく、<br className="hidden sm:block" />仕事を改善し続けられる会社へ。
             </h2>
+            <p className="mt-8 max-w-[38em] text-[15px] md:text-[16px] leading-[2] text-charcoal/75">
+              業務効率化は一度きりの作業ではありません。DX・AXの本質は、
+              仕組みを入れることではなく、改善を続けられる状態をつくることです。
+              愛知県西尾市を拠点に、導入して終わりにしない伴走支援を行っています。
+            </p>
+          </div>
+        </section>
+
+        {/* ===== FAQ — 検索から来た人の疑問をその場で解消する ===== */}
+        <section className="py-16 md:py-24 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+              よくあるご質問
+            </h2>
+            <dl className="mt-10 md:mt-14 max-w-[52em] border-t border-charcoal/15">
+              {faqs.map((f) => (
+                <div key={f.q} className="border-b border-charcoal/15 py-7 md:py-8">
+                  <dt className="flex gap-3 text-charcoal font-semibold leading-[1.6] tracking-[-0.01em]" style={{ fontSize: "clamp(16px, 1.9vw, 20px)" }}>
+                    <span aria-hidden className="text-sage-ink shrink-0">Q.</span>
+                    <span>{f.q}</span>
+                  </dt>
+                  <dd className="mt-4 flex gap-3 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                    <span aria-hidden className="text-charcoal/35 shrink-0 font-semibold">A.</span>
+                    <span className="max-w-[38em]">{f.a}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 

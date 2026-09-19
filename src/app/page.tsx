@@ -10,13 +10,13 @@ import { VisionNishio } from "@/components/sections/VisionNishio";
 import { NewsPreview } from "@/components/sections/top/NewsPreview";
 
 export const metadata: Metadata = {
-  title: "Moments Share合同会社 — 地域に、挑戦と共創の循環を。",
+  title: "Moments Share合同会社｜西尾市の業務効率化・DX/AX支援",
   description:
-    "DX・BPO・地域プロデュースを通じて、企業・人・地域の可能性をつなぐ会社。忙しさを余白へ、人手不足を多様な働き方へ、地域課題を挑戦のきっかけへ。愛知県西尾市発。",
+    "愛知県西尾市の中小企業向けに、業務効率化とDX・AX（AI活用）を伴走支援。請求書処理・データ転記・日報集計などの定型業務を自動化し、1日60分の手作業から年間240時間を取り戻します。BPO・地域プロデュースも。初回相談は無料。",
   openGraph: {
-    title: "Moments Share合同会社 — 地域に、挑戦と共創の循環を。",
+    title: "Moments Share合同会社｜西尾市の業務効率化・DX/AX支援",
     description:
-      "DX・BPO・地域プロデュースを通じて、企業・人・地域の可能性をつなぐ会社。愛知県西尾市発。",
+      "愛知県西尾市の中小企業向け。業務効率化・DX・AX（AI活用）を伴走支援。BPO・地域プロデュースも。",
     locale: "ja_JP",
     type: "website",
     url: "https://moments-share.com",

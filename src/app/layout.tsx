@@ -36,7 +36,9 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      // ProfessionalService は LocalBusiness の下位型。地域の事業者として
+      // 認識させるために付ける。Organization も併記して法人としても扱わせる
+      "@type": ["Organization", "ProfessionalService"],
       "@id": "https://moments-share.com/#organization",
       "name": "Moments Share合同会社",
       "alternateName": "Moments Share",
@@ -45,9 +47,9 @@ const organizationJsonLd = {
         "@type": "ImageObject",
         "url": "https://moments-share.com/og-image.jpg",
       },
-      "description": "愛知県西尾市発。DX支援・地域プロデュース・BPOの3事業で、地域の持続性を支えます。挑戦と共創が循環する仕組みをつくる会社。",
-      "foundingDate": "2025",
-      "email": "contact@momentsshare.com",
+      "description": "愛知県西尾市の中小企業向けに、業務効率化とDX・AX（AI活用）を伴走支援。請求書処理・データ転記・日報集計などの定型業務を自動化します。BPO・地域プロデュース事業も展開。",
+      "foundingDate": "2025-11",
+      "email": "branding@momentsshare.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "西尾市",
@@ -59,16 +61,26 @@ const organizationJsonLd = {
         "https://instagram.com/momentsshare",
         "https://note.com/momentsshare",
       ],
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "愛知県西尾市",
-      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "愛知県西尾市" },
+        { "@type": "AdministrativeArea", "name": "愛知県" },
+      ],
+      // 何に詳しい事業者かを明示する。AI検索が事業内容を理解する手がかりになる
+      "knowsAbout": [
+        "業務効率化",
+        "DX（デジタルトランスフォーメーション）",
+        "AX（AI活用による変革）",
+        "AI導入支援",
+        "業務自動化（RPA・GAS）",
+        "BPO（業務代行）",
+        "地域プロデュース",
+      ],
     },
     {
       "@type": "WebSite",
       "@id": "https://moments-share.com/#website",
       "url": "https://moments-share.com/",
-      "name": "Moments Share — 地域愛を地域発展の力に。",
+      "name": "Moments Share合同会社｜西尾市の業務効率化・DX/AX支援",
       "publisher": {
         "@id": "https://moments-share.com/#organization",
       },

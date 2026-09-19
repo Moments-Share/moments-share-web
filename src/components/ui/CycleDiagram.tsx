@@ -236,7 +236,6 @@ export function CycleDiagram({ variant = "full" }: { variant?: "full" | "compact
           <p className="mt-4 text-[14px] leading-[1.9] text-charcoal/80">
             挑戦したい若者 × 変わりたい企業
           </p>
-          <p className="mt-2 text-[12px] leading-[1.8] text-charcoal/75">西尾版・地域の人事部</p>
         </div>
 
         {/* 6段階。広い画面では輪の上へ、狭い画面では縦一本の道になる。

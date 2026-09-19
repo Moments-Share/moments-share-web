@@ -214,3 +214,55 @@ html[data-js] .rv-load {
   .btn-ghost-on-dark-subtle { border-color: rgba(255,255,255,0.35); color: rgba(255,255,255,0.78); }
   .btn-ghost-on-dark-subtle:hover { border-color: rgba(255,255,255,0.9); color: #fff; }
 }
+
+/* --- 循環図（CycleDiagram）---
+   輪の上を光の帯が一周し、通過した段階の点が順に灯る。
+   「循環」は言葉で書くより、回っているところを見せたほうが早い。
+
+   一周12秒、6段階なので1段階あたり2秒。帯の先頭が点に届く時刻と
+   点が灯る時刻を合わせてある（点kの遅延 = k×2秒）。
+
+   帯は pathLength="100" で長さを正規化してあるので、
+   楕円の実寸が変わっても dasharray を書き直さなくてよい。
+   開始位置を -75 にしているのは、そこが 01「地域を知る」の
+   真上にあたるため（SVGの楕円は3時から時計回りに描かれる）。 */
+@keyframes cycle-sweep {
+  from { stroke-dashoffset: -75; }
+  to   { stroke-dashoffset: -175; }
+}
+.cycle-sweep {
+  animation: cycle-sweep 12s linear infinite;
+}
+
+/* 点の中身が灯る */
+@keyframes cycle-fill {
+  0%        { opacity: 0; }
+  4%, 15%   { opacity: 1; }
+  34%, 100% { opacity: 0; }
+}
+.cycle-fill {
+  opacity: 0;
+  animation: cycle-fill 12s linear infinite;
+  animation-delay: var(--cycle-delay, 0s);
+}
+
+/* 点のまわりに広がる波紋 */
+@keyframes cycle-pulse {
+  0%        { opacity: 0; transform: scale(0.55); }
+  4%        { opacity: 0.9; transform: scale(1); }
+  15%       { opacity: 0.5; transform: scale(1.25); }
+  34%, 100% { opacity: 0; transform: scale(1.6); }
+}
+.cycle-pulse {
+  opacity: 0;
+  animation: cycle-pulse 12s linear infinite;
+  animation-delay: var(--cycle-delay, 0s);
+}
+
+/* 動きを減らす設定のときは止める。
+   止めた状態が、そのまま読める状態になるようにしてある
+   （灯りは装飾で、点も段階名も最初から見えている） */
+@media (prefers-reduced-motion: reduce) {
+  .cycle-sweep, .cycle-fill, .cycle-pulse { animation: none; }
+  .cycle-sweep { display: none; }
+}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 /* ============================================================
    「挑戦と共創が循環する地域へ」の6段階。
@@ -8,14 +9,22 @@ import Link from "next/link";
    スマホでは潰れて判読できず、読み上げもできない。
    図の「構造」だけを持ってきて、見た目はサイトの配色に合わせる。
 
+   広い画面では輪に組み、輪の上を光の帯が一周する。
+   「循環します」と文章で書く代わりに、回っているところを見せる。
+   帯と点の灯りはCSSだけで動かしている（JSなし・状態なし）ので、
+   サーバー側で描いたHTMLがそのまま最終形になる。
+
+   狭い画面は輪に組めないので、縦一本の道に切り替える。
+   同じ要素の並べ方を変えているだけで、内容は重複させていない。
+
    variant:
-     compact … TOPに置く短い版。段階の名前と一行だけ
+     compact … TOPに置く短い版。段階の名前だけ
      full    … 地域プロデュースに置く版。説明と担うプロジェクトまで
    ============================================================ */
 
 type Step = {
   no: string;
-  /** 円環に置くときの位置（%）。上から時計回りに6点 */
+  /** 輪に置くときの位置（%）。上から時計回りに6点 */
   x: number;
   y: number;
   title: string;
@@ -84,269 +93,228 @@ const steps: Step[] = [
   },
 ];
 
-/* 円環の上に置く矢印。節点と節点の中間に置き、時計回りの接線へ向ける。
+/* 輪の上に置く矢印。節点と節点の中間に置き、時計回りの接線へ向ける。
    三角形は「右向き」で描いてあるので、中心から見た角度 a に対して
    回転は a+90 になる（上端 a=-90 → 0度＝右向き、右端 a=0 → 90度＝下向き）。
-   最初は「▲」の文字を回していたが、基準が上向きで分かりにくく、
-   実際に90度ずれていた。図形を自分で描いて基準をはっきりさせる。 */
+
+   光の帯があっても矢印は残す。動きを減らす設定の人には帯が出ないので、
+   そのときに向きを示すものがなくなってしまう。 */
 const arrows = [
-  { x: 71.0, y: 14.49, r: 30 },
+  { x: 71.0, y: 14.49, r: 20.59 },
   { x: 92.0, y: 50.0, r: 90 },
-  { x: 71.0, y: 85.51, r: 150 },
-  { x: 29.0, y: 85.51, r: 210 },
+  { x: 71.0, y: 85.51, r: 159.41 },
+  { x: 29.0, y: 85.51, r: 200.59 },
   { x: 8.0, y: 50.0, r: 270 },
-  { x: 29.0, y: 14.49, r: 330 },
+  { x: 29.0, y: 14.49, r: 339.41 },
 ];
 
-export function CycleDiagram({
-  variant = "full",
-}: {
-  variant?: "full" | "compact" | "ring";
-}) {
+/* 節点が灯る時刻（秒／一周12秒）。
+
+   帯は輪の上を一定の速さで進むが、節点は60度ずつ等間隔に置いてある。
+   輪は真円ではなく横長の楕円（63×41）なので、
+   「角度で等間隔」と「長さで等間隔」が一致しない。
+   単純に2秒刻みにすると、帯が来ていないのに灯る節点が出る。
+
+   そこで各節点の角度を弧の長さに直し、帯の先頭が届く時刻を出した。
+   帯は長さ13、先頭は位置88から出発し、12秒で100進む。
+     遅延 = ((節点の弧長位置 − 0.88) mod 1) × 12秒
+   楕円の形（rx・ry）を変えたら、この6つの数も計算し直すこと。 */
+const litAt = [10.44, 0.62, 2.26, 4.44, 6.62, 8.26];
+
+/** 段階を担うプロジェクト。リンクがあれば辿れるようにする */
+function ProjectTag({ step }: { step: Step }) {
+  if (step.href) {
+    return (
+      <Link
+        href={step.href}
+        className="inline-block border-b border-navy-ink/40 pb-0.5 text-[12px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
+      >
+        {step.project} →
+      </Link>
+    );
+  }
+  return (
+    <span className="inline-block border border-charcoal/20 px-2 py-0.5 text-[11px] font-bold text-charcoal/75">
+      {step.project}
+      {step.note && <span className="ml-1 text-charcoal/60">／{step.note}</span>}
+    </span>
+  );
+}
+
+/** 灯る点。輪でも縦の道でも同じものを使う */
+function Dot({ index }: { index: number }) {
+  const delay = { "--cycle-delay": `${litAt[index]}s` } as CSSProperties;
+  return (
+    <span aria-hidden className="relative block h-[15px] w-[15px] shrink-0 lg:mx-auto">
+      <span className="absolute inset-0 rounded-full border-2 border-sage-ink bg-background" />
+      <span className="cycle-fill absolute inset-[3px] rounded-full bg-deep-green" style={delay} />
+      <span
+        className="cycle-pulse absolute -inset-[7px] rounded-full border border-deep-green/60"
+        style={delay}
+      />
+    </span>
+  );
+}
+
+export function CycleDiagram({ variant = "full" }: { variant?: "full" | "compact" | "ring" }) {
   const compact = variant === "compact";
-  const ring = variant === "ring";
+  /* 説明と担うプロジェクトまで出すか。TOPは名前だけにして短くする。
+     "ring" は以前の呼び名。地域プロデュース側の呼び出しを壊さないために残す */
+  const detail = !compact;
 
   return (
-    <div>
-      {/* 中心にある言葉。図では真ん中に置かれているもの。
-          ring のときは円の中心に置くので、ここでは出さない */}
-      <div className={`max-w-[34em] ${ring ? "hidden" : ""}`}>
-        <h3
-          className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]"
-          style={{ fontSize: compact ? "clamp(20px, 2.4vw, 30px)" : "clamp(24px, 3vw, 38px)" }}
+    <div className={compact ? "mt-8" : "mt-10 md:mt-14"}>
+      <div
+        className={`relative mx-auto w-full lg:aspect-[3/2] ${
+          compact ? "max-w-[780px]" : "max-w-[940px]"
+        }`}
+      >
+        {/* 輪。飾りなので読み上げない。
+            preserveAspectRatio="none" で、節点の位置とちょうど重なるまで横に伸ばす */}
+        <svg
+          aria-hidden
+          viewBox="0 0 150 100"
+          className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block"
         >
-          挑戦と共創が、循環する地域へ。
-        </h3>
-        <p className="mt-4 text-[15px] leading-[2] text-charcoal/80 md:text-[16px]">
-          {compact
-            ? "挑戦したい若者と、変わりたい企業をつなぐ。"
-            : "挑戦したい若者と、変わりたい企業。出会いから挑戦、企業の変容、共創までを地域で伴走します。"}
-        </p>
-      </div>
+          <ellipse
+            cx="75"
+            cy="50"
+            rx="63"
+            ry="41"
+            fill="none"
+            stroke="var(--color-sage)"
+            strokeWidth="0.16"
+            strokeDasharray="0.9 0.9"
+          />
+          {/* 一周する光の帯。pathLength で長さを100に正規化しているので、
+              画面幅が変わっても dasharray を書き直さなくてよい */}
+          <ellipse
+            className="cycle-sweep"
+            cx="75"
+            cy="50"
+            rx="63"
+            ry="41"
+            pathLength={100}
+            fill="none"
+            stroke="var(--color-deep-green)"
+            strokeWidth="0.45"
+            strokeLinecap="round"
+            strokeDasharray="13 87"
+            strokeDashoffset={-75}
+          />
+        </svg>
 
-      {ring ? (
-        /* 円環。広い画面でだけ円に組む。
-           文字は画像にしない。SVGは輪と矢印（飾り）だけで、
-           節点の中身はHTMLのまま。拡大しても崩れず、検索・AI検索・
-           読み上げは普通のテキストとして読める。
-           狭い画面では同じ要素がそのまま縦に積まれる（重複させない） */
-        <div className="mt-10 md:mt-14">
-          <div className="relative mx-auto w-full max-w-[940px] lg:aspect-[3/2]">
-            {/* 輪と矢印。飾りなので読み上げない */}
-            <svg
-              aria-hidden
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block"
-            >
-              <ellipse
-                cx="50"
-                cy="50"
-                rx="42"
-                ry="41"
-                fill="none"
-                stroke="var(--color-sage)"
-                strokeWidth="0.25"
-                strokeDasharray="1.2 1.2"
-                vectorEffect="non-scaling-stroke"
-              />
-            </svg>
-            {/* 矢印は歪ませたくないので、SVGとは別にHTMLで置く */}
-            {arrows.map((a, i) => (
-              <svg
-                key={i}
-                aria-hidden
-                viewBox="0 0 10 10"
-                width="13"
-                height="13"
-                className="absolute hidden lg:block"
-                style={{
-                  left: `${a.x}%`,
-                  top: `${a.y}%`,
-                  transform: `translate(-50%, -50%) rotate(${a.r}deg)`,
-                }}
-              >
-                {/* 右向きの三角形 */}
-                <polygon points="1,1 9,5 1,9" fill="var(--color-sage-ink)" />
-              </svg>
-            ))}
+        {/* 矢印は歪ませたくないので、輪のSVGとは別に置く */}
+        {arrows.map((a, i) => (
+          <svg
+            key={i}
+            aria-hidden
+            viewBox="0 0 10 10"
+            width="13"
+            height="13"
+            className="absolute hidden lg:block"
+            style={{
+              left: `${a.x}%`,
+              top: `${a.y}%`,
+              transform: `translate(-50%, -50%) rotate(${a.r}deg)`,
+            }}
+          >
+            <polygon points="1,1 9,5 1,9" fill="var(--color-sage-ink)" />
+          </svg>
+        ))}
 
-            {/* 中心の言葉 */}
-            <div className="mb-10 text-center lg:absolute lg:left-1/2 lg:top-1/2 lg:mb-0 lg:w-[19em] lg:-translate-x-1/2 lg:-translate-y-1/2">
-              <h3
-                className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]"
-                style={{ fontSize: "clamp(20px, 2.2vw, 28px)" }}
-              >
-                挑戦と共創が、
-                <br className="hidden lg:block" />
-                循環する地域へ。
-              </h3>
-              <p className="mt-4 text-[14px] leading-[1.9] text-charcoal/80">
-                挑戦したい若者 × 変わりたい企業
-              </p>
-              <p className="mt-2 text-[12px] leading-[1.8] text-charcoal/75">
-                西尾版・地域の人事部
-              </p>
-            </div>
-
-            {/* 6段階。同じ要素が、広い画面では円周上へ、狭い画面では縦に並ぶ */}
-            <ol className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:block">
-              {steps.map((s) => (
-                <li
-                  key={s.no}
-                  className="lg:absolute lg:w-[15.5em] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:text-center"
-                  style={{ left: `${s.x}%`, top: `${s.y}%` }}
-                >
-                  <div className="text-charcoal/65 font-medium tabular-nums leading-none text-[13px]">
-                    {s.no}
-                  </div>
-                  <h4 className="mt-2 text-charcoal font-semibold leading-[1.4] text-[17px] md:text-[18px]">
-                    {s.title}
-                  </h4>
-                  <p className="mt-1.5 text-[13px] leading-[1.8] text-charcoal/80">{s.body}</p>
-                  <div className="mt-3">
-                    {s.href ? (
-                      <Link
-                        href={s.href}
-                        className="inline-block border-b border-navy-ink/40 pb-0.5 text-[12px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
-                      >
-                        {s.project} →
-                      </Link>
-                    ) : (
-                      <span className="inline-block border border-charcoal/20 px-2 py-0.5 text-[11px] font-bold text-charcoal/75">
-                        {s.project}
-                        {s.note && <span className="ml-1 text-charcoal/60">／{s.note}</span>}
-                      </span>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-          <p className="mt-10 text-center text-[14px] leading-[1.9] text-charcoal/75 lg:mt-14">
-            ↻ 「次の挑戦へ」は、また「地域を知る」へ戻っていきます。この循環をつくることが、地域プロデュース事業です。
+        {/* 中心の言葉 */}
+        <div className="mb-10 text-center lg:absolute lg:left-1/2 lg:top-1/2 lg:mb-0 lg:w-[19em] lg:-translate-x-1/2 lg:-translate-y-1/2">
+          <h3
+            className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]"
+            style={{ fontSize: compact ? "clamp(20px, 2.1vw, 26px)" : "clamp(20px, 2.2vw, 28px)" }}
+          >
+            挑戦と共創が、
+            <br className="hidden lg:block" />
+            循環する地域へ。
+          </h3>
+          <p className="mt-4 text-[14px] leading-[1.9] text-charcoal/80">
+            挑戦したい若者 × 変わりたい企業
           </p>
+          <p className="mt-2 text-[12px] leading-[1.8] text-charcoal/75">西尾版・地域の人事部</p>
         </div>
-      ) : compact ? (
-        /* TOP版。横一本の道に6つの点を置き、最後から最初へ戻る線を描く。
-           矢印と文字を並べるより短く、しかも「戻る」ことが絵で分かるので、
-           「↻ また地域を知るへ戻ります」という説明文が要らなくなる。
-           狭い画面では縦一本の道に切り替える */
-        <div className="mt-9">
-          {/* 06から01へ戻る線。道の下に引くと段階名の上を通ってしまうので、
-              道の上を通して01の点に真上から降ろす。
-              これが「循環」の説明そのものになるので、
-              「↻ また地域を知るへ戻ります」という一文は要らない */}
-          <div aria-hidden className="relative -mb-1 hidden h-11 lg:block">
-            <svg
-              viewBox="0 0 100 16"
-              preserveAspectRatio="none"
-              className="absolute inset-0 h-full w-full"
-            >
-              <path
-                d="M91.667 16 C91.667 1, 8.333 1, 8.333 13"
-                fill="none"
-                stroke="var(--color-charcoal)"
-                strokeOpacity="0.22"
-                strokeWidth="1"
-                vectorEffect="non-scaling-stroke"
-              />
-            </svg>
-            {/* 戻り先（01）を指す矢印。下向きの三角 */}
-            <svg
-              viewBox="0 0 10 10"
-              width="14"
-              height="14"
-              className="absolute"
-              style={{ left: "8.333%", bottom: 0, transform: "translate(-50%, -10%) rotate(90deg)" }}
-            >
-              <polygon points="1,1 9,5 1,9" fill="var(--color-charcoal)" fillOpacity="0.38" />
-            </svg>
-          </div>
 
-          <ol className="relative grid grid-cols-1 gap-y-5 lg:grid-cols-6 lg:gap-y-0">
-            {/* 道。広い画面では横一本。両端は01と06の点の中心（各列の中央）に合わせる */}
-            <span
-              aria-hidden
-              className="absolute left-[8.333%] right-[8.333%] top-[7px] hidden h-px bg-charcoal/20 lg:block"
-            />
-            {steps.map((s, i) => (
-              <li
-                key={s.no}
-                className="relative flex items-center gap-3 lg:block lg:text-center"
-              >
+        {/* 6段階。広い画面では輪の上へ、狭い画面では縦一本の道になる。
+            同じ要素の並べ方を変えているだけで、内容は重複させていない */}
+        {/* lg では位置の基準を外側（3:2の枠）に戻す。ここに relative があると
+            節点がこの ol の左上を基準にしてしまい、全部が上に重なる */}
+        <ol
+          className={`relative grid grid-cols-1 lg:static lg:block ${
+            detail ? "gap-7 sm:grid-cols-2 lg:gap-0" : "gap-5 lg:gap-0"
+          }`}
+        >
+          {steps.map((s, i) => (
+            <li
+              key={s.no}
+              /* 位置は変数で渡し、lg でだけ使う。
+                 left/top を直に書くと、輪にならない画面でも
+                 relative の項目がその分だけずれて階段状になる */
+              className={`relative lg:absolute lg:left-[var(--cx)] lg:top-[var(--cy)] lg:block lg:w-[15.5em] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:text-center ${
+                detail ? "" : "flex items-center gap-3"
+              }`}
+              style={{ "--cx": `${s.x}%`, "--cy": `${s.y}%` } as CSSProperties}
+            >
+              <Dot index={i} />
+
+              {/* 狭い画面の道。点の下端から次の点の上端まで。
+                  行の高さが揃っているので 100% + 行間 - 点 で届く。
+                  輪になる画面と、段が高くなる詳細版では出さない */}
+              {i < steps.length - 1 && !detail && (
                 <span
                   aria-hidden
-                  className="block h-[15px] w-[15px] shrink-0 rounded-full border-2 border-sage-ink bg-background lg:mx-auto"
+                  className="absolute left-[7px] top-[calc(50%+7px)] h-[calc(100%+6px)] w-px bg-charcoal/20 lg:hidden"
                 />
-                {/* 狭い画面の道。点の下端から次の点の上端まで。
-                    行の高さが揃っているので 100% + 行間(20px) - 点(14px) で届く */}
-                {i < steps.length - 1 && (
-                  <span
-                    aria-hidden
-                    className="absolute left-[7px] top-[calc(50%+7px)] h-[calc(100%+6px)] w-px bg-charcoal/20 lg:hidden"
-                  />
-                )}
-                <span className="flex items-baseline gap-2 lg:block">
-                  <span className="text-[11px] font-medium tabular-nums text-charcoal/65 lg:mt-3 lg:block">
-                    {s.no}
-                  </span>
-                  <span className="text-[14px] font-semibold leading-[1.45] text-charcoal md:text-[15px] lg:mt-1 lg:block">
-                    {s.title}
-                  </span>
-                </span>
-              </li>
-            ))}
-          </ol>
+              )}
 
-          {/* 狭い画面の戻り。縦の道にはカーブを描く余白がないので、
-              点の列に合わせた小さな印で「01へ戻る」ことを示す */}
-          <p className="mt-4 flex items-center gap-3 text-[12px] text-charcoal/70 lg:hidden">
-            <span
-              aria-hidden
-              className="block w-[15px] shrink-0 text-center text-[13px] leading-none text-sage-ink"
-            >
-              &#8635;
-            </span>
-            01「地域を知る」へ戻る
-          </p>
-
-        </div>
-      ) : (
-        /* 地域プロデュース版。説明と、その段階を担うプロジェクトまで */
-        <>
-          <ol className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 border-t border-charcoal/15 pt-9 sm:grid-cols-2 lg:grid-cols-3 md:mt-14">
-            {steps.map((s) => (
-              <li key={s.no}>
-                <div className="text-charcoal/65 font-medium tabular-nums leading-none text-[15px]">
+              <div className={detail ? "mt-2" : "flex items-baseline gap-2 lg:mt-2 lg:block"}>
+                <span className="block text-[12px] font-medium leading-none tabular-nums text-charcoal/65">
                   {s.no}
-                </div>
-                <h4 className="mt-3 text-charcoal font-semibold leading-[1.4] text-[18px] md:text-[20px]">
+                </span>
+                <h4
+                  className={`text-charcoal font-semibold leading-[1.4] lg:mt-1.5 ${
+                    detail ? "mt-1.5 text-[17px] md:text-[18px]" : "text-[14px] md:text-[15px]"
+                  }`}
+                >
                   {s.title}
                 </h4>
-                <p className="mt-2 text-[15px] leading-[1.9] text-charcoal/80">{s.body}</p>
-                <div className="mt-4">
-                  {s.href ? (
-                    <Link
-                      href={s.href}
-                      className="inline-block border-b border-navy-ink/40 pb-0.5 text-[13px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
-                    >
-                      {s.project} →
-                    </Link>
-                  ) : (
-                    <span className="inline-block border border-charcoal/20 px-2.5 py-1 text-[12px] font-bold text-charcoal/75">
-                      {s.project}
-                      {s.note && <span className="ml-1.5 text-charcoal/60">／{s.note}</span>}
-                    </span>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-9 text-[14px] leading-[1.9] text-charcoal/75">
-            ↻ 「次の挑戦へ」は、また「地域を知る」へ戻っていきます。この循環をつくることが、地域プロデュース事業です。
-          </p>
-        </>
+                {detail && (
+                  <>
+                    <p className="mt-1.5 text-[13px] leading-[1.8] text-charcoal/80">{s.body}</p>
+                    <div className="mt-3">
+                      <ProjectTag step={s} />
+                    </div>
+                  </>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      {/* 狭い画面の戻り。縦の道にはカーブを描く余白がないので、
+          点の列に合わせた小さな印で「01へ戻る」ことを示す。
+          輪になる画面では、輪そのものが戻りを表している */}
+      {!detail && (
+        <p className="mt-4 flex items-center gap-3 text-[12px] text-charcoal/70 lg:hidden">
+          <span
+            aria-hidden
+            className="block w-[15px] shrink-0 text-center text-[13px] leading-none text-sage-ink"
+          >
+            &#8635;
+          </span>
+          01「地域を知る」へ戻る
+        </p>
+      )}
+
+      {detail && (
+        <p className="mt-10 text-center text-[14px] leading-[1.9] text-charcoal/75 lg:mt-14">
+          この循環をつくることが、地域プロデュース事業です。
+        </p>
       )}
     </div>
   );

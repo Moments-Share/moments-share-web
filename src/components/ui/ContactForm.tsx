@@ -21,10 +21,32 @@ const categories = [
   "その他",
 ];
 
+/* 色はコントラストを実測して決めている（背景 #f8f5ef に対して）。
+   ラベル   charcoal/75 → 6.63:1  本文基準 4.5:1 を満たす
+   下線     charcoal/50 → 3.09:1  UI部品の基準 3:1 を満たす
+   以前の /55・/20 はいずれも基準を下回っていた。
+   フォーカスは outline を消さない。下線の色だけで示すと、
+   キーボード操作の人にどこにいるか伝わらないため。 */
 const inputClass =
-  "w-full bg-transparent border-b border-charcoal/20 px-1 py-3 text-[16px] text-charcoal outline-none focus:border-deep-green transition-colors disabled:opacity-50";
+  "w-full bg-transparent border-b border-charcoal/50 px-1 py-3 text-[16px] text-charcoal placeholder:text-charcoal/50 focus:border-deep-green transition-colors disabled:opacity-50";
 
-const labelClass = "block text-[12px] font-bold tracking-[0.14em] text-charcoal/55 mb-3";
+const labelClass = "flex items-center gap-2 text-[12px] font-bold tracking-[0.14em] text-charcoal/75 mb-3";
+
+/* 必須・任意は記号（*）ではなく文字で示す。* は意味が伝わらない人がいる */
+function Req() {
+  return (
+    <span className="rounded-sm bg-deep-green px-1.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-white">
+      必須
+    </span>
+  );
+}
+function Opt() {
+  return (
+    <span className="rounded-sm border border-charcoal/30 px-1.5 py-0.5 text-[10px] font-bold tracking-[0.06em] text-charcoal/60">
+      任意
+    </span>
+  );
+}
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -78,7 +100,9 @@ export function ContactForm() {
         </p>
         <p className="mt-6 max-w-[32em] text-[15px] leading-[2] text-charcoal/75">
           内容を確認のうえ、2〜3営業日以内にご返信します。
-          しばらく経っても返信が届かない場合は、迷惑メールフォルダをご確認いただくか、{mailLink} まで直接ご連絡ください。
+          <strong className="font-bold">自動返信メールは送信していません。</strong>
+          そのままご返信をお待ちください。
+          しばらく経っても届かない場合は、迷惑メールフォルダをご確認いただくか、{mailLink} まで直接ご連絡ください。
         </p>
         <button
           type="button"
@@ -107,16 +131,16 @@ export function ContactForm() {
         aria-hidden="true"
         className="hidden"
       />
-      <input type="hidden" name="_subject" value="Webサイトのお問い合わせフォームより" />
+      <input type="hidden" name="_subject" value="【Webお問い合わせ】Moments Share" />
 
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
-            お名前<span className="ml-1">*</span>
+            お名前 <Req />
           </label>
           <input
             id="name"
-            name="name"
+            name="お名前"
             type="text"
             required
             autoComplete="name"
@@ -127,11 +151,11 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="company" className={labelClass}>
-            会社名・屋号
+            会社名・屋号 <Opt />
           </label>
           <input
             id="company"
-            name="company"
+            name="会社名・屋号"
             type="text"
             autoComplete="organization"
             disabled={disabled}
@@ -144,7 +168,7 @@ export function ContactForm() {
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
         <div>
           <label htmlFor="email" className={labelClass}>
-            メールアドレス<span className="ml-1">*</span>
+            メールアドレス <Req />
           </label>
           <input
             id="email"
@@ -158,36 +182,57 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="category" className={labelClass}>
-            ご相談の種類<span className="ml-1">*</span>
+          <label htmlFor="tel" className={labelClass}>
+            お電話番号 <Req />
           </label>
-          <select
-            id="category"
-            name="category"
+          {/* inputMode="tel" でスマホに数字キーパッドを出す。
+              type="tel" だけだと機種によって通常キーボードが出る */}
+          <input
+            id="tel"
+            name="お電話番号"
+            type="tel"
+            inputMode="tel"
             required
-            defaultValue=""
+            autoComplete="tel"
             disabled={disabled}
-            className={`${inputClass} bg-transparent`}
-          >
-            <option value="" disabled>
-              選択してください
-            </option>
-            {categories.map((c) => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
+            placeholder="09012345678"
+            className={inputClass}
+          />
         </div>
+      </div>
+
+      {/* 上2段は2列。ここは1項目だけなので、幅を左列に揃えて
+          プルダウンだけが不自然に横長にならないようにする */}
+      <div className="md:max-w-[calc(50%-1.25rem)]">
+        <label htmlFor="category" className={labelClass}>
+          ご相談の種類 <Req />
+        </label>
+        <select
+          id="category"
+          name="ご相談の種類"
+          required
+          defaultValue=""
+          disabled={disabled}
+          className={`${inputClass} bg-transparent`}
+        >
+          <option value="" disabled>
+            選択してください
+          </option>
+          {categories.map((c) => (
+            <option key={c} value={c}>
+              {c}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div>
         <label htmlFor="message" className={labelClass}>
-          ご相談内容<span className="ml-1">*</span>
+          ご相談内容 <Req />
         </label>
         <textarea
           id="message"
-          name="message"
+          name="ご相談内容"
           required
           rows={6}
           disabled={disabled}

@@ -18,17 +18,22 @@ import { roles } from "@/lib/recruit";
 /** 募集中の件数は recruit.ts から数える。手で書くと実態とずれる */
 const openRoles = roles.filter((r) => r.status === "募集中").length;
 
+/* 見出しは名詞のまま残す。読む人はまず「自分がどちらか」を探すので、
+   ここが行動の言葉だと自分ごとか判断できない。
+   押す文言のほうを行動にする。「詳しく見る」では何も起きない気がする */
 const paths = [
   {
     title: "大学生インターン",
     badge: openRoles > 0 ? `募集中 ${openRoles}職種` : undefined,
     body: "有償の長期インターン。プロジェクトのPMとして、企画から実行まで任せます。",
     href: "/student-internship",
+    action: "インターンに参加する",
   },
   {
     title: "フリーランス・複業",
     body: "プロジェクト単位でご一緒します。働き方も、関わる深さも相談で決めます。",
     href: "/contact",
+    action: "フリーランスとして応募する",
   },
 ];
 
@@ -83,7 +88,7 @@ export function Partners() {
                     </div>
                     <p className="mt-4 flex-1 text-[15px] leading-[1.95] text-charcoal/80">{p.body}</p>
                     <span className="mt-7 inline-block self-start border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors group-hover:border-deep-green group-hover:text-deep-green">
-                      詳しく見る →
+                      {p.action} →
                     </span>
                   </Link>
                 ))}

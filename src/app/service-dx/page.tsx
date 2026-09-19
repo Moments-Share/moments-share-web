@@ -5,6 +5,7 @@ import { BookingLink } from "@/components/ui/BookingLink";
 import { DeckEmbed } from "@/components/ui/DeckEmbed";
 import { PRICE_FROM, hasPrice, priceFactors, priceSteps } from "@/lib/pricing";
 import { SitePhoto, SitePhotoFill } from "@/components/ui/SitePhoto";
+import { dxCases } from "@/data/dx-cases";
 
 const problems = [
   "Excelやシステムへの転記が多い",
@@ -22,13 +23,17 @@ const outcomes = [
   { title: "属人化を減らす。", body: "「あの人しかわからない」をなくし、誰が担当しても回る状態をつくります。" },
 ];
 
+/* kind は、やり方は変えずに速くするものが DX、
+   仕事の組み立てから変えるものが AX。
+   「AXもやります」と名乗るだけでは何も伝わらないので、
+   どれがAXなのかを一つずつ示す */
 const menu = [
-  { name: "AI活用支援", desc: "現場で使えるAIの使いどころを整理し、定着まで伴走。" },
-  { name: "AI研修", desc: "チームがAIを使いこなすための実践研修。" },
-  { name: "業務整理・DXコンサルティング", desc: "どの作業を減らすべきか、優先順位から設計。" },
-  { name: "AI・RPA・GASによる業務自動化", desc: "入力・転記・集計を自動処理に置き換え。" },
-  { name: "Notionなどを使った情報整理", desc: "散らばった社内情報を一元化。" },
-  { name: "AIエージェント構築", desc: "定型業務を任せられる仕組みをつくる。" },
+  { name: "AI活用支援", kind: "AX", desc: "現場で使えるAIの使いどころを整理し、定着まで伴走。" },
+  { name: "AI研修", kind: "AX", desc: "チームがAIを使いこなすための実践研修。" },
+  { name: "業務整理・DXコンサルティング", kind: "DX", desc: "どの作業を減らすべきか、優先順位から設計。" },
+  { name: "AI・RPA・GASによる業務自動化", kind: "DX / AX", desc: "入力・転記・集計を自動処理に置き換え。" },
+  { name: "Notionなどを使った情報整理", kind: "DX", desc: "散らばった社内情報を一元化。" },
+  { name: "AIエージェント構築", kind: "AX", desc: "定型業務を任せられる仕組みをつくる。" },
 ];
 
 /* §3 時間とコストの試算。試算であることは本文の注記で明示する */
@@ -363,11 +368,52 @@ export default function ServiceDX() {
         {/* ===== SERVICE — できること。6項目を番号付きリストに ===== */}
         <section className="py-14 md:py-22 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
+            {/* DXとAXの違い。言葉を名乗るだけでは伝わらないので、
+                どこから考えるかの違いとして書く */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+              <div className="lg:col-span-4">
+                <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+                  DXと、AX。
+                </h2>
+              </div>
+              <div className="lg:col-span-8">
+                <div className="grid grid-cols-1 gap-px bg-charcoal/10 sm:grid-cols-2">
+                  <div className="bg-white p-7 md:p-8">
+                    <p className="text-[12px] font-bold tracking-[0.18em] text-charcoal/60">DX</p>
+                    <p className="mt-4 text-charcoal font-semibold leading-[1.4] tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 1.9vw, 24px)" }}>
+                      いまの仕事を、デジタルにする。
+                    </p>
+                    <p className="mt-4 text-[14px] md:text-[15px] leading-[1.95] text-charcoal/80">
+                      紙をなくす。転記をなくす。集計を自動にする。
+                      <strong className="font-semibold text-charcoal">やり方は変えずに、速くします。</strong>
+                    </p>
+                  </div>
+                  <div className="bg-green-deep p-7 text-white md:p-8">
+                    <p className="text-[12px] font-bold tracking-[0.18em] text-white/70">AX</p>
+                    <p className="mt-4 font-semibold leading-[1.4] tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 1.9vw, 24px)" }}>
+                      仕事のやり方を、組み替える。
+                    </p>
+                    <p className="mt-4 text-[14px] md:text-[15px] leading-[1.95] text-white/85">
+                      AIがある前提で考え直します。「この作業を速くするには」ではなく、
+                      <strong className="font-semibold text-white">「この作業は、そもそも人がやる必要があるのか」</strong>
+                      から始めます。
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-7 max-w-[42em] text-[14px] md:text-[15px] leading-[1.95] text-charcoal/80">
+                  目的は同じです。人がやらなくてもいい仕事を減らし、人にしかできない仕事へ時間を戻すこと。違うのは、どこから考えるかだけです。どちらが必要かは業務によって変わるので、まず業務を分解してから決めます。
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 md:mt-24">
               <div className="lg:col-span-4">
                 <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
                   できること。
                 </h2>
+                <p className="mt-5 max-w-[24em] text-[14px] leading-[1.9] text-charcoal/75">
+                  どれがDXで、どれがAXかを付けてあります。
+                </p>
               </div>
               <div className="lg:col-span-8">
                 <ul className="border-t border-charcoal/10">
@@ -377,9 +423,14 @@ export default function ServiceDX() {
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div>
-                        <p className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 26px)" }}>
-                          {m.name}
-                        </p>
+                        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                          <p className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(18px, 2vw, 26px)" }}>
+                            {m.name}
+                          </p>
+                          <span className="border border-charcoal/25 px-2 py-0.5 text-[11px] font-bold tracking-[0.08em] text-charcoal/70">
+                            {m.kind}
+                          </span>
+                        </div>
                         <p className="mt-2 max-w-[30em] text-[14px] md:text-[15px] leading-[1.9] text-charcoal/70">
                           {m.desc}
                         </p>
@@ -391,6 +442,56 @@ export default function ServiceDX() {
             </div>
           </div>
         </section>
+
+        {/* ===== 事例 — 中身が入るまでは、セクションごと出さない。
+                 「実績はこちら」と書いて空のページに送るほうが信用を落とす。
+                 src/data/dx-cases.ts に1件足せば、ここに現れる ===== */}
+        {dxCases.length > 0 && (
+          <section className="py-14 md:py-22 px-6 md:px-10 bg-white">
+            <div className="mx-auto max-w-[1400px]">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                <div className="lg:col-span-4">
+                  <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
+                    実際に、こう変わりました。
+                  </h2>
+                </div>
+                <div className="lg:col-span-8">
+                  <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    {dxCases.map((c) => (
+                      <li key={`${c.client}-${c.title}`} className="border border-charcoal/12 p-7 md:p-8">
+                        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                          <span className="border border-charcoal/25 px-2 py-0.5 text-[11px] font-bold tracking-[0.08em] text-charcoal/70">
+                            {c.kind}
+                          </span>
+                          <span className="text-[13px] font-medium text-charcoal/70">{c.client}</span>
+                        </div>
+                        <p className="mt-4 text-charcoal font-semibold leading-[1.35] tracking-[-0.02em]" style={{ fontSize: "clamp(17px, 1.8vw, 21px)" }}>
+                          {c.title}
+                        </p>
+                        <dl className="mt-5 border-t border-charcoal/10 pt-5 text-[14px] leading-[1.9]">
+                          <div className="flex gap-4">
+                            <dt className="w-16 shrink-0 font-bold text-charcoal/55">before</dt>
+                            <dd className="text-charcoal/80">{c.before}</dd>
+                          </div>
+                          <div className="mt-2 flex gap-4">
+                            <dt className="w-16 shrink-0 font-bold text-deep-green">after</dt>
+                            <dd className="font-semibold text-charcoal">{c.after}</dd>
+                          </div>
+                        </dl>
+                        {c.tools && (
+                          <p className="mt-4 text-[13px] leading-[1.8] text-charcoal/70">使ったもの：{c.tools}</p>
+                        )}
+                        {c.note && (
+                          <p className="mt-2 text-[12px] leading-[1.8] text-charcoal/60">{c.note}</p>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ===== 費用 — 金額が無いままだと「高いかもしれない」で離脱する。
                  額を出せないうちは、決まり方といつ分かるかを示す。

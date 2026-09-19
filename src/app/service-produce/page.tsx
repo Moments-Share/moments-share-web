@@ -32,6 +32,17 @@ const projects = [
   },
 ];
 
+/* 準備中のプロジェクト。開設・開始が決まっていない段階のものを置く。
+   具体的な内容（場所・料金・時期など）が固まるまでは書かない。
+   固まったら projects へ移すか、専用ページへ昇格させる。 */
+const upcoming = [
+  {
+    name: "コワーキングスペース",
+    cat: "場づくり",
+    desc: "西尾に、働く人が集まれる場所をつくる準備を進めています。詳細が決まり次第、このページでお知らせします。",
+  },
+];
+
 // 地域推し活サイクル（知るへループする循環）
 const cycle = ["知る", "好きになる", "応援する", "関わる", "挑戦する", "共創する", "次の挑戦へ"];
 
@@ -288,6 +299,44 @@ export default function ServiceProduce() {
                 </div>
               </article>
             </div>
+          </div>
+        </section>
+
+        {/* ===== 準備中 — 名前だけ先に置く。中身が空のページは作らない ===== */}
+        <section className="py-14 md:py-20 px-6 md:px-10 bg-ivory">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="text-charcoal/45 text-[12px] font-bold tracking-[0.16em]">
+              COMING SOON — 準備中のプロジェクト
+            </div>
+            <ul className="mt-8 max-w-[52em] border-t border-charcoal/15">
+              {upcoming.map((u) => (
+                <li key={u.name} className="border-b border-charcoal/15 py-7 md:py-8">
+                  <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                    <h3
+                      className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]"
+                      style={{ fontSize: "clamp(20px, 2.4vw, 30px)" }}
+                    >
+                      {u.name}
+                    </h3>
+                    <span className="rounded-sm border border-sage px-2 py-0.5 text-[11px] font-bold tracking-[0.08em] text-sage-ink">
+                      {u.cat}・準備中
+                    </span>
+                  </div>
+                  <p className="mt-4 max-w-[36em] text-[15px] md:text-[16px] leading-[2] text-charcoal/75">
+                    {u.desc}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-[13px] leading-[1.9] text-charcoal/55">
+              一緒に立ち上げたい方、関わってみたい方からのご連絡もお待ちしています。
+            </p>
+            <Link
+              href="/contact"
+              className="mt-6 inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
+            >
+              プロジェクトについて相談する →
+            </Link>
           </div>
         </section>
 

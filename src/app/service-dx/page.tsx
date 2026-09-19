@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Nav } from "@/components/ui/Nav";
 import { BookingLink } from "@/components/ui/BookingLink";
 import { DeckEmbed } from "@/components/ui/DeckEmbed";
+import { PRICE_FROM, hasPrice, priceFactors, priceSteps } from "@/lib/pricing";
 import { SitePhoto, SitePhotoFill } from "@/components/ui/SitePhoto";
 
 const problems = [
@@ -191,7 +192,7 @@ export default function ServiceDX() {
         </section>
 
         {/* ===== こんな課題 — 7項目を2カラムのテキストリストに ===== */}
-        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+        <section className="py-14 md:py-22 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-4">
@@ -217,7 +218,7 @@ export default function ServiceDX() {
         </section>
 
         {/* ===== 何が変わる？ — 3つの成果を言明で ===== */}
-        <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
+        <section className="py-14 md:py-22 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
               <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
@@ -229,7 +230,7 @@ export default function ServiceDX() {
             </div>
 
             {/* §3 削減規模の試算。カードにせず、罫線と数字だけで静かに見せる */}
-            <div className="mt-12 md:mt-16">
+            <div className="mt-10 md:mt-14">
               <div className="grid grid-cols-2 border-t border-charcoal/15 md:grid-cols-4 md:border-b">
                 {savings.map((s) => (
                   <div
@@ -255,9 +256,9 @@ export default function ServiceDX() {
               </p>
             </div>
 
-            <div className="mt-14 md:mt-20 flex flex-col divide-y divide-charcoal/10 border-t border-charcoal/10">
+            <div className="mt-10 md:mt-14 flex flex-col divide-y divide-charcoal/10 border-t border-charcoal/10">
               {outcomes.map((o) => (
-                <div key={o.title} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 items-baseline py-9 md:py-11">
+                <div key={o.title} className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-10 items-baseline py-7 md:py-9">
                   <h3 className="md:col-span-6 text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(20px, 2.4vw, 32px)" }}>
                     {o.title}
                   </h3>
@@ -269,7 +270,7 @@ export default function ServiceDX() {
         </section>
 
         {/* ===== CASE — 実績。80％削減を主役に ===== */}
-        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+        <section className="py-14 md:py-22 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
               <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
@@ -278,7 +279,7 @@ export default function ServiceDX() {
             </div>
 
             {/* 主役：SNS自動化 約80％削減。数字は信頼を伝える情報として扱う */}
-            <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-end">
+            <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-end">
               <div className="md:col-span-5">
                 <div className="text-[13px] font-semibold tracking-[0.08em] text-charcoal/45 mb-4">SNS自動化</div>
                 <div className="flex items-end gap-3">
@@ -302,7 +303,7 @@ export default function ServiceDX() {
             </div>
 
             {/* 主役事例の現場写真。左揃え・横位置 */}
-            <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12">
+            <div className="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-12">
               <div className="md:col-span-8">
                 <SitePhoto name="dxWorkflow" sizes="(max-width: 768px) 100vw, 50vw" />
                 <p className="mt-3 text-[12px] text-muted">毎日の投稿作業が、6分に。</p>
@@ -310,7 +311,7 @@ export default function ServiceDX() {
             </div>
 
             {/* 請求書自動化。テキスト事例 */}
-            <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-10 md:pt-12">
+            <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline border-t border-charcoal/10 pt-10 md:pt-12">
               <div className="md:col-span-4 text-[13px] font-semibold tracking-[0.08em] text-charcoal/45">請求書</div>
               <div className="md:col-span-8">
                 <h3 className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(22px, 2.8vw, 36px)" }}>
@@ -326,7 +327,7 @@ export default function ServiceDX() {
             </div>
 
             {/* 在庫管理 — 左揃えで統一 */}
-            <div className="mt-16 md:mt-24 border-t border-charcoal/10 pt-10 md:pt-12">
+            <div className="mt-10 md:mt-14 border-t border-charcoal/10 pt-10 md:pt-12">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-end">
                 <div className="md:col-span-7">
                   <div className="text-[13px] font-semibold tracking-[0.08em] text-charcoal/45">在庫管理</div>
@@ -346,7 +347,7 @@ export default function ServiceDX() {
               </div>
             </div>
 
-            <div className="mt-14 md:mt-20">
+            <div className="mt-10 md:mt-14">
               {/* /works が準備中のため、いまは問い合わせへ渡す。
                   実績ページを公開したら href="/works" と「実績をもっと見る →」に戻す */}
               <Link
@@ -360,7 +361,7 @@ export default function ServiceDX() {
         </section>
 
         {/* ===== SERVICE — できること。6項目を番号付きリストに ===== */}
-        <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
+        <section className="py-14 md:py-22 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
               <div className="lg:col-span-4">
@@ -391,8 +392,66 @@ export default function ServiceDX() {
           </div>
         </section>
 
+        {/* ===== 費用 — 金額が無いままだと「高いかもしれない」で離脱する。
+                 額を出せないうちは、決まり方といつ分かるかを示す。
+                 一番聞かれることなので、ページの中ほどに置く。
+                 最後に置くと、そこまで読まれない ===== */}
+        <section className="py-14 md:py-22 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+              <div className="lg:col-span-5">
+                <h2
+                  className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]"
+                  style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}
+                >
+                  費用について。
+                </h2>
+                {hasPrice ? (
+                  <p className="mt-7 flex items-baseline gap-2">
+                    <span
+                      className="font-semibold leading-none tracking-[-0.03em] text-charcoal"
+                      style={{ fontSize: "clamp(32px, 3.6vw, 48px)" }}
+                    >
+                      {PRICE_FROM}
+                    </span>
+                    <span className="text-[16px] font-bold text-sage-ink">〜</span>
+                  </p>
+                ) : null}
+                <p className="mt-7 max-w-[32em] text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
+                  決まった料金表はありません。減らせる仕事は会社ごとに違うので、
+                  対象が決まってから金額をお出ししています。
+                </p>
+              </div>
+
+              <div className="lg:col-span-7">
+                <div className="text-charcoal/70 text-[12px] font-bold tracking-[0.16em]">費用が決まる3つのこと</div>
+                <dl className="mt-5 border-t border-charcoal/15">
+                  {priceFactors.map((f) => (
+                    <div key={f.k} className="grid grid-cols-1 gap-1 border-b border-charcoal/15 py-5 sm:grid-cols-12 sm:gap-6">
+                      <dt className="text-[14px] font-bold text-charcoal sm:col-span-4">{f.k}</dt>
+                      <dd className="text-[15px] leading-[1.9] text-charcoal/80 sm:col-span-8">{f.v}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                <div className="mt-10 text-charcoal/70 text-[12px] font-bold tracking-[0.16em]">お見積りが出るまで</div>
+                <ol className="mt-5 space-y-3">
+                  {priceSteps.map((t, i) => (
+                    <li key={t} className="flex gap-4 text-[15px] leading-[1.9] text-charcoal/85">
+                      <span className="shrink-0 font-medium tabular-nums text-charcoal/65">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ===== PROCESS — 進め方。01–05のステップ行 ===== */}
-        <section className="py-16 md:py-28 px-6 md:px-10 bg-white">
+        <section className="py-14 md:py-22 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="max-w-3xl">
               <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
@@ -415,7 +474,7 @@ export default function ServiceDX() {
               </dl>
             </div>
 
-            <div className="mt-14 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
+            <div className="mt-12 md:mt-16 grid grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-9 md:gap-x-8 md:gap-y-12">
               {steps.map((s) => (
                 <div key={s.num} className="border-t border-charcoal/10 pt-5">
                   <div className="text-charcoal/30 font-medium tabular-nums leading-none" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>
@@ -432,7 +491,7 @@ export default function ServiceDX() {
         </section>
 
         {/* ===== GOAL — 言明 ===== */}
-        <section className="py-20 md:py-36 px-6 md:px-10 bg-ivory">
+        <section className="py-14 md:py-24 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <h2 className="max-w-5xl text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(26px, 3.6vw, 48px)" }}>
               AIを使える会社ではなく、<br className="hidden sm:block" />仕事を改善し続けられる会社へ。
@@ -446,30 +505,40 @@ export default function ServiceDX() {
         </section>
 
         {/* ===== FAQ — 検索から来た人の疑問をその場で解消する ===== */}
-        <section className="py-16 md:py-24 px-6 md:px-10 bg-ivory">
+        <section className="py-14 md:py-20 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
               よくあるご質問
             </h2>
-            <dl className="mt-10 md:mt-14 max-w-[52em] border-t border-charcoal/15">
+            {/* 7問を開いたまま並べると2画面ぶんになる。<details> で畳む。
+                JSは使わない。答えはHTMLに残るので、検索・AI検索には従来どおり読まれる。
+                構造化データ（faqJsonLd）も別に出しているので影響はない */}
+            <div className="mt-10 md:mt-12 max-w-[52em] border-t border-charcoal/15">
               {faqs.map((f) => (
-                <div key={f.q} className="border-b border-charcoal/15 py-7 md:py-8">
-                  <dt className="flex gap-3 text-charcoal font-semibold leading-[1.6] tracking-[-0.01em]" style={{ fontSize: "clamp(16px, 1.9vw, 20px)" }}>
-                    <span aria-hidden className="text-sage-ink shrink-0">Q.</span>
-                    <span>{f.q}</span>
-                  </dt>
-                  <dd className="mt-4 flex gap-3 text-[15px] md:text-[16px] leading-[2] text-charcoal/80">
-                    <span aria-hidden className="text-charcoal/35 shrink-0 font-semibold">A.</span>
+                <details key={f.q} className="group border-b border-charcoal/15">
+                  <summary className="flex cursor-pointer list-none items-start gap-3 py-5 text-charcoal font-semibold leading-[1.6] tracking-[-0.01em] md:py-6" style={{ fontSize: "clamp(16px, 1.9vw, 20px)" }}>
+                    <span aria-hidden className="shrink-0 text-sage-ink">Q.</span>
+                    <span className="flex-1">{f.q}</span>
+                    {/* 開閉の向きを示す。装飾なので読み上げない */}
+                    <span
+                      aria-hidden
+                      className="mt-1 shrink-0 text-[13px] font-bold text-charcoal/70 transition-transform group-open:rotate-45"
+                    >
+                      ＋
+                    </span>
+                  </summary>
+                  <p className="flex gap-3 pb-6 text-[15px] leading-[2] text-charcoal/80 md:text-[16px]">
+                    <span aria-hidden className="shrink-0 font-semibold text-charcoal/70">A.</span>
                     <span className="max-w-[38em]">{f.a}</span>
-                  </dd>
-                </div>
+                  </p>
+                </details>
               ))}
-            </dl>
+            </div>
           </div>
         </section>
 
         {/* ===== DECK — サービス紹介資料。CTAの直前、詳しく知りたい人の受け皿 ===== */}
-        <section className="py-16 md:py-24 px-6 md:px-10 bg-white">
+        <section className="py-14 md:py-20 px-6 md:px-10 bg-white">
           <div className="mx-auto max-w-[1400px]">
             <h2 className="text-charcoal font-semibold leading-[1.2] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}>
               資料で詳しく。
@@ -479,7 +548,7 @@ export default function ServiceDX() {
         </section>
 
         {/* ===== CTA — 緑のバンド＋テラコッタボタン ===== */}
-        <section id="contact" className="scroll-mt-20 py-20 md:py-28 px-6 md:px-10 bg-green-deep text-white">
+        <section id="contact" className="scroll-mt-20 py-16 md:py-24 px-6 md:px-10 bg-green-deep text-white">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
               <h2 className="lg:col-span-8 font-semibold leading-[1.15] tracking-[-0.02em]" style={{ fontSize: "clamp(28px, 3.6vw, 52px)" }}>

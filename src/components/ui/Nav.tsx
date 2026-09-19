@@ -46,7 +46,11 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,box-shadow] duration-200 ${
           scrolled
-            ? "bg-ivory/90 backdrop-blur border-b border-border"
+            ? // 不透明にする。90%だとHERO写真の空が10%透けて #e7e7e5 になり、
+              // サイトの地色 #f8f5ef より明らかに灰色く見えていた（実測差26）。
+              // 白・アイボリーのセクション上では差2で問題なかったが、
+              // 写真の上だけ色が変わるのは、静かな配色の中で浮く
+              "bg-ivory border-b border-border"
             : "bg-transparent border-b border-transparent"
         }`}
       >

@@ -102,8 +102,11 @@ export function VisionNishio() {
         </h2>
 
         <div className="rv mt-10 md:mt-14 max-w-[46em] space-y-5" style={rise(0.55)}>
+          {/* 語尾を「創る。」にした。次の行が「〜を。」で終わるので、
+              ここも「を。」だと2行続けて同じ止め方になる。
+              /about/ のPurposeも「あふれる世界を創る。」なので表記も揃う */}
           <p className="font-bold text-cream leading-[1.6] tracking-[-0.01em]" style={{ fontSize: "clamp(19px, 2.2vw, 28px)" }}>
-            生きててよかった！があふれる世界を。
+            生きててよかった！があふれる世界を創る。
           </p>
           {/* 4th Place は残すが、そのままだと読む人が立ち止まる言葉なので、
               「自己実現の場」という言い換えを括弧で添える。

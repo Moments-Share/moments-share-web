@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FIRST_CONSULT_FREE, REPLY_WITHIN } from "@/lib/contact";
 import { Nav } from "@/components/ui/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { AboutIntro } from "@/components/sections/top/AboutIntro";
@@ -61,9 +60,11 @@ export default function Home() {
 
         {/* ===== CONTACT — Deep Green の面で締める。
              以前は388pxしかなく、前後が白とアイボリーだったため
-             「取ってつけた帯」に見えていた。高さは余白ではなく、
-             足りていなかった情報（無料であること・返信の目安）で稼ぐ。
-             文言は lib/contact.ts と同じものを使い、ページ間でずれないようにする ===== */}
+             「取ってつけた帯」に見えていた。高さは上下の余白で取っている。
+
+             以前はボタンの下に「初回無料」「2営業日以内に返信」を
+             添えていたが、外した。約束として書ける内容が固まってから
+             戻すこと（文言は lib/contact.ts に残してある）。 ===== */}
         <section id="contact" className="scroll-mt-16 bg-green-deep px-6 py-24 text-white md:px-10 md:py-36">
           <div className="mx-auto max-w-[1400px]">
             <p className="text-[11px] font-bold tracking-[0.28em] text-white/75">CONTACT</p>
@@ -84,13 +85,8 @@ export default function Home() {
               </div>
               <div className="lg:col-span-5 lg:pb-2">
                 <Link href="/contact" className="btn btn-ghost-on-green px-9 py-4">
-                  30分相談する →
+                  お問い合わせをしてみる →
                 </Link>
-                <p className="mt-7 text-[14px] leading-[2] text-white/85">
-                  {FIRST_CONSULT_FREE}
-                  <br />
-                  {REPLY_WITHIN}にご返信します。
-                </p>
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { BookingLink } from "@/components/ui/BookingLink";
-import { FIRST_CONSULT_FREE, REPLY_WITHIN, TEL_PURPOSE } from "@/lib/contact";
+import { TEL_PURPOSE } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "お問い合わせ・無料相談｜Moments Share",
@@ -63,12 +63,12 @@ export default function ContactPage() {
           {/* フォーム — 重いカードをやめ、下線インプットの編集スタイル。
               広い画面でも左に余白だけが残らないよう、中央に置いて幅を抑える */}
           <div className="mx-auto max-w-[860px]">
-            {/* 送信する前に相手が知りたい3つ。ここが無いと、
-                必須項目を埋める前に離脱する。文言は lib/contact.ts で管理 */}
-            <dl className="mb-12 grid grid-cols-1 gap-6 border-y border-charcoal/12 py-7 sm:grid-cols-3 md:gap-8">
+            {/* 送信する前に相手が知りたいこと。文言は lib/contact.ts で管理。
+
+                並べ方を grid から flex にしてある。項目が減っても
+                左に1つだけ残って右2列が空く、という見え方にならない。 */}
+            <dl className="mb-12 flex flex-wrap gap-x-12 gap-y-6 border-y border-charcoal/12 py-7">
               {[
-                { k: "相談の費用", v: FIRST_CONSULT_FREE },
-                { k: "返信の目安", v: `${REPLY_WITHIN}にご返信します。` },
                 { k: "お電話番号について", v: TEL_PURPOSE },
               ].map(({ k, v }) => (
                 <div key={k}>

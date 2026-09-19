@@ -79,7 +79,7 @@ export default function Home() {
                 </h2>
                 <p className="mt-8 max-w-[30em] text-[16px] leading-[2] text-white/85 md:text-[17px]">
                   この作業、減らせないか。人が足りない。地域で何か始めたい。
-                  まだ課題が整理できていなくても大丈夫です。
+                  まずはお気軽にご連絡ください。
                 </p>
               </div>
               <div className="lg:col-span-5 lg:pb-2">

@@ -8,7 +8,7 @@ import { FIRST_CONSULT_FREE, REPLY_WITHIN, TEL_PURPOSE } from "@/lib/contact";
 export const metadata: Metadata = {
   title: "お問い合わせ・無料相談｜Moments Share",
   description:
-    "愛知県西尾市のMoments Share合同会社へのご相談・お問い合わせ。この作業、減らせないか。人が足りない。地域で何か始めたい。まだ課題が整理できていなくても大丈夫です。初回のご相談は無料です。",
+    "愛知県西尾市のMoments Share合同会社へのご相談・お問い合わせ。この作業、減らせないか。人が足りない。地域で何か始めたい。まずはお気軽にご連絡ください。初回のご相談は無料です。",
   openGraph: {
     title: "お問い合わせ・無料相談｜Moments Share",
     description: "DX/AX・BPO・地域プロデュースのご相談。まずは30分、話してみませんか。",
@@ -51,7 +51,7 @@ export default function ContactPage() {
             </h1>
             <p className="mt-8 max-w-md text-[16px] md:text-[17px] leading-[2] text-white/80">
               この作業、減らせないか。人が足りない。地域で何か始めたい。<br />
-              まだ課題が整理できていなくても大丈夫です。
+              まずはお気軽にご連絡ください。
             </p>
           </div>
         </section>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
-import { PhotoNeeded } from "@/components/ui/PhotoNeeded";
 import { fellows } from "@/data/fellows";
 
 export const metadata: Metadata = {
@@ -145,7 +144,7 @@ export default function PeoplePage() {
           </div>
         </section>
 
-        {/* ===== 4. Fellow紹介 — 代表を大きな写真＋バイオで ===== */}
+        {/* ===== 4. Fellow紹介 — 横並びのカードで一覧する ===== */}
         <section className="py-16 md:py-28 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">
             <div className="text-[12px] font-bold tracking-[0.16em] text-charcoal/70">Fellow紹介</div>
@@ -153,44 +152,18 @@ export default function PeoplePage() {
               Fellowを、紹介します。
             </h2>
 
-            {/* 代表（実在の情報のみ） */}
-            <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
-              <div className="md:col-span-5">
-                {/* TODO: 代表の顔写真に差し替え（public/photos/ に追加） */}
-                <PhotoNeeded ratio="4/5" kind="PEOPLE" note="代表・中根 隆のポートレート（縦・自然光）" />
-                <p className="mt-3 text-[12px] leading-[1.8] text-muted">西尾から、挑戦と共創の循環をつくる。</p>
-              </div>
-              <div className="md:col-span-7 md:pt-4">
-                <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/70">代表社員 / Founder</div>
-                <div className="mt-4 flex items-baseline gap-4 flex-wrap">
-                  <span className="text-charcoal font-bold leading-[1.2] tracking-[-0.01em]" style={{ fontSize: "clamp(32px, 4.2vw, 56px)" }}>中根 隆</span>
-                  <span className="text-[13px] font-bold text-muted tracking-[0.14em]">RYU NAKANE</span>
-                </div>
-                <dl className="mt-8 divide-y divide-charcoal/10 border-t border-charcoal/10">
-                  <div className="py-5">
-                    <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/70">得意なこと</dt>
-                    <dd className="mt-2 text-[15px] md:text-[16px] leading-[2] text-charcoal/85">業務整理・DX設計、AI／RPA／ノーコードによる自動化、地域コミュニティづくり。</dd>
-                  </div>
-                  <div className="py-5">
-                    <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/70">担当していること</dt>
-                    <dd className="mt-2 text-[15px] md:text-[16px] leading-[2] text-charcoal/85">DX支援・BPO・地域プロデュースの3事業の推進。</dd>
-                  </div>
-                  <div className="py-5">
-                    <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/70">なぜMoments Shareに関わっているか</dt>
-                    <dd className="mt-2 text-[15px] md:text-[16px] leading-[2] text-charcoal/85">「挑戦できる場所を、つくる側に回ろう」。西尾から、挑戦と共創が循環する地域の仕組みをつくるため。</dd>
-                  </div>
-                </dl>
-              </div>
-            </div>
-
-            {/* Fellow一覧 — src/data/fellows.ts の実在情報のみ。
-                未確認の項目（肩書き・得意なこと等）は undefined にしておけば表示されない */}
-            {fellows.map((f) => (
-              <div
-                key={f.name}
-                className="mt-16 md:mt-20 border-t border-charcoal/10 pt-14 md:pt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start"
-              >
-                <div className="md:col-span-5">
+            {/* Fellow一覧 — 横並びのカード。
+                以前は1人ずつ縦に大きく積んでいたが、スクロール量が多いという
+                指摘があったのでカードにした。人数が増えても縦に伸びにくい。
+                内容は src/data/fellows.ts の実在情報のみ。
+                未確認の項目（肩書き・得意なこと等）は undefined にしておけば
+                カードに出ない。空欄も「準備中」も表示しない。 */}
+            <div id="fellow-list" className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 items-start">
+              {fellows.map((f) => (
+                <article
+                  key={f.name}
+                  className="flex flex-col bg-white border border-charcoal/12"
+                >
                   {f.photo ? (
                     <div className="relative w-full overflow-hidden bg-light" style={{ aspectRatio: "4/5" }}>
                       <Image
@@ -198,48 +171,65 @@ export default function PeoplePage() {
                         alt={f.photoAlt}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 40vw"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                       />
                     </div>
                   ) : (
-                    <PhotoNeeded ratio="4/5" kind="PEOPLE" note={f.photoAlt} />
-                  )}
-                  {f.caption && <p className="mt-3 text-[12px] leading-[1.8] text-muted">{f.caption}</p>}
-                </div>
-                <div className="md:col-span-7 md:pt-4">
-                  {f.role && (
-                    <div className="text-[13px] font-bold tracking-[0.14em] text-charcoal/70">{f.role}</div>
-                  )}
-                  <div className="mt-4 flex items-baseline gap-4 flex-wrap">
-                    <span
-                      className="text-charcoal font-bold leading-[1.2] tracking-[-0.01em]"
-                      style={{ fontSize: "clamp(30px, 3.8vw, 50px)" }}
+                    /* 写真が届くまでの枠。無地の灰色だと「空箱」に見えるので、
+                       姓の一文字を薄く置いて意図のある面に見せる。装飾なので読み上げない */
+                    <div
+                      className="flex w-full items-center justify-center bg-light"
+                      style={{ aspectRatio: "4/5" }}
                     >
-                      {f.name}
-                    </span>
-                    {f.nameEn && (
-                      <span className="text-[13px] font-bold text-muted tracking-[0.14em]">{f.nameEn}</span>
+                      <span
+                        aria-hidden
+                        className="font-bold leading-none text-charcoal/15"
+                        style={{ fontSize: "clamp(72px, 7vw, 120px)" }}
+                      >
+                        {f.name.slice(0, 1)}
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="flex flex-col p-7 md:p-8">
+                    {f.role && (
+                      <div className="text-[12px] font-bold tracking-[0.14em] text-charcoal/70">{f.role}</div>
+                    )}
+                    <div className="mt-3 flex items-baseline gap-3 flex-wrap">
+                      <span
+                        className="text-charcoal font-bold leading-[1.25] tracking-[-0.01em]"
+                        style={{ fontSize: "clamp(24px, 2.4vw, 32px)" }}
+                      >
+                        {f.name}
+                      </span>
+                      {f.nameEn && (
+                        <span className="text-[12px] font-bold text-muted tracking-[0.14em]">{f.nameEn}</span>
+                      )}
+                    </div>
+                    {f.caption && (
+                      <p className="mt-3 text-[13px] leading-[1.8] text-charcoal/75">{f.caption}</p>
+                    )}
+
+                    {(f.strengths || f.duty || f.why) && (
+                      <dl className="mt-6 divide-y divide-charcoal/10 border-t border-charcoal/10">
+                        {[
+                          { k: "得意なこと", v: f.strengths },
+                          { k: "担当していること", v: f.duty },
+                          { k: "なぜMoments Shareに関わっているか", v: f.why },
+                        ]
+                          .filter((x) => x.v)
+                          .map(({ k, v }) => (
+                            <div key={k} className="py-4">
+                              <dt className="text-[11px] font-bold tracking-[0.12em] text-charcoal/70">{k}</dt>
+                              <dd className="mt-1.5 text-[14px] leading-[1.9] text-charcoal/85">{v}</dd>
+                            </div>
+                          ))}
+                      </dl>
                     )}
                   </div>
-                  {(f.strengths || f.duty || f.why) && (
-                    <dl className="mt-8 divide-y divide-charcoal/10 border-t border-charcoal/10">
-                      {[
-                        { k: "得意なこと", v: f.strengths },
-                        { k: "担当していること", v: f.duty },
-                        { k: "なぜMoments Shareに関わっているか", v: f.why },
-                      ]
-                        .filter((x) => x.v)
-                        .map(({ k, v }) => (
-                          <div key={k} className="py-5">
-                            <dt className="text-[12px] font-bold tracking-[0.14em] text-charcoal/70">{k}</dt>
-                            <dd className="mt-2 text-[15px] md:text-[16px] leading-[2] text-charcoal/85">{v}</dd>
-                          </div>
-                        ))}
-                    </dl>
-                  )}
-                </div>
-              </div>
-            ))}
+                </article>
+              ))}
+            </div>
 
             {/* これから加わるFellow — 活動中の場面で。実在情報が揃うまで名前・肩書きは載せない。架空の人物は作成しない。 */}
             <div className="mt-20 md:mt-28 border-t border-charcoal/10 pt-14 md:pt-20">

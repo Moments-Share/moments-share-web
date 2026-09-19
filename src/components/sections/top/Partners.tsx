@@ -1,20 +1,35 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
+import { roles } from "@/lib/recruit";
 
 /* ============================================================
    PARTNERS — 外部パートナーの募集
+
    個人名・肩書き・人物写真は載せない。すでに多数在籍しているように
    見せないため、人物カードを並べる構成は取らない。
    雇用の募集ではなく、プロジェクト単位の共創相手を探す案内として置く。
+
+   以前は「募集する分野」を6つ並べていたが、分野を読んでも
+   次に何をすればいいか分からなかった。入口を2つに絞り、
+   それぞれ押せるようにした。分野で分けるより、
+   自分がどちらかを選ぶほうが早い。
    ============================================================ */
 
-const fields = [
-  "DX・業務効率化",
-  "システム開発",
-  "BPO・業務支援",
-  "デザイン・広報",
-  "地域プロジェクト",
-  "プロジェクトマネジメント",
+/** 募集中の件数は recruit.ts から数える。手で書くと実態とずれる */
+const openRoles = roles.filter((r) => r.status === "募集中").length;
+
+const paths = [
+  {
+    title: "大学生インターン",
+    badge: openRoles > 0 ? `募集中 ${openRoles}職種` : undefined,
+    body: "有償の長期インターン。プロジェクトのPMとして、企画から実行まで任せます。",
+    href: "/student-internship",
+  },
+  {
+    title: "フリーランス・複業",
+    body: "プロジェクト単位でご一緒します。働き方も、関わる深さも相談で決めます。",
+    href: "/contact",
+  },
 ];
 
 export function Partners() {
@@ -23,7 +38,7 @@ export function Partners() {
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           {/* 左 — ラベル・見出し・本文 */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-5">
             <Reveal>
               <p className="text-[11px] font-bold tracking-[0.28em] text-sage-ink">PARTNERS</p>
               <h2
@@ -35,47 +50,58 @@ export function Partners() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              {/* 短い言い切りで積む。分野の列挙は右のリストと重複するので本文からは外した */}
-              <div className="mt-8 max-w-[30em] space-y-5 text-[16px] leading-[2] text-charcoal md:text-[18px]">
+              {/* 短い言い切りで積む */}
+              <div className="mt-8 max-w-[26em] space-y-5 text-[16px] leading-[2] text-charcoal md:text-[18px]">
                 <p>プロジェクトごとに、外部のパートナーと組んでいます。</p>
                 <p>専門を持ち寄って、一社では届かない挑戦を形にする。</p>
-                <p className="text-[15px] text-charcoal/80 md:text-[16px]">
-                  働き方も、関わる深さも、そのつど相談で決めます。まずは、お互いを知るところから。
-                </p>
               </div>
             </Reveal>
           </div>
 
-          {/* 右 — 募集分野。カードにせず、細い罫線で区切るだけにとどめる */}
-          <div className="lg:col-span-5">
+          {/* 右 — 入口は2つだけ。押せる面にする */}
+          <div className="lg:col-span-7">
             <Reveal delay={0.15}>
-              <p className="text-[11px] font-bold tracking-[0.2em] text-charcoal/70">募集する分野</p>
-              {/* 上端だけセージの細線。色は差さずに視線の起点をつくる */}
-              <ul className="mt-6 border-t-2 border-sage">
-                {fields.map((field) => (
-                  <li
-                    key={field}
-                    className="border-b border-charcoal/15 py-4 text-[15px] font-bold tracking-[0.01em] text-deep-green md:text-[16px]"
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                {paths.map((p) => (
+                  <Link
+                    key={p.title}
+                    href={p.href}
+                    className="group flex flex-col border border-charcoal/15 bg-white p-7 transition-colors hover:border-deep-green md:p-8"
                   >
-                    {field}
-                  </li>
+                    <div className="flex items-start justify-between gap-3">
+                      <h3
+                        className="text-charcoal font-semibold leading-[1.35] tracking-[-0.02em]"
+                        style={{ fontSize: "clamp(20px, 2.1vw, 26px)" }}
+                      >
+                        {p.title}
+                      </h3>
+                      {p.badge && (
+                        <span className="mt-1 shrink-0 bg-deep-green px-2.5 py-1 text-[11px] font-bold tracking-[0.06em] text-white">
+                          {p.badge}
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-4 flex-1 text-[15px] leading-[1.95] text-charcoal/80">{p.body}</p>
+                    <span className="mt-7 inline-block self-start border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors group-hover:border-deep-green group-hover:text-deep-green">
+                      詳しく見る →
+                    </span>
+                  </Link>
                 ))}
-              </ul>
-              <p className="mt-5 text-[13px] leading-[1.9] text-charcoal/75">
-                ここに無い専門性でも、まずはご相談ください。
+              </div>
+
+              <p className="mt-6 text-[14px] leading-[1.9] text-charcoal/75">
+                どちらにも当てはまらない関わり方でも、
+                <Link
+                  href="/contact"
+                  className="border-b border-navy-ink/40 font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
+                >
+                  まずはご相談ください
+                </Link>
+                。
               </p>
             </Reveal>
           </div>
         </div>
-
-        {/* 下部 — CTA */}
-        <Reveal delay={0.2}>
-          <div className="mt-14 md:mt-16">
-            <Link href="/contact" className="btn btn-solid-green px-9 py-4 text-[15px]">
-              共創パートナーについて相談する <span aria-hidden>→</span>
-            </Link>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

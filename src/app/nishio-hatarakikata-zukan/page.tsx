@@ -329,6 +329,27 @@ export default function Zukan() {
           </div>
         </section>
 
+        {/* ===== 大学生募集への導線。詳細は /student-internship/ に集約する ===== */}
+        <section className="py-14 md:py-18 px-6 md:px-10 bg-white">
+          <div className="mx-auto max-w-[1400px]">
+            <div className="border-t border-charcoal/15 pt-10">
+              <div className="text-charcoal/70 text-[12px] font-bold tracking-[0.16em]">RECRUIT</div>
+              <h2
+                className="mt-4 max-w-[20em] text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]"
+                style={{ fontSize: "clamp(22px, 2.8vw, 34px)" }}
+              >
+                この図鑑を動かす大学生PMを、1名募集しています。
+              </h2>
+              <p className="mt-5 max-w-[34em] text-[15px] leading-[2] text-charcoal/75">
+                企画から取材・撮影・発信まで、一気通貫で任せます。有償の長期インターンです。
+              </p>
+              <Link href="/student-internship#zukan-pm" className="btn btn-ghost-navy px-9 py-4 mt-8 inline-block">
+                募集の詳細を見る →
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* ===== 将来像 ＋ 地域プロデュースへ戻す ===== */}
         <section className="py-16 md:py-24 px-6 md:px-10 bg-ivory">
           <div className="mx-auto max-w-[1400px]">

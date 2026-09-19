@@ -277,6 +277,12 @@ export default function ServiceProduce() {
                     <h3 className="text-charcoal font-semibold leading-[1.3] tracking-[-0.02em]" style={{ fontSize: "clamp(24px, 2.8vw, 34px)" }}>{projects[1].name}</h3>
                     <p className="mt-4 max-w-xl text-[15px] md:text-[16px] leading-[2] text-charcoal/80">{projects[1].desc}</p>
                     <div className="mt-6 flex flex-col gap-3 items-start">
+                      <Link
+                        href="/student-internship#kinniku-pm"
+                        className="inline-block border-b border-navy-ink/40 pb-0.5 text-[14px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
+                      >
+                        大学生PMを1名募集しています →
+                      </Link>
                       {kinnikuMatsuri.media.map((m) => (
                         <ExternalLink key={m.url} href={m.url}>
                           {m.label}

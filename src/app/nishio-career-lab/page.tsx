@@ -267,6 +267,12 @@ export default function CareerLab() {
               <Link href="/contact" className="btn btn-ghost-on-green px-9 py-4">
                 参加について問い合わせる →
               </Link>
+              <Link
+                href="/student-internship"
+                className="inline-block border-b border-white/40 pb-0.5 text-[14px] font-bold text-white/85 transition-colors hover:border-white hover:text-white"
+              >
+                有償の長期インターン募集を見る →
+              </Link>
               {careerLab.media.map((m) => (
                 <ExternalLink key={m.url} href={m.url} variant="onGreen">
                   {m.label}

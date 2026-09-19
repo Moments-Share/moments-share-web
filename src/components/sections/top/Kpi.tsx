@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/ui/Reveal";
-import { CountUp } from "@/components/ui/CountUp";
+import { CountUpStat } from "@/components/ui/CountUpStat";
 
 /* ============================================================
    OUR KPI — カードにせず、数字と細い罫線だけで静かに見せる。
@@ -7,14 +7,22 @@ import { CountUp } from "@/components/ui/CountUp";
    実績の誇示ではなく、Visionに向けて積み上げている途中経過として置く。
    ============================================================ */
 
-/* value は数値で持つ。CountUp が 0 から数え上げる */
+/* value は数値で持つ。CountUpStat が 0 から数え上げる。
+
+   色はサイトの既存3色（濃緑・テラコッタ・セージ）を巡回させる。
+   参考にしたサイトは項目ごとに違うパステルを当てていたが、
+   このサイトは色数を絞る前提で組んであるので、既存の色で回す。
+   accent は文字、underline は下線。同じ色を指す。 */
 const indicators = [
-  { value: 7, unit: "件", label: "DX支援" },
-  { value: 3, unit: "社", label: "BPO支援" },
-  { value: 4, unit: "件", label: "地域プロジェクト" },
-  { value: 5, unit: "名", label: "共創パートナー" },
-  { value: 2, unit: "名", label: "新規挑戦者" },
+  { value: 7, unit: "件", label: "DX支援", accent: "text-deep-green", underline: "bg-deep-green" },
+  { value: 3, unit: "社", label: "BPO支援", accent: "text-terracotta-ink", underline: "bg-terracotta-ink" },
+  { value: 4, unit: "件", label: "地域プロジェクト", accent: "text-sage-ink", underline: "bg-sage-ink" },
+  { value: 5, unit: "名", label: "共創パートナー", accent: "text-deep-green", underline: "bg-deep-green" },
+  { value: 2, unit: "名", label: "新規挑戦者", accent: "text-terracotta-ink", underline: "bg-terracotta-ink" },
 ];
+
+/* 1つずつ決まっていく見え方にするための間隔（ミリ秒） */
+const STAGGER = 180;
 
 export function Kpi() {
   return (
@@ -35,24 +43,19 @@ export function Kpi() {
 
         <Reveal delay={0.1}>
           <div className="mt-12 grid grid-cols-1 border-t border-charcoal/15 sm:grid-cols-2 md:mt-16 md:grid-cols-5 md:border-b">
-            {indicators.map((item) => (
+            {indicators.map((item, i) => (
               <div
                 key={item.label}
                 className="border-t border-charcoal/15 py-8 first:border-t-0 sm:even:border-l md:border-t-0 md:border-l md:px-7 md:py-10 md:first:border-l-0 md:first:pl-0"
               >
-                <div className="flex items-baseline gap-1.5">
-                  {/* tabular-nums で桁幅を固定する。数え上げの途中で
-                      文字幅が変わると、単位や罫線が左右に揺れる */}
-                  <CountUp
-                    to={item.value}
-                    className="font-bold leading-none tracking-[-0.03em] tabular-nums text-charcoal"
-                    style={{ fontSize: "clamp(48px, 5.4vw, 76px)" }}
-                  />
-                  <span className="text-[15px] font-bold text-sage-ink">{item.unit}</span>
-                </div>
-                <div className="mt-3 text-[13px] leading-[1.8] tracking-[0.02em] text-charcoal/70">
-                  {item.label}
-                </div>
+                <CountUpStat
+                  to={item.value}
+                  unit={item.unit}
+                  label={item.label}
+                  delay={i * STAGGER}
+                  accentClass={item.accent}
+                  underlineClass={item.underline}
+                />
               </div>
             ))}
           </div>

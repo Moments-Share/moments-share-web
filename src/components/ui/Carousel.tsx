@@ -10,9 +10,11 @@ import { useEffect, useRef } from "react";
    キーボードの矢印・スクリーンリーダーの読み進めが全部そのまま効く。
    JSがやるのは「自動送り」と「矢印ボタン」だけ。
 
-   自動送りは、実際に横へはみ出しているときだけ動かす。
-   画面が広くて全部並んでいるなら、送る必要がない。
-   TOPの3事業はPCでは3枚とも収まるので、そこでは自動で動かない。
+   自動送りは auto で切る。既定は動かさない。
+   勝手に動くと、節に目を移した時点で1枚目が過ぎていることがあり、
+   「最初の1枚が見られない」状態になる。まず1枚目を見せて、
+   その先は読む人が自分で送る。
+   動かす場合も、実際に横へはみ出しているときだけ動かす。
 
    止める条件を多めに取っている。勝手に動き続けるUIは、
    読んでいる途中で切り替わると単純に邪魔なので。
@@ -29,11 +31,14 @@ export function Carousel({
   children,
   /** 読み上げ用のまとまりの名前 */
   label,
-  /** 自動送りの間隔（ミリ秒） */
+  /** 自動で送るか。既定は送らない（1枚目を必ず見せる） */
+  auto = false,
+  /** 自動送りの間隔（ミリ秒）。auto のときだけ使う */
   autoMs = 5000,
 }: {
   children: React.ReactNode;
   label: string;
+  auto?: boolean;
   autoMs?: number;
 }) {
   const scroller = useRef<HTMLDivElement>(null);
@@ -85,9 +90,11 @@ export function Carousel({
     };
 
     let paused = false;
-    const timer = window.setInterval(() => {
-      if (!paused && !reduce && !document.hidden) go(1);
-    }, autoMs);
+    const timer = auto
+      ? window.setInterval(() => {
+          if (!paused && !reduce && !document.hidden) go(1);
+        }, autoMs)
+      : undefined;
 
     const pause = () => {
       paused = true;
@@ -118,7 +125,7 @@ export function Carousel({
     sync();
 
     return () => {
-      clearInterval(timer);
+      if (timer !== undefined) clearInterval(timer);
       el.removeEventListener("scroll", sync);
       el.removeEventListener("pointerenter", pause);
       el.removeEventListener("pointerleave", resume);
@@ -129,7 +136,7 @@ export function Carousel({
       prev?.removeEventListener("click", onPrev);
       next?.removeEventListener("click", onNext);
     };
-  }, [autoMs]);
+  }, [auto, autoMs]);
 
   const btn =
     "grid h-11 w-11 place-items-center rounded-full border border-charcoal/30 text-charcoal transition-colors hover:border-deep-green hover:text-deep-green disabled:cursor-default";
@@ -145,7 +152,7 @@ export function Carousel({
         {children}
       </div>
 
-      {/* 操作。自動送りだけだと、見たいものを見られない */}
+      {/* 送るのは読む人。矢印とスワイプの両方で動かせる */}
       <div className="mt-7 flex items-center gap-3">
         <button ref={prevBtn} type="button" className={btn} aria-label="前へ">
           <span aria-hidden>←</span>

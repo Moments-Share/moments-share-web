@@ -14,7 +14,7 @@ export function AboutIntro() {
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-6">
           <Reveal>
-            <p className="text-[11px] font-bold tracking-[0.28em] text-charcoal/40">ABOUT US</p>
+            <p className="text-[11px] font-bold tracking-[0.28em] text-charcoal/70">ABOUT US</p>
             <h2
               className="mt-6 font-bold leading-[1.3] tracking-[-0.02em] text-charcoal"
               style={{ fontSize: "clamp(28px, 4vw, 52px)" }}

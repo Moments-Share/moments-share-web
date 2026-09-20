@@ -105,7 +105,7 @@ const coreValues = [
   },
   {
     en: "Moments Share",
-    title: "「やりきってよかった」と思える瞬間を、共につくろう。",
+    title: "「最後までやりきってよかった！」と思える瞬間を、共創しよう。",
     body: "最後までかたちにして、喜びを分かち合おう。",
   },
 ];
@@ -164,7 +164,6 @@ const story = [
   "「この仕事、本当に人がやる必要があるのか。」——多くの企業が、人にしかできない仕事ではなく、人がやらなくてもいい仕事に、時間を使っていた。",
   "外に出たからこそ、やっぱり地元・西尾が好きだと気づいた。Uターンして地元企業と話すと、そこにも同じ問いがあった。「人手が足りない」「でも採れない」「社員は雑務で手一杯」。一方で若い人は「地元で働きたいけど仕事がない」と言う。この2つをつなぐ設計が必要だと確信した。",
   "100社以上の企業支援を重ねる中で、確信は強くなった。DXは効率化のためではない。人にしかできない価値を生み出すためのものだ。",
-  "人口減少を止めることはできない。でも、挑戦と共創が循環する地域なら、豊かになれる。その仕組みを、西尾から創る。",
 ];
 
 /* 4th Place が何を指すか。5つ並べて、最後だけ長くする */
@@ -290,7 +289,7 @@ export default function AboutPage() {
                 想いだけで、終わらせないために。
               </h2>
               <p className="mt-8 max-w-[32em] text-[15px] leading-[2.1] text-charcoal/80 md:text-[16px]">
-                Beliefを、きれいな言葉だけで終わらせない。日々の行動に落とし込むための「3つの行動指針」と「7つの判断基準」を大切にしています。
+                Beliefを、きれいな言葉だけで終わらせないために、日々の「3つの行動指針」と「7つの判断基準」を大切にしています。
               </p>
             </Reveal>
 
@@ -486,25 +485,22 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 05 STORY — なぜこの思想にたどり着いたのか ===== */}
+        {/* ===== 05 STORY — 原点。写真とキャプションで閉じる ===== */}
         <section className="bg-ivory py-24 md:py-36">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <Reveal>
               <p className="text-[12px] font-bold tracking-[0.28em] text-sage-ink">STORY</p>
               <h2
-                className="mt-7 max-w-[13em] font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
+                className="mt-7 font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
                 style={{ fontSize: "clamp(26px, 3.8vw, 50px)" }}
               >
-                なぜ、この思想に
-                <br className="hidden sm:block" />
-                たどり着いたのか。
+                想い
               </h2>
             </Reveal>
 
             <Reveal delay={0.1}>
-              {/* 結論（5段落目）は本文から抜いて、下で大きく出す */}
               <div className="mt-14 max-w-[36em] space-y-8 text-[15px] leading-[2.2] text-charcoal/85 md:mt-16 md:text-[17px]">
-                {story.slice(0, 4).map((p) => (
+                {story.map((p) => (
                   <p key={p}>{p}</p>
                 ))}
               </div>
@@ -528,21 +524,6 @@ export default function AboutPage() {
                   西尾筋肉祭り。誰か一人が始めなければ、この日は生まれていない。
                 </figcaption>
               </figure>
-            </Reveal>
-
-            {/* 結論。このページで一番大きな一文にする */}
-            <Reveal delay={0.1}>
-              <p
-                className="mt-20 max-w-[16em] font-bold leading-[1.4] tracking-[-0.03em] text-charcoal md:mt-28"
-                style={{ fontSize: "clamp(28px, 5vw, 68px)" }}
-              >
-                人口が減っても、
-                <br />
-                挑戦まで減らす必要はない。
-              </p>
-              <p className="mt-9 max-w-[32em] text-[15px] leading-[2.1] text-charcoal/80 md:text-[16px]">
-                人口減少を止めることはできない。でも、挑戦と共創が循環する地域なら、豊かになれる。その仕組みを、西尾から創る。
-              </p>
             </Reveal>
           </div>
         </section>

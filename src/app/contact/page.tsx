@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { BookingLink } from "@/components/ui/BookingLink";
-import { TEL_PURPOSE } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "お問い合わせ・無料相談｜Moments Share",
@@ -63,28 +62,12 @@ export default function ContactPage() {
           {/* フォーム — 重いカードをやめ、下線インプットの編集スタイル。
               広い画面でも左に余白だけが残らないよう、中央に置いて幅を抑える */}
           <div className="mx-auto max-w-[860px]">
-            {/* 送信する前に相手が知りたいこと。文言は lib/contact.ts で管理。
+            {/* 以前ここに「お電話番号について」の枠と、相談の例の一文を
+                置いていたが、どちらも外した。
 
-                並べ方を grid から flex にしてある。項目が減っても
-                左に1つだけ残って右2列が空く、という見え方にならない。 */}
-            <dl className="mb-12 flex flex-wrap gap-x-12 gap-y-6 border-y border-charcoal/12 py-7">
-              {[
-                { k: "お電話番号について", v: TEL_PURPOSE },
-              ].map(({ k, v }) => (
-                <div key={k}>
-                  <dt className="text-[11px] font-bold tracking-[0.14em] text-charcoal/70">{k}</dt>
-                  <dd className="mt-2 text-[14px] leading-[1.9] text-charcoal/85">{v}</dd>
-                </div>
-              ))}
-            </dl>
-
-            {/* 相談の例はここに置く。フォームを埋める直前が、
-                「自分の話でいいのか」を確かめたくなるところ */}
-            <p className="mb-12 max-w-[34em] text-[15px] leading-[2] text-charcoal/80">
-              「この作業、減らせないか」「人が足りない」「地域で何か始めたい」——
-              まだ何も決まっていない段階で構いません。
-            </p>
-
+                電話番号の説明は、入力欄のすぐ下（ContactForm）に
+                同じ文が出ている。読ませたいのは入力する瞬間なので、
+                上に先出しすると同じことを2回言うことになる。 */}
             {/* 日程を押さえたい人はフォームを埋めずに済ませられるようにする */}
             <div className="mb-12 border-l-2 border-sage pl-5">
               <p className="text-[13px] font-bold tracking-[0.08em] text-charcoal/80">

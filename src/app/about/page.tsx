@@ -91,7 +91,7 @@ const beliefLines = [
 ];
 
 /* 3つの行動指針（正式文言。一字も変えない）。
-   個人の一歩 → 積み重ね → 共創、の順に縦へ流す */
+   個人の一歩 → 積み重ね → 共創、の順に並べる */
 const coreValues = [
   {
     en: "Moment",
@@ -106,13 +106,13 @@ const coreValues = [
   {
     en: "Moments Share",
     title: "「やりきってよかった」と思える瞬間を、共につくろう。",
-    body: "最後まで向き合い、喜びを分かち合おう。",
+    body: "最後までかたちにして、喜びを分かち合おう。",
   },
 ];
 
 /* 7つの判断基準（正式文言。一字も変えない）。
    補足文を持っていないので、開閉させるものが無い。
-   カードにもアコーディオンにもせず、罫線だけの一覧にする */
+   行動指針の <details> と並べるが、こちらは開閉しない一覧にする */
 const stances = [
   { en: "Self Driven", ja: "自分ごとで動こう。" },
   { en: "Challenge", ja: "まず、やってみよう。" },
@@ -294,84 +294,104 @@ export default function AboutPage() {
               </p>
             </Reveal>
 
-            {/* --- 3つの行動指針。縦に流して、積み上がりを見せる --- */}
-            <Reveal delay={0.1}>
-              <p className="mt-20 text-[11px] font-bold tracking-[0.24em] text-charcoal/60 md:mt-28">
-                3つの行動指針 — どう動くか
-              </p>
-            </Reveal>
 
-            <Reveal delay={0.15}>
-              <ol className="mt-10 max-w-[46em]">
-                {coreValues.map((v, i) => (
-                  <li key={v.en} className="relative pb-12 pl-10 last:pb-0 md:pl-14">
-                    {/* 上から下へ流れる線。最後の項目には引かない */}
-                    {i < coreValues.length - 1 && (
-                      <span
-                        aria-hidden
-                        className="absolute left-[7px] top-6 h-[calc(100%-1rem)] w-px bg-charcoal/20 md:left-[9px]"
-                      />
-                    )}
-                    <span
-                      aria-hidden
-                      className="absolute left-0 top-[5px] block h-[15px] w-[15px] rounded-full border-2 border-sage-ink bg-ivory md:h-[19px] md:w-[19px]"
-                    />
-                    <p className="text-[12px] font-bold tracking-[0.22em] text-terracotta-ink">
-                      {v.en}
-                    </p>
-                    <h3
-                      className="mt-3 font-bold leading-[1.5] tracking-[-0.02em] text-charcoal"
-                      style={{ fontSize: "clamp(19px, 2.4vw, 30px)" }}
-                    >
-                      {v.title}
-                    </h3>
-                    <p className="mt-4 max-w-[30em] text-[15px] leading-[2] text-charcoal/80">
-                      {v.body}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-            </Reveal>
-
-            {/* --- 7つの判断基準。罫線だけの一覧。カードにしない --- */}
-            <Reveal delay={0.1}>
-              <p className="mt-24 text-[11px] font-bold tracking-[0.24em] text-charcoal/60 md:mt-36">
-                7つの判断基準 — どう選ぶか
-              </p>
-              <h3
-                className="mt-6 max-w-[18em] font-semibold leading-[1.4] tracking-[-0.02em] text-charcoal"
-                style={{ fontSize: "clamp(20px, 2.6vw, 32px)" }}
-              >
-                迷ったときに立ち返る、7つの判断基準。
-              </h3>
-            </Reveal>
-
-            <Reveal delay={0.15}>
-              <ol className="mt-10 max-w-[52em] border-t border-charcoal/15">
-                {stances.map((s, i) => (
-                  <li
-                    key={s.en}
-                    className="flex flex-col gap-1.5 border-b border-charcoal/15 py-5 transition-colors hover:bg-white/60 sm:flex-row sm:items-baseline sm:gap-8"
+            {/* --- 指針 × 基準。縦に積むと2画面ぶんになるので、
+                  横に並べて「かけ算」として見せる。
+                  行動指針は本文を持っているので <details> で畳む。
+                  JSは使わない。本文はHTMLに残るので検索・AI検索には従来どおり読まれる --- */}
+            <div className="mt-20 grid gap-12 md:mt-28 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1.05fr)] lg:gap-0">
+              {/* 左：3つの行動指針 */}
+              <Reveal delay={0.1}>
+                <div className="lg:pr-14">
+                  <p className="text-[11px] font-bold tracking-[0.24em] text-charcoal/60">
+                    3つの行動指針 — どう動くか
+                  </p>
+                  <h3
+                    className="mt-5 font-semibold leading-[1.4] tracking-[-0.02em] text-charcoal"
+                    style={{ fontSize: "clamp(20px, 2.2vw, 28px)" }}
                   >
-                    {/* 狭い画面では番号と英語を1行にまとめる。
-                        3つとも別の行にすると1項目3行になり、
-                        7項目で画面3つぶんの長さになってしまう。
-                        sm:contents で、広い画面では横一列に戻す */}
-                    <span className="flex items-baseline gap-4 sm:contents">
-                      <span className="w-8 shrink-0 text-[12px] font-medium tabular-nums text-charcoal/45">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="shrink-0 text-[12px] font-bold tracking-[0.16em] text-sage-ink sm:w-[13em]">
-                        {s.en}
-                      </span>
-                    </span>
-                    <span className="text-[16px] leading-[1.7] text-charcoal md:text-[17px]">
-                      {s.ja}
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </Reveal>
+                    日々の行動をつくる指針。
+                  </h3>
+
+                  <ol className="mt-9 border-t border-charcoal/15">
+                    {coreValues.map((v, i) => (
+                      <li key={v.en}>
+                        {/* 最初の1つだけ開いておく。3つとも閉じていると
+                            開けることに気づかれない */}
+                        <details className="group border-b border-charcoal/15" open={i === 0}>
+                          <summary className="flex cursor-pointer list-none items-start gap-4 py-5">
+                            {/* 英語を上、日本語を下。右の判断基準と同じ組み方にして、
+                                「×」をはさんだ左右が同じリズムで読めるようにする */}
+                            <span className="min-w-0 flex-1">
+                              <span className="block text-[12px] font-bold tracking-[0.22em] text-terracotta-ink">
+                                {v.en}
+                              </span>
+                              <span
+                                className="mt-2 block font-bold leading-[1.55] tracking-[-0.02em] text-charcoal"
+                                style={{ fontSize: "clamp(16px, 1.7vw, 20px)" }}
+                              >
+                                {v.title}
+                              </span>
+                            </span>
+                            {/* 開閉の向きを示す。装飾なので読み上げない */}
+                            <span
+                              aria-hidden
+                              className="mt-px shrink-0 text-[13px] font-bold text-charcoal/45 transition-transform group-open:rotate-45"
+                            >
+                              ＋
+                            </span>
+                          </summary>
+                          <p className="max-w-[28em] pb-6 text-[15px] leading-[2] text-charcoal/80">
+                            {v.body}
+                          </p>
+                        </details>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </Reveal>
+
+              {/* 中央：2つをつなぐ「×」。狭い画面では横罫に倒れる */}
+              <div
+                aria-hidden
+                className="flex items-center justify-center gap-5 lg:flex-col lg:gap-6 lg:px-0"
+              >
+                <span className="h-px flex-1 bg-charcoal/15 lg:h-auto lg:w-px lg:flex-initial lg:grow" />
+                <span className="text-[24px] font-light leading-none text-charcoal/35 md:text-[30px]">
+                  ×
+                </span>
+                <span className="h-px flex-1 bg-charcoal/15 lg:h-auto lg:w-px lg:flex-initial lg:grow" />
+              </div>
+
+              {/* 右：7つの判断基準。補足文を持っていないので開閉させない。
+                  1列に7つ並べると縦に伸びるので、広い画面では2列に折る */}
+              <Reveal delay={0.15}>
+                <div className="lg:pl-14">
+                  <p className="text-[11px] font-bold tracking-[0.24em] text-charcoal/60">
+                    7つの判断基準 — どう選ぶか
+                  </p>
+                  <h3
+                    className="mt-5 font-semibold leading-[1.4] tracking-[-0.02em] text-charcoal"
+                    style={{ fontSize: "clamp(20px, 2.2vw, 28px)" }}
+                  >
+                    日々の決断を支える基準。
+                  </h3>
+
+                  <ol className="mt-9 grid grid-cols-2 gap-x-6 gap-y-6 md:gap-x-8">
+                    {stances.map((s) => (
+                      <li key={s.en}>
+                        <p className="text-[11px] font-bold tracking-[0.16em] text-sage-ink">
+                          {s.en}
+                        </p>
+                        <p className="mt-1.5 text-[15px] leading-[1.7] text-charcoal md:text-[16px]">
+                          {s.ja}
+                        </p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </section>
 

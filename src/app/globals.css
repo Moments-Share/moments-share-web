@@ -291,3 +291,10 @@ html[data-js] .rc.rc-in > span {
   html[data-js] .rc > span { opacity: 1; }
   html[data-js] .rc.rc-in > span { animation: none; }
 }
+
+/* <details> の開閉マーカーを消す。
+   Tailwind の list-none だけでは Safari の三角が残るため。
+   /about/ の行動指針と /service-dx/ のFAQの両方に効く */
+summary::-webkit-details-marker {
+  display: none;
+}

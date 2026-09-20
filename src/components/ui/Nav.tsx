@@ -137,16 +137,33 @@ export function Nav({ heroTone = "light" }: { heroTone?: "dark" | "light" }) {
             お問い合わせ
           </Link>
 
-          {/* Mobile: MENU only */}
-          <button
-            className={`md:hidden text-[13px] font-black tracking-[0.16em] transition-colors duration-200 ${whiteText ? "text-white" : "text-navy-ink"}`}
-            onClick={() => setOpen(true)}
-            aria-label="メニューを開く"
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-          >
-            MENU
-          </button>
+          {/* 狭い画面：お問い合わせ＋MENU。
+
+              以前はMENUだけだった。ヘッダーは固定なので、PCでは
+              どこを読んでいてもお問い合わせが押せる状態になっていたが、
+              狭い画面だけはMENUを開く1手間が挟まっていた。
+              TOPのCONTACTの帯まではスクロール8.5画面ぶんあり、
+              その間ずっと押す場所が無い状態だった。
+
+              文字を「お問い合わせ」から「相談する」に縮めてある。
+              MENUと並べても収まる長さにするため。 */}
+          <div className="flex items-center gap-4 md:hidden">
+            <Link
+              href="/contact"
+              className={`btn text-[12px] px-4 py-2 ${whiteText ? "btn-ghost-on-dark" : "btn-ghost-navy"}`}
+            >
+              相談する
+            </Link>
+            <button
+              className={`text-[13px] font-black tracking-[0.16em] transition-colors duration-200 ${whiteText ? "text-white" : "text-navy-ink"}`}
+              onClick={() => setOpen(true)}
+              aria-label="メニューを開く"
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+            >
+              MENU
+            </button>
+          </div>
         </div>
       </header>
 

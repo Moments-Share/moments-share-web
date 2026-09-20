@@ -96,12 +96,12 @@ const coreValues = [
   {
     en: "Moment",
     title: "いま、できることをしよう。",
-    body: "いまに感謝する。いま、目の前の人にどう貢献できるか考える。いま、できることを実行する。",
+    body: "この瞬間に感謝する。いま、目の前の人にどう貢献できるかを考えて、行動する。",
   },
   {
     en: "Moments",
     title: "一歩ずつ、積み重ねよう。",
-    body: "行動し、改善し、前に進もう。",
+    body: "過去の失敗と向き合い、行動し、改善し続けよう。",
   },
   {
     en: "Moments Share",
@@ -667,20 +667,22 @@ export default function AboutPage() {
               <p className="text-[12px] font-bold tracking-[0.28em] text-sage-ink">FOUNDER</p>
             </Reveal>
 
-            <div className="mt-12 grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-16">
-              <Reveal className="lg:col-span-4">
+            {/* 本文を削ったので、余白で埋めずに写真の面積を増やす。
+                天地を中央で合わせて、短い本文が上に寄らないようにする */}
+            <div className="mt-12 grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
+              <Reveal className="lg:col-span-5">
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <Image
                     src="/photos/33_founder_portrait.jpg"
                     alt="代表・中根 隆"
                     fill
-                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    sizes="(max-width: 1024px) 100vw, 42vw"
                     className="object-cover object-center"
                   />
                 </div>
               </Reveal>
 
-              <Reveal delay={0.1} className="lg:col-span-8">
+              <Reveal delay={0.1} className="lg:col-span-7">
                 <h2
                   className="font-bold leading-[1.3] tracking-[-0.02em] text-charcoal"
                   style={{ fontSize: "clamp(26px, 3.4vw, 44px)" }}
@@ -691,27 +693,19 @@ export default function AboutPage() {
                   代表社員 / Ryu Nakane — DX伴走パートナー
                 </p>
 
-                <div className="mt-10 max-w-[34em] space-y-6 text-[15px] leading-[2.1] text-charcoal/85 md:text-[16px]">
-                  <p>
-                    1997年、愛知県西尾市生まれ。高崎経済大学経営学部卒。
-                    就活に疑問を感じ200社以上を見て回ったのち、シンガポールのベンチャーで
-                    営業・マーケティング・採用・地方創生に携わり、大手から自治体まで100社以上を担当。
-                  </p>
-                  <p>
-                    組織づくりに追われる日々のなかで「人がやらなくていい仕事を減らしたい」と
-                    業務効率化へ。2024年に独立、2025年11月に Moments Share 合同会社を設立。
-                  </p>
-                  <p>
-                    眠れない夜を越えてたどり着いた答えが、
-                    挑戦と共創が循環する地域をつくるという一文でした。
-                  </p>
-                </div>
+                {/* 経歴の物語は 05 STORY で語りきっている。
+                    ここで繰り返すと同じ話を1ページで2回読ませることになるので、
+                    STORYに出てこない事実（生年・出身校・就活・独立）だけに絞る */}
+                <p className="mt-9 max-w-[32em] text-[15px] leading-[2.1] text-charcoal/85 md:text-[16px]">
+                  1997年、愛知県西尾市生まれ。高崎経済大学経営学部卒。
+                  就活に疑問を感じ200社以上を訪ねたのち、シンガポールのベンチャーへ。
+                  大手から自治体まで100社以上を担当し、2024年に独立。
+                </p>
 
-                <dl className="mt-10 grid max-w-[34em] grid-cols-3 gap-x-6 gap-y-4">
+                <dl className="mt-10 grid max-w-[26em] grid-cols-2 gap-x-6 gap-y-4">
                   {[
                     { k: "出身", v: "愛知県西尾市" },
                     { k: "支援実績", v: "100社以上" },
-                    { k: "設立", v: "2025年11月" },
                   ].map(({ k, v }) => (
                     <div key={k} className="border-t border-sage pt-4">
                       <dt className="text-[11px] font-bold tracking-[0.12em] text-charcoal/55">{k}</dt>

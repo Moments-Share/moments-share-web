@@ -77,17 +77,10 @@ const purposeLines = [
 ];
 const purposeStarts = charStarts(purposeLines, 14, 140);
 
-/* BELIEF の本文 */
+/* BELIEF の本文。2文だけなので、1文ずつ段落として離して置く */
 const beliefLines = [
-  "本気で何かを目指せば、",
-  "壁にぶつかることも、立ち止まることもある。",
-  "そのたびに問い直す。",
-  "本当にやりたいことは何か。",
-  "本当に成し遂げたいことは何か。",
-  "自分と向き合い、人と向き合い、社会と向き合いながら、",
-  "今日できる一歩を積み重ねていく。",
-  "すぐに答えが出なくてもいい。",
-  "すぐにカタチにならなくてもいい。",
+  "心の底から湧き上がる願いや想いは必ず実現できると信じています。",
+  "だからこそ、できなくとも、実現させるまで、挑戦し続けます。",
 ];
 
 /* 3つの行動指針（正式文言。一字も変えない）。
@@ -239,7 +232,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 02 BELIEF — 白と余白。9行を静かに積む ===== */}
+        {/* ===== 02 BELIEF — 白と余白。2文を静かに置く ===== */}
         <section className="bg-white py-28 md:py-44">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <Reveal>
@@ -257,22 +250,16 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal delay={0.12}>
-              {/* 左寄せのまま。中央寄せの長文はスマホで行頭が揃わず読みにくい */}
-              <div className="mt-12 max-w-[32em] space-y-1 text-[15px] leading-[2.3] text-charcoal/80 md:mt-16 md:text-[17px]">
+              {/* 左寄せのまま。中央寄せの長文はスマホで行頭が揃わず読みにくい。
+                  2文しかないので、9行あった頃より一回り大きくして間をあける */}
+              <div
+                className="mt-12 max-w-[34em] space-y-7 leading-[2.1] text-charcoal/80 md:mt-16"
+                style={{ fontSize: "clamp(16px, 1.8vw, 20px)" }}
+              >
                 {beliefLines.map((line) => (
                   <p key={line}>{line}</p>
                 ))}
               </div>
-            </Reveal>
-
-            {/* 最後の一行だけ、大きさを変えて言い切る */}
-            <Reveal delay={0.2}>
-              <p
-                className="mt-10 font-bold leading-[1.5] tracking-[-0.02em] text-charcoal"
-                style={{ fontSize: "clamp(20px, 2.6vw, 32px)" }}
-              >
-                一歩ずつ、できるまで続けるだけ。
-              </p>
             </Reveal>
           </div>
         </section>

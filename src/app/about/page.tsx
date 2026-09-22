@@ -180,6 +180,46 @@ const company: { label: string; value: string; email?: boolean }[] = [
   // TODO: 資本金・従業員数などは未確定のため掲載しない（架空の数値を入れない）
 ];
 
+/* 3事業のカード。三角形の各頂点に同じ組みで置く */
+function BusinessCard({ b }: { b: (typeof businesses)[number] }) {
+  return (
+    <>
+      <p
+        className="font-bold leading-[1.4] tracking-[-0.02em] text-charcoal"
+        style={{ fontSize: "clamp(20px, 2.2vw, 26px)" }}
+      >
+        {b.role}
+      </p>
+      <p className="mt-4 text-[11px] font-bold tracking-[0.22em] text-terracotta-ink">{b.en}</p>
+      <p className="mt-2 text-[15px] font-bold text-charcoal md:text-[16px]">{b.name}</p>
+      <p className="mt-4 text-[14px] leading-[2] text-charcoal/80 md:text-[15px]">{b.body}</p>
+      <Link
+        href={b.href}
+        className="mt-6 inline-block border-b border-navy-ink/40 pb-0.5 text-[13px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
+      >
+        詳しく →
+      </Link>
+    </>
+  );
+}
+
+/* 循環の矢印。ひとつの形を回して3方向に使う。
+   描いてある向きは「右へ、少し上がりながら」。
+   スマホは3つとも下向き（rotate-90）にして、縦の導線として働かせる */
+function CycleArrow({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 72 72"
+      aria-hidden
+      className={`h-11 w-11 shrink-0 text-sage-ink/60 md:h-[88px] md:w-[88px] ${className}`}
+      fill="none"
+    >
+      <path d="M6 44C24 28 48 28 63 36" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M63 36L50.9 35.2L55.7 26.4Z" fill="currentColor" />
+    </svg>
+  );
+}
+
 export default function AboutPage() {
   return (
     <>
@@ -435,37 +475,56 @@ export default function AboutPage() {
               </div>
             </Reveal>
 
-            {/* 3事業。サービス名より先に「担う役割」を出す */}
+            {/* 3事業を三角形に置き、時計回りの矢印で循環を見せる。
+                  余白をつくる → 人と仕事をつなぐ → きっかけをつくる → また余白をつくる。
+
+                  DOM順は 上 → 矢印 → 右下 → 矢印 → 左下 → 矢印（先頭へ戻る）。
+                  この順のままスマホでは縦一列になり、矢印が下向きの導線になる。
+                  md以上だけ col-start / row-start で三角形に配置する。
+                  矢印は装飾なので読み上げない（aria-hidden） */}
             <Reveal delay={0.12}>
-              <ol className="mt-16 grid grid-cols-1 gap-y-12 border-t border-charcoal/15 md:mt-20 md:grid-cols-3 md:gap-x-10 md:gap-y-0">
-                {businesses.map((b, i) => (
-                  <li
-                    key={b.en}
-                    className={`pt-9 md:px-8 md:first:pl-0 md:last:pr-0 ${
-                      i > 0 ? "border-t border-charcoal/15 md:border-l md:border-t-0" : ""
-                    }`}
-                  >
-                    <p
-                      className="font-bold leading-[1.4] tracking-[-0.02em] text-charcoal"
-                      style={{ fontSize: "clamp(20px, 2.4vw, 28px)" }}
-                    >
-                      {b.role}
-                    </p>
-                    <p className="mt-5 text-[11px] font-bold tracking-[0.22em] text-terracotta-ink">
-                      {b.en}
-                    </p>
-                    <p className="mt-2 text-[15px] font-bold text-charcoal md:text-[16px]">{b.name}</p>
-                    <p className="mt-4 max-w-[22em] text-[14px] leading-[2] text-charcoal/80 md:text-[15px]">
-                      {b.body}
-                    </p>
-                    <Link
-                      href={b.href}
-                      className="mt-6 inline-block border-b border-navy-ink/40 pb-0.5 text-[13px] font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
-                    >
-                      詳しく →
-                    </Link>
-                  </li>
-                ))}
+              <ol
+                className="mx-auto mt-14 grid max-w-[940px] gap-y-6 md:mt-24
+                           md:grid-cols-[1fr_auto_1fr] md:gap-x-4 md:gap-y-0"
+              >
+                {/* 頂点 ─ 余白をつくる */}
+                <li className="md:col-start-2 md:row-start-1 md:max-w-[19em] md:justify-self-center">
+                  <BusinessCard b={businesses[0]} />
+                </li>
+
+                {/* 頂点 → 右下 */}
+                <li
+                  aria-hidden
+                  className="flex justify-center md:col-start-3 md:row-start-2 md:items-center md:py-6"
+                >
+                  <CycleArrow className="rotate-90 md:rotate-[62deg]" />
+                </li>
+
+                {/* 右下 ─ 人と仕事をつなぐ */}
+                <li className="md:col-start-3 md:row-start-3 md:max-w-[19em] md:justify-self-end">
+                  <BusinessCard b={businesses[1]} />
+                </li>
+
+                {/* 右下 → 左下 */}
+                <li
+                  aria-hidden
+                  className="flex justify-center md:col-start-2 md:row-start-3 md:items-center"
+                >
+                  <CycleArrow className="rotate-90 md:rotate-180" />
+                </li>
+
+                {/* 左下 ─ きっかけをつくる */}
+                <li className="md:col-start-1 md:row-start-3 md:max-w-[19em] md:justify-self-start">
+                  <BusinessCard b={businesses[2]} />
+                </li>
+
+                {/* 左下 → 頂点。ここで一周して先頭に戻る */}
+                <li
+                  aria-hidden
+                  className="flex justify-center md:col-start-1 md:row-start-2 md:items-center md:py-6"
+                >
+                  <CycleArrow className="rotate-90 md:-rotate-[62deg]" />
+                </li>
               </ol>
             </Reveal>
 

@@ -281,12 +281,22 @@ export default function AboutPage() {
 
             {/* --- 指針 × 基準。縦に積むと2画面ぶんになるので、
                   横に並べて「かけ算」として見せる。
+
+                  「×」は見出しと同じ行に置く。中央に置くと本文の真ん中に
+                  浮いてしまい、2つの見出しが別々のものに見える。
+                  そのため2段のグリッド（見出しの行／本文の行）にして、
+                  スマホでは order で〈左見出し→左本文→×→右見出し→右本文〉に戻す。
+
                   行動指針は本文を持っているので <details> で畳む。
                   JSは使わない。本文はHTMLに残るので検索・AI検索には従来どおり読まれる --- */}
-            <div className="mt-20 grid gap-12 md:mt-28 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1.05fr)] lg:gap-0">
-              {/* 左：3つの行動指針 */}
-              <Reveal delay={0.1}>
-                <div className="lg:pr-14">
+            <div
+              className="mt-20 grid gap-y-10 md:mt-28
+                         lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1.05fr)]
+                         lg:grid-rows-[auto_minmax(0,1fr)] lg:gap-y-10"
+            >
+              {/* 見出しの行・左 */}
+              <div className="order-1 lg:col-start-1 lg:row-start-1 lg:pr-14">
+                <Reveal>
                   <p className="text-[11px] font-bold tracking-[0.24em] text-charcoal/60">
                     3つの行動指針 — どう動くか
                   </p>
@@ -296,8 +306,50 @@ export default function AboutPage() {
                   >
                     日々の行動をつくる指針。
                   </h3>
+                </Reveal>
+              </div>
 
-                  <ol className="mt-9 border-t border-charcoal/15">
+              {/* 見出しの行・中央の「×」。
+                  lg では左右の見出しと同じ組み（ラベル行 + mt-5）を空で作り、
+                  h3 と同じ高さに × が来るようにする。
+                  スマホでは横罫にはさまれた区切りとして倒れる */}
+              <div
+                aria-hidden
+                className="order-3 flex items-center justify-center gap-5
+                           lg:order-none lg:col-start-2 lg:row-start-1 lg:block lg:px-1"
+              >
+                <span className="h-px flex-1 bg-charcoal/15 lg:hidden" />
+                <span className="hidden text-[11px] font-bold leading-normal tracking-[0.24em] lg:block">
+                  &nbsp;
+                </span>
+                <span
+                  className="block font-light leading-[1.4] text-charcoal/40 lg:mt-5"
+                  style={{ fontSize: "clamp(26px, 2.8vw, 36px)" }}
+                >
+                  ×
+                </span>
+                <span className="h-px flex-1 bg-charcoal/15 lg:hidden" />
+              </div>
+
+              {/* 見出しの行・右 */}
+              <div className="order-4 lg:col-start-3 lg:row-start-1 lg:pl-14">
+                <Reveal delay={0.06}>
+                  <p className="text-[11px] font-bold tracking-[0.24em] text-charcoal/60">
+                    7つの判断基準 — どう選ぶか
+                  </p>
+                  <h3
+                    className="mt-5 font-semibold leading-[1.4] tracking-[-0.02em] text-charcoal"
+                    style={{ fontSize: "clamp(20px, 2.2vw, 28px)" }}
+                  >
+                    日々の決断を支える基準。
+                  </h3>
+                </Reveal>
+              </div>
+
+              {/* 本文の行・左：3つの行動指針 */}
+              <div className="order-2 lg:col-start-1 lg:row-start-2 lg:pr-14">
+                <Reveal delay={0.1}>
+                  <ol className="border-t border-charcoal/15">
                     {coreValues.map((v, i) => (
                       <li key={v.en}>
                         {/* 最初の1つだけ開いておく。3つとも閉じていると
@@ -332,36 +384,23 @@ export default function AboutPage() {
                       </li>
                     ))}
                   </ol>
-                </div>
-              </Reveal>
-
-              {/* 中央：2つをつなぐ「×」。狭い画面では横罫に倒れる */}
-              <div
-                aria-hidden
-                className="flex items-center justify-center gap-5 lg:flex-col lg:gap-6 lg:px-0"
-              >
-                <span className="h-px flex-1 bg-charcoal/15 lg:h-auto lg:w-px lg:flex-initial lg:grow" />
-                <span className="text-[24px] font-light leading-none text-charcoal/35 md:text-[30px]">
-                  ×
-                </span>
-                <span className="h-px flex-1 bg-charcoal/15 lg:h-auto lg:w-px lg:flex-initial lg:grow" />
+                </Reveal>
               </div>
 
-              {/* 右：7つの判断基準。補足文を持っていないので開閉させない。
-                  1列に7つ並べると縦に伸びるので、広い画面では2列に折る */}
-              <Reveal delay={0.15}>
-                <div className="lg:pl-14">
-                  <p className="text-[11px] font-bold tracking-[0.24em] text-charcoal/60">
-                    7つの判断基準 — どう選ぶか
-                  </p>
-                  <h3
-                    className="mt-5 font-semibold leading-[1.4] tracking-[-0.02em] text-charcoal"
-                    style={{ fontSize: "clamp(20px, 2.2vw, 28px)" }}
-                  >
-                    日々の決断を支える基準。
-                  </h3>
+              {/* 本文の行・中央：2つの一覧を分ける縦罫。× の真下に立つ */}
+              <div
+                aria-hidden
+                className="hidden lg:col-start-2 lg:row-start-2 lg:block lg:px-1"
+              >
+                <span className="mx-auto block h-full w-px bg-charcoal/15" />
+              </div>
 
-                  <ol className="mt-9 grid grid-cols-2 gap-x-6 gap-y-6 md:gap-x-8">
+              {/* 本文の行・右：7つの判断基準。補足文を持っていないので開閉させない。
+                  1列に7つ並べると縦に伸びるので2列に折る */}
+              <div className="order-5 lg:col-start-3 lg:row-start-2 lg:pl-14">
+                <Reveal delay={0.15}>
+                  {/* 左の一覧と同じ位置から始まるよう、上罫と pt-5 を揃える */}
+                  <ol className="grid grid-cols-2 gap-x-6 gap-y-6 border-t border-charcoal/15 pt-5 md:gap-x-8">
                     {stances.map((s) => (
                       <li key={s.en}>
                         <p className="text-[11px] font-bold tracking-[0.16em] text-sage-ink">
@@ -373,8 +412,8 @@ export default function AboutPage() {
                       </li>
                     ))}
                   </ol>
-                </div>
-              </Reveal>
+                </Reveal>
+              </div>
             </div>
           </div>
         </section>

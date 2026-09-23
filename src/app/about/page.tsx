@@ -200,17 +200,6 @@ const placeLines = [
 /* VISION。挑戦から「生きててよかった」までの道のり */
 const visionSteps = ["挑戦した。", "失敗した。", "誰かと出会った。", "続けた。", "カタチになった。"];
 
-/* 会社概要：確認できている事実のみ（不明項目は載せない） */
-const company: { label: string; value: string; email?: boolean }[] = [
-  { label: "正式名称", value: "Moments Share合同会社" },
-  { label: "代表者名", value: "中根 隆（Ryu Nakane）" },
-  { label: "所在地", value: "愛知県西尾市" },
-  { label: "設立", value: "2025年11月" },
-  { label: "事業内容", value: "DX・AX支援／BPO／地域プロデュース" },
-  { label: "Email", value: "branding@momentsshare.com", email: true },
-  // TODO: 資本金・従業員数などは未確定のため掲載しない（架空の数値を入れない）
-];
-
 /* 3事業のカード。三角形の各頂点に同じ組みで置く */
 function BusinessCard({ b }: { b: (typeof businesses)[number] }) {
   return (
@@ -599,9 +588,8 @@ export default function AboutPage() {
         <section className="bg-ivory py-24 md:py-36">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <Reveal>
-              <p className="text-[12px] font-bold tracking-[0.28em] text-sage-ink">STORY</p>
               <h2
-                className="mt-7 font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
+                className="font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
                 style={{ fontSize: "clamp(26px, 3.8vw, 50px)" }}
               >
                 想い
@@ -616,25 +604,6 @@ export default function AboutPage() {
               </div>
             </Reveal>
 
-            {/* 実写。人が集まっている場面をここに置く */}
-            <Reveal delay={0.15}>
-              <figure className="mt-16 md:mt-20">
-                <div className="relative aspect-[16/9] w-full overflow-hidden">
-                  {/* キャプションで筋肉祭りだと明示しているので、
-                      看板が写っていて問題ない。むしろ説明になる */}
-                  <Image
-                    src="/photos/31_kinniku_stage.jpg"
-                    alt="西尾筋肉祭りのステージ上に並ぶ出場者・スタッフの集合写真"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 1400px"
-                    className="object-cover object-center"
-                  />
-                </div>
-                <figcaption className="mt-4 text-[12px] leading-[1.9] text-charcoal/60">
-                  西尾筋肉祭り。誰か一人が始めなければ、この日は生まれていない。
-                </figcaption>
-              </figure>
-            </Reveal>
           </div>
         </section>
 
@@ -660,6 +629,26 @@ export default function AboutPage() {
                 <br />
                 持ち込める場所でありたい。
               </h2>
+            </Reveal>
+
+            {/* 実写。人が集まっている場面をここに置く */}
+            <Reveal delay={0.15}>
+              <figure className="mt-16 md:mt-20">
+                <div className="relative aspect-[16/9] w-full overflow-hidden">
+                  {/* キャプションで筋肉祭りだと明示しているので、
+                      看板が写っていて問題ない。むしろ説明になる */}
+                  <Image
+                    src="/photos/31_kinniku_stage.jpg"
+                    alt="西尾筋肉祭りのステージ上に並ぶ出場者・スタッフの集合写真"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 1400px"
+                    className="object-cover object-center"
+                  />
+                </div>
+                <figcaption className="mt-4 text-[12px] leading-[1.9] text-charcoal/60">
+                  西尾筋肉祭り。誰か一人が始めなければ、この日は生まれていない。
+                </figcaption>
+              </figure>
             </Reveal>
 
             <Reveal delay={0.1}>
@@ -751,66 +740,48 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 08 COMPANY — 思想に共感したあとで、どこの誰がやっているか。
-
-     代表プロフィール（写真・氏名・肩書き・経歴・出身/支援実績）は
-     ご指示により削除した。代表者名は下の会社概要に残る。
-     ===== */}
-        <section className="bg-white py-24 md:py-36">
-          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            {/* 会社概要。営業色を出さず、事実だけの定義リスト */}
-            <Reveal delay={0.1}>
-              <div>
-                <p className="text-[12px] font-bold tracking-[0.28em] text-sage-ink">COMPANY</p>
-                <dl className="mt-9 max-w-[52em] border-t border-charcoal/15">
-                  {company.map((row) => (
-                    <div
-                      key={row.label}
-                      className="flex flex-col gap-1 border-b border-charcoal/15 py-5 sm:flex-row sm:gap-10"
-                    >
-                      <dt className="min-w-[140px] pt-1 text-[12px] font-bold tracking-[0.14em] text-charcoal/60">
-                        {row.label}
-                      </dt>
-                      <dd className="text-[15px] leading-[1.9] text-charcoal md:text-[16px]">
-                        {row.email ? (
-                          <a
-                            href="mailto:branding@momentsshare.com"
-                            className="border-b border-navy-ink/40 pb-0.5 font-bold text-navy-ink transition-colors hover:border-deep-green hover:text-deep-green"
-                          >
-                            {row.value}
-                          </a>
-                        ) : (
-                          row.value
-                        )}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* ===== CTA — 思想を読み終えた人の行き先。営業の面にしない ===== */}
+        {/* ===== CTA — 思想を読み終えた人の行き先。
+               「相談したい人」と「一緒にやりたい人」で入口を分ける。
+               どちらも行き先はお問い合わせ ===== */}
         <section id="contact" className="scroll-mt-20 bg-ivory py-20 md:py-28">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <div className="grid grid-cols-1 items-end gap-8 border-t border-charcoal/15 pt-14 lg:grid-cols-12">
-              <h2
-                className="font-bold leading-[1.3] tracking-[-0.02em] text-charcoal lg:col-span-7"
-                style={{ fontSize: "clamp(24px, 3.2vw, 42px)" }}
-              >
-                ここまで読んでくださって、
-                <br className="hidden sm:block" />
-                ありがとうございます。
-              </h2>
-              <div className="lg:col-span-5 lg:pb-2">
-                <p className="max-w-[26em] text-[15px] leading-[2] text-charcoal/80">
-                  やってみたいこと、困っていること。まだカタチになっていなくても大丈夫です。
+            <div className="grid grid-cols-1 gap-14 border-t border-charcoal/15 pt-14 lg:grid-cols-2 lg:gap-20">
+              {/* ① 相談したい人 */}
+              <Reveal>
+                <p className="text-[12px] font-bold tracking-[0.28em] text-sage-ink">CONTACT</p>
+                <h2
+                  className="mt-6 font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
+                  style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
+                >
+                  ご相談はこちらから
+                </h2>
+                <p className="mt-6 max-w-[26em] text-[15px] leading-[2.1] text-charcoal/80 md:text-[16px]">
+                  この作業、減らせないか。人が足りない。地域で何か始めたい。
+                  まずはお気軽にご連絡ください。
                 </p>
-                <Link href="/contact" className="btn btn-solid-green mt-7 px-9 py-4">
+                <Link href="/contact" className="btn btn-solid-green mt-8 px-9 py-4">
                   お問い合わせをしてみる →
                 </Link>
-              </div>
+              </Reveal>
+
+              {/* ② 一緒にやりたい人。行き先は同じお問い合わせ */}
+              <Reveal delay={0.1}>
+                <p className="text-[12px] font-bold tracking-[0.28em] text-terracotta-ink">
+                  PARTNERS
+                </p>
+                <h2
+                  className="mt-6 font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
+                  style={{ fontSize: "clamp(24px, 3vw, 40px)" }}
+                >
+                  一緒に、挑戦しませんか。
+                </h2>
+                <p className="mt-6 max-w-[26em] text-[15px] leading-[2.1] text-charcoal/80 md:text-[16px]">
+                  弊社は、一緒に働ける仲間を募集しています。
+                </p>
+                <Link href="/contact" className="btn btn-ghost-navy mt-8 px-9 py-4">
+                  お問い合わせをしてみる →
+                </Link>
+              </Reveal>
             </div>
           </div>
         </section>

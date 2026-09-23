@@ -5,25 +5,29 @@ import { RevealChars } from "@/components/ui/RevealChars";
 import { charStarts, charsTotalSec } from "@/lib/reveal-timing";
 
 /* ============================================================
-   ABOUT US — 「起点は、いつも1人の挑戦者だ。」
+   ABOUT US — 「起点は、いつも1人の挑戦者（チャレンジャー）だ。」
    TOPでは本文を途中まで見せ、続きはAboutページへ送る。
    右は人のドキュメンタリー写真を1枚だけ大きく。コラージュにはしない。
    ============================================================ */
 
-/* 本文。見出しの「1人の挑戦者」を受けて、その挑戦者に対して
-   自分たちが何を信じているかを1文で言い切る。
+/* 本文。1・2行目でひとつの主張、3行目でそれを引き受け、
+   4行目で読む人に投げかける。
 
-   段落が1つでも charStarts / charsTotalSec はそのまま使える。
-   文字数から計算しているので、文を変えれば演出の尺も追従する。 */
-const bodyLines = [
-  "私たちは、実現したい願いや想いを胸に、チャレンジャーが挑戦を続ければ、必ずカタチにできると信じています。",
+   tight は「前の行と同じ塊」の印。1行目と2行目は続きの文なので
+   間を詰め、塊と塊のあいだだけ広くあける。
+   space-y ではなく行ごとに余白を持たせているのはこのため。 */
+const bodyLines: { text: string; tight?: boolean }[] = [
+  { text: "個人が、信念を持ち、諦めずにカタチにするまで行動し続ける。" },
+  { text: "そうすれば、どんなことでも必ずカタチにできる。", tight: true },
+  { text: "私たちは、そう信じています。" },
+  { text: "上手くいかないこと、外部環境の変化、辞めてしまいたくなる時にこそ問いを立てよう。" },
 ];
 
 /* 段落をまたいで文字数を積み上げた、それぞれの出だしの時刻 */
-const starts = charStarts(bodyLines);
+const starts = charStarts(bodyLines.map((l) => l.text));
 
 /* 本文が出きるまでの秒数。リンクはそのあとに出す */
-const linkDelay = charsTotalSec(bodyLines);
+const linkDelay = charsTotalSec(bodyLines.map((l) => l.text));
 
 export function AboutIntro() {
   return (
@@ -33,12 +37,16 @@ export function AboutIntro() {
           <Reveal>
             <p className="text-[11px] font-bold tracking-[0.28em] text-charcoal/70">ABOUT US</p>
             <h2
-              className="mt-6 font-bold leading-[1.3] tracking-[-0.02em] text-charcoal"
-              style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
+              className="mt-6 font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
+              style={{ fontSize: "clamp(25px, 3.4vw, 44px)" }}
             >
               起点は、いつも
               <br />
-              1人の挑戦者だ。
+              1人の挑戦者
+              {/* 「挑戦者」の言い換え。見出しの流れを止めないよう
+                  半分の大きさで添える */}
+              <span className="text-[0.5em] tracking-normal">（チャレンジャー）</span>
+              だ。
             </h2>
           </Reveal>
 
@@ -48,9 +56,14 @@ export function AboutIntro() {
               ここは Reveal で包まない。Reveal は塊ごと opacity を
               上げるので、文字側の opacity と掛け算になって
               出はじめが濁る。RevealChars が自分で画面を見ている */}
-          <div className="mt-9 max-w-[34em] space-y-5 text-[15px] leading-[2.1] text-charcoal/80 md:text-[17px]">
+          <div className="mt-9 max-w-[34em] text-[15px] leading-[2.1] text-charcoal/80 md:text-[17px]">
             {bodyLines.map((line, i) => (
-              <RevealChars key={line} text={line} start={starts[i]} />
+              <RevealChars
+                key={line.text}
+                text={line.text}
+                start={starts[i]}
+                className={i === 0 ? "" : line.tight ? "mt-0" : "mt-7"}
+              />
             ))}
           </div>
 

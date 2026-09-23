@@ -150,7 +150,7 @@ const cycle = [
   "人と仕事がつながる",
   "挑戦が生まれる",
   "新しい仕事・事業が生まれる",
-  "次の挑戦へ",
+  "実績ができる",
 ];
 
 /* 循環リングの5点の位置（コンテナ幅・高さに対する%）。
@@ -509,7 +509,7 @@ export default function AboutPage() {
                 {/* md以上では同じ文をリングの中央に出すので、
                     こちらは目に見えないまま読み上げ用に残す */}
                 <p className="text-[11px] font-bold tracking-[0.24em] text-charcoal/60 md:sr-only">
-                  そして、循環がはじまる
+                  そして、挑戦の循環ができる
                 </p>
 
                 <div className="relative mt-9 md:mx-auto md:mt-0 md:aspect-[16/11] md:w-full md:max-w-[1000px]">
@@ -550,15 +550,27 @@ export default function AboutPage() {
                       </span>
                     ))}
 
-                    {/* リングの中央。穴が小さいスマホでは出さず、上の見出しに任せる */}
-                    <p
+                    {/* リングの中央。ロゴマークを置き、md以上ではその下に文言も出す。
+                        スマホは穴が小さいので文言は上の見出しに任せる */}
+                    <div
                       aria-hidden
-                      className="hidden md:absolute md:left-1/2 md:top-1/2 md:block md:w-[12em] md:-translate-x-1/2 md:-translate-y-1/2 md:text-center md:text-[15px] md:font-bold md:leading-[2] md:tracking-[0.06em] md:text-charcoal/75"
+                      className="absolute left-1/2 top-1/2 w-[13em] -translate-x-1/2 -translate-y-1/2 text-center"
                     >
-                      そして、
-                      <br />
-                      循環がはじまる
-                    </p>
+                      <span className="relative mx-auto block h-[46px] w-[46px] md:h-[62px] md:w-[62px]">
+                        <Image
+                          src="/logo/logo-3-trim.png"
+                          alt=""
+                          fill
+                          sizes="62px"
+                          className="object-contain"
+                        />
+                      </span>
+                      <p className="mt-4 hidden text-[15px] font-bold leading-[1.9] tracking-[0.04em] text-charcoal/75 md:block">
+                        そして、
+                        <br />
+                        挑戦の循環ができる
+                      </p>
+                    </div>
                   </div>
 
                   {/* 5つの節。スマホはリングの下に番号付きで、md以上は円周に */}
@@ -583,6 +595,28 @@ export default function AboutPage() {
                   </ol>
                 </div>
               </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ===== 05 想い — 原点の語り。整理できしだい note に載せ、
+             ここからリンクする。いま本文は持たないので枠だけ置く ===== */}
+        <section className="bg-ivory py-24 md:py-36">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+            <Reveal>
+              <h2
+                className="font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
+                style={{ fontSize: "clamp(26px, 3.8vw, 50px)" }}
+              >
+                想い
+              </h2>
+              <p className="mt-9 flex items-center gap-4 text-[11px] font-bold tracking-[0.24em] text-charcoal/45">
+                <span aria-hidden className="h-px w-10 bg-charcoal/25" />
+                COMING SOON
+              </p>
+              <p className="mt-6 max-w-[28em] text-[15px] leading-[2.1] text-charcoal/70 md:text-[16px]">
+                なぜこの会社を始めたのか。整理ができしだい、noteで公開します。
+              </p>
             </Reveal>
           </div>
         </section>

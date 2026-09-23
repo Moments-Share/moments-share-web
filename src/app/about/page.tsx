@@ -82,10 +82,13 @@ const purposeStarts = charStarts(purposeLines, 14, 140);
    tight は「前の行と同じ塊」の印。1・2行目は続きの文なので間を詰め、
    塊と塊のあいだだけ広くあける。一律の space-y を使わないのはこのため */
 const beliefLines: { text: string; tight?: boolean }[] = [
-  { text: "個人が、信念を持ち、諦めずにカタチにするまで行動し続ける。" },
-  { text: "そうすれば、どんなことでも必ずカタチにできる。", tight: true },
-  { text: "私たちは、そう信じています。" },
-  { text: "上手くいかないこと、外部環境の変化、辞めてしまいたくなる時にこそ問いを立てよう。" },
+  { text: "想いは、必ず実現できると信じています。" },
+  // ここから下は1つの文。読みのリズムのために書かれたとおりに改行する
+  { text: "だからこそ、" },
+  { text: "私たちは常に", tight: true },
+  { text: "「なぜVisionを実現したいのか？」を問い直し、", tight: true },
+  { text: "「次は、どうすればよいか？」と失敗を糧にして、", tight: true },
+  { text: "一つずつ、この理念を体現していきます。", tight: true },
 ];
 
 /* 3つの行動指針。個人の一歩 → 積み重ね → 共創、の順に並べる */
@@ -228,23 +231,6 @@ function BusinessCard({ b }: { b: (typeof businesses)[number] }) {
         詳しく →
       </Link>
     </>
-  );
-}
-
-/* 循環の矢印。ひとつの形を回して3方向に使う。
-   描いてある向きは「右へ、少し上がりながら」。
-   スマホは3つとも下向き（rotate-90）にして、縦の導線として働かせる */
-function CycleArrow({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 72 72"
-      aria-hidden
-      className={`h-11 w-11 shrink-0 text-sage-ink/60 md:h-[88px] md:w-[88px] ${className}`}
-      fill="none"
-    >
-      <path d="M6 44C24 28 48 28 63 36" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-      <path d="M63 36L50.9 35.2L55.7 26.4Z" fill="currentColor" />
-    </svg>
   );
 }
 
@@ -504,56 +490,21 @@ export default function AboutPage() {
               </div>
             </Reveal>
 
-            {/* 3事業を三角形に置き、時計回りの矢印で循環を見せる。
-                  余白をつくる → 人と仕事をつなぐ → きっかけをつくる → また余白をつくる。
-
-                  DOM順は 上 → 矢印 → 右下 → 矢印 → 左下 → 矢印（先頭へ戻る）。
-                  この順のままスマホでは縦一列になり、矢印が下向きの導線になる。
-                  md以上だけ col-start / row-start で三角形に配置する。
-                  矢印は装飾なので読み上げない（aria-hidden） */}
+            {/* 3事業。循環はこの下のリングが受け持つので、ここは矢印を
+                  付けず静かな3列で並べる。図を2つ重ねると、どちらも
+                  「ぐるぐる回る絵」になって読み手の目が散る */}
             <Reveal delay={0.12}>
-              <ol
-                className="mx-auto mt-14 grid max-w-[940px] gap-y-6 md:mt-24
-                           md:grid-cols-[1fr_auto_1fr] md:gap-x-4 md:gap-y-0"
-              >
-                {/* 頂点 ─ 余白をつくる */}
-                <li className="md:col-start-2 md:row-start-1 md:max-w-[19em] md:justify-self-center">
-                  <BusinessCard b={businesses[0]} />
-                </li>
-
-                {/* 頂点 → 右下 */}
-                <li
-                  aria-hidden
-                  className="flex justify-center md:col-start-3 md:row-start-2 md:items-center md:py-6"
-                >
-                  <CycleArrow className="rotate-90 md:rotate-[62deg]" />
-                </li>
-
-                {/* 右下 ─ 人と仕事をつなぐ */}
-                <li className="md:col-start-3 md:row-start-3 md:max-w-[19em] md:justify-self-end">
-                  <BusinessCard b={businesses[1]} />
-                </li>
-
-                {/* 右下 → 左下 */}
-                <li
-                  aria-hidden
-                  className="flex justify-center md:col-start-2 md:row-start-3 md:items-center"
-                >
-                  <CycleArrow className="rotate-90 md:rotate-180" />
-                </li>
-
-                {/* 左下 ─ きっかけをつくる */}
-                <li className="md:col-start-1 md:row-start-3 md:max-w-[19em] md:justify-self-start">
-                  <BusinessCard b={businesses[2]} />
-                </li>
-
-                {/* 左下 → 頂点。ここで一周して先頭に戻る */}
-                <li
-                  aria-hidden
-                  className="flex justify-center md:col-start-1 md:row-start-2 md:items-center md:py-6"
-                >
-                  <CycleArrow className="rotate-90 md:-rotate-[62deg]" />
-                </li>
+              <ol className="mt-16 grid grid-cols-1 gap-y-12 border-t border-charcoal/15 md:mt-20 md:grid-cols-3 md:gap-x-10 md:gap-y-0">
+                {businesses.map((b, i) => (
+                  <li
+                    key={b.en}
+                    className={`pt-9 md:px-8 md:first:pl-0 md:last:pr-0 ${
+                      i > 0 ? "border-t border-charcoal/15 md:border-l md:border-t-0" : ""
+                    }`}
+                  >
+                    <BusinessCard b={b} />
+                  </li>
+                ))}
               </ol>
             </Reveal>
 

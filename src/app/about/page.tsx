@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Nav } from "@/components/ui/Nav";
@@ -147,6 +148,29 @@ const cycle = [
   "新しい仕事・事業が生まれる",
   "次の挑戦へ",
 ];
+
+/* 循環リングの5点の位置（コンテナ幅・高さに対する%）。
+   真上から時計回りに72度ずつ。楕円（横30% / 縦36%）に沿わせてある。
+   正円にすると横長のコンテナで左右が窮屈になるため。
+
+   left / top を直に書くと md未満（縦一列のとき）にも効いてしまい、
+   項目がずれて横にはみ出す。md でだけ効かせたいので CSS変数に入れ、
+   md:[left:var(--cx)] で取り出す */
+const cycleSpots = [
+  { "--cx": "50%", "--cy": "14%" },
+  { "--cx": "78.5%", "--cy": "38.9%" },
+  { "--cx": "67.6%", "--cy": "79.1%" },
+  { "--cx": "32.4%", "--cy": "79.1%" },
+  { "--cx": "21.5%", "--cy": "38.9%" },
+];
+
+/* リングの色。サイトの3色（sage → leaf → cream → terracotta）を
+   一周させて、最後にまた sage へ戻す。始点と終点を同じ色にしないと
+   境目に線が出る */
+const ringGradient =
+  "conic-gradient(from 0deg," +
+  " #8fab76 0deg, #63c497 68deg, #b9dcc4 124deg, #eee2d0 176deg," +
+  " #e8bb96 224deg, #d4875f 272deg, #bd8a5f 316deg, #8fab76 360deg)";
 
 /* 創業ストーリー（既存の文章をそのまま。新しい事実は足していない）。
    5段落目は結論として本文から抜き、大きく見せる */
@@ -528,41 +552,88 @@ export default function AboutPage() {
               </ol>
             </Reveal>
 
-            {/* 3事業の先に起きること。最後の行から最初へ戻る */}
+            {/* 3事業の先に起きること。
+                  スマホ：縦一列＋最後から最初へ戻る線。
+                  md以上：同じ <ol> の項目を円周に並べ替えてリングにする。
+                  文章は1つしか持たない（重複して書かない）ので、
+                  検索・AI検索にも読み上げにも同じ内容が1回だけ渡る */}
             <Reveal delay={0.18}>
               <div className="mt-24 md:mt-32">
-                <p className="text-[11px] font-bold tracking-[0.24em] text-charcoal/60">
+                {/* md以上では同じ文をリングの中央に出すので、
+                    こちらは目に見えないまま読み上げ用に残す */}
+                <p className="text-[11px] font-bold tracking-[0.24em] text-charcoal/60 md:sr-only">
                   そして、循環がはじまる
                 </p>
-                <ol className="relative mt-9 max-w-[30em] pl-10">
-                  {/* 最後から最初へ戻る線。これが「循環」そのもの */}
-                  <span
+
+                <div className="relative md:mx-auto md:aspect-[16/11] md:w-full md:max-w-[1000px]">
+                  {/* リング本体。コニックグラデーションを円マスクで
+                      ドーナツに抜く。装飾なので読み上げない */}
+                  <div
                     aria-hidden
-                    className="absolute bottom-4 left-0 top-4 w-6 rounded-l-full border-b border-l border-t border-sage-ink/70"
+                    className="hidden md:absolute md:left-1/2 md:top-1/2 md:block md:aspect-square md:h-[58%] md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-full"
+                    style={{
+                      background: ringGradient,
+                      WebkitMaskImage:
+                        "radial-gradient(closest-side, transparent 0 62%, #000 63%)",
+                      maskImage: "radial-gradient(closest-side, transparent 0 62%, #000 63%)",
+                    }}
                   />
-                  {/* 戻り先（最初の行）を指す矢印 */}
-                  <span
+
+                  {/* リングに重なる淡い円。5つの節をゆるく囲う */}
+                  {cycleSpots.map((sp, i) => (
+                    <span
+                      key={`halo-${i}`}
+                      aria-hidden
+                      className="hidden md:absolute md:block md:aspect-square md:w-[26%] md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-full md:border md:border-charcoal/10 md:[left:var(--cx)] md:[top:var(--cy)]"
+                      style={sp as CSSProperties}
+                    />
+                  ))}
+
+                  {/* リングの中央。見出しと同じ文を大きく置く */}
+                  <p
                     aria-hidden
-                    className="absolute left-[22px] top-[8px] h-0 w-0 border-y-[5px] border-l-[8px] border-y-transparent border-l-sage-ink"
-                  />
-                  {cycle.map((c, i) => (
-                    <li key={c} className="relative pb-7 last:pb-0">
-                      {i < cycle.length - 1 && (
+                    className="hidden md:absolute md:left-1/2 md:top-1/2 md:block md:w-[12em] md:-translate-x-1/2 md:-translate-y-1/2 md:text-center md:text-[15px] md:font-bold md:leading-[2] md:tracking-[0.06em] md:text-charcoal/75"
+                  >
+                    そして、
+                    <br />
+                    循環がはじまる
+                  </p>
+
+                  <ol className="relative mt-9 max-w-[30em] pl-10 md:absolute md:inset-0 md:mt-0 md:max-w-none md:p-0">
+                    {/* 最後から最初へ戻る線。これが「循環」そのもの。
+                        md以上はリングそのものが循環を示すので出さない */}
+                    <span
+                      aria-hidden
+                      className="absolute bottom-4 left-0 top-4 w-6 rounded-l-full border-b border-l border-t border-sage-ink/70 md:hidden"
+                    />
+                    {/* 戻り先（最初の行）を指す矢印 */}
+                    <span
+                      aria-hidden
+                      className="absolute left-[22px] top-[8px] h-0 w-0 border-y-[5px] border-l-[8px] border-y-transparent border-l-sage-ink md:hidden"
+                    />
+                    {cycle.map((c, i) => (
+                      <li
+                        key={c}
+                        className="relative pb-7 last:pb-0 md:absolute md:w-[13em] md:-translate-x-1/2 md:-translate-y-1/2 md:pb-0 md:[left:var(--cx)] md:[top:var(--cy)]"
+                        style={cycleSpots[i] as CSSProperties}
+                      >
+                        {i < cycle.length - 1 && (
+                          <span
+                            aria-hidden
+                            className="absolute -left-[19px] top-6 h-[calc(100%-1rem)] w-px bg-charcoal/15 md:hidden"
+                          />
+                        )}
                         <span
                           aria-hidden
-                          className="absolute -left-[19px] top-6 h-[calc(100%-1rem)] w-px bg-charcoal/15"
+                          className="absolute -left-[23px] top-[7px] block h-[9px] w-[9px] rounded-full bg-sage-ink md:hidden"
                         />
-                      )}
-                      <span
-                        aria-hidden
-                        className="absolute -left-[23px] top-[7px] block h-[9px] w-[9px] rounded-full bg-sage-ink"
-                      />
-                      <p className="text-[16px] font-semibold leading-[1.7] text-charcoal md:text-[18px]">
-                        {c}
-                      </p>
-                    </li>
-                  ))}
-                </ol>
+                        <p className="text-[16px] font-semibold leading-[1.7] text-charcoal md:text-center md:text-[15px] md:leading-[1.8]">
+                          {c}
+                        </p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
               </div>
             </Reveal>
           </div>

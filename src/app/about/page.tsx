@@ -171,6 +171,17 @@ const cycleSpots = [
   { "--cx": "21.5%", "--cy": "38.9%" },
 ];
 
+/* スマホでリングの帯の上に置く番号の位置（正方形の箱に対する%）。
+   リングは箱の88%なので半径44%、帯の中心はその0.81倍で35.6%。
+   ラベル用の cycleSpots とは別の軌道になる */
+const ringSpots = [
+  { "--cx": "50%", "--cy": "14.4%" },
+  { "--cx": "83.9%", "--cy": "39%" },
+  { "--cx": "70.9%", "--cy": "78.8%" },
+  { "--cx": "29.1%", "--cy": "78.8%" },
+  { "--cx": "16.1%", "--cy": "39%" },
+];
+
 /* リングの色。サイトの3色（sage → leaf → cream → terracotta）を
    一周させて、最後にまた sage へ戻す。始点と終点を同じ色にしないと
    境目に線が出る */
@@ -497,9 +508,12 @@ export default function AboutPage() {
               </ol>
             </Reveal>
 
-            {/* 3事業の先に起きること。
-                  スマホ：縦一列＋最後から最初へ戻る線。
-                  md以上：同じ <ol> の項目を円周に並べ替えてリングにする。
+            {/* 3事業の先に起きること。スマホでもリング図を見せる。
+
+                  スマホ：小さいリング＋帯の上に①〜⑤。文字はその下に
+                          番号付きで並べる（円周には日本語が入りきらない）。
+                  md以上：同じ <ol> の項目を円周に散らし、中央に見出しを置く。
+
                   文章は1つしか持たない（重複して書かない）ので、
                   検索・AI検索にも読み上げにも同じ内容が1回だけ渡る */}
             <Reveal delay={0.18}>
@@ -510,69 +524,70 @@ export default function AboutPage() {
                   そして、循環がはじまる
                 </p>
 
-                <div className="relative md:mx-auto md:aspect-[16/11] md:w-full md:max-w-[1000px]">
-                  {/* リング本体。コニックグラデーションを円マスクで
-                      ドーナツに抜く。装飾なので読み上げない */}
-                  <div
-                    aria-hidden
-                    className="hidden md:absolute md:left-1/2 md:top-1/2 md:block md:aspect-square md:h-[58%] md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-full"
-                    style={{
-                      background: ringGradient,
-                      WebkitMaskImage:
-                        "radial-gradient(closest-side, transparent 0 62%, #000 63%)",
-                      maskImage: "radial-gradient(closest-side, transparent 0 62%, #000 63%)",
-                    }}
-                  />
-
-                  {/* リングに重なる淡い円。5つの節をゆるく囲う */}
-                  {cycleSpots.map((sp, i) => (
-                    <span
-                      key={`halo-${i}`}
+                <div className="relative mt-9 md:mx-auto md:mt-0 md:aspect-[16/11] md:w-full md:max-w-[1000px]">
+                  {/* リングの箱。スマホでは普通に流れ、md以上では親に重なる */}
+                  <div className="relative mx-auto aspect-square w-full max-w-[280px] md:absolute md:inset-0 md:aspect-auto md:max-w-none">
+                    {/* リング本体。コニックグラデーションを円マスクで
+                        ドーナツに抜く。装飾なので読み上げない */}
+                    <div
                       aria-hidden
-                      className="hidden md:absolute md:block md:aspect-square md:w-[26%] md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-full md:border md:border-charcoal/10 md:[left:var(--cx)] md:[top:var(--cy)]"
-                      style={sp as CSSProperties}
+                      className="absolute left-1/2 top-1/2 aspect-square h-[88%] -translate-x-1/2 -translate-y-1/2 rounded-full md:h-[58%]"
+                      style={{
+                        background: ringGradient,
+                        WebkitMaskImage:
+                          "radial-gradient(closest-side, transparent 0 62%, #000 63%)",
+                        maskImage: "radial-gradient(closest-side, transparent 0 62%, #000 63%)",
+                      }}
                     />
-                  ))}
 
-                  {/* リングの中央。見出しと同じ文を大きく置く */}
-                  <p
-                    aria-hidden
-                    className="hidden md:absolute md:left-1/2 md:top-1/2 md:block md:w-[12em] md:-translate-x-1/2 md:-translate-y-1/2 md:text-center md:text-[15px] md:font-bold md:leading-[2] md:tracking-[0.06em] md:text-charcoal/75"
-                  >
-                    そして、
-                    <br />
-                    循環がはじまる
-                  </p>
+                    {/* リングに重なる淡い円。狭い画面では邪魔なので出さない */}
+                    {cycleSpots.map((sp, i) => (
+                      <span
+                        key={`halo-${i}`}
+                        aria-hidden
+                        className="hidden md:absolute md:block md:aspect-square md:w-[26%] md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-full md:border md:border-charcoal/10 md:[left:var(--cx)] md:[top:var(--cy)]"
+                        style={sp as CSSProperties}
+                      />
+                    ))}
 
-                  <ol className="relative mt-9 max-w-[30em] pl-10 md:absolute md:inset-0 md:mt-0 md:max-w-none md:p-0">
-                    {/* 最後から最初へ戻る線。これが「循環」そのもの。
-                        md以上はリングそのものが循環を示すので出さない */}
-                    <span
+                    {/* スマホだけ、帯の上に番号を置く。下の一覧と対応させる */}
+                    {ringSpots.map((sp, i) => (
+                      <span
+                        key={`no-${i}`}
+                        aria-hidden
+                        className="absolute flex h-[26px] w-[26px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[12px] font-bold tabular-nums text-charcoal/70 [left:var(--cx)] [top:var(--cy)] md:hidden"
+                        style={sp as CSSProperties}
+                      >
+                        {i + 1}
+                      </span>
+                    ))}
+
+                    {/* リングの中央。穴が小さいスマホでは出さず、上の見出しに任せる */}
+                    <p
                       aria-hidden
-                      className="absolute bottom-4 left-0 top-4 w-6 rounded-l-full border-b border-l border-t border-sage-ink/70 md:hidden"
-                    />
-                    {/* 戻り先（最初の行）を指す矢印 */}
-                    <span
-                      aria-hidden
-                      className="absolute left-[22px] top-[8px] h-0 w-0 border-y-[5px] border-l-[8px] border-y-transparent border-l-sage-ink md:hidden"
-                    />
+                      className="hidden md:absolute md:left-1/2 md:top-1/2 md:block md:w-[12em] md:-translate-x-1/2 md:-translate-y-1/2 md:text-center md:text-[15px] md:font-bold md:leading-[2] md:tracking-[0.06em] md:text-charcoal/75"
+                    >
+                      そして、
+                      <br />
+                      循環がはじまる
+                    </p>
+                  </div>
+
+                  {/* 5つの節。スマホはリングの下に番号付きで、md以上は円周に */}
+                  <ol className="mt-8 space-y-3.5 md:absolute md:inset-0 md:mt-0 md:space-y-0">
                     {cycle.map((c, i) => (
                       <li
                         key={c}
-                        className="relative pb-7 last:pb-0 md:absolute md:w-[13em] md:-translate-x-1/2 md:-translate-y-1/2 md:pb-0 md:[left:var(--cx)] md:[top:var(--cy)]"
+                        className="flex items-baseline gap-3 md:absolute md:block md:w-[13em] md:-translate-x-1/2 md:-translate-y-1/2 md:[left:var(--cx)] md:[top:var(--cy)]"
                         style={cycleSpots[i] as CSSProperties}
                       >
-                        {i < cycle.length - 1 && (
-                          <span
-                            aria-hidden
-                            className="absolute -left-[19px] top-6 h-[calc(100%-1rem)] w-px bg-charcoal/15 md:hidden"
-                          />
-                        )}
                         <span
                           aria-hidden
-                          className="absolute -left-[23px] top-[7px] block h-[9px] w-[9px] rounded-full bg-sage-ink md:hidden"
-                        />
-                        <p className="text-[16px] font-semibold leading-[1.7] text-charcoal md:text-center md:text-[15px] md:leading-[1.8]">
+                          className="w-4 shrink-0 text-[12px] font-bold tabular-nums text-sage-ink md:hidden"
+                        >
+                          {i + 1}
+                        </span>
+                        <p className="text-[15px] font-semibold leading-[1.8] text-charcoal md:text-center md:leading-[1.8]">
                           {c}
                         </p>
                       </li>

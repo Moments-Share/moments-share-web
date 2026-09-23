@@ -78,17 +78,14 @@ const purposeLines = [
 ];
 const purposeStarts = charStarts(purposeLines, 14, 140);
 
-/* BELIEF の本文。
-   tight は「前の行と同じ塊」の印。1・2行目は続きの文なので間を詰め、
-   塊と塊のあいだだけ広くあける。一律の space-y を使わないのはこのため */
+/* BELIEF の本文。全体で1つの文だが、節ごとに間をあけて
+   ゆっくり読ませる。tight は「前の行と間を詰める」印で、
+   いまは使っていないが、続きの文を足すときに使える */
 const beliefLines: { text: string; tight?: boolean }[] = [
-  { text: "想いは、必ず実現できると信じています。" },
-  // ここから下は1つの文。読みのリズムのために書かれたとおりに改行する
-  { text: "だからこそ、" },
-  { text: "私たちは常に", tight: true },
-  { text: "「なぜVisionを実現したいのか？」を問い直し、", tight: true },
-  { text: "「次は、どうすればよいか？」と失敗を糧にして、", tight: true },
-  { text: "一つずつ、この理念を体現していきます。", tight: true },
+  { text: "私たちは常に" },
+  { text: "「なんのためにVisionを実現したいのか？」を問い直し、" },
+  { text: "「次は、どうすればできるか？」と失敗と向き合いながら、" },
+  { text: "一つずつ、この理念を体現していきます。" },
 ];
 
 /* 3つの行動指針。個人の一歩 → 積み重ね → 共創、の順に並べる */
@@ -118,7 +115,7 @@ const stances = [
   { en: "Better Everyday", ja: "昨日より、少しずつ良くしよう。" },
   { en: "Legacy", ja: "100年後に、誇れる選択をしよう。" },
   { en: "Purpose", ja: "目的から、考えなおそう。" },
-  { en: "Co-Create", ja: "違いを力に、共創しよう。" },
+  { en: "Co-Create", ja: "互いを尊重し、共創しよう。" },
   { en: "Build Systems", ja: "仕組みを創ろう。" },
 ];
 
@@ -189,15 +186,6 @@ const ringGradient =
   "conic-gradient(from 0deg," +
   " #8fab76 0deg, #63c497 68deg, #b9dcc4 124deg, #eee2d0 176deg," +
   " #e8bb96 224deg, #d4875f 272deg, #bd8a5f 316deg, #8fab76 360deg)";
-
-/* 創業ストーリー（既存の文章をそのまま。新しい事実は足していない）。
-   5段落目は結論として本文から抜き、大きく見せる */
-const story = [
-  "群馬の大学を経て、シンガポールのベンチャー企業へ。営業・CS・マーケティング・マネジメントを掛け持ちしながら、社員3名から10名へと成長する現場を走り抜けた。多いときは50社を担当しながら、新規営業も。夜も眠れない日々の中で、ひとつの問いに突き当たった。",
-  "「この仕事、本当に人がやる必要があるのか。」——多くの企業が、人にしかできない仕事ではなく、人がやらなくてもいい仕事に、時間を使っていた。",
-  "外に出たからこそ、やっぱり地元・西尾が好きだと気づいた。Uターンして地元企業と話すと、そこにも同じ問いがあった。「人手が足りない」「でも採れない」「社員は雑務で手一杯」。一方で若い人は「地元で働きたいけど仕事がない」と言う。この2つをつなぐ設計が必要だと確信した。",
-  "100社以上の企業支援を重ねる中で、確信は強くなった。DXは効率化のためではない。人にしかできない価値を生み出すためのものだ。",
-];
 
 /* 4th Place が何を指すか。5つ並べて、最後だけ長くする */
 const placeLines = [
@@ -329,7 +317,7 @@ export default function AboutPage() {
                 想いだけで、終わらせないために。
               </h2>
               <p className="mt-8 max-w-[32em] text-[15px] leading-[2.1] text-charcoal/80 md:text-[16px]">
-                Beliefを、体現するため、私たちは日々の「3つの行動指針」と「7つの判断基準」を大切にしています。
+                私たちはBeliefを体現するため、日々の「3つの行動指針」と「7つの判断基準」を大切にしています。
               </p>
             </Reveal>
 
@@ -596,29 +584,6 @@ export default function AboutPage() {
                 </div>
               </div>
             </Reveal>
-          </div>
-        </section>
-
-        {/* ===== 05 STORY — 原点。写真とキャプションで閉じる ===== */}
-        <section className="bg-ivory py-24 md:py-36">
-          <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <Reveal>
-              <h2
-                className="font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
-                style={{ fontSize: "clamp(26px, 3.8vw, 50px)" }}
-              >
-                想い
-              </h2>
-            </Reveal>
-
-            <Reveal delay={0.1}>
-              <div className="mt-14 max-w-[36em] space-y-8 text-[15px] leading-[2.2] text-charcoal/85 md:mt-16 md:text-[17px]">
-                {story.map((p) => (
-                  <p key={p}>{p}</p>
-                ))}
-              </div>
-            </Reveal>
-
           </div>
         </section>
 

@@ -113,8 +113,12 @@ export function Hero() {
 
       </div>
 
-      {/* スクロールインジケーター */}
-      <div className="absolute bottom-10 right-10 md:right-20 z-10 flex flex-col items-center gap-2">
+      {/* スクロールインジケーター。
+          狭い画面では「相談をする →」に重なり（390pxで横25px・縦40px）、
+          上に乗ってボタンの右端のタップまで奪っていたので md以上だけにする。
+          スマホはスクロールできることが自明なので、無くても困らない。
+          念のため pointer-events-none も付けて、どの幅でもタップを奪わせない */}
+      <div className="pointer-events-none absolute bottom-10 right-10 z-10 hidden flex-col items-center gap-2 md:right-20 md:flex">
         <p
           className="rv-load text-[8px] tracking-[0.3em] uppercase text-white/20 font-bold"
           style={rise(2.4, 0)}

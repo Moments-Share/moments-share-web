@@ -153,39 +153,44 @@ const cycle = [
   "実績ができる",
 ];
 
-/* 循環リングの5点の位置（コンテナ幅・高さに対する%）。
-   真上から時計回りに72度ずつ。楕円（横30% / 縦36%）に沿わせてある。
-   正円にすると横長のコンテナで左右が窮屈になるため。
+/* 循環の5点の位置（コンテナ幅・高さに対する%）。真上から時計回りに72度ずつ、
+   楕円（横30% / 縦29%）に沿わせてある。縦を36%から詰めたのは、
+   まるの半径（幅の13.5%）ぶんが箱の上下からはみ出していたため。
 
    left / top を直に書くと md未満（縦一列のとき）にも効いてしまい、
    項目がずれて横にはみ出す。md でだけ効かせたいので CSS変数に入れ、
    md:[left:var(--cx)] で取り出す */
 const cycleSpots = [
-  { "--cx": "50%", "--cy": "14%" },
-  { "--cx": "78.5%", "--cy": "38.9%" },
-  { "--cx": "67.6%", "--cy": "79.1%" },
-  { "--cx": "32.4%", "--cy": "79.1%" },
-  { "--cx": "21.5%", "--cy": "38.9%" },
+  { "--cx": "50%", "--cy": "21%" },
+  { "--cx": "78.5%", "--cy": "41%" },
+  { "--cx": "67.6%", "--cy": "73.5%" },
+  { "--cx": "32.4%", "--cy": "73.5%" },
+  { "--cx": "21.5%", "--cy": "41%" },
 ];
 
-/* スマホでリングの帯の上に置く番号の位置（正方形の箱に対する%）。
-   リングは箱の88%なので半径44%、帯の中心はその0.81倍で35.6%。
-   ラベル用の cycleSpots とは別の軌道になる */
-const ringSpots = [
-  { "--cx": "50%", "--cy": "14.4%" },
-  { "--cx": "83.9%", "--cy": "39%" },
-  { "--cx": "70.9%", "--cy": "78.8%" },
-  { "--cx": "29.1%", "--cy": "78.8%" },
-  { "--cx": "16.1%", "--cy": "39%" },
+/* 5つの円の色。ロゴマークの粒（ティール・ブルー・パープル・コーラル・
+   オレンジ）をそのまま薄めて使う。太いグラデーションの輪は他社のロゴに
+   寄ってしまうので使わない。ロゴと同じ「まるが集まる」形で見せる */
+const bubbleTints = [
+  "rgba(44,201,214,0.14)",
+  "rgba(65,105,240,0.10)",
+  "rgba(123,63,228,0.09)",
+  "rgba(255,123,138,0.13)",
+  "rgba(249,184,78,0.17)",
 ];
 
-/* リングの色。サイトの3色（sage → leaf → cream → terracotta）を
-   一周させて、最後にまた sage へ戻す。始点と終点を同じ色にしないと
-   境目に線が出る */
-const ringGradient =
-  "conic-gradient(from 0deg," +
-  " #8fab76 0deg, #63c497 68deg, #b9dcc4 124deg, #eee2d0 176deg," +
-  " #e8bb96 224deg, #d4875f 272deg, #bd8a5f 316deg, #8fab76 360deg)";
+/* スマホで軌道の上に置く番号の色。上の円と同じ並び */
+const bubbleInks = ["#1f9aa4", "#3457c4", "#6a35c0", "#d4566a", "#c98a2a"];
+
+/* ロゴのまわりに散る小さな粒。位置と大きさと色。装飾なので md以上だけ */
+const specks = [
+  { "--cx": "50%", "--cy": "2.5%", "--d": "9px", "--c": "#f9b84e" },
+  { "--cx": "90%", "--cy": "22%", "--d": "7px", "--c": "#4169f0" },
+  { "--cx": "88%", "--cy": "62%", "--d": "11px", "--c": "#ff7b8a" },
+  { "--cx": "50%", "--cy": "94%", "--d": "8px", "--c": "#7b3fe4" },
+  { "--cx": "11%", "--cy": "63%", "--d": "10px", "--c": "#2cc9d6" },
+  { "--cx": "9%", "--cy": "21%", "--d": "6px", "--c": "#f9b84e" },
+];
 
 /* 4th Place が何を指すか。5つ並べて、最後だけ長くする */
 const placeLines = [
@@ -496,72 +501,66 @@ export default function AboutPage() {
               </ol>
             </Reveal>
 
-            {/* 3事業の先に起きること。スマホでもリング図を見せる。
+            {/* 3事業の先に起きること。
 
-                  スマホ：小さいリング＋帯の上に①〜⑤。文字はその下に
-                          番号付きで並べる（円周には日本語が入りきらない）。
-                  md以上：同じ <ol> の項目を円周に散らし、中央に見出しを置く。
+                  太いグラデーションの輪はやめ、ロゴマークと同じ
+                  「まるが集まる」形にした。細い軌道の上に、ロゴの粒と
+                  同じ色のやわらかい円を5つ置き、中心にロゴを据える。
+
+                  スマホ：軌道＋番号だけを図で見せ、文字はその下に
+                          同じ番号を振って並べる（円の中に日本語が入りきらない）。
+                  md以上：円の中に文字を入れ、中心に文言も出す。
 
                   文章は1つしか持たない（重複して書かない）ので、
                   検索・AI検索にも読み上げにも同じ内容が1回だけ渡る */}
             <Reveal delay={0.18}>
               <div className="mt-24 md:mt-32">
-                {/* md以上では同じ文をリングの中央に出すので、
+                {/* md以上では同じ文をロゴの下に出すので、
                     こちらは目に見えないまま読み上げ用に残す */}
                 <p className="text-[11px] font-bold tracking-[0.24em] text-charcoal/60 md:sr-only">
                   そして、挑戦の循環ができる
                 </p>
 
                 <div className="relative mt-9 md:mx-auto md:mt-0 md:aspect-[16/11] md:w-full md:max-w-[1000px]">
-                  {/* リングの箱。スマホでは普通に流れ、md以上では親に重なる */}
-                  <div className="relative mx-auto aspect-square w-full max-w-[280px] md:absolute md:inset-0 md:aspect-auto md:max-w-none">
-                    {/* リング本体。コニックグラデーションを円マスクで
-                        ドーナツに抜く。装飾なので読み上げない */}
-                    <div
-                      aria-hidden
-                      className="absolute left-1/2 top-1/2 aspect-square h-[88%] -translate-x-1/2 -translate-y-1/2 rounded-full md:h-[58%]"
-                      style={{
-                        background: ringGradient,
-                        WebkitMaskImage:
-                          "radial-gradient(closest-side, transparent 0 62%, #000 63%)",
-                        maskImage: "radial-gradient(closest-side, transparent 0 62%, #000 63%)",
-                      }}
-                    />
-
-                    {/* リングに重なる淡い円。狭い画面では邪魔なので出さない */}
-                    {cycleSpots.map((sp, i) => (
+                  {/* 図の箱。スマホでは普通に流れ、md以上では親に重なる */}
+                  <div className="relative mx-auto aspect-square w-full max-w-[290px] md:absolute md:inset-0 md:aspect-auto md:max-w-none">
+                    {/* ロゴのまわりに散る小さな粒。ロゴマークの造形をそのまま借りる */}
+                    {specks.map((sp, i) => (
                       <span
-                        key={`halo-${i}`}
+                        key={`speck-${i}`}
                         aria-hidden
-                        className="hidden md:absolute md:block md:aspect-square md:w-[26%] md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-full md:border md:border-charcoal/10 md:[left:var(--cx)] md:[top:var(--cy)]"
+                        className="hidden rounded-full md:absolute md:block md:h-[var(--d)] md:w-[var(--d)] md:-translate-x-1/2 md:-translate-y-1/2 md:bg-[var(--c)] md:opacity-70 md:[left:var(--cx)] md:[top:var(--cy)]"
                         style={sp as CSSProperties}
                       />
                     ))}
 
-                    {/* スマホだけ、帯の上に番号を置く。下の一覧と対応させる */}
-                    {ringSpots.map((sp, i) => (
+                    {/* スマホだけ、軌道の上に番号を置く。下の一覧と対応させる */}
+                    {cycleSpots.map((sp, i) => (
                       <span
                         key={`no-${i}`}
                         aria-hidden
-                        className="absolute flex h-[26px] w-[26px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[12px] font-bold tabular-nums text-charcoal/70 [left:var(--cx)] [top:var(--cy)] md:hidden"
-                        style={sp as CSSProperties}
+                        className="absolute flex h-[54px] w-[54px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-[13px] font-bold tabular-nums [background:var(--tint)] [color:var(--ink)] [left:var(--cx)] [top:var(--cy)] md:hidden"
+                        style={
+                          { ...sp, "--ink": bubbleInks[i], "--tint": bubbleTints[i] } as CSSProperties
+                        }
                       >
                         {i + 1}
                       </span>
                     ))}
 
-                    {/* リングの中央。ロゴマークを置き、md以上ではその下に文言も出す。
-                        スマホは穴が小さいので文言は上の見出しに任せる */}
+                    {/* 中心。ロゴマークを置き、md以上ではその下に文言も出す */}
                     <div
                       aria-hidden
-                      className="absolute left-1/2 top-1/2 w-[13em] -translate-x-1/2 -translate-y-1/2 text-center"
+                      /* まるが中心に寄っているので、ロゴと文言の背後に白を敷く。
+                         セクションの地も白なので、円と重なった所だけが明るくなる */
+                      className="absolute left-1/2 top-1/2 w-[13em] -translate-x-1/2 -translate-y-1/2 text-center md:w-[15em] md:rounded-full md:bg-white/85 md:px-6 md:py-8"
                     >
-                      <span className="relative mx-auto block h-[46px] w-[46px] md:h-[62px] md:w-[62px]">
+                      <span className="relative mx-auto block h-[54px] w-[54px] md:h-[84px] md:w-[84px]">
                         <Image
                           src="/logo/logo-3-trim.png"
                           alt=""
                           fill
-                          sizes="62px"
+                          sizes="84px"
                           className="object-contain"
                         />
                       </span>
@@ -573,21 +572,29 @@ export default function AboutPage() {
                     </div>
                   </div>
 
-                  {/* 5つの節。スマホはリングの下に番号付きで、md以上は円周に */}
+                  {/* 5つの節。スマホは図の下に番号付きで、
+                      md以上は軌道の上のやわらかい円の中に */}
                   <ol className="mt-8 space-y-3.5 md:absolute md:inset-0 md:mt-0 md:space-y-0">
                     {cycle.map((c, i) => (
                       <li
                         key={c}
-                        className="flex items-baseline gap-3 md:absolute md:block md:w-[13em] md:-translate-x-1/2 md:-translate-y-1/2 md:[left:var(--cx)] md:[top:var(--cy)]"
-                        style={cycleSpots[i] as CSSProperties}
+                        className="flex items-baseline gap-3 md:absolute md:aspect-square md:w-[27%] md:-translate-x-1/2 md:-translate-y-1/2 md:flex-col md:items-center md:justify-center md:gap-2 md:rounded-full md:p-8 md:[background:var(--tint)] md:[left:var(--cx)] md:[top:var(--cy)]"
+                        style={
+                          {
+                            ...cycleSpots[i],
+                            "--tint": bubbleTints[i],
+                            "--ink": bubbleInks[i],
+                          } as CSSProperties
+                        }
                       >
+                        {/* 番号。軌道の線を引かないので、順番はこれで示す */}
                         <span
                           aria-hidden
-                          className="w-4 shrink-0 text-[12px] font-bold tabular-nums text-sage-ink md:hidden"
+                          className="w-4 shrink-0 text-[12px] font-bold tabular-nums [color:var(--ink)] md:w-auto"
                         >
                           {i + 1}
                         </span>
-                        <p className="text-[15px] font-semibold leading-[1.8] text-charcoal md:text-center md:leading-[1.8]">
+                        <p className="text-[15px] font-semibold leading-[1.8] text-charcoal md:text-center md:text-[14px] md:leading-[1.75]">
                           {c}
                         </p>
                       </li>

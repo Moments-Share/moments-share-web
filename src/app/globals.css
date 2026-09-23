@@ -298,3 +298,57 @@ html[data-js] .rc.rc-in > span {
 summary::-webkit-details-marker {
   display: none;
 }
+
+/* 循環の図。画面に入ったら、中心のロゴ → 1 → 2 → … と
+   ひとつずつ大きくなって出てくる。きっかけは Reveal が付ける .rv-in。
+
+   動かすのは scale と opacity だけ。Tailwind v4 は中央寄せを
+   transform ではなく translate プロパティで出しているので、
+   scale を別に動かしても translate: -50% -50% を壊さない。
+
+   JSが動いた環境（html[data-js]）でだけ隠す。読み込みに失敗しても
+   図が消えないようにするため。 */
+html[data-js] .pop {
+  opacity: 0;
+  scale: 0.5;
+}
+html[data-js] .rv-in .pop {
+  animation: pop-grow 640ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(0.25s + var(--bi, 0) * 190ms);
+}
+
+/* md以上でだけ動かしたいもの（広い画面ではまる、狭い画面では
+   ただの行になる項目）。狭い画面で行が拡大しながら出ると落ち着かない */
+@media (min-width: 768px) {
+  html[data-js] .pop-md {
+    opacity: 0;
+    scale: 0.5;
+  }
+  html[data-js] .rv-in .pop-md {
+    animation: pop-grow 640ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(0.25s + var(--bi, 0) * 190ms);
+  }
+}
+
+@keyframes pop-grow {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-js] .pop,
+  html[data-js] .pop-md {
+    opacity: 1;
+    scale: 1;
+  }
+  html[data-js] .rv-in .pop,
+  html[data-js] .rv-in .pop-md {
+    animation: none;
+  }
+}

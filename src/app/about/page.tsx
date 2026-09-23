@@ -529,8 +529,8 @@ export default function AboutPage() {
                       <span
                         key={`speck-${i}`}
                         aria-hidden
-                        className="hidden rounded-full md:absolute md:block md:h-[var(--d)] md:w-[var(--d)] md:-translate-x-1/2 md:-translate-y-1/2 md:bg-[var(--c)] md:opacity-70 md:[left:var(--cx)] md:[top:var(--cy)]"
-                        style={sp as CSSProperties}
+                        className="pop-md hidden rounded-full md:absolute md:block md:h-[var(--d)] md:w-[var(--d)] md:-translate-x-1/2 md:-translate-y-1/2 md:bg-[var(--c)] md:opacity-70 md:[left:var(--cx)] md:[top:var(--cy)]"
+                        style={{ ...sp, "--bi": 6 } as CSSProperties}
                       />
                     ))}
 
@@ -539,9 +539,14 @@ export default function AboutPage() {
                       <span
                         key={`no-${i}`}
                         aria-hidden
-                        className="absolute flex h-[54px] w-[54px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-[13px] font-bold tabular-nums [background:var(--tint)] [color:var(--ink)] [left:var(--cx)] [top:var(--cy)] md:hidden"
+                        className="pop absolute flex h-[54px] w-[54px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-[13px] font-bold tabular-nums [background:var(--tint)] [color:var(--ink)] [left:var(--cx)] [top:var(--cy)] md:hidden"
                         style={
-                          { ...sp, "--ink": bubbleInks[i], "--tint": bubbleTints[i] } as CSSProperties
+                          {
+                            ...sp,
+                            "--ink": bubbleInks[i],
+                            "--tint": bubbleTints[i],
+                            "--bi": i + 1,
+                          } as CSSProperties
                         }
                       >
                         {i + 1}
@@ -553,7 +558,8 @@ export default function AboutPage() {
                       aria-hidden
                       /* まるが中心に寄っているので、ロゴと文言の背後に白を敷く。
                          セクションの地も白なので、円と重なった所だけが明るくなる */
-                      className="absolute left-1/2 top-1/2 w-[13em] -translate-x-1/2 -translate-y-1/2 text-center md:w-[15em] md:rounded-full md:bg-white/85 md:px-6 md:py-8"
+                      className="pop absolute left-1/2 top-1/2 w-[13em] -translate-x-1/2 -translate-y-1/2 text-center md:w-[15em] md:rounded-full md:bg-white/85 md:px-6 md:py-8"
+                      style={{ "--bi": 0 } as CSSProperties}
                     >
                       <span className="relative mx-auto block h-[54px] w-[54px] md:h-[84px] md:w-[84px]">
                         <Image
@@ -578,12 +584,13 @@ export default function AboutPage() {
                     {cycle.map((c, i) => (
                       <li
                         key={c}
-                        className="flex items-baseline gap-3 md:absolute md:aspect-square md:w-[27%] md:-translate-x-1/2 md:-translate-y-1/2 md:flex-col md:items-center md:justify-center md:gap-2 md:rounded-full md:p-8 md:[background:var(--tint)] md:[left:var(--cx)] md:[top:var(--cy)]"
+                        className="pop-md flex items-baseline gap-3 md:absolute md:aspect-square md:w-[27%] md:-translate-x-1/2 md:-translate-y-1/2 md:flex-col md:items-center md:justify-center md:gap-2 md:rounded-full md:p-8 md:[background:var(--tint)] md:[left:var(--cx)] md:[top:var(--cy)]"
                         style={
                           {
                             ...cycleSpots[i],
                             "--tint": bubbleTints[i],
                             "--ink": bubbleInks[i],
+                            "--bi": i + 1,
                           } as CSSProperties
                         }
                       >

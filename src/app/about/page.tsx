@@ -78,10 +78,14 @@ const purposeLines = [
 ];
 const purposeStarts = charStarts(purposeLines, 14, 140);
 
-/* BELIEF の本文。2文だけなので、1文ずつ段落として離して置く */
-const beliefLines = [
-  "心の底から湧き上がる願いや想いは必ず実現できると信じています。",
-  "だからこそ、できなくとも、実現させるまで、挑戦し続けます。",
+/* BELIEF の本文。
+   tight は「前の行と同じ塊」の印。1・2行目は続きの文なので間を詰め、
+   塊と塊のあいだだけ広くあける。一律の space-y を使わないのはこのため */
+const beliefLines: { text: string; tight?: boolean }[] = [
+  { text: "個人が、信念を持ち、諦めずにカタチにするまで行動し続ける。" },
+  { text: "そうすれば、どんなことでも必ずカタチにできる。", tight: true },
+  { text: "私たちは、そう信じています。" },
+  { text: "上手くいかないこと、外部環境の変化、辞めてしまいたくなる時にこそ問いを立てよう。" },
 ];
 
 /* 3つの行動指針。個人の一歩 → 積み重ね → 共創、の順に並べる */
@@ -294,7 +298,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ===== 02 BELIEF — 白と余白。2文を静かに置く ===== */}
+        {/* ===== 02 BELIEF — 白と余白。信じていることを静かに置く ===== */}
         <section className="bg-white py-28 md:py-44">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <Reveal>
@@ -312,14 +316,15 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal delay={0.12}>
-              {/* 左寄せのまま。中央寄せの長文はスマホで行頭が揃わず読みにくい。
-                  2文しかないので、9行あった頃より一回り大きくして間をあける */}
+              {/* 左寄せのまま。中央寄せの長文はスマホで行頭が揃わず読みにくい */}
               <div
-                className="mt-12 max-w-[34em] space-y-7 leading-[2.1] text-charcoal/80 md:mt-16"
-                style={{ fontSize: "clamp(16px, 1.8vw, 20px)" }}
+                className="mt-12 max-w-[34em] leading-[2.1] text-charcoal/80 md:mt-16"
+                style={{ fontSize: "clamp(16px, 1.7vw, 19px)" }}
               >
-                {beliefLines.map((line) => (
-                  <p key={line}>{line}</p>
+                {beliefLines.map((line, i) => (
+                  <p key={line.text} className={i === 0 ? "" : line.tight ? "mt-0" : "mt-7"}>
+                    {line.text}
+                  </p>
                 ))}
               </div>
             </Reveal>

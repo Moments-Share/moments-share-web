@@ -5,22 +5,21 @@ import { RevealChars } from "@/components/ui/RevealChars";
 import { charStarts, charsTotalSec } from "@/lib/reveal-timing";
 
 /* ============================================================
-   ABOUT US — 「起点は、いつも1人の挑戦者（チャレンジャー）だ。」
+   ABOUT US — 「起点は、いつも1人の挑戦者だ。」
    TOPでは本文を途中まで見せ、続きはAboutページへ送る。
    右は人のドキュメンタリー写真を1枚だけ大きく。コラージュにはしない。
    ============================================================ */
 
-/* 本文。1・2行目でひとつの主張、3行目でそれを引き受け、
-   4行目で読む人に投げかける。
+/* 本文。1行目＝前提、2行目＝呼びかける相手、3行目＝起きること、
+   4行目＝だから自分たちが何をするか。
 
-   tight は「前の行と同じ塊」の印。1行目と2行目は続きの文なので
-   間を詰め、塊と塊のあいだだけ広くあける。
-   space-y ではなく行ごとに余白を持たせているのはこのため。 */
+   tight は「前の行と同じ塊」の印。いまは4行とも独立した段落なので
+   使っていないが、続きの文を足すときに間を詰められるよう残してある。 */
 const bodyLines: { text: string; tight?: boolean }[] = [
-  { text: "個人が、信念を持ち、諦めずにカタチにするまで行動し続ける。" },
-  { text: "そうすれば、どんなことでも必ずカタチにできる。", tight: true },
-  { text: "私たちは、そう信じています。" },
-  { text: "上手くいかないこと、外部環境の変化、辞めてしまいたくなる時にこそ問いを立てよう。" },
+  { text: "人口が減って、働く人が減っても、地域の未来まで決まるわけではない。" },
+  { text: "地域の経営者、会社を良くしたい、地域で何かを始めたいと行動する人たち。" },
+  { text: "誰かが挑戦すると、変化が生まれ、新しい価値が生まれる。" },
+  { text: "だからこそ、私たちは挑戦のきっかけを地域に創り続けます。" },
 ];
 
 /* 段落をまたいで文字数を積み上げた、それぞれの出だしの時刻 */
@@ -37,16 +36,12 @@ export function AboutIntro() {
           <Reveal>
             <p className="text-[11px] font-bold tracking-[0.28em] text-charcoal/70">ABOUT US</p>
             <h2
-              className="mt-6 font-bold leading-[1.35] tracking-[-0.02em] text-charcoal"
-              style={{ fontSize: "clamp(25px, 3.4vw, 44px)" }}
+              className="mt-6 font-bold leading-[1.3] tracking-[-0.02em] text-charcoal"
+              style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
             >
               起点は、いつも
               <br />
-              1人の挑戦者
-              {/* 「挑戦者」の言い換え。見出しの流れを止めないよう
-                  半分の大きさで添える */}
-              <span className="text-[0.5em] tracking-normal">（チャレンジャー）</span>
-              だ。
+              1人の挑戦者だ。
             </h2>
           </Reveal>
 
@@ -56,7 +51,7 @@ export function AboutIntro() {
               ここは Reveal で包まない。Reveal は塊ごと opacity を
               上げるので、文字側の opacity と掛け算になって
               出はじめが濁る。RevealChars が自分で画面を見ている */}
-          <div className="mt-9 max-w-[34em] text-[15px] leading-[2.1] text-charcoal/80 md:text-[17px]">
+          <div className="mt-9 max-w-[36em] text-[15px] leading-[2.1] text-charcoal/80 md:text-[17px]">
             {bodyLines.map((line, i) => (
               <RevealChars
                 key={line.text}

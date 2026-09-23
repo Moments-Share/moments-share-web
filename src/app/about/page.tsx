@@ -97,8 +97,8 @@ const coreValues = [
   },
   {
     en: "Moments Share",
-    title: "「やりきってよかった」と思える瞬間を共創しよう。",
-    body: "最後までかたちにして、喜びを分かち合おう。",
+    title: "「やりきってよかった！」を共創しよう！",
+    body: "カタチになるまで、最後まで行動し続けよう。感動を分かち合おう！",
   },
 ];
 
@@ -314,7 +314,7 @@ export default function AboutPage() {
                 想いだけで、終わらせないために。
               </h2>
               <p className="mt-8 max-w-[32em] text-[15px] leading-[2.1] text-charcoal/80 md:text-[16px]">
-                Beliefを、きれいな言葉だけで終わらせないために、日々の「3つの行動指針」と「7つの判断基準」を大切にしています。
+                Beliefを、体現するため、私たちは日々の「3つの行動指針」と「7つの判断基準」を大切にしています。
               </p>
             </Reveal>
 
